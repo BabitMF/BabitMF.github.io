@@ -1,7 +1,7 @@
 ---
 title: 'Sync Mode'
 linkTitle: 'Sync Mode'
-weight: 3
+weight: 2
 ---
 
 The use of Sync mode requires the sync module. The following example shows the process of decoding, scaling, and transcoding an image in sync mode.

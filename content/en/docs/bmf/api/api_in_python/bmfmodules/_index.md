@@ -6,7 +6,7 @@ weight: 5
 [//]: <> (REF_MD: namespacebmf_1_1builder_1_1bmf__modules.html)
 
 
-  [Functions](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#func-members)  |  [Variables](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#var-members)  # bmf.builder.bmf_modules Namespace Reference
+  [Functions](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#func-members)  |  [Variables](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#var-members)  # bmf.builder.bmf_modules Namespace Reference
 
  ## Functions
 

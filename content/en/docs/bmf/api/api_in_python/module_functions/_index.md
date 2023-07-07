@@ -9,19 +9,19 @@ weight: 6
 def   [bmf.builder.bmf.create_module](#create_module) (module_info, option )
  
  
-def   [bmf.builder.bmf_modules.module](#module) (streams, [module_info](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#module_info) , [option](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#option) =None, module_path="", entry="", [input_manager](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#input_manager) ='immediate', [pre_module](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#pre_module) =None, [scheduler](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#scheduler) =0, [stream_alias](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#stream_alias) =None)
+def   [bmf.builder.bmf_modules.module](#module) (streams, [module_info](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#module_info) , [option](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#option) =None, module_path="", entry="", [input_manager](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#input_manager) ='immediate', [pre_module](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#pre_module) =None, [scheduler](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#scheduler) =0, [stream_alias](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#stream_alias) =None)
  
  
-def   [bmf.builder.bmf_modules.pass_through](#pass_through) ( [stream](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#stream) , type="", path="", entry="", [stream_alias](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#stream_alias) =None)
+def   [bmf.builder.bmf_modules.pass_through](#pass_through) ( [stream](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#stream) , type="", path="", entry="", [stream_alias](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#stream_alias) =None)
  
  
-def   [bmf.builder.bmf_modules.null_sink](#null_sink) ( [stream](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#stream) , type="", path="", entry="")
+def   [bmf.builder.bmf_modules.null_sink](#null_sink) ( [stream](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#stream) , type="", path="", entry="")
  
  
-def   [bmf.builder.bmf_modules.py_module](#py_module) (streams, name, [option](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#option) =None, module_path="", entry="", [input_manager](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#input_manager) ='immediate', [pre_module](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#pre_module) =None, [scheduler](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#scheduler) =0, [stream_alias](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#stream_alias) =None)
+def   [bmf.builder.bmf_modules.py_module](#py_module) (streams, name, [option](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#option) =None, module_path="", entry="", [input_manager](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#input_manager) ='immediate', [pre_module](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#pre_module) =None, [scheduler](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#scheduler) =0, [stream_alias](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#stream_alias) =None)
  
  
-def   [bmf.builder.bmf_modules.c_module](#c_module) (streams, name, module_path="", entry="", [option](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#option) =None, [input_manager](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#input_manager) ='immediate', [pre_module](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#pre_module) =None, [scheduler](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#scheduler) =0, [stream_alias](http://localhost:1313/docs/bmf/api/api_in_python/bmfmodules/#stream_alias) =None)
+def   [bmf.builder.bmf_modules.c_module](#c_module) (streams, name, module_path="", entry="", [option](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#option) =None, [input_manager](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#input_manager) ='immediate', [pre_module](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#pre_module) =None, [scheduler](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#scheduler) =0, [stream_alias](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#stream_alias) =None)
  
  
 

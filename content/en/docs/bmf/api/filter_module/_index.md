@@ -1,12 +1,12 @@
 ---
 title: 'Built-in Filter Module'
 linkTitle: 'Built-in Filter Module'
-weight: 14
+weight: 5
 ---
 [//]: <> (REF_MD: group__FiltM.html)
 
 
-This is a module capability discrption about BMF build-in filter. The module can be used by Module Related BMF API such as  [bmf.concat()](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#concat)  by providing ffmpeg command line style parameters to config the filtergraph:
+This is a module capability discrption about BMF build-in filter. The module can be used by Module Related BMF API such as  [bmf.concat()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#concat)  by providing ffmpeg command line style parameters to config the filtergraph:
 
 
 ```

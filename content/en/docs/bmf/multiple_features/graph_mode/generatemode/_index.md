@@ -1,7 +1,7 @@
 ---
 title: 'Generator Mode'
 linkTitle: 'Generator Mode'
-weight: 2
+weight: 1
 ---
 
 /** \page GeneratorMode Generator Mode

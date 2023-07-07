@@ -6,7 +6,7 @@ weight: 12
 [//]: <> (REF_MD: structRational.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/rational/#public-member-functions)  |  [Public Attributes](http://localhost:1313/docs/bmf/api/api_in_cpp/rational/#public-attributes)  |  List of all members  # Rational Struct Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/#public-attributes)  |  List of all members  # Rational Struct Reference
 
 rational.h ## Public Member Functions
 

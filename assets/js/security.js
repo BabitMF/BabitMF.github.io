@@ -16,16 +16,16 @@ limitations under the License.
 (function($){
     $.safetyData = [{
         id: 1,
-        bulletin: 'CloudWeGo-SA-2022-1',
+        bulletin: '',
         digest: 'Connection Leaking',
-        influence: ['kitex-v0.1.3'],
+        influence: [''],
         level: 'Low',
         publish: '2022-01-13'
     },{
         id: 2,
-        bulletin: 'CloudWeGo-SA-2022-2',
+        bulletin: '',
         digest: 'Netpoll Panic',
-        influence: ['netpoll-v0.2.2', 'kitex-v0.3.0'],
+        influence: ['', ''],
         level: 'Middle',
         publish: '2022-05-09'
     }];

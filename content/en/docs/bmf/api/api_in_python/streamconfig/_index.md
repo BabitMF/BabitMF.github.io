@@ -7,7 +7,7 @@ weight: 8
 [//]: <> (REF_MD: classbmf_1_1builder_1_1graph__config_1_1StreamConfig.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_python/streamconfig/#pub-methods)  |  [Public Attributes](http://localhost:1313/docs/bmf/api/api_in_python/streamconfig/#pub-attribs)  |  List of all members  # bmf.builder.graph_config.StreamConfig Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_python/streamconfig/#pub-methods)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_python/streamconfig/#pub-attribs)  |  List of all members  # bmf.builder.graph_config.StreamConfig Class Reference
 
  ## Public Member Functions
 

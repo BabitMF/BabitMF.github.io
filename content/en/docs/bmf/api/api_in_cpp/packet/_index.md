@@ -26,9 +26,9 @@ packet.h ## Public Member Functions
  
    [Packet](#packet-79) ( Packet &&data)
  
-   [Packet](#packet-89) (RefPtr< [PacketImpl](http://localhost:1313/docs/bmf/api/api_in_cpp/packetimpl/) > &impl)
+   [Packet](#packet-89) (RefPtr< [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) > &impl)
  
-  Packet &  [operator=](#operator=) (const Packet &other)=default
+  Packet &  [operator=](#operator) (const Packet &other)=default
  
    [operator bool](#operator-bool) () const
  
@@ -51,9 +51,9 @@ void   [set_time](#set_time) (double [time](#time) )
  
 double   [time](#time) () const
  
-  [PacketImpl](http://localhost:1313/docs/bmf/api/api_in_cpp/packetimpl/) *  [unsafe_self](#unsafe_self-12) ()
+  [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) *  [unsafe_self](#unsafe_self-12) ()
  
-const  [PacketImpl](http://localhost:1313/docs/bmf/api/api_in_cpp/packetimpl/) *  [unsafe_self](#unsafe_self-22) () const
+const  [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) *  [unsafe_self](#unsafe_self-22) () const
  
 
  ## Static Public Member Functions

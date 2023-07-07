@@ -1,5 +1,5 @@
 {
-  "name": "cloudwego",
+  "name": "babitmf",
   "version": "0.0.1",
   "description": "Hugo theme for technical documentation.",
   "main": "none.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cloudwego/clouwego.github.io.git"
+    "url": "git+https://github.com/BabitMF/BabitMF.github.io.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cloudwego/cloudwego.github.io/issues"
+    "url": "https://github.com/BabitMF/BabitMF.github.io/issues"
   },
-  "homepage": "https://github.com/cloudwego/cloudwego.github.io#readme",
+  "homepage": "https://github.com/BabitMF/BabitMF.github.io#readme",
   "devDependencies": {
     "autocorrect-node": "^2.6.2",
     "autoprefixer": "^10.4.0",

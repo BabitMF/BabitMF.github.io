@@ -8,8 +8,6 @@ menu:
     parent: 'Getting started'
 ---
 
-[toc]
-
 You can install BMF with pip, docker, pre-built binary or build from source, choose the one you prefer.
 
 BMF can implement c++/python/go cross-language calls, and you can call modules written in any language through any language. But each programming language has its own requirements, so in addition to the docker installation method, if you want to install it in other ways and have the need for cross-language calls, you need to set the corresponding environment variables. For details, please refer to the detailed description of each part.

@@ -7,26 +7,26 @@ weight: 5
 [//]: <> (REF_MD: classbmf__sdk_1_1Module.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/module/#public-member-functions)  |  [Public Attributes](http://localhost:1313/docs/bmf/api/api_in_cpp/module/#public-attributes)  |  List of all members  # bmf_sdk::Module Class Referenceabstract
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-attributes)  |  List of all members  # bmf_sdk::Module Class Referenceabstract
 
 module.h ## Public Member Functions
 
 
-   [Module](#module) (int32_t node_id=-1, [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) json_param= [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) ())
+   [Module](#module) (int32_t node_id=-1, [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) json_param= [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) ())
  
-virtual int32_t   [get_input_stream_info](#get_input_stream_info) ( [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
- 
- 
-virtual int32_t   [set_input_stream_info](#set_input_stream_info) ( [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
+virtual int32_t   [get_input_stream_info](#get_input_stream_info) ( [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
  
  
-virtual int32_t   [set_output_stream_info](#set_output_stream_info) ( [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
+virtual int32_t   [set_input_stream_info](#set_input_stream_info) ( [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
  
  
-virtual int32_t   [get_output_stream_info](#get_output_stream_info) ( [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
+virtual int32_t   [set_output_stream_info](#set_output_stream_info) ( [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
  
  
-virtual int32_t   [get_module_info](#get_module_info) ( [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
+virtual int32_t   [get_output_stream_info](#get_output_stream_info) ( [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
+ 
+ 
+virtual int32_t   [get_module_info](#get_module_info) ( [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
  
  
 virtual int32_t   [init](#init) ()
@@ -38,10 +38,10 @@ virtual int32_t   [reset](#reset) ()
 virtual int32_t   [flush](#flush) ()
  
  
-virtual int32_t   [dynamic_reset](#dynamic_reset) ( [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) opt_reset)
+virtual int32_t   [dynamic_reset](#dynamic_reset) ( [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) opt_reset)
  
  
-virtual int32_t   [process](#process) ( [Task](http://localhost:1313/docs/bmf/api/api_in_cpp/task/) &task)=0
+virtual int32_t   [process](#process) ( [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) &task)=0
  
  
 virtual int32_t   [close](#close) ()
@@ -62,10 +62,10 @@ virtual void   [set_callback](#set_callback) (std::function< CBytes(int64_t, CBy
 virtual bool   [is_subgraph](#is_subgraph) ()
  
  
-virtual bool   [get_graph_config](#get_graph_config) ( [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
+virtual bool   [get_graph_config](#get_graph_config) ( [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
  
  
-virtual int32_t   [report](#report) ( [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_param, int hints=0)
+virtual int32_t   [report](#report) ( [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_param, int hints=0)
  
  
 virtual   [~Module](#~module) ()

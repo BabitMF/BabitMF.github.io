@@ -120,7 +120,7 @@ def bmf.builder.bmf_sync.sync_module (  name,
    output_streams 
  )   
 ```
-Create  [SyncModule](http://localhost:1313/docs/bmf/api/api_in_python/syncmodule/)  by name, option, input_stream_id_list and output_stream_id_list.
+Create  [SyncModule](https://babitmf.github.io/docs/bmf/api/api_in_python/syncmodule/)  by name, option, input_stream_id_list and output_stream_id_list.
 
 **Parameters**
  - **name** the name for the module 

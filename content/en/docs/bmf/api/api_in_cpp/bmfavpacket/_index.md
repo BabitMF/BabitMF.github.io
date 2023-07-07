@@ -7,7 +7,7 @@ weight: 2
 [//]: <> (REF_MD: classbmf__sdk_1_1BMFAVPacket.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/#public-member-functions)  |  [Static Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/#static-public-member-functions)  |  [Public Attributes](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/#public-attributes)   # bmf_sdk::BMFAVPacket Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#public-member-functions)  |  [Static Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#static-public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#public-attributes)   # bmf_sdk::BMFAVPacket Class Reference
 
 bmf_av_packet.h!
 
@@ -18,11 +18,11 @@ bmf_av_packet.h!
 
    [BMFAVPacket](#bmfavpacket-15) ()=default
  
-   [BMFAVPacket](#bmfavpacket-25) (const [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/) &)=default
+   [BMFAVPacket](#bmfavpacket-25) (const [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) &)=default
  
-   [BMFAVPacket](#bmfavpacket-35) ( [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/) &&)=default
+   [BMFAVPacket](#bmfavpacket-35) ( [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) &&)=default
  
-  [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/) &  [operator=](#operator=) (const [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/) &)=default
+  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) &  [operator=](#operator) (const [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) &)=default
  
    [BMFAVPacket](#bmfavpacket-45) (const Tensor & [data](#data-12) )
  
@@ -45,7 +45,7 @@ const void *   [data_ptr](#data_ptr-22) () const
 int   [nbytes](#nbytes) () const
  
  
-  [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/) &  [copy_props](#copy_props) (const [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/) &from)
+  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) &  [copy_props](#copy_props) (const [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) &from)
  
  
 int64_t   [get_offset](#get_offset) () const
@@ -62,52 +62,52 @@ void   [set_whence](#set_whence) (int whence)
  
  ![img](/img/docs/closed.png)
 
- [bmf_sdk::OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) 
-   [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#opaquedataset-13) ()=default
+ [bmf_sdk::OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) 
+   [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#opaquedataset-13) ()=default
  
-   [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#opaquedataset-23) ( [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &&)=default
+   [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#opaquedataset-23) ( [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &&)=default
  
-   [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#opaquedataset-33) (const [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
+   [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#opaquedataset-33) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
  
-  [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &  [operator=](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#operator=) (const [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
- 
- 
-void   [private_attach](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#private_attach) (const T *data, Args &&...args)
+  [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &  [operator=](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#operator=) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
  
  
- 
-const T *   [private_get](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#private_get) () const
- 
- 
-void   [private_merge](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#private_merge) (const [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
+void   [private_attach](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#private_attach) (const T *data, Args &&...args)
  
  
-  [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &  [copy_props](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#copy_props) (const [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
+ 
+const T *   [private_get](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#private_get) () const
+ 
+ 
+void   [private_merge](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#private_merge) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
+ 
+ 
+  [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &  [copy_props](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#copy_props) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
  
  
  ![img](/img/docs/closed.png)
 
- [bmf_sdk::SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) 
-void   [set_pts](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#set_pts) (int64_t [pts](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#pts) )
+ [bmf_sdk::SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) 
+void   [set_pts](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#set_pts) (int64_t [pts](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#pts) )
  
  
-int64_t   [pts](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#pts) () const
+int64_t   [pts](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#pts) () const
  
-  [Rational](http://localhost:1313/docs/bmf/api/api_in_cpp/rational/)   [time_base](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#time_base) () const
- 
- 
-void   [set_time_base](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#set_time_base) ( [Rational](http://localhost:1313/docs/bmf/api/api_in_cpp/rational/)  [time_base](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#time_base) )
+  [Rational](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/)   [time_base](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#time_base) () const
  
  
-bool   [operator>](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#operator-1) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+void   [set_time_base](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#set_time_base) ( [Rational](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/)  [time_base](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#time_base) )
  
-bool   [operator>=](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#operator-2) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &other)
  
-bool   [operator<](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#operator-3) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+bool   [operator>](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#operator-1) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &other)
  
-bool   [operator<=](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#operator-4) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+bool   [operator>=](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#operator-2) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &other)
  
-  [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &  [copy_props](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#copy_props) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &from)
+bool   [operator<](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#operator-3) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+ 
+bool   [operator<=](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#operator-4) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+ 
+  [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &  [copy_props](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#copy_props) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &from)
  
  
 
@@ -115,7 +115,7 @@ bool   [operator<=](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#
 
 
  
-static  [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/)   [make](#make) (int size, Options &&...opts)
+static  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)   [make](#make) (int size, Options &&...opts)
  
 
  ## Public Attributes
@@ -131,11 +131,11 @@ int   [whence_](#whence_)
 
  ![img](/img/docs/closed.png)
 
- [bmf_sdk::OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) 
-virtual void   [set_private_data](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#set_private_data) (int key, const OpaqueData &data)
+ [bmf_sdk::OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) 
+virtual void   [set_private_data](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#set_private_data) (int key, const OpaqueData &data)
  
  
-virtual const  OpaqueData &  [private_data](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#private_data) (int key) const
+virtual const  OpaqueData &  [private_data](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#private_data) (int key) const
  
 
 ## Constructor & Destructor Documentation
@@ -182,7 +182,7 @@ bmf_sdk::BMFAVPacket::BMFAVPacket (  BMFAVPacket && )
 ```
 bmf_sdk::BMFAVPacket::BMFAVPacket ( const Tensor & data )  
 ```
-Construct a new  [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/)  object.
+Construct a new  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)  object.
 
 **Parameters**
  - **data** contiguous tensor data, cpu only 
@@ -197,11 +197,11 @@ bmf_sdk::BMFAVPacket::BMFAVPacket ( int size,
   const TensorOptions & options = kUInt8 
  )   
 ```
-Construct a new  [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/)  object.
+Construct a new  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)  object.
 
 **Parameters**
  - **size**  
- - **options** ref  [VideoFrame](http://localhost:1313/docs/bmf/api/api_in_cpp/video_frame/) 
+ - **options** ref  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/) 
 
 
 
@@ -219,7 +219,7 @@ copy all extra props(set by member func set_xxx) from  `from` (deepcopy if neede
 
 
 **Returns**
-  [VideoFrame](http://localhost:1313/docs/bmf/api/api_in_cpp/video_frame/)  &
+  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/)  &
 
 
 ###  data() [1/2]
@@ -304,12 +304,12 @@ static
 
 **Parameters**
  - **size**  
- - **opts** ref  [VideoFrame](http://localhost:1313/docs/bmf/api/api_in_cpp/video_frame/) 
+ - **opts** ref  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/) 
 
 
 
 **Returns**
-  [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/)  
+  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)  
 
 
 ```
@@ -336,7 +336,7 @@ number of bytes of underlying data
 ```
 bmf_sdk::BMFAVPacket::operator bool (  ) const 
 ```
-check if  [BMFAVPacket](http://localhost:1313/docs/bmf/api/api_in_cpp/bmfavpacket/)  if defined
+check if  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)  if defined
 
 **Returns**
 

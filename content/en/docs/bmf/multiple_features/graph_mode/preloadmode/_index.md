@@ -1,7 +1,7 @@
 ---
 title: 'Preload Mode'
 linkTitle: 'Preload Mode'
-weight: 5
+weight: 4
 ---
 
 In this example, a \ref analysis.py is used

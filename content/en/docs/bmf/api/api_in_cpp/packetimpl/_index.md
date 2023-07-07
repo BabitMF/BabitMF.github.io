@@ -7,7 +7,7 @@ weight: 7
 [//]: <> (REF_MD: classbmf__sdk_1_1PacketImpl.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/packetimpl/#public-member-functions)  |  [Protected Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/packetimpl/#protected-member-functions)  |  [Friends](http://localhost:1313/docs/bmf/api/api_in_cpp/packetimpl/#friends)  |  List of all members  # bmf_sdk::PacketImpl Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#public-member-functions)  |  [Protected Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#protected-member-functions)  |  [Friends](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#friends)  |  List of all members  # bmf_sdk::PacketImpl Class Reference
 
 packetimpl.h
 
@@ -16,9 +16,9 @@ packetimpl.h
 
    [PacketImpl](#packetimpl-14) ()=delete
  
-   [PacketImpl](#packetimpl-24) (const [PacketImpl](http://localhost:1313/docs/bmf/api/api_in_cpp/packetimpl/) &)=delete
+   [PacketImpl](#packetimpl-24) (const [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) &)=delete
  
-   [PacketImpl](#packetimpl-34) ( [PacketImpl](http://localhost:1313/docs/bmf/api/api_in_cpp/packetimpl/) &&)=default
+   [PacketImpl](#packetimpl-34) ( [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) &&)=default
  
    [~PacketImpl](#~packetimpl) ()
  

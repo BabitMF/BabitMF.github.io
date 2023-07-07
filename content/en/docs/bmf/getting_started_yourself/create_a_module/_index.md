@@ -8,8 +8,6 @@ menu:
     parent: 'Getting started'
 ---
 
- [TOC]
-
 ### Module Development
 
 The FFmpeg-based decoder, encoder, and filter modules have already been built. If you want to develop your own modules, please follow these instructions.

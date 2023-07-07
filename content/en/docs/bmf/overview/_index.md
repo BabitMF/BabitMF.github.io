@@ -15,7 +15,7 @@ The picture above is a general architecture diagram of BMF, which includes a com
 - Module layer: It includes modules with various atomic capabilities, and provides module development mechanisms in multiple languages. Users can implement algorithms/processing in any of Python, Go, and C++ languages according to their own needs.
 
 From architecture design to implementation, BMF covers a variety of features to solve many challenges in the new era:
-## Simple multilingual interface
+## Multi-language interface
 
 BMF provides a multi-language interface, which is convenient for users to integrate development in different languages according to project needs, and maximizes the ability to be compatible and reuse the entire framework.
 
@@ -28,7 +28,7 @@ BMF provides a configurable parallel scheduler, multiple usage modes, and advanc
 
 ## Fully compatible with FFmpeg features and standards
 
-BMF is fully compatible with FFmpeg's processing capabilities and indicators, such as decapsulation, decoding, filter, encoding, and encapsulation capabilities. The configuration of these processing capabilities and the results consistent with FFmpeg's pts, duration, bitrate, fps and other indicators can be obtained. Very good It satisfies the need to quickly integrate FFmpeg capabilities into projects.
+BMF is fully compatible with FFmpeg's processing capabilities and indicators, such as demuxing, decoding, filter, encoding, and muxing capabilities. The configuration of these processing capabilities and the results consistent with FFmpeg's pts, duration, bitrate, fps and other indicators can be obtained. Very good It satisfies the need to quickly integrate FFmpeg capabilities into projects.
 
 ## Ability to convert data between multiple frameworks and heterogeneous devices
 

@@ -7,7 +7,7 @@ weight: 13
 [//]: <> (REF_MD: classbmf__sdk_1_1Future.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/future/#public-member-functions)  |  List of all members  # bmf_sdk::Future Class Referenceabstract
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/#public-member-functions)  |  List of all members  # bmf_sdk::Future Class Referenceabstract
 
 sdk_interface.h!
 
@@ -16,11 +16,11 @@ sdk_interface.h!
 
    [Future](#future-13) ()
  
-   [Future](#future-23) (const [Future](http://localhost:1313/docs/bmf/api/api_in_cpp/future/) &)=default
+   [Future](#future-23) (const [Future](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/) &)=default
  
-   [Future](#future-33) ( [Future](http://localhost:1313/docs/bmf/api/api_in_cpp/future/) &&)=default
+   [Future](#future-33) ( [Future](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/) &&)=default
  
-  [Future](http://localhost:1313/docs/bmf/api/api_in_cpp/future/) &  [operator=](#operator=) (const [Future](http://localhost:1313/docs/bmf/api/api_in_cpp/future/) &)=default
+  [Future](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/) &  [operator=](#operator=) (const [Future](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/) &)=default
  
 virtual   [~Future](#~future) ()
  
@@ -41,7 +41,7 @@ void   [record](#record) (bool use_current=true)
 void   [synchronize](#synchronize) ()
  
  
-  [Future](http://localhost:1313/docs/bmf/api/api_in_cpp/future/) &  [copy_props](#copy_props) (const [Future](http://localhost:1313/docs/bmf/api/api_in_cpp/future/) &from)
+  [Future](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/) &  [copy_props](#copy_props) (const [Future](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/) &from)
  
  
 
@@ -112,7 +112,7 @@ util function to copy props
 
 
 **Returns**
-  [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/)  &
+  [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/)  &
 
 
 ###  device()
@@ -131,7 +131,7 @@ interface must implemented by sub-class, which provide device info
 **Returns**
 
 
-Implemented in  [bmf_sdk::VideoFrame](http://localhost:1313/docs/bmf/api/api_in_cpp/video_frame/#device)  .
+Implemented in  [bmf_sdk::VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/#device)  .
 
 
 ###  operator=()

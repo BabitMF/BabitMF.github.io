@@ -1,7 +1,7 @@
 ---
 title: 'Subgraph Mode'
 linkTitle: 'Subgraph Mode'
-weight: 6
+weight: 5
 ---
 
 If you need to use subgraph, you can refer to the following example.

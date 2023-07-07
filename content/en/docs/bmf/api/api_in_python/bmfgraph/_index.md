@@ -20,25 +20,25 @@ def   [bmf.builder.bmf_graph.BmfGraph.add_user_callback](#add_user_callback) (se
 def   [bmf.builder.bmf_graph.BmfGraph.remove_user_callback](#remove_user_callback) (self, cb_type, cb)
  
  
-def   [bmf.builder.bmf_graph.BmfGraph.c_module](#c_module) (self, name, [option](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#option) =None, module_path="", entry="", [input_manager](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#input_manager) ="immediate", pre_module=None, [scheduler](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#scheduler) =0, [stream_alias](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#stream_alias) =None)
+def   [bmf.builder.bmf_graph.BmfGraph.c_module](#c_module) (self, name, [option](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#option) =None, module_path="", entry="", [input_manager](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#input_manager) ="immediate", pre_module=None, [scheduler](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#scheduler) =0, [stream_alias](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#stream_alias) =None)
  
  
 def   [bmf.builder.bmf_graph.BmfGraph.run_by_config](#run_by_config) (self, graph_config)
  
  
-def   [bmf.builder.bmf_graph.BmfGraph.generate_config_file](#generate_config_file) (self, streams=None, is_sub_graph=False, [mode](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#mode) = [GraphMode.NORMAL](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#normal) , is_blocked=True, file_name="original_graph.json")
+def   [bmf.builder.bmf_graph.BmfGraph.generate_config_file](#generate_config_file) (self, streams=None, is_sub_graph=False, [mode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#mode) = [GraphMode.NORMAL](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#normal) , is_blocked=True, file_name="original_graph.json")
  
  
-def   [bmf.builder.bmf_graph.BmfGraph.run_wo_block](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#run_wo_block) (self, streams=None, is_sub_graph=False, [mode](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#mode) = [GraphMode.NORMAL](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#normal) )
+def   [bmf.builder.bmf_graph.BmfGraph.run_wo_block](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#run_wo_block) (self, streams=None, is_sub_graph=False, [mode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#mode) = [GraphMode.NORMAL](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#normal) )
  
  
-def   [bmf.builder.bmf_graph.BmfGraph.dynamic_remove](#dynamic_remove) (self, [option](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#option) )
+def   [bmf.builder.bmf_graph.BmfGraph.dynamic_remove](#dynamic_remove) (self, [option](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#option) )
  
  
 def   [bmf.builder.bmf_graph.BmfGraph.dynamic_add](#dynamic_add) (self, module_stream, inputs=None, outputs=None)
  
  
-def   [bmf.builder.bmf_graph.BmfGraph.dynamic_reset](#dynamic_reset) (self, [option](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#option) )
+def   [bmf.builder.bmf_graph.BmfGraph.dynamic_reset](#dynamic_reset) (self, [option](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#option) )
  
  
 def   [bmf.builder.bmf_graph.BmfGraph.update](#update) (self, update_graph)
@@ -51,11 +51,11 @@ def   [bmf.builder.bmf_graph.BmfGraph.force_close](#force_close) (self)
  
 def   [bmf.builder.bmf.graph](#graph) ( option =None)
  
-def   [bmf.builder.bmf_graph.BmfGraph.run](#run-22) (self, streams=None, is_sub_graph=False, [mode](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#mode) = [GraphMode.NORMAL](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#normal) , is_blocked=True)
+def   [bmf.builder.bmf_graph.BmfGraph.run](#run-22) (self, streams=None, is_sub_graph=False, [mode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#mode) = [GraphMode.NORMAL](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#normal) , is_blocked=True)
  
-def   [bmf.builder.bmf_graph.BmfGraph.run_wo_block](#run_wo_block) (self, streams=None, is_sub_graph=False, [mode](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#mode) = [GraphMode.NORMAL](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#normal) )
+def   [bmf.builder.bmf_graph.BmfGraph.run_wo_block](#run_wo_block) (self, streams=None, is_sub_graph=False, [mode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#mode) = [GraphMode.NORMAL](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#normal) )
  
-def   [bmf.builder.bmf_stream.BmfStream.run](#run-12) ( [self](http://localhost:1313/docs/bmf/api/api_in_python/bmfstream/#self) )
+def   [bmf.builder.bmf_stream.BmfStream.run](#run-12) ( [self](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfstream/#self) )
 
 ## Detailed Description
 
@@ -228,7 +228,7 @@ To generate the graph config only, without running.
 **Parameters**
  - **streams** the input stream list of the module 
  - **is_sub_graph** bool value to indicate whether it's a sub graph, False by default 
- - **mode** to set the graph mode, NORMAL by default, other option  [bmf_graph.GraphMode](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/) 
+ - **mode** to set the graph mode, NORMAL by default, other option  [bmf_graph.GraphMode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/) 
  - **file_name** output file name with extension 
 
 
@@ -436,7 +436,7 @@ To run the graph until it's finished.
 **Parameters**
  - **streams** the input stream list of the module 
  - **is_sub_graph** bool value to indicate whether it's a sub graph, False by default 
- - **mode** to set the graph mode, NORMAL by default, other option  [bmf_graph.GraphMode](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/) 
+ - **mode** to set the graph mode, NORMAL by default, other option  [bmf_graph.GraphMode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/) 
 
 
 
@@ -490,7 +490,7 @@ def bmf.builder.bmf_graph.BmfGraph.run_wo_block (  self,
    mode = GraphMode.NORMAL 
  )   
 ```
-Run the graph without wait to close, user should call  [close()](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#close)  by themself.
+Run the graph without wait to close, user should call  [close()](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#close)  by themself.
 
 
 ```
@@ -549,23 +549,23 @@ def   [status](#status) (self)
 def   [generateConfig](#generateconfig) (self, file_name)
  
  
-def   [set_option](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#set_option) (self, [option](#option) =None)
+def   [set_option](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#set_option) (self, [option](#option) =None)
  
  
  
-def   [get_av_log_buffer](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#get_av_log_buffer) (self, level='info')
+def   [get_av_log_buffer](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#get_av_log_buffer) (self, level='info')
  
  
  
-def   [get_module](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#get_module) (self, alias)
+def   [get_module](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#get_module) (self, alias)
  
  
  
-def   [add_user_callback](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#add_user_callback) (self, cb_type, cb)
+def   [add_user_callback](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#add_user_callback) (self, cb_type, cb)
  
  
  
-def   [remove_user_callback](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#remove_user_callback) (self, cb_type, cb)
+def   [remove_user_callback](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#remove_user_callback) (self, cb_type, cb)
  
  
  
@@ -573,46 +573,46 @@ def   [decode](#decode) (self, decoder_para, type="", path="", entry="", [stream
  
  
  
-def   [c_module](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#c_module) (self, name, [option](#option) =None, module_path="", entry="", [input_manager](#input_manager) ="immediate", pre_module=None, [scheduler](#scheduler) =0, [stream_alias](#stream_alias) =None)
+def   [c_module](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#c_module) (self, name, [option](#option) =None, module_path="", entry="", [input_manager](#input_manager) ="immediate", pre_module=None, [scheduler](#scheduler) =0, [stream_alias](#stream_alias) =None)
  
  
  
-def   [run_by_config](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#run_by_config) (self, graph_config)
+def   [run_by_config](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#run_by_config) (self, graph_config)
  
  
  
-def   [generate_config_file](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#generate_config_file) (self, streams=None, is_sub_graph=False, [mode](#mode) = [GraphMode.NORMAL](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#normal) , is_blocked=True, file_name="original_graph.json")
+def   [generate_config_file](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#generate_config_file) (self, streams=None, is_sub_graph=False, [mode](#mode) = [GraphMode.NORMAL](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#normal) , is_blocked=True, file_name="original_graph.json")
  
  
  
-def   [run](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#run-22) (self, streams=None, is_sub_graph=False, [mode](#mode) = [GraphMode.NORMAL](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#normal) , is_blocked=True)
+def   [run](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#run-22) (self, streams=None, is_sub_graph=False, [mode](#mode) = [GraphMode.NORMAL](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#normal) , is_blocked=True)
  
  
-def   [run_wo_block](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#run_wo_block) (self, streams=None, is_sub_graph=False, [mode](#mode) = [GraphMode.NORMAL](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#normal) )
- 
- 
- 
-def   [dynamic_remove](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#dynamic_remove) (self, [option](#option) )
+def   [run_wo_block](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#run_wo_block) (self, streams=None, is_sub_graph=False, [mode](#mode) = [GraphMode.NORMAL](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#normal) )
  
  
  
-def   [dynamic_add](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#dynamic_add) (self, module_stream, inputs=None, outputs=None)
+def   [dynamic_remove](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#dynamic_remove) (self, [option](#option) )
  
  
  
-def   [dynamic_reset](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#dynamic_reset) (self, [option](#option) )
+def   [dynamic_add](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#dynamic_add) (self, module_stream, inputs=None, outputs=None)
  
  
  
-def   [update](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#update) (self, update_graph)
+def   [dynamic_reset](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#dynamic_reset) (self, [option](#option) )
  
  
  
-def   [close](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#close) (self)
+def   [update](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#update) (self, update_graph)
  
  
  
-def   [force_close](http://localhost:1313/docs/bmf/api/api_in_python/bmfgraph/#force_close) (self)
+def   [close](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#close) (self)
+ 
+ 
+ 
+def   [force_close](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#force_close) (self)
  
 def   [generate_node_id](#generate_node_id) ()
  
@@ -705,7 +705,7 @@ dictionary   [alias_name](#alias_name) = option.get('alias', '')
  
    [graph_](#graph_) 
  
-   [remove_node](#remove_node) = [BmfNode](http://localhost:1313/docs/bmf/api/api_in_python/bmfnode/) ( [alias_name](#alias_name) , [option](#option) , self, 'immediate')
+   [remove_node](#remove_node) = [BmfNode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfnode/) ( [alias_name](#alias_name) , [option](#option) , self, 'immediate')
  
    [graph_config_](#graph_config_) 
  
@@ -725,7 +725,7 @@ string   [out_link_module_alias](#out_link_module_alias-12) = ''
  
 def   [add_id](#add_id-22) = self.generate_add_id()
  
-   [stream_config](#stream_config) = [StreamConfig](http://localhost:1313/docs/bmf/api/api_in_python/streamconfig/) ()
+   [stream_config](#stream_config) = [StreamConfig](https://babitmf.github.io/docs/bmf/api/api_in_python/streamconfig/) ()
  
 string   [out_link_name](#out_link_name) = [out_link_module_alias](#out_link_module_alias-12) + "." + str( [add_id](#add_id-22) ) + "_" + str(i)
  
@@ -735,7 +735,7 @@ string   [out_link_name](#out_link_name) = [out_link_module_alias](#out_link_mod
  
 string   [in_link_name](#in_link_name) = [in_link_module_alias](#in_link_module_alias) + "." + str( [add_id](#add_id-22) ) + "_" + str(i)
  
-   [reset_node](#reset_node) = [BmfNode](http://localhost:1313/docs/bmf/api/api_in_python/bmfnode/) ("", [option](#option) , self)
+   [reset_node](#reset_node) = [BmfNode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfnode/) ("", [option](#option) , self)
 
    string   [NORMAL](#normal) = 'Normal'
  

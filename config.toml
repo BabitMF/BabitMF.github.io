@@ -2,7 +2,7 @@
 
 baseURL = "https://www.BabitMF.io"
 title = "BabitMF"
-googleAnalytics = "G-QYWRQRLPRM"
+googleAnalytics = "G-G86QGVE803"
 
 enableRobotsTXT = true
 
@@ -97,7 +97,7 @@ version = "0.0"
 url_latest_version = "https://example.com"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/BabitMF/bmf"
+github_repo = "https://github.com/BabitMF/BabitMF.github.io"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 github_project_repo = "https://github.com/BabitMF/bmf"
 
@@ -108,7 +108,7 @@ github_org = "https://github.com/BabitMF"
 
 # Uncomment this if you have a newer GitHub repo with "main" as the default branch,
 # or specify a new value if you want to reference another branch in your GitHub links
-github_branch= "main"
+github_branch= "master"
 
 # Enable Algolia DocSearch
 algolia_docsearch = true
@@ -172,7 +172,7 @@ url = "https://github.com/BabitMF/BabitMF.github.io/blob/main/LICENSE"
 
 [[params.links.user]]
 	name = "Lark"
-	url = "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=4b9ob35d-b429-4ee7-b510-b2953687f5e1"
+	url = "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=3a1la8f6-55fc-4ad4-bdf0-2ec17edd692a"
 	icon = "fab fa-lark"
 	desc = "Chat with other BabitMF users by lark"
 

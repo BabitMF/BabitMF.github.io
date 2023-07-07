@@ -27,7 +27,7 @@
   }
 
   window.docsearch({
-    apiKey: '5990ad008512000bba2cf951ccf0332f',
+    apiKey: 'd9be360a7d99a432de2be2cf94c1a515',
     indexName: 'bootstrap',
     inputSelector: '#search-input',
     algoliaOptions: {

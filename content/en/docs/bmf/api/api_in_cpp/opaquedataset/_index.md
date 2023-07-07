@@ -7,7 +7,7 @@ weight: 10
 [//]: <> (REF_MD: classbmf__sdk_1_1OpaqueDataSet.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#public-member-functions)  |  [Protected Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/#pro-methods)  |  List of all members  # bmf_sdk::OpaqueDataSet Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#public-member-functions)  |  [Protected Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#pro-methods)  |  List of all members  # bmf_sdk::OpaqueDataSet Class Reference
 
 sdk_interface.h!
 
@@ -16,11 +16,11 @@ sdk_interface.h!
 
    [OpaqueDataSet](#opaquedataset-13) ()=default
  
-   [OpaqueDataSet](#opaquedataset-23) ( [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &&)=default
+   [OpaqueDataSet](#opaquedataset-23) ( [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &&)=default
  
-   [OpaqueDataSet](#opaquedataset-33) (const [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
+   [OpaqueDataSet](#opaquedataset-33) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
  
-  [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &  [operator=](#operator=) (const [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
+  [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &  [operator=](#operator) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
  
  
 void   [private_attach](#private_attach) (const T *data, Args &&...args)
@@ -30,10 +30,10 @@ void   [private_attach](#private_attach) (const T *data, Args &&...args)
 const T *   [private_get](#private_get) () const
  
  
-void   [private_merge](#private_merge) (const [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
+void   [private_merge](#private_merge) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
  
  
-  [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &  [copy_props](#copy_props) (const [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
+  [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &  [copy_props](#copy_props) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
  
  
 
@@ -100,7 +100,7 @@ utils function to copy props
 
 
 **Returns**
-  [OpaqueDataSet](http://localhost:1313/docs/bmf/api/api_in_cpp/opaquedataset/)  &
+  [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/)  &
 
 
 ###  operator=()

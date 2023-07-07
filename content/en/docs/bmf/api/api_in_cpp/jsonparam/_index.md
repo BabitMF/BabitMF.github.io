@@ -7,7 +7,7 @@ weight: 4
 [//]: <> (REF_MD: classJsonParam.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/#public-member-functions)  |  [Public Attributes](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/#public-attributes)  |  [List of all members](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/)  # JsonParam Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/#public-attributes)  |  [List of all members](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/)  # JsonParam Class Reference
 
 json_param.h ## Public Member Functions
 
@@ -15,14 +15,14 @@ json_param.h ## Public Member Functions
    [JsonParam](#jsonparam-14) ()=default
  
  
-   [JsonParam](#jsonparam-24) (const [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
+   [JsonParam](#jsonparam-24) (const [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_param)
  
    [JsonParam](#jsonparam-34) (std::string opt_str)
  
    [JsonParam](#jsonparam-44) ( bmf_nlohmann::json json_value)
  
  
-  [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/)   [operator[]](#operator) (T name)
+  [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/)   [operator[]](#operator) (T name)
  
  
 T   [to](#to) () const
@@ -51,10 +51,10 @@ int   [erase](#erase) (std::string name)
 int   [get_iterated](#get_iterated) (std::vector< std::pair< std::string, std::string >> &group)
  
  
-int   [get_object](#get_object) (std::string name, [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &result)
+int   [get_object](#get_object) (std::string name, [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &result)
  
  
-int   [get_object_list](#get_object_list) (std::string name, std::vector< [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) > &result)
+int   [get_object_list](#get_object_list) (std::string name, std::vector< [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) > &result)
  
  
 int   [get_string](#get_string) (std::string name, std::string &result)
@@ -87,7 +87,7 @@ int   [get_float_list](#get_float_list) (std::string name, std::vector< float > 
 std::string   [dump](#dump) () const
  
  
-void   [merge_patch](#merge_patch) (const [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/) &json_patch)
+void   [merge_patch](#merge_patch) (const [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) &json_patch)
  
  
 
@@ -111,7 +111,7 @@ JsonParam::JsonParam (  )
 
 
 
-  [JsonParam](http://localhost:1313/docs/bmf/api/api_in_cpp/jsonparam/)  struct.
+  [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/)  struct.
 
 
 ###  JsonParam() [2/4]

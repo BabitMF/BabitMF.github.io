@@ -7,7 +7,7 @@ weight: 11
 [//]: <> (REF_MD: classbmf__sdk_1_1SequenceData.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/#public-member-functions)  |  List of all members  # bmf_sdk::SequenceData Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/#public-member-functions)  |  List of all members  # bmf_sdk::SequenceData Class Reference
 
 sdk_interface.h
 
@@ -19,21 +19,21 @@ void   [set_pts](#set_pts) (int64_t [pts](#pts) )
  
 int64_t   [pts](#pts) () const
  
-  [Rational](http://localhost:1313/docs/bmf/api/api_in_cpp/rational/)   [time_base](#time_base) () const
+  [Rational](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/)   [time_base](#time_base) () const
  
  
-void   [set_time_base](#set_time_base) ( [Rational](http://localhost:1313/docs/bmf/api/api_in_cpp/rational/)  [time_base](#time_base) )
+void   [set_time_base](#set_time_base) ( [Rational](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/)  [time_base](#time_base) )
  
  
-bool   [operator>](#operator) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+bool   [operator>](#operator) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &other)
  
-bool   [operator>=](#operator-1) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+bool   [operator>=](#operator-1) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &other)
  
-bool   [operator<](#operator-2) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+bool   [operator<](#operator-2) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &other)
  
-bool   [operator<=](#operator-3) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &other)
+bool   [operator<=](#operator-3) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &other)
  
-  [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &  [copy_props](#copy_props) (const [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/) &from)
+  [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &  [copy_props](#copy_props) (const [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/) &from)
  
  
 
@@ -53,7 +53,7 @@ util function to copy props
 
 
 **Returns**
-  [SequenceData](http://localhost:1313/docs/bmf/api/api_in_cpp/sequencedata/)  &
+  [SequenceData](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequencedata/)  &
 
 
 ###  operator>()
@@ -217,7 +217,7 @@ set timebase of frame
 Get the time base object.
 
 **Returns**
-  [Rational](http://localhost:1313/docs/bmf/api/api_in_cpp/rational/)  
+  [Rational](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/)  
 
 
 ```

@@ -1,10 +1,10 @@
 ---
 title: 'Built-in Encode Module'
 linkTitle: 'Built-in Encode Module'
-weight: 13
+weight: 4
 ---
 
-This is a module capability discrption about BMF build-in encoder. The module can be used by BMF API such as  [bmf.encode()](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#encode)  by providing json style "option" to config such as the 3rd parameter below:
+This is a module capability discrption about BMF build-in encoder. The module can be used by BMF API such as  [bmf.encode()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#encode)  by providing json style "option" to config such as the 3rd parameter below:
 
 
 ```

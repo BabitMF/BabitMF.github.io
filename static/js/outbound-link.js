@@ -4,7 +4,7 @@ function outboundLinkInBlank(clipboard) {
     if (
       href &&
       href.startsWith('http') &&
-      !href.startsWith('https://www.cloudwego.io')
+      !href.startsWith('https://babitmf.github.io/')
     ) {
       link.setAttribute('target', '_blank');
     }

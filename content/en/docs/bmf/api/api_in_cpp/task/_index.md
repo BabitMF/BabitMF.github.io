@@ -7,7 +7,7 @@ weight: 8
 [//]: <> (REF_MD: classTask.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/task/#public-member-functions)  |  [Public Attributes](http://localhost:1313/docs/bmf/api/api_in_cpp/task/#public-attributes)  |  [Friends](http://localhost:1313/docs/bmf/api/api_in_cpp/task/#friends)  |  List of all members  # Task Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/#public-attributes)  |  [Friends](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/#friends)  |  List of all members  # Task Class Reference
 
 task.h ## Public Member Functions
 
@@ -15,11 +15,11 @@ task.h ## Public Member Functions
    [Task](#task-13) (int node_id=-1, std::vector< int > input_stream_id_list={}, std::vector< int > output_stream_id_list={})
  
  
-   [Task](#task-23) (const [Task](http://localhost:1313/docs/bmf/api/api_in_cpp/task/) &rhs)
+   [Task](#task-23) (const [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) &rhs)
  
-   [Task](#task-33) ( [Task](http://localhost:1313/docs/bmf/api/api_in_cpp/task/) &&rhs)
+   [Task](#task-33) ( [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) &&rhs)
  
-  [Task](http://localhost:1313/docs/bmf/api/api_in_cpp/task/) &  [operator=](#operator=) ( [Task](http://localhost:1313/docs/bmf/api/api_in_cpp/task/) rhs)
+  [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) &  [operator=](#operator) ( [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) rhs)
  
 bool   [fill_input_packet](#fill_input_packet) (int stream_id, Packet packet)
  
@@ -75,7 +75,7 @@ int   [node_id_](#node_id_)
  ## Friends
 
 
-void   [swap](#swap) ( [Task](http://localhost:1313/docs/bmf/api/api_in_cpp/task/) &target, [Task](http://localhost:1313/docs/bmf/api/api_in_cpp/task/) &source)
+void   [swap](#swap) ( [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) &target, [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) &source)
  
 
 ## Constructor & Destructor Documentation
@@ -89,7 +89,7 @@ Task::Task ( int node_id = -1,
   std::vector< int > output_stream_id_list = {} 
  )   
 ```
-construct  [Task](http://localhost:1313/docs/bmf/api/api_in_cpp/task/)  .
+construct  [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/)  .
 
 **Parameters**
  - **node_id** The id of the running task. 

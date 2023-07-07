@@ -1,7 +1,7 @@
 ---
 title: 'Server Mode'
 linkTitle: 'Server Mode'
-weight: 4
+weight: 3
 ---
 /** \page ServerMode Server Mode
 

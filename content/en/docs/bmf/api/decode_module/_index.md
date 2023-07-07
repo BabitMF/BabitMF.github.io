@@ -1,12 +1,11 @@
 ---
 title: 'Built-in Decode Module'
 linkTitle: 'Built-in Decode Module'
-weight: 12
+weight: 3
 ---
-[//]: <> (REF_MD: group__DecM.html)
 
 
-This is a module capability discrption about BMF build-in decoder. The module can be used by BMF API such as  [bmf.decode()](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#decode)  by providing json style "option" to config such as the 3rd parameter below:
+This is a module capability discrption about BMF build-in decoder. The module can be used by BMF API such as  [bmf.decode()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#decode)  by providing json style "option" to config such as the 3rd parameter below:
 
 
 ```

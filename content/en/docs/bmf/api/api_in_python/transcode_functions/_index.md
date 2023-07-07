@@ -42,10 +42,10 @@ def   [bmf.builder.ff_filter.concat](#concat) (streams, kwargs)
 def   [bmf.builder.ff_filter.fps](#fps) (stream, f, kwargs)
  
  
-def   [bmf.builder.ff_filter.encode](#encode) (video_stream, audio_stream, encoder_para, [type](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#type) ="", [path](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#path) ="", [entry](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#entry) ="", [stream_alias](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#stream_alias) =None)
+def   [bmf.builder.ff_filter.encode](#encode) (video_stream, audio_stream, encoder_para, [type](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#type) ="", [path](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#path) ="", [entry](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#entry) ="", [stream_alias](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#stream_alias) =None)
  
  
-def   [bmf.builder.ff_filter.decode](#decode) (self, [decoder_para](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#decoder_para) =None, [type](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#type) ="", [path](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#path) ="", [entry](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#entry) ="", [stream_alias](http://localhost:1313/docs/bmf/api/api_in_python/transcode_functions/#stream_alias) =None)
+def   [bmf.builder.ff_filter.decode](#decode) (self, [decoder_para](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#decoder_para) =None, [type](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#type) ="", [path](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#path) ="", [entry](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#entry) ="", [stream_alias](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#stream_alias) =None)
  
  
 

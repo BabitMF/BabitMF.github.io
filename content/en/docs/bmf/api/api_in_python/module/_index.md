@@ -46,7 +46,7 @@ def   [bmf.python_sdk.module.Module.get_graph_config](#get_graph_config) (self)
 
 ## Detailed Description
 
-  [Module](http://localhost:1313/docs/bmf/api/api_in_python/module/)  class in Python  [Module](http://localhost:1313/docs/bmf/api/api_in_python/module/)  SDK.
+  [Module](https://babitmf.github.io/docs/bmf/api/api_in_python/module/)  class in Python  [Module](https://babitmf.github.io/docs/bmf/api/api_in_python/module/)  SDK.
 
 ## Function Documentation
 

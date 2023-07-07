@@ -1,8 +1,8 @@
 <!-- override from docsy: we're not tracking changes to the docsy base file. -->
 
-# CloudWeGo
+# Babit.io Official Site
 
-The [cloudwego.io](https://www.cloudwego.io/) site is built with [Hugo](https://gohugo.io/) and hosted on [Github Pages](https://pages.github.com/).
+The [Babit.io](https://babitmf.github.io/) site is built with [Hugo](https://gohugo.io/) and hosted on [Github Pages](https://pages.github.com/).
 
 ## Prerequisites
 
@@ -20,19 +20,14 @@ The following are basic prerequisites for developing this project:
 hugo server -D
 ```
 
-## Contributing ![GitHub](https://img.shields.io/github/contributors/cloudwego/cloudwego.github.io)
+## Contributing ![GitHub](https://img.shields.io/github/contributors/BabitMF/BabitMF.github.io)
 
-Please read [CONTRIBUTING.md](https://github.com/cloudwego/cloudwego.github.io/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-See also the list of [contributors](https://github.com/cloudwego/cloudwego.github.io/graphs/contributors) who participated in this project.
+Please read [CONTRIBUTING.md](https://github.com/BabitMF/bmf/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+See also the list of [contributors](https://github.com/BabitMF/bmf/graphs/contributors) who participated in this project.
 
-## License ![GitHub](https://img.shields.io/github/license/cloudwego/cloudwego.github.io)
+## License ![GitHub](https://img.shields.io/github/license/BabitMF/BabitMF.github.io)
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE.md](https://github.com/cloudwego/cloudwego.github.io/blob/master/LICENSE) file for details
+This project is licensed under the Apache License 2.0 - see the [LICENSE.md](https://github.com/BabitMF/BabitMF.github.io/blob/master/LICENSE) file for details
 
 This project is overridden from [docsy](http://github.com/google/docsy), and we're not tracking changes to the docsy base file.
 
-## Credits
-
-The website is deployed on [Vercel](https://vercel.com/?utm_source=CloudWeGo&utm_campaign=oss).
-
-![Vercel](https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg)

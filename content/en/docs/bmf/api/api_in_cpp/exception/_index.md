@@ -7,7 +7,7 @@ weight: 3
 [//]: <> (REF_MD: classException.html)
 
 
-  [Public Member Functions](http://localhost:1313/docs/bmf/api/api_in_cpp/exception/#public-member-functions)  |  [Public Attributes](http://localhost:1313/docs/bmf/api/api_in_cpp/exception/#public-attributes)  |  List of all members  # Exception Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/exception/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/exception/#public-attributes)  |  List of all members  # Exception Class Reference
 
 Class passed to an error.  [More...](page_classexception_v3_0_0#details)  
 
