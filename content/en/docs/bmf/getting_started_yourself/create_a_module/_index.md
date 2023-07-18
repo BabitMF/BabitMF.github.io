@@ -16,7 +16,7 @@ BMF's built-in modules include commonly used video processing modules, which can
 
  If you want to develop your own modules, please follow these instructions.
 
-C++, python and go modules are now supported. You can write a module with anyone and call it in any language. For each language, we provide a minimized example here. In this part. You can have experience on  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/example/customize_module/bmf_customize_demo.ipynb)
+C++, python and go modules are now supported. You can write a module with anyone and call it in any language. For each language, we provide a minimized example here. In this part. You can have experience on  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/example/customize_module/bmf_customize_demo_latest.ipynb)
 
 ### python module
 
