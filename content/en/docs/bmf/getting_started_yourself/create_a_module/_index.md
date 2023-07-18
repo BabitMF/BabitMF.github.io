@@ -1,83 +1,138 @@
 ---
 title: 'Create a Module'
 linkTitle: ''
-weight: 4
+weight: 3
 menu:
   main:
-    weight: 4
+    weight: 3
     parent: 'Getting started'
 ---
 
-### Module Development
+## Built-in modules
 
-The FFmpeg-based decoder, encoder, and filter modules have already been built. If you want to develop your own modules, please follow these instructions.
+BMF's built-in modules include commonly used video processing modules, which can be directly used by developers to implement video applications, including FFmpeg-based decoder, filter and encoder modules, and much more gpu processing modules. For detailed description of built-in modules, see [ffmpeg_fully_compatible](https://babitmf.github.io/docs/bmf/multiple_features/ffmpeg_fully_compatible/)<!-- and [gpu_modules_introduction]()-->.
 
-C++, python and go modules are now supported. You can write a module with anyone and call it 
+## Custom Module Development
 
-#### c++ module
+ If you want to develop your own modules, please follow these instructions.
 
-Implement your own c++ class, inheriting from Module:
+C++, python and go modules are now supported. You can write a module with anyone and call it in any language. For each language, we provide a minimized example here. In this part. You can have experience on  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/example/customize_module/bmf_customize_demo.ipynb)
 
-```C++
-#include <bmf/sdk/module_registry.h>
-#include <bmf/sdk/module.h>
-#include <bmf/sdk/packet.h>
-#include <bmf/sdk/task.h>
-#include <bmf/sdk/json_param.h>
+### python module
 
-class MyModule : public bmf_sdk::Module {
-    MyModule(int node_id, bmf_sdk::JsonParam &option):Module(node_id, option){}
-    int Process(bmf_sdk::Task &task) {
-        bmf_sdk::Packet packet_in, packet_out;
-        while(task.pop_packet_from_input_queue(0, packet_in)) {
-            //do something
-            packet_out = packet_in;
-        }
-        task.fill_output_packet(0, packet_out);
-    }
-};
-
-//register module, required
-REGISTER_MODULE_CLASS(MyModule)
-//register module info, optional
-REGISTER_MODULE_INFO(MyModule, info) {
-    info.module_description = "My first BMF Module";
-    info.module_tag = bmf_sdk::ModuleTag::BMF_TAG_UTILS;
-}
-```
-
-#### python module
+Create a `my_python_module` directory and write the following python code into `my_python_module/my_module.py`. 
 
 ```Python
 from bmf import Module, Log, LogLevel, InputType, ProcessResult, Packet, Timestamp, scale_av_pts, av_time_base, \
-    BmfCallBackType, ModuleTag, ModuleInfo
+    BmfCallBackType, VideoFrame, AudioFrame
 
-
-class mymodule(Module):
+class my_module(Module):
     def __init__(self, node, option=None):
-        super().__init__(node, option)
         self.node_ = node
+        self.option_ = option
         pass
 
     def process(self, task):
-        input_queue = task.get_inputs()[0]
+        for (input_id, input_packets) in task.get_inputs().items():
 
-        while not input_queue.empty():
-            pkt = input_queue.get()
-            if pkt.timestamp == Timestamp.EOF:
-                task.timestamp = Timestamp.DONE
-            else:
-                Log.log_node(LogLevel.DEBUG, self.node_, 'upload info', pkt.get_data())
+            # output queue
+            output_packets = task.get_outputs()[input_id]
+
+            while not input_packets.empty():
+                pkt = input_packets.get()
+
+                # process EOS
+                if pkt.timestamp == Timestamp.EOF:
+                    Log.log_node(LogLevel.DEBUG, task.get_node(), "Receive EOF")
+                    output_packets.put(Packet.generate_eof_packet())
+                    task.timestamp = Timestamp.DONE
+                    return ProcessResult.OK
+
+                # copy input packet to output
+                if pkt.defined() and pkt.timestamp != Timestamp.UNSET:
+                    output_packets.put(pkt)
+                    # Log.log_node(LogLevel.DEBUG, self.node_,
+                    #              "process input", input_id, 'packet',
+                    #              output_packets.queue[0].get_timestamp())
 
         return ProcessResult.OK
-
-#register module info, optional
-def register_upload_info(info):
-    info.module_description = "upload module description"
-    info.module_tag = ModuleTag.TAG_UTILS
 ```
 
-#### go module
+### c++ module
+
+Implement your own c++ class, inheriting from [the Module base class](/docs/bmf/api/api_in_cpp/module/). In the simplest case, you just need to implement the process method. Create a `my_cpp_module` directory and write the following c++ code into `cpp_copy_module/copy_module.h`: 
+
+```C++
+#ifndef BMF_COPY_MODULE_H
+#define BMF_COPY_MODULE_H
+
+#include <bmf/sdk/bmf.h>
+#include <bmf/sdk/packet.h>
+
+USE_BMF_SDK_NS
+
+class CopyModule : public Module
+{
+public:
+    CopyModule(int node_id,JsonParam option) : Module(node_id,option) { }
+
+    ~CopyModule() { }
+
+    virtual int process(Task &task);
+};
+
+#endif
+```
+
+and `cpp_copy_module/copy_module.cpp`:
+
+```C++
+#include "copy_module.h"
+
+int CopyModule::process(Task &task) {
+    PacketQueueMap &input_queue_map = task.get_inputs();
+    PacketQueueMap::iterator it;
+
+    // process all input queues
+    for (it = input_queue_map.begin(); it != input_queue_map.end(); it++) {
+        // input stream label
+        int label = it->first;
+
+        // input packet queue
+        Packet pkt;
+        // process all packets in one input queue
+        while (task.pop_packet_from_input_queue(label, pkt)) {
+            // Get a input packet
+
+            // if packet is eof, set module done
+            if (pkt.timestamp() == BMF_EOF) {
+                task.set_timestamp(DONE);
+                task.fill_output_packet(label, Packet::generate_eof_packet());
+                return 0;
+            }
+
+            // Get packet data
+            // Here we should know the data type in packet
+            auto vframe = pkt.get<VideoFrame>();
+
+            // Deep copy
+            VideoFrame vframe_out = VideoFrame(vframe.frame().clone());
+            vframe_out.copy_props(vframe);
+
+            // Add output frame to output queue
+            auto output_pkt = Packet(vframe_out);
+
+            task.fill_output_packet(label, output_pkt);
+        }
+    }
+    return 0;
+}
+REGISTER_MODULE_CLASS(CopyModule)
+```
+
+### go module
+
+Create a directory named `pass_through_module` and write the following go code into `pass_through_module/pass_through.go`.
 
 ```Go
 package main
@@ -88,7 +143,7 @@ import (
         "errors"
         "fmt"
 
-        "github.com/taoboyang/bmf-gosdk/bmf"
+        "github.com/babitmf/bmf-gosdk/bmf"
 )
 
 type PassThroughModuleOption struct {
@@ -173,58 +228,89 @@ func NewPassThroughModule(nodeId int32, option []byte) (bmf.Module, error) {
 
 func RegisterPassThroughInfo(info bmf.ModuleInfo) {
         info.SetModuleDescription("Go PassThrough description")
-        tag := bmf.NewModuleTag(bmf.BMF_TAG_DEVICE_CPU|bmf.BMF_TAG_VIDEO_PROCESSOR)
+        tag := bmf.NewModuleTag(bmf.BMF_TAG_UTILS|bmf.BMF_TAG_VIDEO_PROCESSOR)
         info.SetModuleTag(tag)
 }
 
 //export ConstructorRegister
 func ConstructorRegister() {
-        bmf.RegisterModuleConstructor("GoPassThrough", NewPassThroughModule, RegisterPassThroughInfo)
+        bmf.RegisterModuleConstructor("go_pass_through", NewPassThroughModule, RegisterPassThroughInfo)
 }
 
 func main() {}
 ```
 
-### Module building
+## Module building
 
 Once you've developed a module, compile it first for C++ and Go modules. For Python modules, no additional actions are needed.
 
-#### c++ module
+### c++ module
 
-```Shell
-g++ -shared -fPIC -o mymodule.so mymodule.cpp
+Then write this part of cmake code to the file named `cpp_copy_module/CMakeLists.txt`:
+
+```Bash
+file(GLOB SRCS *.cc *.h)
+
+add_library(copy_module SHARED ${SRCS})
+set_property(TARGET PROPERTY CXX_STANDARD 17)
+
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+
+target_link_libraries(copy_module
+    PRIVATE
+    bmf_module_sdk
+)
+
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
+install(TARGETS copy_module)
 ```
 
-#### go module
+Compile it next:
 
-```Shell
-go build -buildmode c-shared -o go_pass_through.so pass_through.go
+```Bash
+if [ -d build ]; then rm -rf build; fi
+cmake -B build -S my_cpp_module
+cmake --build build
+cmake --install build
 ```
 
-### Module installing
+### go module
 
-Next, install the module using `module_manager`. For example, to install a C++ module named 'mymodule' with version number 'v0.0.1', entry 'mymodule:MYMODULE', and storage path '/mymodule', use the following command:
-
-```Shell
-module_manager install mymodule c++ mymodule:MYMODULE ~/mymodule v0.0.1
+```bash
+go mod init test
+go mod tidy
+go build -buildmode c-shared -o pass_through_module/lib/go_pass_through.so pass_through_module/pass_through.go
 ```
 
-You can also uninstall modules with:
+## Module installing
 
-```Shell
+Next, install the module using `module_manager`:
+
+```bash
+# installing python module
+module_manager install my_python_module python my_module:my_module $(pwd)/my_python_module v0.0.1
+# installing c++ module
+module_manager install cpp_copy_module c++ libcopy_module:CopyModule $(pwd)/cpp_copy_module/lib v0.0.1
+# installing go module
+module_manager install go_pass_through go go_pass_through:PassThrough $(pwd)/pass_through_module/lib v0.0.1
+```
+
+You can also uninstall modules named `mymodule`with:
+
+```bash
 module_manager uninstall mymodule
 ```
 
-### Module Listing and Dumping
+## Module Listing and Dumping
 
-To list all modules installed locally, using module_manager:
+To list all modules installed locally, using `module_manager list` without any args:
 
-```Shell
+```bash
 module_manager list
 ```
 
-You can dump the information for each module using the following command:
+You can also dump the information for each module using the following command:
 
-```Shell
+```bash
 module_manager dump ${module_name}
 ```

@@ -16,99 +16,274 @@ BMF can implement c++/python/go cross-language calls, and you can call modules w
 
 ### Prerequisites
 
-These are all dependencies required by BMF. You can install them via apt(ubuntu), yum(centos), brew(Macos) or dpkg(windows):
+BMF depends on some libraries, which you can install via apt, yum<!--, vcpkg--> or brew. In general, except for the docker method described below. Here are the systems we tested and how to install them，include regular dependency, python, FFmpeg, CUDA toolkit and so on.
 
-```Shell
-# ubuntu or debian
-apt install -y make git pkg-config libssl-dev cmake python3 python3-dev python3-pip binutils-dev libgoogle-glog-dev gcc g++
+- For regular dependency, you need all packages installed on your system.
+- For python, it is only required when you call the python api or call the python module through the pre-built package, and the python version requirement is 3.9 now. If installing BMF using pip, you don't need to change your existing python version.
+- For FFmpeg, we currently support 4.x or 5.x versions, 6.x versions may be supported in the future. For ubuntu, debian, CentOS:8 and macOS listed below, you can use the package manager to install it. For other OS, you may need to compile FFmpeg from source.
 
-# centos or rhel
-yum -y install epel-release
-yum -y install make git pkgconfig openssl-devel  cmake3 python3 python3-devel python3-pip binutils-devel glog-devel gcc gcc-c++
-ln -s $(which cmake3) $(dirname $(which cmake3))/cmake # rename cmake3 to cmake
+<table>
 
-# MacOS
-TODO
-# windows
-TODO
+<tr>
+    <th></th>
+    <th>ubuntu:20.04</th>
+    <th>debian:11</th>
+    <th>CentOS:8</th>
+    <th>CentOS:7</th>
+    <th>macos</th>
+</tr>
+<tr>
+<th>regular dependency</th>
+<td>
+
+```bash
+apt update
+apt install -y make \
+    git pkg-config \
+    libssl-dev \
+    cmake binutils-dev \
+    libgoogle-glog-dev \
+    gcc g++
 ```
 
-### FFmpeg Installation
+</td>
+<td>
 
-In general, except for the docker method described below, FFmpeg 4.x or 5.x needs to be installed before using BMF. 
-
-If you plan to install BMF via pip or prebuilt packages, and your system is ubuntu, debian or centos8, you can use the package manager to install FFmpeg:
-
-```Shell
-# ubuntu or debian
+```bash
 apt update
-apt install ffmpeg
+apt install -y make \
+    git pkg-config \
+    libssl-dev cmake \
+    libgoogle-glog-dev \
+    binutils-dev gcc \
+    g++ wget sudo bzip2 \
+    libffi-dev zlib1g-dev
+```
 
-# centos8
-dnf install -y epel-release epel-next-release
+</td>
+<td>
+
+```bash
+# install dependencies
+dnf -y upgrade libmodulemd
+dnf -y install glibc-langpack-en epel-release epel-next-release
+dnf makecache
+dnf update -y
 dnf config-manager --set-enabled powertools
+dnf -y install make git pkgconfig cmake3 openssl-devel binutils-devel gcc gcc-c++ glog-devel
+```
+
+</td>
+<td>
+
+```bash
+yum -y install epel-release
+yum -y install make git pkgconfig openssl-devel \
+    cmake3 binutils-devel glog-devel gcc gcc-c++ \
+    which wget
+# rename cmake3 to cmake
+ln -s $(which cmake3) $(dirname $(which cmake3))/cmake
+```
+
+</td>
+<td>
+
+```bash
+brew install make git pkg-config openssl cmake glog
+```
+
+</td>
+<tr>
+<th>python</th>
+<td>
+
+```bash
+apt install -y python3.9 \
+    python3-dev \
+    python3-pip
+```
+
+</td>
+<td>
+
+```bash
+apt install -y python3.9 \
+    python3-dev \
+    python3-pip
+```
+
+</td>
+<td>
+
+```bash
+dnf -y install python39 python39-devel python39-pip 
+```
+
+</td>
+<td>
+
+yum repo of CentOS:7 has no python3.9 libraries now, and needs to be built from source.
+
+</td>
+<td>
+
+```bash
+brew install python@3.9
+```
+
+</td>
+</tr>
+<tr>
+<th>FFmpeg</th>
+<td>
+
+```bash
+apt install -y \
+    ffmpeg \
+    libavcodec-dev \
+    libavdevice-dev \
+    libavfilter-dev \
+    libavformat-dev \
+    libavresample-dev \
+    libavutil-dev \
+    libpostproc-dev \
+    libswresample-dev \
+    libswscale-dev
+```
+
+</td>
+<td>
+
+```bash
+apt install -y \
+    ffmpeg \
+    libavcodec-dev \
+    libavdevice-dev \
+    libavfilter-dev \
+    libavformat-dev \
+    libavresample-dev \
+    libavutil-dev \
+    libpostproc-dev \
+    libswresample-dev \
+    libswscale-dev
+```
+
+</td>
+<td>
+
+```bash
 dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
 dnf install -y https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
 dnf install -y ffmpeg ffmpeg-devel
 ```
 
-However, FFmpeg installed via apt has no development libraries(centos8 has), so if you use another operating system, or plan to build BMF from  source, you will need to build FFmpeg from the source too. You can use the script we provided(ONLY linux/macos now), or build it yourself:
+</td>
+<td>
+
+yum repo of CentOS:7 has no ffmpeg libraries now, please follow the below steps to build from source.
+
+</td>
+<td>
+
+```bash
+brew install ffmpeg@4
+export DYLD_LIBRARY_PATH="/usr/local/opt/ffmpeg@4/lib:$DYLD_LIBRARY_PATH"
+```
+
+</td>
+</tr>
+</table>
+
+
+### Build Python
+
+As mentioned above, if you want to call the python api or python module through the pre-built installation package, and you can not install python3.9 through the package manager, you need to compile from source:
+
+```Shell
+cd /opt
+wget https://www.python.org/ftp/python/3.9.13/Python-3.9.13.tgz
+tar xvf Python-3.9.13.tgz
+cd Python-3.9.13
+sudo ./configure --enable-optimizations
+sudo make altinstall
+```
+
+### Build FFmpeg
+
+Also, as mentioned above too, compiling FFmpeg from source is an optional step and is only required if you can't install it from the package manager. You can build it yourself, or use the script we provided(only linux and macos now):
 
 ```Shell
 git clone https://github.com/BabitMF/bmf bmf
 cd bmf
-# The first parameter is cpu or gpu. If it is gpu, cuda toolkit will be installed and Nvidia's codec will be integrated into ffmpeg.
-# Other parameters are codecs that need to be integrated, currently nasm/yasm/x264/x265/fdk-aac/mp3lame/opus are supported
-./scripts/build_ffmpeg.sh cpu x264 x265
+./scripts/build_ffmpeg.sh nasm x264 x265
 ```
 
-### CUDA Toolkit Installation
+### GPU dependencies(Linux only)
 
-If you have a GPU device and you install FFmpeg via `./scripts/build_ffmpeg.sh gpu`, CUDA toolkit will be installed automatically. In other cases, please install the CUDA toolkit manually, refer to [NVIDIA official website](https://developer.nvidia.com/cuda-11.0-download-archive)
+#### FFmpeg
+
+If you plan to use BMF on the GPU, FFmpeg with GPU support needs to be installed. According to the above apt or dnf installed ffmpeg has nvdec or nvenc, you can use `ffmpeg -encoders | grep nvenc` to check it. If not, you need to compile the GPU version of FFmpeg first:
+
+```Shell
+git clone https://github.com/BabitMF/bmf bmf
+cd bmf
+./scripts/build_ffmpeg.sh --device gpu
+```
+
+#### CUDA Toolkit
+
+If you have a GPU device and you install FFmpeg via `./scripts/build_ffmpeg.sh --device gpu`, CUDA toolkit will be installed automatically. In other cases, please install the CUDA toolkit manually, refer to [NVIDIA official website](https://developer.nvidia.com/cuda-11-8-0-download-archive)
 
 ## Pip
 
-Python 3.6 to 3.10 is required: Additionally, FFmpeg 4.x or 5.x should be installed before installing BMF with pip.
+Python 3.6 to 3.11 is required, but 3.6 is **NOT** recommended because we compile with python 3.6.15 and will fail if your python is lower than this version.
 
 ```Shell
-pip install -i https://test.pypi.org/simple/ BabitMF==0.0.4
+pip install BabitMF
 ```
 
-You can also install the GPU version on a GPU host with x86_64 arch where CUDA 11 has been installed:
+You can also install the GPU version on a GPU host with x86_64 arch where CUDA 11.8 has been installed:
 
 ```Shell
-pip install -i https://test.pypi.org/simple/ BabitMF-GPU
+pip install BabitMF-GPU
 ```
 
-Then set the environments if you are a c++/go developer:
+For c++ or go developers, you may need to set environment variables so that the compiler can find BMF-related libraries. You can execute `bmf_env` to get the path and execute it in the shell.
 
-```Shell
-package_name=BabitMF # or BabitMF-GPU
+> C++ Compatibility Note: Different compilers define the std::string type differently. You may need to pass `-D_GLIBCXX_USE_CXX11_ABI=0` to the compiler when compiling your own module. Whether you need it depends on your compiler usage.
 
-# This step will output some shell commands to find the BMF development library.
-# Please execute these commands in the terminal, or add to your shell configuration file
-bmf_cpp_adapt ${package_name} 
+### supported OS
 
-# you also need to run bmf_cpp_restore when uninstall BMF
-bmf_cpp_restore ${package_name}
-```
+|              | manylinux x86_64 cpu | manylinux x86_64 gpu | manylinux i686 | manylinux aarch64 | manylinux ppc64le | manylinux s390x | macOS Intel | macOS Apple Silicon | macOS Universal2 |
+| ------------ | -------------------- | -------------------- | -------------- | ----------------- | ----------------- | --------------- | ----------- | ------------------- | ---------------- |
+| CPython 3.6  | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | N/A                 | N/A              |
+| CPython 3.7  | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | N/A                 | N/A              |
+| CPython 3.8  | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | N/A                 | N/A              |
+| CPython 3.9  | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
+| CPython 3.10 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
 
 ## Docker
 
-It is strongly recommended to use docker to experience and get started with BMF, because it supports many dependencies that other installation methods do not support, such as torch, opencv, openmp, etc. You can compile the version you need according to your needs.
+ If you want to use docker to experience and get started with BMF, you can compile the version you need according to your needs. There are many dependencies that other installation methods do not support, such as torch, opencv, openmp, etc. 
 
 ```Shell
-docker pull ghcr.io/sbravehk/test_pub:latest
+docker pull ghcr.io/babitmf/bmf:master
 ```
 
-You also can rebuild BMF via `./build.sh` to get the binaries that GPU is enabled.
+<!--
+You also can rebuild BMF to get the binaries that GPU is enabled:
+
+```Shell
+TODO
+```
+-->
 
 ## Pre-Built Binary
 
-Download from the [release page](https://github.com/BabitMF/bmf/releases), extract it with tar, and set the environment variable to find BMF:
+Download from the [release page](https://github.com/BabitMF/bmf/releases), extract it with `tar`, and set the environment variable to find BMF, for example:
 
 ```Shell
-wget https://github.com/sbravehk/test_pub/releases/download/v0.0.3/bmf-bin-linux-x86_64.tar.gz
+wget https://github.com/sbravehk/test_pub/releases/download/v0.1.1/bmf-bin-linux-x86_64.tar.gz
 tar xvf bmf-bin-linux-x86_64.tar.gz
 export C_INCLUDE_PATH=${C_INCLUDE_PATH}:$(pwd)/output/bmf/include
 export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:$(pwd)/output/bmf/include
@@ -129,9 +304,32 @@ cd bmf
 ./build.sh
 ```
 
+And in some special condition, for example, if the user doesn't want to include the dependency of FFmpeg, the FFmpeg independent and torch dependent BMF can be built from source with environment variable named `CMAKE_ARGS`:
+
+```Shell
+export CMAKE_ARGS="-DBMF_ENABLE_FFMPEG=OFF -DBMF_ENABLE_TORCH=ON"
+./build.sh
+```
+
+There are also some options to be configured, and the default values are:
+
+```CMake
+option(BMF_ENABLE_BREAKPAD "Enable build with breakpad support" OFF)
+option(BMF_ENABLE_CUDA "Enable CUDA support" ON)
+option(BMF_ENABLE_TORCH "Enable CUDA support" OFF)
+option(BMF_ENABLE_PYTHON "Enable build with python support" ON)
+option(BMF_ENABLE_GLOG "Enable build with glog support" OFF)
+option(BMF_ENABLE_JNI "Enable build with JNI support" OFF)
+option(BMF_ENABLE_FFMPEG "Enable build with ffmpeg support" ON)
+option(BMF_ENABLE_MOBILE "Enable build for mobile platform" OFF)
+option(BMF_ENABLE_TEST "compile examples and tests" ON)
+```
+
+<!--
 ### Testing (Optional)
 
 TODO
+-->
 
 ### Installing
 
@@ -147,5 +345,3 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(pwd)/output/bmf/lib
 # only set if you want to use BMF in python
 export PYTHONPATH=$(pwd)/output/bmf/lib:$(pwd)/output
 ```
-
- 

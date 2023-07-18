@@ -1,10 +1,10 @@
 ---
 title: 'Use Module Directly'
 linkTitle: ''
-weight: 3
+weight: 4
 menu:
   main:
-    weight: 3
+    weight: 4
     parent: 'Getting started'
 ---
 

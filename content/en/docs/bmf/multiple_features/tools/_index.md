@@ -1,14 +1,22 @@
 ---
-title: 'Trace and Debug'
-linkTitle: 'Trace and Debug'
+title: 'bmf tools'
+linkTitle: 'bmf_tools'
 weight: 6
 ---
 
-# Trace tool
+## Module Manager tool
+
+`module_manager` is a tool for managing modules, providing the following capabilities:
+1. Module list: You can get the list of locally installed modules through `module_manager list`, including built-in modules and modules developed by yourself;
+2. Module details: For each module, module details can be obtained through `module_manager dump ${module_name}`, such as module name, module type, module entry, module description information, module definition tag and module installation path;
+3. Module installation and uninstallation: For custom modules, they can be installed to the module path of BMF, so that they can be used in graph more conveniently. Modules can also be unloaded when they are no longer needed;
+The specific usage can be viewed through `module_manager help`. Please note: The module_manager tool needs to rely on the BMF underlying library, so you need to set the corresponding environment variables. For specific steps, please refer to [BMF Installation](/docs/bmf/getting_started_yourself/install/).
+
+## Trace tool
 
 The main function of Trace is to record some important events for troubleshooting or analysis. Trace logs relevant information at runtime, and then writes tracelog logs at the end.
 
-## Start Trace
+### Start Trace
 
 Trace tool can be started via environment variable:
 ```bash
@@ -21,21 +29,21 @@ To provide users with a lower level of control to minimize unnecessary collectio
 $ export BMF_TRACE=PROCESSING,SCHEDULE
 ```
 
-## Disable Trace
+### Disable Trace
 
 Trace is disabled by default. However, if an environment variable for trace enable has been previously set, it can be disabled:
 ```bash
 $ unset BMF_TRACE
 ```
 
-## Step-by-Step Tutorial
+### Step-by-Step Tutorial
 - **[Using the Trace tool](https://bytedance.feishu.cn/docs/doccnm56R0VvvIV5BEoQjwjtpEc)** - Basic usage of the Trace tool
 
-## Trace analysis
+### Trace analysis
 
 The tool will print and generate tracelog logs after execution. Users can refer to the information collected by Trace in different ways.
 
-### 1. Console print
+#### 1. Console print
 
 When using the Trace tool, after the graph is executed, some information about the Trace will be printed out:
 
@@ -68,7 +76,7 @@ By default, Trace information will print Trace information to the console at the
 $ export BMF_TRACE_PRINTING=DISABLE
 ```
 
-### 2. Chrome Tracing
+#### 2. Chrome Tracing
 
 The Tracelog JSON log format conforms to the format used in Chrome Tracing (Chrome web browser - chrome://tracing/ ), so it can be visualized using Chrome Tracing:
 
@@ -91,7 +99,7 @@ In the bottom panel you can see:
 
 Note: If the overflow count is not 0, it means that the current buffer allocated is insufficient and some events are not logged (overflow). In order not to miss any trace events, it is recommended to [increase the buffer size](#buffer-size).
 
-### 3. GraphUtilization tool
+#### 3. GraphUtilization tool
 
 In addition to Chrome Tracing, [BMF GraphUtilization Tool](./Page_GraphUtilization.md) also supports visualization of trace events:
 
@@ -99,9 +107,9 @@ In addition to Chrome Tracing, [BMF GraphUtilization Tool](./Page_GraphUtilizati
 
 The GraphUtilization tool can display graphs and some information or charts that Chrome Tracing cannot display.
 
-## example
+### example
 
-### Example 1: Preload mode
+#### Example 1: Preload mode
 
 As an example of using the Trace tool to identify bottlenecks in an implementation, consider a typical transcoding example:
 
@@ -165,7 +173,7 @@ The pre-loading mode (pre-module) can significantly reduce graph execution time:
 
 ![Analysis module in pre-module mode](/img/docs/traceimg_example3.png)
 
-### Example 2: Troubleshooting Hang problems
+#### Example 2: Troubleshooting Hang problems
 
 When writing modules, sometimes some bugs or bottlenecks are encountered, and the Trace tool can help users find the source of the problem.
 
@@ -181,7 +189,7 @@ In this example, it can be seen that whenever there is a new video frame, the ha
 
 ---
 
-## Trace type
+### Trace type
 
 There are currently several Trace types available:
 
