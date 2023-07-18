@@ -1,10 +1,10 @@
 ---
-title: 'bmf tools'
-linkTitle: 'bmf_tools'
+title: 'BMF Tools'
+linkTitle: 'BMF_Tools'
 weight: 6
 ---
 
-## Module Manager tool
+## Module Manager
 
 `module_manager` is a tool for managing modules, providing the following capabilities:
 1. Module list: You can get the list of locally installed modules through `module_manager list`, including built-in modules and modules developed by yourself;
