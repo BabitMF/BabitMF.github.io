@@ -1,6 +1,6 @@
 ---
 title: 'BMF Tools'
-linkTitle: 'BMF_Tools'
+linkTitle: 'BMF Tools'
 weight: 6
 ---
 
