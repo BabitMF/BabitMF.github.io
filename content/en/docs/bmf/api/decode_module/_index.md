@@ -1,7 +1,7 @@
 ---
 title: 'Built-in Decode Module'
 linkTitle: 'Built-in Decode Module'
-weight: 3
+weight: 4
 ---
 
 
