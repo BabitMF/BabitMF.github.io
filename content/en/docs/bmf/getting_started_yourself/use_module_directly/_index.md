@@ -17,7 +17,7 @@ This article mainly introduces the implementation of Sync Mode Python. Go and C+
 
 <img src="/img/docs/use_md_dr1.png" style="zoom:25%;"></img>
 
-The steps listed in this markdown file is used to run the code on your own machine. If you wan't to have a quick experiment, you can try it on：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/example/sync_mode/bmf_syncmode_python.ipynb)
+The steps listed in this markdown file is used to run the code on your own machine. If you wan't to have a quick experiment, you can try it on：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_python.ipynb)
 
 
 ## Write and implement a sync mode calling code.
