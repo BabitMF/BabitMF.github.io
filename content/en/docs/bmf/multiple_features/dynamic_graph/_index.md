@@ -4,7 +4,12 @@ linkTitle: 'Dynamic Graph'
 weight: 4
 ---
 
-/** \page DynamicGraph Dynamic Graph
+Dynamic graph in BMF is a feature to allow nodes in the graph tobe added/removed/configured at the running time almost without performance penalty and block other running nodes. That means the graph built at the begining can be changed on the fly as below:
+<img src="/img/docs/dynamic_graph.png" style="zoom:50%;" />
+
+The demo and test based dynamic graph can be found in `bmf/demo/broadcaster/`, `bmf/test/dynamical_graph/`.
+
+
 
 ### Related interfaces:
 
