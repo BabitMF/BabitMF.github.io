@@ -90,6 +90,8 @@ In order to parallel modules, the encode module will be apply in scheduler 1 whi
         )
 ```
 
+BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and `"codec": "hevc_nvenc"` to use GPU for decoding and encoding. Check out the [gpu transcoding section](../gpu_hardware_acc/gpu_transcoding/_index.md) for more details.
+
 #### Image Encode
 ```python
         import bmf
@@ -152,6 +154,8 @@ In order to parallel modules, the encode module will be apply in scheduler 1 whi
     bmf.ff_filter([stream1, stream2], 'vstack', input=2).encode(None, {"output_path": "output.mp4"})
     graph.run()
 ```
+
+BMF also supports ffmpeg CUDA filters, calling ffmpeg CUDA filters are quite similar to calling CPU filters, except that you need to be careful about where the data resides. Please refer to the [gpu filter section](../gpu_hardware_acc/gpu_filtering/_index.md) for more details.
 
 #### Using Module Capability Directly (Sync Mode)
 User can integrate thoes capabilities of module into their own project. For exp. to get a yuv frame decoded, or encode a yuv frame by calling encode()
