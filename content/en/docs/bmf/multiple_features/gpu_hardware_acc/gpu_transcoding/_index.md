@@ -1,7 +1,7 @@
 ---
 title: 'GPU Hardware Transcoding'
 linkTitle: 'GPU Hardware Transcoding'
-weight: 5
+weight: 1
 ---
 
 # How to use NVIDIA GPU to accelerate video transcoding

@@ -1,7 +1,7 @@
 ---
 title: 'GPU Hardware Filtering'
 linkTitle: 'GPU Hardware Filtering'
-weight: 5
+weight: 2
 ---
 
 # Use NVIDIA GPU to accelerate image filtering in BMF

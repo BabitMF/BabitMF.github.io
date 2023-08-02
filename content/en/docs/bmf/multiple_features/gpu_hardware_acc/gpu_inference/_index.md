@@ -1,7 +1,7 @@
 ---
-title: 'GPU Inference module'
-linkTitle: 'GPU Inference module'
-weight: 5
+title: 'GPU Inference Module'
+linkTitle: 'GPU Inference Module'
+weight: 3
 ---
 
 # Use TensorRT to accelerate DL inference in BMF
