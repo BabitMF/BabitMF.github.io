@@ -34,4 +34,14 @@ BMF is fully compatible with FFmpeg's processing capabilities and indicators, su
 
 Supports zero-copy interconversion between multiple mainstream data formats, and is greatly compatible with data connection between different modules. For example, it is necessary to use ffmpeg's codec and filter capabilities, as well as OpenCV's transformation processing, and it also needs to use Pytorch to do intelligent analysis in more complex situations; at the same time, it supports heterogeneous cross-device data transmission and conversion capabilities, and asynchronous scheduling capabilities, so that Help users quickly solve the acceleration optimization problems of the production environment.
 
+### Enhanced Support for NVIDIA GPU 
+
+NVIDIA GPU has dedicated video encoding and decoding hardware; in addition, it has high bandwidth memory and large scale parallel computing CUDA cores, which are suitable for general purpose video and image processing. Working with NVIDIA engineers, BMF has enhanced support for NVIDIA GPU: 
+* NVENC/NVDEC/GPU filters work out-of-box by inheriting abilities from FFmpeg. 
+* High performance frame processing is enabled by integration of CV-CUDA and customized CUDA kernels. 
+* AI inferecing can be easily integrated into video pipeline using TensorRT. 
+* Data moving between CPU and GPU can be done by a simple call. 
+
+In short, all kinds of video and image SDKs from NVIDIA have been integrated into BMF. So the developer can write GPU accelerated video processsing pipelines with Python/Go/C++ easily and run them efficiently.
+
 In the form of open source, BMF fully integrates into the community, continuously expands the ecology and displays various solutions, and expects to provide better help for developers and enterprises in the industry in the hyper video era.
