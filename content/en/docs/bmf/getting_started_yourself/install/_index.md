@@ -43,7 +43,7 @@ apt install -y make \
     libssl-dev \
     cmake binutils-dev \
     libgoogle-glog-dev \
-    gcc g++
+    gcc g++ yasm nasm
 ```
 
 </td>
@@ -215,7 +215,7 @@ Also, as mentioned above too, compiling FFmpeg from source is an optional step a
 ```Shell
 git clone https://github.com/BabitMF/bmf bmf
 cd bmf
-./scripts/build_ffmpeg.sh nasm x264 x265
+./scripts/build_ffmpeg.sh x264 x265
 ```
 
 ### GPU dependencies(Linux only)
