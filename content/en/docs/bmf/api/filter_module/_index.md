@@ -47,7 +47,7 @@ ff_filter('unsharp', '5:5:1')
 ## GPU Filter Module
 
 BMF provides several common filtering modules accelerated by GPU:
-- Flip
+- scale
 - flip
 - rotate
 - crop
