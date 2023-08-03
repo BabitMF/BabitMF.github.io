@@ -70,4 +70,4 @@ The module accepts both CPU and GPU frames. The frames can be of rgb or yuv form
 
 Note that for the `rotate_gpu` module, it is recommended to use rgb as inputs rather than yuv, as the module will fill the blank area with 0 after rotation. (0, 0, 0) in yuv is actually green in rgb, meaning yuv images may have a green background after the rotation.
 
-If you need more details on the options of these modules, please refer to the [API documents](../../../api/filter_module/_index.md).
+If you need more details on the options of these modules, please refer to the [API documents](http://babitmf.github.io/docs/bmf/api/filter_module/).
