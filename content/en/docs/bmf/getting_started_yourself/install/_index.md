@@ -264,10 +264,19 @@ For c++ or go developers, you may need to set environment variables so that the 
 
 ## Docker
 
- If you want to use docker to experience and get started with BMF, you can compile the version you need according to your needs. There are many dependencies that other installation methods do not support, such as torch, opencv, openmp, etc. 
+ If you want to use docker to experience and get started with BMF, you can compile the version you need according to your needs. The docker image we provide is based on ubuntu 20.04, which contains the full environment dependencies for running BMF CPU && GPU: **Cuda11.8, Pytorch 2.0, TensorRT 8.6.1, CV-CUDA 0.3**, for the GPU environment, we did not install the driver because We hope to follow as much as possible and be compatible with the user's driver version.
+
+Before running, please make sure that NVIDIA GPU Driver is included in your machine environment, and you can correctly obtain gpu hardware information through **nvidia-smi**.
+```Shell
+docker pull babitmf/bmf_runtime:latest
+docker run --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -it babitmf/bmf_runtime:latest bash
+```
+
+We provide a compiled version of BMF CPU by default. If you want to compile the BMF version of GPU, we control it through the environment variable CMAKE_ARGS
 
 ```Shell
-docker pull ghcr.io/babitmf/bmf:master
+export CMAKE_ARGS="-DBMF_ENABLE_CUDA=ON"
+./build.sh
 ```
 
 <!--
