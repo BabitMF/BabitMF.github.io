@@ -7,9 +7,23 @@ weight: 6
 ## Module Manager
 
 `module_manager` is a tool for managing modules, providing the following capabilities:
-1. Module list: You can get the list of locally installed modules through `module_manager list`, including built-in modules and modules developed by yourself;
-2. Module details: For each module, module details can be obtained through `module_manager dump ${module_name}`, such as module name, module type, module entry, module description information, module definition tag and module installation path;
-3. Module installation and uninstallation: For custom modules, they can be installed to the module path of BMF, so that they can be used in graph more conveniently. Modules can also be unloaded when they are no longer needed;
+1. Module list: You can get the list of locally installed modules through `module_manager list`, including built-in modules and modules developed by yourself:
+```bash
+module_manager list
+```
+2. Module details: For each module, module details can be obtained through `module_manager dump <module_name>`, such as module name, module type, module entry, module description information, module definition tag and module installation path. For example, dump the c_ffmpeg_decoder module:
+```bash
+module_manager dump c_ffmpeg_decoder
+```
+3. Module installation and uninstallation: For custom modules, they can be installed to the module path of BMF, so that they can be used in graph more conveniently. Modules can also be uninstalled when they are no longer needed:
+```bash
+# install module
+module_manager install <module_name> <module_type> <module_entry> <module_path>
+
+# uninstall module
+module_manager uninstall <module_name>
+```
+
 The specific usage can be viewed through `module_manager help`. Please note: The module_manager tool needs to rely on the BMF underlying library, so you need to set the corresponding environment variables. For specific steps, please refer to [BMF Installation](/docs/bmf/getting_started_yourself/install/).
 
 ## Trace tool
