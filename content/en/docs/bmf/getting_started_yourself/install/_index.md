@@ -305,7 +305,9 @@ export PYTHONPATH=$(pwd)/output/bmf/lib:$(pwd)/output
 
 ## Building from Source
 
-### Building
+BMF supports compilation and build on three platforms: Linux, Windows, and Mac. You can choose the method you want to use according to your needs.
+
+### Linux
 
 ```Shell
 git clone https://github.com/BabitMF/bmf bmf
@@ -334,11 +336,69 @@ option(BMF_ENABLE_MOBILE "Enable build for mobile platform" OFF)
 option(BMF_ENABLE_TEST "compile examples and tests" ON)
 ```
 
-<!--
-### Testing (Optional)
+Tips: Regarding FFmpeg compatibility, BMF is currently fully compatible with FFmpeg versions: 4.0 - 5.1. We recommend using version 4.4.
 
-TODO
--->
+### Windows
+BMF uses the MSVC toolchain as the compilation tool on the Windows platform. Before compiling BMF, you need to complete the following preparatory work:
+1. First, you need to install Visual Studio. Our supported versions include: 2013, 2015, 2017, 2019 and 2022, and install the Windows SDK when installing VS.
+2. Install and configure the ```msys2 mingw64``` environment https://www.msys2.org/
+3. When completing the above two items, please open x64 Native Tools Command Prompt for VS 20xx in administrator mode, enter the msys2 installation directory, and execute``` msys2_shell.cmd -mingw64 -use-full-path```, you will enter the msys2 shell command window.
+4. You need to install [vcpkg](#https://github.com/microsoft/vcpkg) and execute the following command to install some dependent libraries:
+```
+pacman -Sy yasm automake autoconf git vim openssl-devel zlib-devel
+./vcpkg.exe install bzip2:x64-windows zlib:x64-windows liblzma:x64-windows dlfcn-win32:x64-windows
+```
+5. Install 32-bit or 64-bit Python environment (we support 3.7 - 3.10) according to the product you want to compile, and configure the environment variables.
+
+After completing the above steps, the preparatory work for BMF compilation is completed. Now you can start compilation. The compilation command is as follows:
+
+```
+Build Options:
+--msvc msvc compiled version options=[2013, 2015, 2017, 2019, 2022]
+bmf_ffmpeg integrates FFmpeg during compilation and compiles built-in Modules
+--preset compile preset type options=[x86-Debug, x86-Release, x64-Debug, x64-Release]
+```
+
+Assuming that your local environment is a 64-bit Release version, the VS version you are using is 2022, and you need to use FFmpeg when compiling, the compilation command is as follows:
+```
+./build_lite.sh --msvc=2022 bmf_ffmpeg --preset=x64-Release
+```
+
+After execution, the build_win_lite folder will generate the BMF.sln project file, which can be built by opening it through Visual Studio.
+
+
+### Mac OS
+
+When compiling on the Mac OS side, you need to pay attention to the following points:
+1. Install FFmpeg and configure environment variables
+2. If the CPU chip of your Mac computer is an ARM architecture such as M1 or M2, the compatible version of Python is (3.9 - 3.10). The reason is that the Python arm version below 3.8 on the Mac is an experimental function and does not have much dependency support. Complete
+3. Two pre-dependencies need to be installed: binutils and libncurses. Under ARM architecture, the former can be installed directly through brew install binutils, while the latter may require you to compile libncursew.
+To compile libncurses on macOS, you can follow these steps:
+
+     a. Open the Terminal application and make sure you have the Xcode command line tools installed. If it is not installed yet, run the following command in the terminal to install it:
+```xcode-select --install```
+
+     b. Download the source code of ncurses. You can download the latest version of the source code from the ncurses official website: https://invisible-island.net/ncurses/
+
+     c. Unzip the downloaded source code file and enter the unzipped directory:
+
+     ```
+     tar -xzvf ncurses-x.x.tar.gz # Replace with the downloaded source code file name
+     cd ncurses-x.x/ # Enter the decompressed directory
+     ./configure --prefix=/usr/local/opt/ncurses
+     make
+     sudo make install
+     ```
+
+The above command will configure the installation path to ```/usr/local/opt/ncurses```. You can also change the path as needed. After compilation and installation are complete, you should be able to find the libncurses library file in the specified installation path. With the above steps, you can successfully compile and install libncurses on macOS. Please note that the process may change due to version updates
+
+After completing the above two points of preparatory work, you can compile BMF under Mac OS and use the command:
+```
+./build_osx.sh
+```
+
+
+
 
 ### Installing
 
