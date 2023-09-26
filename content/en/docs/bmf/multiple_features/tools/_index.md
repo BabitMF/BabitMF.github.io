@@ -36,9 +36,6 @@ Trace is disabled by default. However, if an environment variable for trace enab
 $ unset BMF_TRACE
 ```
 
-### Step-by-Step Tutorial
-- **[Using the Trace tool](https://bytedance.feishu.cn/docs/doccnm56R0VvvIV5BEoQjwjtpEc)** - Basic usage of the Trace tool
-
 ### Trace analysis
 
 The tool will print and generate tracelog logs after execution. Users can refer to the information collected by Trace in different ways.
