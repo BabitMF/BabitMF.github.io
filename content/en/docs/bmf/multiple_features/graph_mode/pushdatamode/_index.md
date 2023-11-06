@@ -11,7 +11,7 @@ The push data mode is also an important capability of BMF Graph. As the figure s
 
 Users only need to pay attention to the node connection and operation logic of Graph, and keep filling packets to Graph.
 
-The suitable scenario for this mode is: the user's input source comes from other third-party libraries or some custom data types, and needs to do many custom processing operations on the input that have nothing to do with the BMF framework.
+This mode is suitable for scenarios where the user's input source comes from other third-party libraries or some custom data types, and many custom processing operations that have nothing to do with the BMF framework need to be performed on the input.
 
 Let's show an example of using push data mode:
 
@@ -112,4 +112,4 @@ def test_push_raw_stream_into_decoder(self):
 
 ```
 
-This example implements a processing pipeline that decodes a raw 264 stream in push data mode and re-encodes it inside the graph, which implements a processing pipeline that decodes a raw 264 stream in push data mode and encodes it again inside the graph. In the code, we first build a graph, and then read the raw stream, where video_content.txt stores the binary content of the code stream, video_length, txt stores the size of each packet in turn, and in the option of the graph, we open push_raw_stream switch, which will let the decoder perceive that the packets you will fill in are in raw stream format
+This example implements a processing pipeline that decodes a raw 264 stream in push data mode and encodes it again within the graph. In the code, we first build a graph. Then read the raw stream, where video_content.txt stores the binary content of the code stream, and video_length and txt store the size of each data packet in turn. In the graph options, we open push_raw_stream switch, which will let the decoder perceive that the packets you will fill in are in raw stream format.
