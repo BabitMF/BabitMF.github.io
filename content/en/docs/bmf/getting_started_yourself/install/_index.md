@@ -10,17 +10,17 @@ menu:
 
 You can install BMF with pip, docker, pre-built binary or build from source, choose the one you prefer.
 
-BMF can implement c++/python/go cross-language calls, and you can call modules written in any language through any language. But each programming language has its own requirements, so in addition to the docker installation method, if you want to install it in other ways and have the need for cross-language calls, you need to set the corresponding environment variables. For details, please refer to the detailed description of each part.
+BMF enables C++/Python/go cross-language calls, and you can call modules written in any language by any language. But each programming language has its own requirements. Therefore, if you want to install it in other ways besides docker installation and have the need for cross-language calls, you need to set the corresponding environment variables. Please refer to each part for detailed descriptions.
 
 ## Dependencies
 
 ### Prerequisites
 
-BMF depends on some libraries, which you can install via apt, yum<!--, vcpkg--> or brew. In general, except for the docker method described below. Here are the systems we tested and how to install them，include regular dependency, python, FFmpeg, CUDA toolkit and so on.
+BMF depends on some libraries, which you can install via apt, yum<!--, vcpkg--> or brew. In general, except for the docker method described below. Here are the systems we tested and how to install them, including regular dependency, python, FFmpeg, CUDA toolkit and so on.
 
 - For regular dependency, you need all packages installed on your system.
 - For python, it is only required when you call the python api or call the python module through the pre-built package, and the python version requirement is 3.9 now. If installing BMF using pip, you don't need to change your existing python version.
-- For FFmpeg, we currently support 4.x or 5.x versions, 6.x versions may be supported in the future. For ubuntu, debian, CentOS:8 and macOS listed below, you can use the package manager to install it. For other OS, you may need to compile FFmpeg from source.
+- For FFmpeg, we currently support 4.x or 5.x versions, and may support version 6.x in the future. For ubuntu, debian, CentOS:8 and macOS listed below, you can use the package manager to install it. For other OS, you may need to compile FFmpeg from source.
 
 <table>
 
@@ -197,7 +197,7 @@ export DYLD_LIBRARY_PATH="/usr/local/opt/ffmpeg@4/lib:$DYLD_LIBRARY_PATH"
 
 ### Build Python
 
-As mentioned above, if you want to call the python api or python module through the pre-built installation package, and you can not install python3.9 through the package manager, you need to compile from source:
+As mentioned above, if you want to call the python api or python module through the pre-built installation package, and are unable to install python3.9 through the package manager, you need to compile from source:
 
 ```Shell
 cd /opt
@@ -264,7 +264,7 @@ For c++ or go developers, you may need to set environment variables so that the 
 
 ## Docker
 
- If you want to use docker to experience and get started with BMF, you can compile the version you need according to your needs. The docker image we provide is based on ubuntu 20.04, which contains the full environment dependencies for running BMF CPU && GPU: **Cuda11.8, Pytorch 2.0, TensorRT 8.6.1, CV-CUDA 0.3**, for the GPU environment, we did not install the driver because We hope to follow as much as possible and be compatible with the user's driver version.
+ If you want to use docker to experience and get started with BMF, you can compile the version you need according to your needs. The docker image we provide is based on ubuntu 20.04, which contains the full environment dependencies for running BMF CPU && GPU: **Cuda11.8, Pytorch 2.0, TensorRT 8.6.1, CV-CUDA 0.3**. For the GPU environment, we did not install the driver because we hope to follow and be compatible with the user’s driver version as much as possible.
 
 Before running, please make sure that NVIDIA GPU Driver is included in your machine environment, and you can correctly obtain gpu hardware information through **nvidia-smi**.
 ```Shell
@@ -305,7 +305,7 @@ export PYTHONPATH=$(pwd)/output/bmf/lib:$(pwd)/output
 
 ## Building from Source
 
-BMF supports compilation and build on three platforms: Linux, Windows, and Mac. You can choose the method you want to use according to your needs.
+BMF supports compilation and builds on three platforms: Linux, Windows, and Mac. You can choose the method you want to use according to your needs.
 
 ### Linux
 
@@ -315,7 +315,7 @@ cd bmf
 ./build.sh
 ```
 
-And in some special condition, for example, if the user doesn't want to include the dependency of FFmpeg, the FFmpeg independent and torch dependent BMF can be built from source with environment variable named `CMAKE_ARGS`:
+And in some special conditions, for example, if the user doesn't want to include the dependency of FFmpeg, the FFmpeg independent and torch dependent BMF can be built from source with an environment variable named `CMAKE_ARGS`:
 
 ```Shell
 export CMAKE_ARGS="-DBMF_ENABLE_FFMPEG=OFF -DBMF_ENABLE_TORCH=ON"
@@ -340,9 +340,9 @@ Tips: Regarding FFmpeg compatibility, BMF is currently fully compatible with FFm
 
 ### Windows
 BMF uses the MSVC toolchain as the compilation tool on the Windows platform. Before compiling BMF, you need to complete the following preparatory work:
-1. First, you need to install Visual Studio. Our supported versions include: 2013, 2015, 2017, 2019 and 2022, and install the Windows SDK when installing VS.
+1. First, you need to install Visual Studio. Our supported versions include 2013, 2015, 2017, 2019 and 2022, and install the Windows SDK when installing VS.
 2. Install and configure the ```msys2 mingw64``` environment https://www.msys2.org/
-3. When completing the above two items, please open x64 Native Tools Command Prompt for VS 20xx in administrator mode, enter the msys2 installation directory, and execute``` msys2_shell.cmd -mingw64 -use-full-path```, you will enter the msys2 shell command window.
+3. When completing the above two items, please open x64 Native Tools Command Prompt for VS 20xx in administrator mode, enter the msys2 installation directory, and execute``` msys2_shell.cmd -mingw64 -use-full-path```. You will enter the msys2 shell command window.
 4. You need to install [vcpkg](#https://github.com/microsoft/vcpkg) and execute the following command to install some dependent libraries:
 ```
 pacman -Sy yasm automake autoconf git vim openssl-devel zlib-devel
@@ -359,7 +359,7 @@ bmf_ffmpeg integrates FFmpeg during compilation and compiles built-in Modules
 --preset compile preset type options=[x86-Debug, x86-Release, x64-Debug, x64-Release]
 ```
 
-Assuming that your local environment is a 64-bit Release version, the VS version you are using is 2022, and you need to use FFmpeg when compiling, the compilation command is as follows:
+Assuming that your local environment is a 64-bit Release version, the VS version you are using is 2022, and you need to use FFmpeg when compiling. The compilation command is as follows:
 ```
 ./build_lite.sh --msvc=2022 bmf_ffmpeg --preset=x64-Release
 ```
@@ -371,7 +371,7 @@ After execution, the build_win_lite folder will generate the BMF.sln project fil
 
 When compiling on the Mac OS side, you need to pay attention to the following points:
 1. Install FFmpeg and configure environment variables
-2. If the CPU chip of your Mac computer is an ARM architecture such as M1 or M2, the compatible version of Python is (3.9 - 3.10). The reason is that the Python arm version below 3.8 on the Mac is an experimental function and does not have much dependency support. Complete
+2. If the CPU chip of your Mac computer is an ARM architecture such as M1 or M2, the compatible version of Python is (3.9 - 3.10). The reason is that the Python arm version below 3.8 on the Mac is an experimental function and does not have much dependency support.
 3. Two pre-dependencies need to be installed: binutils and libncurses. Under ARM architecture, the former can be installed directly through brew install binutils, while the latter may require you to compile libncursew.
 To compile libncurses on macOS, you can follow these steps:
 
@@ -390,7 +390,7 @@ To compile libncurses on macOS, you can follow these steps:
      sudo make install
      ```
 
-The above command will configure the installation path to ```/usr/local/opt/ncurses```. You can also change the path as needed. After compilation and installation are complete, you should be able to find the libncurses library file in the specified installation path. With the above steps, you can successfully compile and install libncurses on macOS. Please note that the process may change due to version updates
+The above command will configure the installation path to ```/usr/local/opt/ncurses```. You can also change the path as needed. After compilation and installation are complete, you should be able to find the libncurses library file in the specified installation path. With the above steps, you can successfully compile and install libncurses on macOS. Please note that the process may change due to version updates.
 
 After completing the above two points of preparatory work, you can compile BMF under Mac OS and use the command:
 ```
@@ -400,7 +400,7 @@ After completing the above two points of preparatory work, you can compile BMF u
 
 
 
-### Installing
+## Installing
 
 You can remove the output directory to anywhere you want, then set environments to find BMF libraries:
 
