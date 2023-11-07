@@ -4,7 +4,7 @@ linkTitle: 'Dynamic Graph'
 weight: 4
 ---
 
-Dynamic graph in BMF is a feature to allow nodes in the graph tobe added/removed/configured at the running time almost without performance penalty and block other running nodes. That means the graph built at the begining can be changed on the fly as below:
+Dynamic graph in BMF is a feature to allow nodes in the graph to be added/removed/configured at the running time almost without performance penalty and block other running nodes. That means the graph built at the beginning can be changed on the fly as below:
 <img src="/img/docs/dynamic_graph.png" style="zoom:50%;" />
 
 The demo and test based dynamic graph can be found in `bmf/demo/broadcaster/`, `bmf/test/dynamical_graph/`.
@@ -40,7 +40,7 @@ passthru. run_wo_block()
 ```
 main_graph is used as the initially created graph, and an "alias" tag is added to each module in the graph for subsequent dynamic increase of associated usage.
 
-When the initial graph is running, you can use run_wo_block() as a non-blocking call, or you can use run() to block the call but you need to start another thread to support dynamic operations.
+When the initial graph is running, you can use run_wo_block() as a non-blocking call, or you can use run() to block the call, but you need to start another thread to support dynamic operations.
 
 ```python
 update_decoder = bmf.graph()
@@ -88,4 +88,4 @@ Dynamic configuration only needs to write the node alias and specific parameters
 
 ### Callback method:
 
-Some application scenarios need to decide when to dynamically add, delete, and configure in certain module nodes. In this case, the callback mechanism of BMF can be used to cooperate. For details, see test_dynamical_graph_cb() of the example program
+Some application scenarios need to decide when to dynamically add, delete, and configure in certain module nodes. In this case, the callback mechanism of BMF can be used to cooperate. For details, see test_dynamical_graph_cb() of the example program.

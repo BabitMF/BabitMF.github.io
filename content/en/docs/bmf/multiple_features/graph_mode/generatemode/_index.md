@@ -4,8 +4,6 @@ linkTitle: 'Generator Mode'
 weight: 1
 ---
 
-/** \page GeneratorMode Generator Mode
-
 The generator method has common similarities and differences, mainly using ```start()``` (usually ```run()```):
 
 ```python

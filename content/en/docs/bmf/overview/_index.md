@@ -5,11 +5,11 @@ weight: 1
 ---
 
 
-As a general multimedia processing framework, BabitMF (Babit Multimedia Framework, BMF) can provide a simple and easy-to-use cross-language interface, flexible scheduling and scalability, and dynamically expand, manage and reuse the atomic capabilities of video processing in a modular manner , build a high-performance multimedia processing link in the form of graph/pipeline or realize project integration by direct invocation of individual processing capabilities, helping multimedia users to conveniently and efficiently implement projects in the production environment. The usage scenarios of BMF cover video transcoding, video frame extraction, video enhancement, video analysis, video frame insertion, video editing, video conferencing, VR, etc. At present, hundreds of millions of videos are processed by BMF every day. In the process, the functional diversity, ease of use, compatibility, stability and performance of the BMF framework have been fully polished.
+As a general multimedia processing framework, BabitMF (Babit Multimedia Framework, BMF) can provide a simple and easy-to-use cross-language interface, flexible scheduling and scalability, and dynamically expand, manage and reuse the atomic capabilities of video processing in a modular manner. It builds a high-performance multimedia processing link in the form of graph/pipeline or realize project integration by direct invocation of individual processing capabilities, helping multimedia users to conveniently and efficiently implement projects in the production environment. The usage scenarios of BMF cover video transcoding, video frame extraction, video enhancement, video analysis, video frame insertion, video editing, video conferencing, VR, etc. At present, hundreds of millions of videos are processed by BMF every day. In the process, the functional diversity, ease of use, compatibility, stability and performance of the BMF framework have been fully polished.
 
 <img src="/img/docs/bmf-framework.png" style="zoom:100%;" />
 
-The picture above is a general architecture diagram of BMF, which includes a complete set of ecosystem, which mainly consists of three parts:
+The picture above is a general architecture diagram of BMF, including a complete set of ecosystem, which mainly consists of three parts:
 - Application layer: The top layer provides users with multi-language APIs including Python, Go, and C++, which is convenient for users to develop and integrate according to different project requirements.
 - Framework layer: The middle layer includes the framework's scheduling of graph/pipeline, cross-data type and cross-device data transfer Backend, and commonly used cross-device reformat, color space conversion, tensor operator and other SDKs.
 - Module layer: It includes modules with various atomic capabilities, and provides module development mechanisms in multiple languages. Users can implement algorithms/processing in any of Python, Go, and C++ languages according to their own needs.
@@ -19,12 +19,12 @@ From architecture design to implementation, BMF covers a variety of features to 
 
 BMF provides a multi-language interface, which is convenient for users to integrate development in different languages according to project needs, and maximizes the ability to be compatible and reuse the entire framework.
 
-## Loosely coupled multilingual modules
-The module provides atomic capabilities for video processing, and users can choose Python, C++, and Go to focus on developing modules; modules and frameworks, modules and modules are loosely coupled, so that algorithms and projects are decoupled, and processing developed in different languages The decoupling of the development language used by modules and upper-layer applications greatly enhances the scalability and diversified collaboration capabilities.
+## Loosely coupled multi-language modules
+This module provides atomic capabilities for video processing. You can choose Python, C++, and go to focus on developing modules. Loose coupling between modules and frameworks, or between modules, makes it possible to decouple algorithms and projects and enable development in different languages. The decoupling of the development language used by modules and the upper-layer application greatly enhances scalability and improves diverse collaboration capabilities.
 
 ## Powerful scheduling engine
 
-BMF provides a configurable parallel scheduler, multiple usage modes, and advanced features of dynamically adjusting Graph to realize a high-performance scheduling mechanism responsible for the operation of DAG/Graph/Pipeline, and through various solutions to help users realize it with a small development cost Functional and performance requirements in complex scenarios.
+BMF, which provides a configurable parallel scheduler, multiple usage modes, and advanced features of dynamically adjusting Graph, implements a high-performance scheduling mechanism responsible for DAG/Graph/Pipeline operation, and helps users realize it with a small development cost Functional and performance requirements in complex scenarios through various solutions.
 
 ## Fully compatible with FFmpeg features and standards
 
@@ -39,9 +39,9 @@ Supports zero-copy interconversion between multiple mainstream data formats, and
 NVIDIA GPU has dedicated video encoding and decoding hardware; in addition, it has high bandwidth memory and large scale parallel computing CUDA cores, which are suitable for general purpose video and image processing. Working with NVIDIA engineers, BMF has enhanced support for NVIDIA GPU: 
 * NVENC/NVDEC/GPU filters work out-of-box by inheriting abilities from FFmpeg. 
 * High performance frame processing is enabled by integration of CV-CUDA and customized CUDA kernels. 
-* AI inferecing can be easily integrated into video pipeline using TensorRT. 
+* AI inferencing can be easily integrated into video pipeline using TensorRT. 
 * Data moving between CPU and GPU can be done by a simple call. 
 
-In short, all kinds of video and image SDKs from NVIDIA have been integrated into BMF. So the developer can write GPU accelerated video processsing pipelines with Python/Go/C++ easily and run them efficiently.
+In short, all kinds of video and image SDKs from NVIDIA have been integrated into BMF. So the developer can write GPU accelerated video processing pipelines with Python/Go/C++ easily and run them efficiently.
 
-In the form of open source, BMF fully integrates into the community, continuously expands the ecology and displays various solutions, and expects to provide better help for developers and enterprises in the industry in the hyper video era.
+In the form of open source, BMF fully integrates into the community, continuously expands the ecology, displays various solutions, and expects to provide better help for developers and enterprises in the industry in the hyper video era.

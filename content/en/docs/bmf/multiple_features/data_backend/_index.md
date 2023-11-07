@@ -7,13 +7,13 @@ weight: 3
 ## BMF Data Convert Backend
 
 ### Background
-An all-in-one solution is needed when multiple dimontion factors involved in video process pipeline such as CPU/GPU devices, YUV420/NV12 or RGB24/RGB48, and AVFrame or Torch structure.
-As a framework, each of module just focus on it's own target and data requirement, but it becomes complex when multiple modules work together as below supper resolution pipeline:
+An all-in-one solution is needed when multiple dimension factors are involved in video process pipeline such as CPU/GPU devices, YUV420/NV12 or RGB24/RGB48, and AVFrame or Torch structure.
+As a framework, each module just focuses on its own target and data requirement, but it becomes complex when multiple modules work together as below supper resolution pipeline:
 <img src="/img/docs/backend.png" style="zoom:50%;" />
 
-We can see that different modules have their own data requirement, the decode module output FFmpeg AVFrame with YUV420 pixel format which located on CPU memory, while the Trt SR module requires input data to be torch with RGB24 which located on GPU memory, after hardware accelerated SR by the Trt module, the output data need to be encoded by GPU, so the HW encode module can get AVFrame with NV12 pixel format which located on GPU memory to encode it by GPU.
+We can see that different modules have their own data requirements. The decode module outputs FFmpeg AVFrame in YUV420 pixel format, which is located on the CPU memory. The Trt SR module requires that the input data is an RGB24 torch after hardware acceleration and is located on the GPU memory. For SR through the Trt module, the output data needs to be encoded by the GPU, so the HW encode module can get AVFrame with NV12 pixel format located on the GPU memory and encode it by the GPU.
 
-It tends to include the capabilities of video data convertion below:
+It tends to include the capabilities of video data conversion below:
 - pixel format and color space
 - devices between CPU and GPU
 - different media types such as avframe, cvmat and torch
@@ -60,7 +60,7 @@ Samples show how to transfer the input video frame memory on GPU memory.
 
 #### Conversion between VideoFrame and third-party data structure
 
-bmf support the following types of third-party structures conversion with VideoFrame
+BMF support the following types of third-party structure conversion with VideoFrame
 
 1. FFmpeg AVFrame
 2. Opencv cv::Mat
@@ -72,8 +72,8 @@ Here, FFmpeg AVFrame is used as an example to illustrate the conversion. Other t
 
 1. include <bmf/sdk/av_convertor.h>, this will register AVConvertor for AVFrame
 2. dst_dp set media_type with value MediaType::kAVFrame
-3. do `bmf_convert`, check the return VideoFrame is a valid VideoFrame
-4. use `private_get<AVFrame>` get the AVFrame pointer from the return VideoFrame.
+3. do `bmf_convert`, check if the return VideoFrame is a valid VideoFrame
+4. use `private_get<AVFrame>` to get the AVFrame pointer from the return VideoFrame.
 
 It is important to note that the lifecycle of the structure pointed to by the pointer obtained from private_get is managed by the VideoFrame to which it belongs.
 
@@ -101,8 +101,8 @@ some example code snippet：
 
 1. use `private_attach` set AVFrame as private_data of VideoFrame
 2. src_dp set media_type with value MeidaType::kAVFrame
-2. use `bmf_convert` do converting
-3. get the return VideoFrame
+3. use `bmf_convert` doing convert
+4. get the return VideoFrame
 
 some example code snippet：
 
@@ -148,11 +148,11 @@ Sample code:
 #### Device memory transfer
 Interface used:
 
-`VideoFrame.frame().device()` get the Device property
+`VideoFrame.frame().device()` gets the Device property
 
-`VideoFrame.cuda()` move the memory data on cuda memory
+`VideoFrame.cuda()` moves the memory data on cuda memory
 
-`VideoFrame.cpu()` move the memory data on cpu memory
+`VideoFrame.cpu()` moves the memory data on cpu memory
 
 Sample code:
 ```python
@@ -164,12 +164,12 @@ Sample code:
     #...
 ```
 #### Conversion between VideoFrame and third-party data structure
-In python API, those type of third-party data type are supported:
-- VideoFrame, which is the general class of video frame in BMF. And `VideoFrame` include `Frame` as member
+In python API, those types of third-party data type are supported:
+- VideoFrame, which is the general class of video frame in BMF. And `VideoFrame` includes `Frame` as member
 - numpy
 - torch
 
-`bmf.hml.hmp.Frame.numpy` convert a bmf Frame to numpy, and Frame can be included in VideoFrame
+`bmf.hml.hmp.Frame.numpy` converts a BMF Frame to numpy, and Frame can be included in VideoFrame
 
 `bmf.hml.hmp.Frame.from_numpy`
 

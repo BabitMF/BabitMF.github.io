@@ -20,7 +20,7 @@ Through BMF, users can achieve the following goals:
 
 
 
-Through BMF, users can quickly and efficiently build simple or complex applications according to their needs. The BMF Graph in the first picture below shows a simple audio and video transcoding process, which includes three Modules, which are related by Stream Linking, the data flow is transmitted with Packet as the carrier, and each Module can specify an independent Thread to be scheduled to run by the BMF engine.
+The BMF Graph in the first picture below shows a simple audio and video transcoding process, including three modules. These three Modules are associated through Stream Linking. The data stream is transmitted using Packet as the carrier. Each Module can specify an independent Thread for transmission. It is run by the BMF engine.
 
 <img src="/img/docs/simple_graph.png" style="zoom:30%;" />
 
@@ -32,13 +32,13 @@ The second picture shows a more complex audio and video splicing and overlay Gra
 
 Some basic concepts in BMF are as follows:
 
-- Graph: DAG that users can develop through the interface layer and build through BMF is often a pipeline and application that can run.
+- Graph: DAG developed by users through the interface layer and built through BMF is often a pipeline and application that can run.
 
 - Module/Node: Users can use modules built into BMF or developed through the module SDK. BMF regards each video processing step as an atomic capability, and its carrier is a module, which supports multi-language dynamic expansion, management and multiplexing. Node is an instantiated Module.
 
 - Stream: Use the BMF interface layer to build a Graph, and most of the time use the Stream object to connect. The path of data transmission in the BMF framework can be regarded as a Stream flow, which can be an input and output path of any data form.
 
-- Packet: The carrier of data in BMF. Any data type including VideoFrame and AudioFrame will be encapsulated into a Packet in BMF and passed between modules.
+- Packet: The carrier of data in BMF. Any data type, including VideoFrame and AudioFrame, will be encapsulated into a Packet in BMF and passed between modules.
 
 - Task: Task is the scheduling unit of the BMF engine. The engine layer generates Tasks for different Nodes and dispatches them to the modules that need to be processed. The process() entry of the modules gets the Tasks for processing.
 

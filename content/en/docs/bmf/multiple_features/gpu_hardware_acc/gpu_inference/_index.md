@@ -8,9 +8,9 @@ weight: 3
 
 ## TensorRT Inference
 
-For video processings that use deep learning models, they can use [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) to accelerate inference. TensorRT is an SDK for high-performance deep learning inference, includes a deep learning inference optimizer and runtime that delivers low latency and high throuphput for inference applications.
+For video processings that use deep learning models, they can use [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) to accelerate inference. TensorRT is an SDK for high-performance deep learning inference, which includes a deep learning inference optimizer and runtime that delivers low latency and high throughput for inference applications.
 
-We provide two examples to show how to use TensorRT in BMF. One is the face detection, you can find it in the `bmf/demo/face_detect` folder. Another is the super resolution, it locates in the `bmf/demo/predict` folder.
+We provide two examples to show how to use TensorRT in BMF. One is the face detection. You can find it in the `bmf/demo/face_detect` folder. Another is the super resolution. It locates in the `bmf/demo/predict` folder.
 
 ### Install TensorRT
 
@@ -22,12 +22,12 @@ python3 -m pip install --upgrade tensorrt
 
 The above pip command will pull in all the required CUDA libraries and cuDNN in Python wheel format from PyPI because they are dependencies of the TensorRT Python wheel. Also, it will upgrade tensorrt to the latest version if you had a previous version installed.
 
-If you want to access TensorRT C++ APIs, it's recommened to install TensorRT by `.tar` file or `.deb`, `.rpm` package. For more information, please refer to the official documentation: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing
+If you want to access TensorRT C++ APIs, it's recommended to install TensorRT by `.tar` file or `.deb`, `.rpm` package. For more information, please refer to the official documentation: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing
 
 
 ### Build a TensorRT engine
 
-Before you use TensorRT, you should build an engine from a trained model. There're many ways to do it. You can see more details from the official [document](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html). In our examples, we introduce our commands to build the two engines.
+Before you use TensorRT, you should build an engine from a trained model. There are many ways to do it. You can see more details from the official [document](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html). In our examples, we introduce our commands to build the two engines.
 
 For face detection example:
 ```
@@ -76,7 +76,7 @@ for i in range(self.num_inputs_, self.num_io_tensors_):
                                                         dtype=self.to_scalar_types(self.engine_.get_tensor_dtype(self.tensor_names_[i])))
 ```
 
-The inputs of TensorRT are usually from the decoded frames. If we need to do some image preprocessing, we can convert the frames to the torch tensors. So, we can use torch operations to do preprocessing. During the inference, we should set the pointer bindings of inputs and outputs. Both torch tensor and bmf tensor can obtained raw pointers through `data_ptr()`.
+The inputs of TensorRT are usually from the decoded frames. If we need to do some image preprocessing, we can convert the frames to the torch tensors. So, we can use torch operations to do preprocessing. During the inference, we should set the pointer bindings of inputs and outputs. Both torch tensor and bmf tensor can obtain raw pointers through `data_ptr()`.
 
 ```python
 for i in range(self.num_inputs_):

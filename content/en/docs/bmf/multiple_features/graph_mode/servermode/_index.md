@@ -3,8 +3,6 @@ title: 'Server Mode'
 linkTitle: 'Server Mode'
 weight: 3
 ---
-/** \page ServerMode Server Mode
-
 BMF also supports pre-built modes. The following example shows server initialization and usage:
 
 ```python

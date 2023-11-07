@@ -148,4 +148,4 @@ graph.Close(encoder); // encoder.Close();
 
 If you need the complete code, you can refer to [test_sync_mode.py](#tbytodo-1) [c_sync_mode.cpp](#tbytodo-2)
 
-You can also experience sync mode used the colab link: [sync mode](#tbytodo-3)
+You can also experience sync mode using the colab link: [sync mode](#tbytodo-3)
