@@ -25,7 +25,7 @@ video = graph.decode({
 })
 ```
 
-Separate the previously decoded ```video['video']``` and ```video['audio']``` for transcoding, and ```run``` will start to validate and execute the entire graph Build and execute, output a video file after completion:
+Separate the previously decoded ```video['video']``` and ```video['audio']``` for transcoding, and ```run``` will start to validate and execute the entire graph Build and execute. Output a video file after completion:
 
 ```python
 bmf.encode(

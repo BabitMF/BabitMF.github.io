@@ -9,7 +9,7 @@ weight: 6
 `module_manager` is a tool for managing modules, providing the following capabilities:
 1. Module list: You can get the list of locally installed modules through `module_manager list`, including built-in modules and modules developed by yourself;
 2. Module details: For each module, module details can be obtained through `module_manager dump ${module_name}`, such as module name, module type, module entry, module description information, module definition tag and module installation path;
-3. Module installation and uninstallation: For custom modules, they can be installed to the module path of BMF, so that they can be used in graph more conveniently. Modules can also be unloaded when they are no longer needed;
+3. Module installation and uninstallation: For custom modules, they can be installed to the module path of BMF, so that they can be used in graph more conveniently. Modules can also be unloaded when they are no longer needed. 
 The specific usage can be viewed through `module_manager help`. Please note: The module_manager tool needs to rely on the BMF underlying library, so you need to set the corresponding environment variables. For specific steps, please refer to [BMF Installation](/docs/bmf/getting_started_yourself/install/).
 
 ## Trace tool
@@ -102,7 +102,7 @@ In addition to Chrome Tracing, [BMF GraphUtilization Tool](./Page_GraphUtilizati
 
 ![Visualizing tracelog using BMF GraphUtilization](/img/docs/graphutil_common2.png)
 
-The GraphUtilization tool can display graphs and some information or charts that Chrome Tracing cannot display.
+The GraphUtilization tool can display graphs and some information or charts that Chrome Tracing can not display.
 
 ### example
 

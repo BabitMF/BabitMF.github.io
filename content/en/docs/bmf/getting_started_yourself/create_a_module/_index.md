@@ -10,13 +10,13 @@ menu:
 
 ## Built-in modules
 
-BMF's built-in modules include commonly used video processing modules, which can be directly used by developers to implement video applications, including FFmpeg-based decoder, filter and encoder modules, and much more gpu processing modules. For detailed description of built-in modules, see [ffmpeg_fully_compatible](https://babitmf.github.io/docs/bmf/multiple_features/ffmpeg_fully_compatible/)<!-- and [gpu_modules_introduction]()-->.
+BMF's built-in modules include commonly used video processing modules, which can be directly used by developers to implement video applications, including FFmpeg-based decoder, filter and encoder modules, and many more gpu processing modules. For detailed descriptions of built-in modules, see [ffmpeg_fully_compatible](https://babitmf.github.io/docs/bmf/multiple_features/ffmpeg_fully_compatible/)<!-- and [gpu_modules_introduction]()-->.
 
 ## Custom Module Development
 
  If you want to develop your own modules, please follow these instructions.
 
-C++, python and go modules are now supported. You can write a module with anyone and call it in any language. For each language, we provide a minimized example here. In this part. You can have experience on  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/customize_module/bmf_customize_demo_latest.ipynb)
+C++, python and go modules are now supported. You can write a module with anyone and call it in any language. For each language, we provide a minimized example here. In this part. You can try it on  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/customize_module/bmf_customize_demo_latest.ipynb)
 
 ### python module
 

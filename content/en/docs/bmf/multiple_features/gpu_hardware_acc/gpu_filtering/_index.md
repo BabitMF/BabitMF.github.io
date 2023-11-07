@@ -15,12 +15,12 @@ Besides the GPU decoding and encoding examples, there are also examples showing 
 
 ## Transcode with FFmpeg CUDA filters
 
-There're many CUDA filters in the FFmepg that can be used in the BMF through `ff_filter`. Using CUDA filters eliminates the copy overhead exits in the CPU filters when we are using GPU transcoding.
+There are many CUDA filters in the FFmepg that can be used in the BMF through `ff_filter`. Using CUDA filters eliminates the copy overhead exits in the CPU filters when we are using GPU transcoding.
 
-Using these filters is really simple. Just pass filter'name and paramters to the `ff_filter`. But you should be careful about where the data reserves. For example, in the `test_gpu_transcode_with_overlay_cuda()`, the logo is png and is decoded and processed in the CPU. The video is decoded by the GPU so the frames are in the GPU. Because we will use CUDA filters and GPU encoding, we should upload the result of logo to the GPU. Here we use hwupload_cuda filter.
+Using these filters is really simple. Just pass filter'name and paramters to the `ff_filter`. But you should be careful about where the data reserved. For example, in the `test_gpu_transcode_with_overlay_cuda()`, the logo is png and is decoded and processed in the CPU. The video is decoded by the GPU so the frames are in the GPU. Because we will use CUDA filters and GPU encoding, we should upload the result of logo to the GPU. Here we use hwupload_cuda filter.
 
 ## BMF GPU modules
-As FFmpeg only provides few GPU filters, we implemented some common GPU filter modules which are missing in FFmpeg but should be useful, namely
+As FFmpeg only provides a few GPU filters, we implemented some common GPU filter modules which are missing in FFmpeg but should be useful, namely
 - resize
 - flip
 - rotate

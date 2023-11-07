@@ -10,7 +10,7 @@ BMF is full compatible with capabilities of FFmpeg. FFmpeg is well known in the 
 BMF implements buildin modules and combined flexible API to Python, C++, Go user to apply FFmpeg capabilities into their own solution.
 
 ### Environment
-FFmpeg library is needed，the supported version and installation details can be found in Getting Started -> Install.
+FFmpeg library is needed, the supported version and installation details can be found in Getting Started -> Install.
 
 
 ### Capabilities
