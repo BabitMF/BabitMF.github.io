@@ -208,7 +208,8 @@ some example code snippet：
     assert new_vf.frame().format() == mp.kPF_YUV420P
 ```
 
-#### Scale and colorspace conversion
+## BMF Data Convert(old style)
+### Scale and colorspace conversion
 
 `bmf.hml.hmp.img.rgb_to_yuv`
 
@@ -234,7 +235,7 @@ Sample code:
     mp.img.rgb_to_yuv(out_vf.frame().data(), src_vf.frame().plane(0), NV12, mp.kNHWC)
 ```
 
-#### Device memory transfer
+### Device memory transfer
 Interface used:
 
 `VideoFrame.frame().device()` gets the Device property
@@ -252,7 +253,7 @@ Sample code:
         vf = vf.cuda()
     #...
 ```
-#### Conversion between VideoFrame and third-party data structure
+### Conversion between VideoFrame and third-party data structure
 In python API, those types of third-party data type are supported:
 - VideoFrame, which is the general class of video frame in BMF. And `VideoFrame` includes `Frame` as member
 - numpy
