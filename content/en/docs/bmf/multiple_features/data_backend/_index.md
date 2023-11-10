@@ -162,8 +162,8 @@ Here, numpy.ndarray is used as an example to illustrate the conversion. Other ty
 ##### VideoFrame to numpy.ndarray
 
 1. dst_dp set media_type with value MediaType::kTensor
-3. do `bmf_convert`, check if the return VideoFrame is a valid VideoFrame
-4. use `private_get(numpy.ndarray)` to get the numpy.ndarray from the return VideoFrame
+2. do `bmf_convert`, check if the return VideoFrame is a valid VideoFrame
+3. use `private_get(numpy.ndarray)` to get the numpy.ndarray from the return VideoFrame
 
 Some detailed explanations:
 
