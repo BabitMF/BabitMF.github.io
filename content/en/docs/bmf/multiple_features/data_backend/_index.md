@@ -115,11 +115,101 @@ some example code snippet：
 
 ```
 
-
 ### Python Interface
-The unified `bmf_convert` as C++ will be designed and implemented later.
 
-#### Scale and colorspace conversion
+```python
+
+## python backend api
+## arg src_vf: source videoframe
+## arg src_md: source videoframe mediadescription
+## arg dst_md: dst videoframe mediadescription
+## return  vf: convert result videoframe
+
+vf = bmf_convert(src_vf, src_md, dst_md)
+```
+The `bmf_convert` interface in Python is bound to the corresponding interface in C++ using `pybind11`. The `MediaDesc` class follows the same pattern, corresponding to the `MediaDesc` class in C++. The usage of the interface is also similar.
+
+
+#### VideoFrame scale, colorspace conversion, device memory transfer
+
+use `bmf_convert` do scale, csc, and device memory transfer
+
+```python
+    H420 = mp.PixelInfo(mp.kPF_YUV420P, mp.kCS_BT709)
+    vf = VideoFrame(640, 360, pix_info=H420)
+    md = MediaDesc()
+    md.width(1920).height(1080).pixel_format(mp.kPF_RGB24).device(
+        mp.Device("cuda:0"))
+    dst_vf = bmf_convert(vf, MediaDesc(), md)
+    assert (dst_vf.width == 1920)
+    assert (dst_vf.height == 1080)
+    assert (dst_vf.frame().format() == mp.kPF_RGB24)
+    assert (dst_vf.frame().device().type() == mp.kCUDA)
+    assert (dst_vf.frame().device().index() == 0)
+
+```
+
+
+#### Conversion between VideoFrame and third-party data structure in python
+
+BMF support the following types of third-party python structure conversion with VideoFrame
+
+1. numpy.ndarray
+2. torch.Tensor
+
+Here, numpy.ndarray is used as an example to illustrate the conversion. Other types of conversions can be referred to in the `test_module_sdk.py`.
+
+##### VideoFrame to numpy.ndarray
+
+1. dst_dp set media_type with value MediaType::kTensor
+2. do `bmf_convert`, check if the return VideoFrame is a valid VideoFrame
+3. use `private_get(numpy.ndarray)` to get the numpy.ndarray from the return VideoFrame
+
+Some detailed explanations:
+
+We use a `MediaType` type called `MediaType.kTensor` as the destination type, which corresponds to the `hmp::Tensor` structure in C++. When we call the Python interface `bmf_convert`, the actual conversion happens in the core C++ layer of `bmf`. Similar to the C++ interface, this interface converts a `VideoFrame` into an `hmp::Tensor` and stores it in the private data of the `VideoFrame`. Then, we use the Python interface `private_get` to retrieve a `numpy.ndarray`. `private_get` is also a binding to the C++ interface, which converts the `hmp::Tensor` to a `numpy.ndarray` using `pybind11`.
+
+some example code snippet：
+
+```python
+    H420 = mp.PixelInfo(mp.kPF_YUV420P, mp.kCS_BT709)
+    vf = VideoFrame(640, 360, pix_info=H420)
+
+    md = MediaDesc()
+    md.width(1920).height(1080).pixel_format(mp.kPF_RGB24).media_type(
+        MediaType.kTensor)
+
+    dst_vf = bmf_convert(vf, MediaDesc(), md)
+    assert (dst_vf.width == 1920)
+    assert (dst_vf.height == 1080)
+    assert (dst_vf.frame().format() == mp.kPF_RGB24)
+    assert (bool(dst_vf) == True)
+
+    np_array = dst_vf.private_get(np.ndarray)
+    print(np_array.shape)
+    assert (np_array.shape[0] == 1080)
+    assert (np_array.shape[1] == 1920)
+    assert (np_array.shape[2] == 3)
+
+    src_vf = VideoFrame()
+    src_vf.private_attach(np_array)
+
+    src_md = MediaDesc()
+    src_md.pixel_format(mp.kPF_RGB24).media_type(MediaType.kTensor)
+
+    dst_md = MediaDesc()
+    dst_md.pixel_format(mp.kPF_YUV420P).color_space(
+        mp.kCS_BT709).width(320).height(180)
+
+    new_vf = bmf_convert(src_vf, src_md, dst_md)
+
+    assert new_vf.width == 320
+    assert new_vf.height == 180
+    assert new_vf.frame().format() == mp.kPF_YUV420P
+```
+
+## BMF Data Convert(old style)
+### Scale and colorspace conversion
 
 `bmf.hml.hmp.img.rgb_to_yuv`
 
@@ -145,7 +235,7 @@ Sample code:
     mp.img.rgb_to_yuv(out_vf.frame().data(), src_vf.frame().plane(0), NV12, mp.kNHWC)
 ```
 
-#### Device memory transfer
+### Device memory transfer
 Interface used:
 
 `VideoFrame.frame().device()` gets the Device property
@@ -163,7 +253,7 @@ Sample code:
         vf = vf.cuda()
     #...
 ```
-#### Conversion between VideoFrame and third-party data structure
+### Conversion between VideoFrame and third-party data structure
 In python API, those types of third-party data type are supported:
 - VideoFrame, which is the general class of video frame in BMF. And `VideoFrame` includes `Frame` as member
 - numpy
