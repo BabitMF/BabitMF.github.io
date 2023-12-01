@@ -1,16 +1,16 @@
 ---
-title: 'Sync Mode'
-linkTitle: 'Sync Mode'
+title: '同步模式'
+linkTitle: '同步模式'
 weight: 2
 ---
 
-The use of Sync mode requires the sync module. The following example shows the process of decoding, scaling, and transcoding an image in sync mode.
+同步模式使用需要同步模块。以下示例展现了以同步模式把图像做解码、缩放，然后转码的过程。
 
 ```python
 from bmf import bmf_sync, Packet
 ```
 
-The Sync module is built as follows:
+同步模块的搭建如下：
 
 **Python**
 ```python
@@ -66,7 +66,7 @@ auto encoder = graph. Sync(std::vector<int> {0}, std::vector<int> {},
      bmf_sdk::JsonParam(encoder_option), "c_ffmpeg_encoder");
 ```
 
-If necessary, the init function can be called manually after the Sync module is created:
+如有需要，Sync模块创建后可手动调用init函数：
 
 **Python**
 
@@ -84,7 +84,7 @@ graph.Init(scale); // scale.Init();
 graph.Init(encoder); // encoder.Init();
 ```
 
-The usage of Sync mode is different from the normal way, it needs ```bmf_sync.process()```:
+Sync mode的用法和普通方式不一样，需要```bmf_sync.process()```：
 
 **Python**
 
@@ -115,7 +115,7 @@ input_encode. Insert(0, scaled_frames[0]);
 encoder.ProcessPkts(input_encode); // graph.Process(encoder, input_encode);
 ```
 
-After the Process is complete, send the EOF packet to the encoder:
+Process完毕后，将EOF packet发送到encoder：
 
 **Python**
 ```python
@@ -128,7 +128,7 @@ bmf_sync.send_eof(encoder) # encoder.send_eof()
 encoder.SendEOF(); // graph.SendEOF(encoder);
 ```
 
-The Sync module can manually call the close function if needed:
+如有需要，Sync模块可手动调用close函数：
 
 **Python**
 
@@ -146,6 +146,6 @@ graph. Close(scale); // scale. Close();
 graph.Close(encoder); // encoder.Close();
 ```
 
-If you need the complete code, you can refer to [test_sync_mode.py](#tbytodo-1) [c_sync_mode.cpp](#tbytodo-2)
+如果您需要完整代码，请参阅`test_sync_mode.py`，`c_sync_mode.cpp`
 
-You can also experience sync mode using the colab link: [sync mode](#tbytodo-3)
+您也可以使用colab链接体验同步模式：[sync mode](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_python.ipynb)

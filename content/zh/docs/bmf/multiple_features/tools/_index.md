@@ -1,73 +1,73 @@
 ---
-title: 'BMF Tools'
-linkTitle: 'BMF Tools'
+title: 'BMF工具'
+linkTitle: 'BMF工具'
 weight: 6
 ---
 
 ## Module Manager
 
-`module_manager` is a tool for managing modules, providing the following capabilities:
-1. Module list: You can get the list of locally installed modules through `module_manager list`, including built-in modules and modules developed by yourself;
-2. Module details: For each module, module details can be obtained through `module_manager dump ${module_name}`, such as module name, module type, module entry, module description information, module definition tag and module installation path;
-3. Module installation and uninstallation: For custom modules, they can be installed to the module path of BMF, so that they can be used in graph more conveniently. Modules can also be unloaded when they are no longer needed. 
-The specific usage can be viewed through `module_manager help`. Please note: The module_manager tool needs to rely on the BMF underlying library, so you need to set the corresponding environment variables. For specific steps, please refer to [BMF Installation](/docs/bmf/getting_started_yourself/install/).
+`module_manager`是一个管理模块的工具，提供以下能力：
+1. 模块清单：您可以通过`module_manager list`获取本地安装模块的清单，包括内置模块和您自己开发的模块；
+2. 模块详情：每一个模块都可以通过`module_manager dump ${module_name}`获取模块的详细信息，比如模块名称、模块类型、模块入口、模块描述信息、模块定义标签和模块安装路径；
+3. 模块的安装和卸载：对于自定义模块，您可以将其安装到BMF的模块路径中，以便更方便地在graph中使用。当不再需要这些模块时，也可以将其卸载。
+具体用法可以通过`module_manager help`查看。请注意：module_manager工具需要依赖BMF底层库，因此需要设置相应的环境变量。具体步骤请参考[BMF安装部署](/docs/bmf/getting_started_yourself/install/)。
 
-## Trace tool
+## Trace工具
 
-The main function of Trace is to record some important events for troubleshooting or analysis. Trace logs relevant information at runtime, and then writes tracelog logs at the end.
+Trace的主要功能是记录一些重要的事件，以供故障排除或分析。 Trace在运行时记录相关信息，然后在最后写入tracelog日志。
 
-### Start Trace
+### 启用Trace
 
-Trace tool can be started via environment variable:
+Trace工具也可以通过环境变量启用：
 ```bash
 $ export BMF_TRACE=ENABLE
 ```
-By default, various Trace types are provided in the engine. Enabling Trace allows these events to be logged at runtime.
+默认情况下，引擎中提供了各种Trace类型。启用Trance允许在运行时记录这些事件。
 
-To provide users with a lower level of control to minimize unnecessary collection of trace events, users can choose to enable only selected [Trace-types](#trace-types) (comma-separated):
+为了向用户提供较低级别的控制以最大程度地减少不必要的Trance事件收集，用户可以选择仅启用选定的[Trace-types](#trace-types) (comma-separated)：
 ```bash
 $ export BMF_TRACE=PROCESSING,SCHEDULE
 ```
 
-### Disable Trace
+### 禁用Trace
 
-Trace is disabled by default. However, if an environment variable for trace enable has been previously set, it can be disabled:
+默认情况下禁用Trace。但是，如果之前已设置了启用Trace的环境变量，则可以将其禁用：
 ```bash
 $ unset BMF_TRACE
 ```
 
-### Trace analysis
+### Trace分析
 
-The tool will print and generate tracelog logs after execution. Users can refer to the information collected by Trace in different ways.
+该工具执行后将打印并生成tracelog日志。用户可以通过不同的方式参考Trace收集的信息。
 
-#### 1. Console print
+#### 1. 控制台打印
 
-When using the Trace tool, after the graph is executed, some information about the Trace will be printed out:
+使用Trace工具时，graph执行后，会打印出Trace的一些信息：
 
 ![Trace printing](/img/docs/traceimg_print0.png)
 
-The printed information includes:
-- **Runtime Information**
-   Graph total execution time. If the [BMF_TRACE_INIT](#bmf_trace_init) interface is used, it also displays the time from BMF_TRACE_INIT to the completion of graph execution. These times do not include tracelog generation time.
-- **Events Frequency**
-   The number of occurrences of each Trace event (in descending order).
-- **Events Duration**
-   The execution time of each duration event:
-   - **Total**: Total
-   - **Total (%)**: The percentage of the total execution time of the operation
-   - **Ave**: Average
-   - **Min, Max**: minimum and maximum values
-- **Queue Information**
-   Stream's queue information:
-   - **Limit**: the upper limit of the queue size (or zero if infinite)
-   - **Ave**: Average number of items in the queue
-   - **Max**: Maximum number of items in the queue
-- **Throughput**
-   Average input packets processed in 1 second
-- **Trace Information**
-   Some information about the Trace tool, such as the total number of Trace events per thread, how many events overflowed due to insufficient buffer, logging time, and so on.
+打印的信息包括：
+- **Runtime信息**
+   Graph总实行时间。如果使用了[BMF_TRACE_INIT](#bmf_trace_init)接口，还会显示从BMF_TRACE_INIT到graph执行完成的时间。这些时间不包括tracelog的生成时间。
+- **事件频率**
+   每个Trace事件的发生次数（按降序排列）。
+- **事件持续时间**
+   每个duration事件的执行时间：
+   - **Total**：总时间
+   - **Total (%)**：运行总执行时间的百分比
+   - **Ave**: 执行时间
+   - **Min, Max**：最小和最大值
+- **Queue信息**
+   Stream的队列信息:
+   - **Limit**：队列大小的上限（如果无限则为零）
+   - **Ave**：队列中的平均项目数
+   - **Max**：队列中的最大项目数
+- **吞吐量**
+   1 秒内处理的平均输入package
+- **Trace信息**
+   有关Trace工具的一些信息，例如每个线程的Trace事件总数、由于缓冲区不足而溢出的事件数量、记录时间等。
 
-By default, Trace information will print Trace information to the console at the end of graph execution. However, this will result in increased processing time until the end of code execution. Printing can be disabled if desired:
+默认情况下，Trace信息会在grapg执行结束时将Trace信息打印到控制台。但是，这将导致代码执行结束之前的处理时间增加。如果需要，可以禁用打印：
 ```bash
 # Default is ENABLE
 $ export BMF_TRACE_PRINTING=DISABLE
@@ -75,46 +75,46 @@ $ export BMF_TRACE_PRINTING=DISABLE
 
 #### 2. Chrome Tracing
 
-The Tracelog JSON log format conforms to the format used in Chrome Tracing (Chrome web browser - chrome://tracing/ ), so it can be visualized using Chrome Tracing:
+Tracelog JSON日志格式符合Chrome Tracing(Chrome web browser - chrome://tracing/ )中使用的格式，因此可以使用 Chrome Tracing进行可视化：
 
 ![Viewing tracelog in Chrome Tracing](/img/docs/traceimg_common1.png)
 
-The representations of Instant events and duration events are easily distinguished:
+即时事件和持续时间事件的表示很容易区分：
 
 ![Instant event and duration event](/img/docs/traceimg_common2.png)
 
-At the end of the recording, Trace will append relevant information (Trace info) to the end of the log to indicate that the log is complete:
+记录结束时，Trace会在日志末尾追加相关信息（Trace info）以表明日志已完成：
 
 ![Trace info display](/img/docs/traceimg_common3.png)
 
-In the bottom panel you can see:
-- **Title**: Trace event name
-- **Category**: Trace type
-- **Start**: Trace event occurrence time
-- **Wall Duration**: Duration event execution time (instant event does not have this parameter)
-- **Args**: Trace info or user info (additional parameters)
+在底部面板中您可以看到：
+- **Title**: Trace事件名称
+- **Category**: Trace类型
+- **Start**: Trace事件当前时间
+- **Wall Duration**: Duration事件执行时间（即时事件无此参数）
+- **Args**: 跟踪信息或用户信息（附加参数）
 
-Note: If the overflow count is not 0, it means that the current buffer allocated is insufficient and some events are not logged (overflow). In order not to miss any trace events, it is recommended to [increase the buffer size](#buffer-size).
+注意：如果溢出计数不为0，则表示当前分配的缓冲区不足，并且某些事件未记录（溢出）。为了不错过任何Trace事件，建议[增加缓冲区大小](#buffer-size).
 
-#### 3. GraphUtilization tool
+#### 3. GraphUtilization工具
 
-In addition to Chrome Tracing, [BMF GraphUtilization Tool](./Page_GraphUtilization.md) also supports visualization of trace events:
+除了Chrome Trace之外，[BMF GraphUtilization工具](./Page_GraphUtilization.md)还支持Trace事件的可视化：
 
 ![Visualizing tracelog using BMF GraphUtilization](/img/docs/graphutil_common2.png)
 
-The GraphUtilization tool can display graphs and some information or charts that Chrome Tracing can not display.
+GraphUtilization工具可以显示图形以及Chrome Tracing无法显示的一些信息或图表。
 
-### example
+### 示例
 
-#### Example 1: Preload mode
+#### 示例1:预加载模式
 
-As an example of using the Trace tool to identify bottlenecks in an implementation, consider a typical transcoding example:
+以一个典型的转码示例为例，说明如何使用Trace工具识别实施过程中的瓶颈：
 
 ![Typical transcoding DAG](/img/docs/traceimg_example1.png)
 
-Note: The construction graph of the above graph can be displayed by [GraphUtilization Tool](./Page_GraphUtilization.md)
+注意：上图的结构图可通过[GraphUtilization Tool](./Page_GraphUtilization.md)显示。
 
-Use the following Python code:
+使用以下Python代码：
 
 ```python
 module_name = "analysis"
@@ -137,11 +137,11 @@ module_name = "analysis"
 )
 ```
 
-Executing this graph is time consuming if the pre-module method is not used. Using the tracelog generated by the Trace tool, it can be seen in Chrome Tracing that the initialization of Node 2 (that is, the analysis module in the above figure - the number in brackets indicates the Node ID) takes 3 seconds:
+如果不使用预模块方法，执行该graoh将非常耗时。使用Trace工具生成的tracelog，可以在Chrome浏览器跟踪中看到节点2（即上图中的分析模块，括号中的数字表示节点ID）的初始化耗时3秒：
 
 ![Module initialization time](/img/docs/traceimg_example2.png)
 
-Optimized code using pre-module:
+使用预模块的最优代码：
 
 ```python
 module_name = "analysis"
@@ -166,29 +166,29 @@ pre_module = bmf.create_module(module_name, {
 )
 ```
 
-The pre-loading mode (pre-module) can significantly reduce graph execution time:
+预加载模式（预模块）可以很大程度上减少Graph的执行时间：
 
 ![Analysis module in pre-module mode](/img/docs/traceimg_example3.png)
 
-#### Example 2: Troubleshooting Hang problems
+#### 示例2：解决挂起问题
 
-When writing modules, sometimes some bugs or bottlenecks are encountered, and the Trace tool can help users find the source of the problem.
+在编写模块时，有时会遇到一些bug或瓶颈，Trace工具可以帮助用户找到问题的根源。
 
-The following example occurs in the encoder module, and the graph seems to hang when executing. Since the graph is not executed, the tracelog is not generated. However, after using [trace_format_log](#trace_format_log), the tracelog will be constructed from and can be analyzed on Chrome Tracing:
+以下示例发生在编码器模块中，执行时Graph似乎被挂起。由于Graph未执行，因此不会生成tracelog。但是，使用 [trace_format_log](#trace_format_log)后，tracelog将由Chrome Tracing构建并可以在Chrome Tracing上进行分析：
 
 ![Hang problem troubleshoot](/img/docs/traceimg_example7.png)
 
-The basic Trace node is limited, but it can be seen which node (and module) did not complete the process_node. If you need further analysis, you can add a CUSTOM Trace node (using the Trace interface) from the function, and you can further see the process call of the process function after re-running:
+基本Trace节点的功能有限，但可以看到`process_node`未完成的节点（和模块）。如果需要进一步分析，可以从函数中添加一个`CUSTOM Trace`节点（使用Trace接口），这样就可以进一步查看重新运行后进程函数的进程调用情况：
 
 ![Hang problem troubleshoot](/img/docs/traceimg_example6.png)
 
-In this example, it can be seen that whenever there is a new video frame, the handle_video_frame function needs to process more than a thousand sync frames, resulting in a long execution time (it looks like hang).
+从这个例子中可以看出，每当有一个新的视频帧出现，`handle_vide_frame`函数都需要处理一千多个同步帧，导致执行时间过长（看起来像挂起）。
 
 ---
 
-### Trace type
+### Trace类型
 
-There are currently several Trace types available:
+目前有几种可用的Trace类型：
 
 | Type Name | Description |
 | --------- | ----------- |

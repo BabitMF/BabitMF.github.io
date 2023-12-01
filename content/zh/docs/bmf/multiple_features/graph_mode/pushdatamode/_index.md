@@ -1,19 +1,19 @@
 ---
-title: 'PushData Mode'
-linkTitle: 'PushData Mode'
+title: '推送数据模式'
+linkTitle: '推送数据模式'
 weight: 6
 ---
 
-The push data mode is also an important capability of BMF Graph. As the figure shown below, Generate Mode provides the ability to extract the processing result Frames of graph, and Push Mode provides the ability to "feed" the input of the graph.
+推送数据模式也是BMF Graph的一个重要能力。如下图所示，生成器模式提供提取Graph的处理结果帧的能力，推送模式提供“喂食”Graph的输入的能力。
 
 <img src="/img/docs/pushdata.png" style="zoom:100%;" />
 
 
-Users only need to pay attention to the node connection and operation logic of Graph, and keep filling packets to Graph.
+您只需要关注Graph的节点连接和运行逻辑，不断向Graph填充数据包即可。
 
-This mode is suitable for scenarios where the user's input source comes from other third-party libraries or some custom data types, and many custom processing operations that have nothing to do with the BMF framework need to be performed on the input.
+推送数据模式适用于用户的输入源来自其他第三方库或者一些自定义数据类型，需要对输入进行很多与BMF框架无关的自定义处理操作的场景。
 
-Let's show an example of using push data mode:
+下面展示一个使用推送数据模式的示例：
 
 ```
 @timeout_decorator.timeout(seconds=120)
@@ -48,9 +48,9 @@ def test_push_pkt_into_decoder(self):
 
 ```
 
-This example reads 5 fltp aac audio streams sequentially, uses push data mode to push them sequentially into the graph, and encodes them into aac.mp4 files.
+此示例顺序读取5个fltp aac音频流，使用推送数据模式将它们顺序推送到graph中，并将它们编码为aac.mp4文件。
 
-Let's look at another more complex video processing example:
+下面再看一下另外一个更加复杂的视频处理示例：
 
 ```
 def test_push_raw_stream_into_decoder(self):
@@ -112,4 +112,4 @@ def test_push_raw_stream_into_decoder(self):
 
 ```
 
-This example implements a processing pipeline that decodes the raw 264 stream in push data mode and re-encodes it inside the graph. In the code, we first build a graph and then read the raw stream. Video_content.txt stores the binary content of the code stream. Video_length.txt stores the size of each packet in turn. In the graph options, we open the push_raw_stream switch, which will make the decoder perceive that the packets you will fill in are in raw stream format.
+此示例实现了一个处理管道，该管道以推送数据模式解码原始264流并在graph内重新编码。在代码中，我们首先构建一个graph，然后读取原始流。`video_content.txt`存储码流的二进制内容。 `video_length.txt`存储每个数据包的大小。在图形选项中，我们打开`push_raw_stream`开关，这将使解码器感知到您将填写的数据包是原始流格式。

@@ -1,17 +1,17 @@
 ---
-title: 'Dynamic Graph'
-linkTitle: 'Dynamic Graph'
+title: '动态Graph'
+linkTitle: '动态Graph'
 weight: 4
 ---
 
-Dynamic graph in BMF is a feature to allow nodes in the graph to be added/removed/configured at the running time almost without performance penalty and block other running nodes. That means the graph built at the beginning can be changed on the fly as below:
+BMF中的动态Graph是一种允许在运行时添加/删除/配置Graph中node的功能，几乎不会对性能造成影响，也不会阻塞其它正在运行的node。这意味着，开始时构建的Graph可以如下图所示在运行中更改：
 <img src="/img/docs/dynamic_graph.png" style="zoom:50%;" />
 
-The demo and test based dynamic graph can be found in `bmf/demo/broadcaster/`, `bmf/test/dynamical_graph/`.
+基于动态Graph的demo和test可以在`bmf/demo/broadcaster/`，`bmf/test/dynamical_graph/`中查看。
 
 
 
-### Related interfaces:
+### 相关接口：
 
 dynamic_add()
 
@@ -23,9 +23,9 @@ update()
 
 run_wo_block()
 
-Example program: \ref dynamical_graph.py
+示例程序：\ref dynamical_graph.py
 
-### Dynamic increase:
+### 动态增加：
 
 ```python
 main_graph = bmf.graph()
@@ -38,9 +38,9 @@ passthru = bmf.module([video1['video'], video1['audio']], 'pass_through',
             "", "", "immediate")
 passthru. run_wo_block()
 ```
-main_graph is used as the initially created graph, and an "alias" tag is added to each module in the graph for subsequent dynamic increase of associated usage.
+main_graph作为初始创建的graph，对于graph中的每个模块加入“aliias”标记，用于后续动态增加关联使用。
 
-When the initial graph is running, you can use run_wo_block() as a non-blocking call, or you can use run() to block the call, but you need to start another thread to support dynamic operations.
+初始graph运行时可以使用run_wo_block()非阻塞调用，也可以使用run()阻塞调用但需要启用另外的线程支持动态操作。
 
 ```python
 update_decoder = bmf.graph()
@@ -54,18 +54,18 @@ outputs = {'alias': 'pass_through', 'streams': 2}
 update_decoder.dynamic_add(video2, None, outputs)
 main_graph. update(update_decoder)
 ```
-Dynamically adding nodes needs to specify the input stream, output stream and its own configuration to be added, and finally use the update() interface to perform actual operations.
+动态添加节点需要明确要增加节点的输入流、输出流以及自身的配置，最后使用update()接口执行实际的操作。
 
-### Dynamic deletion:
+### 动态删除：
 
 ```python
 remove_graph = bmf.graph()
 remove_graph.dynamic_remove({'alias': 'decoder1'})
 main_graph. update(remove_graph)
 ```
-Dynamic deletion only needs to specify the alias of the node to be deleted.
+动态删除只需要指定要删除节点的alias即可。
 
-### Dynamic configuration:
+### 动态配置：
 
 ```python
 main_graph. update(remove_graph)
@@ -84,8 +84,8 @@ reset_graph = bmf.graph()
 reset_graph. dynamic_reset(option)
 main_graph. update(reset_graph)
 ```
-Dynamic configuration only needs to write the node alias and specific parameters to be configured as variables in json format as parameters of dynamic_reset().
+动态配置只需要把需要配置的节点alias和具体参数写成json格式的变量，作为dynamic_reset()的参数即可。
 
-### Callback method:
+### 回调方式：
 
-Some application scenarios need to decide when to dynamically add, delete, and configure in certain module nodes. In this case, the callback mechanism of BMF can be used to cooperate. For details, see test_dynamical_graph_cb() of the example program.
+有些应用场景需要在某些模块节点中决定什么时候去动态的增删和配置，这种情况可以用BMF的回调机制去配合实现，详见示例程序：test_dynamical_graph_cb()。

@@ -1,29 +1,29 @@
 ---
-title: 'FFmpeg Fully Compatible'
-linkTitle: 'FFmpeg Fully Compatible'
+title: '完全兼容FFmpeg'
+linkTitle: '完全兼容FFmpeg'
 weight: 2
 ---
 
-## FFmpeg Fully Compatible
+## 完全兼容FFmpeg
 
-BMF is full compatible with capabilities of FFmpeg. FFmpeg is well known in the industry by rich features about AV demux, decode, filter, encode, mux, etc.
-BMF implements buildin modules and combined flexible API to Python, C++, Go user to apply FFmpeg capabilities into their own solution.
+BMF与FFmpeg的能力完全兼容。FFmpeg以其丰富的AV解封装、解码、filter、编码、封装等能力而闻名业界。
+BMF为Python、C++、Go用户提供了内置模块和灵活的API，以便将FFmpeg能力应用到自己的解决方案中。
 
-### Environment
-FFmpeg library is needed, the supported version and installation details can be found in Getting Started -> Install.
+### 环境
+需要使用FFmpeg库，支持的版本和安装详情可在开始使用->安装部署中找到。
 
 
-### Capabilities
+### 能力
 - demux + decode
 - filter
 - encode + mux
 
-The parameter details can be found in API->Built-in Decode Module, API->Built-in Filter Module and API->Built-in Encode Module.
+详细参数可以在API->内置解码模块，API->内置filter模块和API->内置编码模块中找到。
 
-### How To Use
-Some typical examples will show the way to use BMF in media processing senario.
-#### Decode Only
-The example below decode a media file only:
+### 如何使用
+下面用一些经典的示例来展示在多媒体处理场景中使用BMF的方法。
+#### 仅解码
+下方示例仅解码了一个多媒体文件：
 ```python
         import bmf
 
@@ -47,8 +47,8 @@ The example below decode a media file only:
         )
 ```
 
-#### Transcode
-In order to parallel modules, the encode module will be apply in scheduler 1 while decode and others in scheduler 0 by default.
+#### 转码
+为了实现模块并行，编码模块将应用于scheduler 1，而解码和其他模块默认应用于scheduler 0。
 
 ```python
         import bmf
@@ -90,9 +90,9 @@ In order to parallel modules, the encode module will be apply in scheduler 1 whi
         )
 ```
 
-BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and `"codec": "hevc_nvenc"` to use GPU for decoding and encoding. Check out the [gpu transcoding section](http://babitmf.github.io/docs/bmf/multiple_features/gpu_hardware_acc/gpu_transcoding) for more details.
+BMF也支持FFmpeg GPU编解码器。例如，您可以设置 `"hwaccel"： "cuda"`和`"codec"： "hevc_nvenc"`来使用 GPU进行解码和编码。详情请参阅[GPU转码章节](http://babitmf.github.io/docs/bmf/multiple_features/gpu_hardware_acc/gpu_transcoding)。
 
-#### Image Encode
+#### 图像编码
 ```python
         import bmf
 
@@ -117,7 +117,7 @@ BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and 
         )
 ```
 
-#### Stream Copy
+#### 复制Stream
 ```python
         import bmf
 
@@ -137,7 +137,7 @@ BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and 
         }).run()
 ```
 
-#### Using FFmpeg Filters by Parameter
+#### 通过参数使用FFmpeg Filter
 ```python
     import bmf
 
@@ -155,10 +155,10 @@ BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and 
     graph.run()
 ```
 
-BMF also supports ffmpeg CUDA filters, calling ffmpeg CUDA filters are quite similar to calling CPU filters, except that you need to be careful about where the data resides. Please refer to the [gpu filter section](http://babitmf.github.io/docs/bmf/multiple_features/gpu_hardware_acc/gpu_filtering) for more details.
+BMF还支持ffmpeg CUDA fliter，调用ffmpeg CUDA fliter和调用CPU fliter非常相似，只需要注意数据的位置。详情请参阅[gpu filter章节](http://babitmf.github.io/docs/bmf/multiple_features/gpu_hardware_acc/gpu_filtering)。
 
-#### Using Module Capability Directly (Sync Mode)
-User can integrate thoes capabilities of module into their own project. For exp. to get a yuv frame decoded, or encode a yuv frame by calling encode()
+#### 直接使用模块能力（Sync Mode）
+用户可以将模块的能力集成到自己的项目中。例如，通过调用`encode()`来解码`yuv`帧或编码`yuv`帧.
 ```python
         import bmf
 
@@ -211,14 +211,14 @@ User can integrate thoes capabilities of module into their own project. For exp.
         decoder.close()                                                                                          scale.close()                                                                                            encoder.close()
 ```
 
-#### Other Reference
-There are also a lot of examples in test_transcode.py, test_sync_mode.py, etc. Please refer those sample code if needed.
+#### 其它参考
+在`test_transcode.py`、`test_sync_mode.py`等文件中也有很多示例。如有需要，请参考这些示例代码。
 
 
-### Tools
-BMF provides some useful tools to help developer to debug, compare, quick verification, etc.
-#### Run Graph
-After the app run with "{'dump_graph': 1}", for example in [Transcode](#transcode), a json decription will be dump into a file original_graph.json as below:
+### 工具
+BMF提供了一些有用的工具，帮助开发人员进行调试、比较和快速验证等。
+#### 运行Graph
+app运行“{'dump_graph': 1}”后，例如在[转码](#transcode)中，json描述将转储到文件`original_graph.json`中，如下所示：
 ```python
 {
     "input_streams": [],
@@ -372,12 +372,12 @@ After the app run with "{'dump_graph': 1}", for example in [Transcode](#transcod
 }
 ```
 
-Users can check some details and modify it if they know what are they doing, and also the json graph can be run directly:
+如果您知道自己正在做什么，可以查看一些细节并进行修改，还可以直接运行json graph：
 ```bash
 $ run_bmf_graph original_graph.json
 ```
 
-#### Convert to FFmpeg Command Line
+#### 转换为FFmpeg命令行
 ```python
 import bmf
 

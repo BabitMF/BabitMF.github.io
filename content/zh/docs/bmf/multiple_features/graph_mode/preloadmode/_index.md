@@ -1,12 +1,12 @@
 ---
-title: 'Preload Mode'
-linkTitle: 'Preload Mode'
+title: '预加载模式'
+linkTitle: '预加载模式'
 weight: 4
 ---
 
-In this example, a \ref analysis.py is used
+这个例子中用了一个`analysis.py`。
 
-When the application scenario requires preloading mode, initialize it first:
+当应用场景需要预加载模式，首先初始化：
 
 **Python**
 ```python
@@ -21,7 +21,7 @@ nlohmann::json pre_module_option = {
 auto pre_module = bmf::builder::GetModuleInstance("analysis", pre_module_option.dump());
 ```
 
-Then you can use it directly:
+然后就可以直接使用：
 
 **Python**
 ```python
@@ -34,4 +34,4 @@ auto analyzed = output.PythonModule({}, "analysis", bmf_sdk::JsonParam());
 analyzed. SetPreModule(pre_module);
 ```
 
-If you need the complete code, you can refer to [test_pre_module.py](#tbytodo-1) (Python) or  [c_mode.cpp](#tbytodo-2)
+如果您需要完整代码，请参阅`test_pre_module.py`或`c_mode.cpp`

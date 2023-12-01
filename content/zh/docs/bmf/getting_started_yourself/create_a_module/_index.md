@@ -1,26 +1,26 @@
 ---
-title: 'Create a Module'
+title: '创建模块'
 linkTitle: ''
 weight: 4
 menu:
   main:
     weight: 4
-    parent: 'Getting started'
+    parent: '开始使用'
 ---
 
-## Built-in modules
+## 内置模块
 
-BMF's built-in modules include commonly used video processing modules, which can be directly used by developers to implement video applications, including FFmpeg-based decoder, filter and encoder modules, and many more gpu processing modules. For detailed descriptions of built-in modules, see [ffmpeg_fully_compatible](https://babitmf.github.io/docs/bmf/multiple_features/ffmpeg_fully_compatible/)<!-- and [gpu_modules_introduction]()-->.
+BMF的内置模块包括常用的视频处理模块，开发者可以直接使用这些模块来实现视频应用，包括基于FFmpeg的解码器、filter和编码器模块，以及更多GPU处理模块。有关内置模块的详细说明，请参阅[ffmpeg_fully_compatible](https://babitmf.github.io/docs/bmf/multiple_features/ffmpeg_fully_compatible/)<!-- and [gpu_modules_introduction]()-->.
 
-## Custom Module Development
+## 定制模块开发
 
- If you want to develop your own modules, please follow these instructions.
+ 如果您想开发自己的模块，请遵循以下说明。
 
-C++, python and go modules are now supported. You can write a module with anyone and call it in any language. For each language, we provide a minimized example here. In this part. You can try it on  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/customize_module/bmf_customize_demo_latest.ipynb)
+目前支持Python、C++、go模块。您可以使用任意语言编写模块，也可以使用任意语言调用模块。对于每种语言，我们都在这里提供了一个最小化示例。快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/customize_module/bmf_customize_demo_latest.ipynb)
 
-### python module
+### python模块
 
-Create a `my_python_module` directory and write the following python code into `my_python_module/my_module.py`. 
+创建一个`my_python_module`目录并在`my_python_module/my_module.py`中编写以下Python代码：
 
 ```Python
 from bmf import Module, Log, LogLevel, InputType, ProcessResult, Packet, Timestamp, scale_av_pts, av_time_base, \
@@ -58,9 +58,9 @@ class my_module(Module):
         return ProcessResult.OK
 ```
 
-### c++ module
+### C++模块
 
-Implement your own c++ class, inheriting from [the Module base class](/docs/bmf/api/api_in_cpp/module/). In the simplest case, you just need to implement the process method. Create a `my_cpp_module` directory and write the following c++ code into `cpp_copy_module/copy_module.h`: 
+实现您自己的C++类，继承自[the Module base class](/docs/bmf/api/api_in_cpp/module/)。在最简单的情况下，您只需要实现process方法。创建一个`my_cpp_module`目录，并在`cpp_copy_module/copy_module.h`中编写以下C++代码：
 
 ```C++
 #ifndef BMF_COPY_MODULE_H
@@ -130,9 +130,9 @@ int CopyModule::process(Task &task) {
 REGISTER_MODULE_CLASS(CopyModule)
 ```
 
-### go module
+### go模块
 
-Create a directory named `pass_through_module` and write the following go code into `pass_through_module/pass_through.go`.
+创建一个名为`pass_through_module`的目录，并在`pass_through_module/pass_through.go`编写以下go代码：
 
 ```Go
 package main
@@ -240,13 +240,13 @@ func ConstructorRegister() {
 func main() {}
 ```
 
-## Module building
+## 模块建立
 
-Once you've developed a module, compile it first for C++ and Go modules. For Python modules, no additional actions are needed.
+开发模块后，对于C++和go模块，首先要将其编译。对于Python模块，无需额外的操作。
 
-### c++ module
+### C++模块
 
-Then write this part of cmake code to the file named `cpp_copy_module/CMakeLists.txt`:
+然后将这部分cmake代码写入名为`cpp_copy_module/CMakeLists.txt`的文件中：
 
 ```Bash
 file(GLOB SRCS *.cc *.h)
@@ -265,7 +265,7 @@ set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
 install(TARGETS copy_module)
 ```
 
-Compile it next:
+接下来编译它：
 
 ```Bash
 if [ -d build ]; then rm -rf build; fi
@@ -274,7 +274,7 @@ cmake --build build
 cmake --install build
 ```
 
-### go module
+### go模块
 
 ```bash
 go mod init test
@@ -282,9 +282,9 @@ go mod tidy
 go build -buildmode c-shared -o pass_through_module/lib/go_pass_through.so pass_through_module/pass_through.go
 ```
 
-## Module installing
+## 模块安装
 
-Next, install the module using `module_manager`:
+接下来，使用`module_manager`安装这个模块：
 
 ```bash
 # installing python module
@@ -295,21 +295,21 @@ module_manager install cpp_copy_module c++ libcopy_module:CopyModule $(pwd)/cpp_
 module_manager install go_pass_through go go_pass_through:PassThrough $(pwd)/pass_through_module/lib v0.0.1
 ```
 
-You can also uninstall modules named `mymodule`with:
+您也可以使用以下命令卸载名为`mymodule`的模块：
 
 ```bash
 module_manager uninstall mymodule
 ```
 
-## Module Listing and Dumping
+## 模块列表和转储
 
-To list all modules installed locally, using `module_manager list` without any args:
+使用不带任何参数的`module_manager list`列出本地安装的所有模块：
 
 ```bash
 module_manager list
 ```
 
-You can also dump the information for each module using the following command:
+您还可以使用以下命令转储每个模块的信息：
 
 ```bash
 module_manager dump ${module_name}
