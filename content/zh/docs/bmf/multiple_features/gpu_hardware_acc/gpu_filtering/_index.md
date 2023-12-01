@@ -1,33 +1,33 @@
 ---
-title: 'GPU Hardware Filtering'
-linkTitle: 'GPU Hardware Filtering'
+title: 'GPU硬件过滤'
+linkTitle: 'GPU硬件过滤'
 weight: 2
 ---
 
-# Use NVIDIA GPU to accelerate image filtering in BMF
+# 在BMF中使用NVIDIA GPU加速图像过滤
 
-Besides the GPU decoding and encoding examples, there are also examples showing how to combine the FFmpeg CUDA filters in the BMF in the `gpu_transcode` folder, including
-- Transcode with scale_cuda filter
-- Transcode with hwupload filter
-- Transcode with scale_npp filter
-- Transcode with yadif filter
-- Transcode with overlay_cuda filter
+除了GPU编解码示例外，还有一些示例展示了如何在`gpu_transcode`文件夹的BMF中组合FFmpeg CUDA filter，包括
+- 使用scale_cuda filter进行转码
+- 使用hwupload filter进行解码
+- 使用scale_npp filter进行解码
+- 使用yadif filter进行解码
+- 使用overlay_cuda filter进行解码
 
-## Transcode with FFmpeg CUDA filters
+## 使用FFmpeg CUDA filter进行解码
 
-There are many CUDA filters in the FFmepg that can be used in the BMF through `ff_filter`. Using CUDA filters eliminates the copy overhead exits in the CPU filters when we are using GPU transcoding.
+FFmpeg中有许多CUDA filter，可通过`ff_filter`在BMF中使用。在使用GPU转码时，使用CUDA filter可以消除CPU filter中存在的复制开销。
 
-Using these filters is really simple. Just pass filter'name and paramters to the `ff_filter`. But you should be careful about where the data reserved. For example, in the `test_gpu_transcode_with_overlay_cuda()`, the logo is png and is decoded and processed in the CPU. The video is decoded by the GPU so the frames are in the GPU. Because we will use CUDA filters and GPU encoding, we should upload the result of logo to the GPU. Here we use hwupload_cuda filter.
+使用这些fliter非常简单。只需将filter名称和参数传递给`ff_filter`。但要注意保留数据的位置。例如，在`test_gpu_transcode_with_overlay_cuda()`中，logo是png格式，由CPU解码和处理。视频由GPU解码，因此帧在GPU中。由于我们将使用CUDA fliter和GPU编码，我们应该将logo的结果上传到GPU。这里我们使用hwupload_cuda filter。
 
-## BMF GPU modules
-As FFmpeg only provides a few GPU filters, we implemented some common GPU filter modules which are missing in FFmpeg but should be useful, namely
+## BMF GPU模块
+由于FFmpeg只提供了少量的GPU filter，我们实现了一些FFmpeg中缺少但有用的常用GPU filter模块，即
 - resize
 - flip
 - rotate
 - crop
 - blur
 
-These modules are located in `bmf/demo/gpu_module`. A simple sample code to run these modules:
+这些模块位于`bmf/demo/gpu_module`。用一个简单的示例代码来运行这些模块：
 
 ```Python
 import bmf
@@ -66,8 +66,8 @@ if __name__ == '__main__':
     test()
 ```
 
-The module accepts both CPU and GPU frames. The frames can be of rgb or yuv formats in 8 or 10 bits, except that 422 chroma subsampling is not supported.
+该模块可接受CPU和GPU帧。帧可以是8位或10位的rgb或yuv格式，但不支持422色度子采样。
 
-Note that for the `rotate_gpu` module, it is recommended to use rgb as inputs rather than yuv, as the module will fill the blank area with 0 after rotation. (0, 0, 0) in yuv is actually green in rgb, meaning yuv images may have a green background after the rotation.
+请注意，对于`rotate_gpu`模块，建议使用rgb而不是yuv作为输入，因为模块会在旋转后将空白区域填充为0。yuv中的(0, 0, 0)在rgb中实际上是绿色的，这意味着旋转后yuv图像的背景可能是绿色的。
 
-If you need more details on the options of these modules, please refer to the [API documents](http://babitmf.github.io/docs/bmf/api/filter_module/).
+如果您需要更多有关这些模块选项的详细信息，请参阅[API文档](http://babitmf.github.io/docs/bmf/api/filter_module/)。

@@ -1,14 +1,14 @@
 ---
-title: 'Subgraph Mode'
-linkTitle: 'Subgraph Mode'
+title: '子图模式'
+linkTitle: '子图模式'
 weight: 5
 ---
 
-If you need to use subgraph, you can refer to the following example.
+如果您需要使用subgraph，可以参考以下示例。
 
-## Build Subgraph
+## 构建Subgraph
 
-See \ref subgraph_module.py for detailed reference to how subgraph is built. This example first makes the original video a vertical flip, and then overlays an image.
+若需要详细参考subgraph的构建，请参阅`subgraph_module.py`。这个例子先把原来的video做vertical flip，然后再overlay一个image。
 
 ```python
 from bmf import SubGraph
@@ -18,7 +18,7 @@ class subgraph_module(SubGraph):
          # Build subgraph here
 ```
 
-When building a subgraph, you need to enter the name of the input streams into Subgraph's ```self.inputs```:
+构建subgraph时，需要把input streams名称输入Subgraph的 ```self.inputs```：
 
 ```python
 # input stream name, used to fill packet in
@@ -26,18 +26,18 @@ self.inputs.append('video')
 self.inputs.append('overlay')
 ```
 
-After that, you need to output the output streams:
+之后，需要把output streams输出：
 ```python
 # finish creating graph
 self. output_streams = self. finish_create_graph([output_stream])
 ```
 
-## Using Subgraphs
+## 使用子图
 
-The method of using subgraph is similar to other modules:
+使用子图的方法与其它模块类似：
 
 ```python
 bmf.module([video['video'], overlay['video']], 'subgraph_module')
 ```
 
-If you need the complete code, you can refer to [test_subgraph.py](#tbytodo)
+如果您需要完整代码，请参阅`test_subgraph.py`

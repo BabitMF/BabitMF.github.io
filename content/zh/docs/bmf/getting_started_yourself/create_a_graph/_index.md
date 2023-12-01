@@ -1,15 +1,15 @@
 ---
-title: 'Create a Graph'
+title: '创建Graph'
 linkTitle: ''
 weight: 2
 menu:
   main:
     weight: 2
-    parent: 'Getting started'
+    parent: '开始使用'
 ---
 
 
-This page describes the basic usage of BMF. To start, you need to build a graph:
+本节介绍BMF的基本用法。首先，您需要构建一个Graph：
 
 ```python
 import bmf
@@ -17,7 +17,7 @@ import bmf
 graph = bmf.graph()
 ```
 
-After the Graph is initialized, decode the input video:
+Graph初始化后，解码输入视频：
 
 ```python
 video = graph.decode({
@@ -25,7 +25,7 @@ video = graph.decode({
 })
 ```
 
-Separate the previously decoded ```video['video']``` and ```video['audio']``` for transcoding, and ```run``` will start to validate and execute the entire graph Build and execute. Output a video file after completion:
+将之前解码的```video['video']```和```video['audio']```分别进行转码，```run```将会开始验证并执行整个graph建立并执行。完成后输出视频文件：
 
 ```python
 bmf.encode(

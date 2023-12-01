@@ -1,26 +1,26 @@
 ---
-title: 'Data Convert Backend'
-linkTitle: 'Data Convert Backend'
+title: '数据转Backend'
+linkTitle: '数据转Backend'
 weight: 3
 ---
 
-## BMF Data Convert Backend
+## BMF数据转Backend
 
-### Background
-An all-in-one solution is needed when multiple dimension factors are involved in video process pipeline such as CPU/GPU devices, YUV420/NV12 or RGB24/RGB48, and AVFrame or Torch structure.
-As a framework, each module just focuses on its own target and data requirement, but it becomes complex when multiple modules work together as below supper resolution pipeline:
+### 背景
+当视频处理pipeline涉及多个维度因素（例如CPU/GPU设备、YUV420/NV12或RGB24/RGB48、AVFrame或Torch结构）时，需要一个一体化的解决方案。
+作为一个框架，每个模块只关注自己的目标和数据要求。但是当多个模块协同工作时，情况会变得复杂，如下图所示的超分pipeline：
 <img src="/img/docs/backend.png" style="zoom:50%;" />
 
-We can see that different modules have their own data requirements. The decode module outputs FFmpeg AVFrame in YUV420 pixel format, which is located on the CPU memory. The Trt SR module requires that the input data is an RGB24 torch after hardware acceleration and is located on the GPU memory. For SR through the Trt module, the output data needs to be encoded by the GPU, so the HW encode module can get AVFrame with NV12 pixel format located on the GPU memory and encode it by the GPU.
+如图所示，不同的模块有它们各自的数据要求。解码模块以YUV420像素格式输出FFmpeg AVFrame，位于CPU内存中。Trt SR模块要求输入数据是硬件加速后的RGB24火炬，位于GPU内存中。通过Trt模块实现SR时，输出数据需要由GPU进行编码，因此HW编码模块可以获取位于GPU内存中的NV12像素格式的AVFrame并由GPU进行编码。
 
-It tends to include the capabilities of video data conversion below:
-- pixel format and color space
-- devices between CPU and GPU
-- different media types such as avframe, cvmat and torch
+它往往包含以下视频数据转换能力：
+- 像素格式和色彩空间
+- CPU和GPU之间的设备
+- 不同的媒体类型，例如avframe、cvmat和torch
 
-Currently, the backend interface is under testing and demo integration. The fully unified and easy to use interface and examples for both C++ and Python will be released soon.
+目前，后端接口正在测试和demo集成当中。完全统一且易用的Python和C++接口和示例将很快发布。
 
-### C++ Interface
+### C++接口
 
 ```c++
 /** @addtogroup bmf_backend_convert
@@ -32,11 +32,11 @@ Currently, the backend interface is under testing and demo integration. The full
 BMF_API VideoFrame bmf_convert(VideoFrame& src_vf, const MediaDesc &src_dp, const MediaDesc &dst_dp);
 ```
 
-This interface allows the conversion of a source VideoFrame to a destination VideoFrame. If the media_type in the source MediaDesc is different from the media_type in the destination MediaDesc, it indicates that the conversion will involve the transformation between VideoFrame and a third-party data structure. Accessing the third-party data structure requires the use of the private_attach and private_get methods of the VideoFrame. 
+该接口允许将源VideoFrame转换为目标V​​ideoFrame。如果源MediaDesc中的media_type与目标MediaDesc中的media_type不同，则表示该转换将涉及VideoFrame与第三方数据结构之间的转换。访问第三方数据结构需要使用VideoFrame的private_attach和private_get方法。
 
-#### VideoFrame scale and colorspace conversion
+#### VideoFrame scale和colorspace conversion
 
-use `bmf_convert` do scale and csc
+使用`bmf_convert`进行scale和CSC。
 
 ```c++
     MediaDesc dp;
@@ -50,35 +50,34 @@ use `bmf_convert` do scale and csc
 
 ```
 
-#### Device memory transfer
-Samples show how to transfer the input video frame memory on GPU memory.
+#### 设备内存传输
+以下示例展示了如何将输入视频帧内存传输到GPU内存：
 ```c++
     MediaDesc dp;
     dp.device(hmp::Device("gpu")); // or hmp::Device("cpu")
     auto dst_vf = bmf_convert(src_vf, MediaDesc{},  dp);
 ```
 
-#### Conversion between VideoFrame and third-party data structure
+#### VideoFrame和第三方数据结构之间的转换
 
-BMF support the following types of third-party structure conversion with VideoFrame
+BMF支持以下第三方数据结构与VideoFrame的转换：
 
 1. FFmpeg AVFrame
 2. Opencv cv::Mat
 3. libtorch at::Tensor
 
-Here, FFmpeg AVFrame is used as an example to illustrate the conversion. Other types of conversions can be referred to in the `test_convert_backend.cpp`.
+以FFmpeg AVFrame为例来说明转换过程。其他类型的转换可以参考`test_convert_backend.cpp`。
 
-##### VideoFrame to ffmpeg AVFrame
+##### VideoFrame转ffmpeg AVFrame
 
-1. include <bmf/sdk/av_convertor.h>, this will register AVConvertor for AVFrame
-2. dst_dp set media_type with value MediaType::kAVFrame
-3. do `bmf_convert`, check if the return VideoFrame is a valid VideoFrame
-4. use `private_get<AVFrame>` to get the AVFrame pointer from the return VideoFrame.
+1. include <bmf/sdk/av_convertor.h>，这将为AVFrame注册AVConvertor
+2. dst_dp设置media_type值为MediaType::kAVFrame
+3. 执行`bmf_convert`，检查返回的VideoFrame是否是有效的VideoFrame
+4. 使用private_get<AVFrame>从返回的VideoFrame获取AVFrame指针
 
-It is important to note that the lifecycle of the structure pointed to by the pointer obtained from private_get is managed by the VideoFrame to which it belongs.
+需要注意的是，从private_get获取的指针指向的结构体的生命周期由其所属的VideoFrame管理。
 
-some example code snippet：
-
+一些示例代码片段：
 ```c++
     #include <bmf/sdk/av_convertor.h>
 
@@ -97,14 +96,14 @@ some example code snippet：
 
 ```
 
-##### AVFrame to VideoFrame
+##### AVFrame转VideoFrame
 
-1. use `private_attach` set AVFrame as private_data of VideoFrame
-2. src_dp set media_type with value MeidaType::kAVFrame
-3. use `bmf_convert` doing convert
-4. get the return VideoFrame
+1. 使用`private_attach`将AVFrame设置为VideoFrame的private_data
+2. src_dp设置media_type值为MeidaType::kAVFrame
+3. 使用`bmf_convert`进行转换
+4. 获取返回的VideoFrame
 
-some example code snippet：
+一些示例代码片段：
 
 ```c++
     VideoFrame src_with_avf;
@@ -116,10 +115,10 @@ some example code snippet：
 ```
 
 
-### Python Interface
-The unified `bmf_convert` as C++ will be designed and implemented later.
+### Python接口
+与C++相统一的`bmf_convert`将在以后设计和实现。
 
-#### Scale and colorspace conversion
+#### Scale和colorspace conversion
 
 `bmf.hml.hmp.img.rgb_to_yuv`
 
@@ -131,7 +130,7 @@ The unified `bmf_convert` as C++ will be designed and implemented later.
 
 `bmf.hml.hmp.img.rotate`
 
-Sample code:
+示例代码：
 
 
 ```python
@@ -145,16 +144,16 @@ Sample code:
     mp.img.rgb_to_yuv(out_vf.frame().data(), src_vf.frame().plane(0), NV12, mp.kNHWC)
 ```
 
-#### Device memory transfer
-Interface used:
+#### 设备内存传输
+接口使用：
 
-`VideoFrame.frame().device()` gets the Device property
+`VideoFrame.frame().device()`：获取设备属性
 
-`VideoFrame.cuda()` moves the memory data on cuda memory
+`VideoFrame.cuda()`：将内存数据移动到CUDA内存上
 
-`VideoFrame.cpu()` moves the memory data on cpu memory
+`VideoFrame.cpu()`：将内存数据移动到CPU内存上
 
-Sample code:
+示例代码：
 ```python
     from bmf import *
     import bmf.hml.hmp as mp
@@ -163,17 +162,17 @@ Sample code:
         vf = vf.cuda()
     #...
 ```
-#### Conversion between VideoFrame and third-party data structure
-In python API, those types of third-party data type are supported:
-- VideoFrame, which is the general class of video frame in BMF. And `VideoFrame` includes `Frame` as member
+#### VideoFrame和第三方数据结构之间的转换
+Python API支持以下类型的第三方数据结构：
+- VideoFrame，BMF中视频帧的通用类。`VideoFrame`包含`Frame`作为成员
 - numpy
 - torch
 
-`bmf.hml.hmp.Frame.numpy` converts a BMF Frame to numpy, and Frame can be included in VideoFrame
+`bmf.hml.hmp.Frame.numpy`将BMF Frame转换为numpy，并且Frame可以包含在VideoFrame中。
 
 `bmf.hml.hmp.Frame.from_numpy`
 
-Sample code
+示例代码：
 ```python
     from bmf import *
     import numpy as np
@@ -187,13 +186,13 @@ Sample code
     np2 = vf.frame().plane(2).numpy()
 ```
 
-For bellow interface, Torch Enabled BMF is needed by compile, please reference "Install" section.
+对于以下接口，编译时需要使用支持Torch的BMF，请参阅“安装部署”部分。
 
-`bmf.hml.hmp.from_torch` convert a torch into bmf Frame
+`bmf.hml.hmp.from_torch`：将torch转换为bmf Frame
 
-`bmf.hml.hmp.torch` convert bmf Frame to torch
+`bmf.hml.hmp.torch`：将bmf Frame转换为torch
 
-Sample code:
+示例代码：
 ```python
     from bmf import *
     import torch

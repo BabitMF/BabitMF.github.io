@@ -1,18 +1,18 @@
 ---
-title: 'GPU Hardware Transcoding'
-linkTitle: 'GPU Hardware Transcoding'
+title: 'GPU硬件转码'
+linkTitle: 'GPU硬件转码'
 weight: 1
 ---
 
-# How to use NVIDIA GPU to accelerate video transcoding
+# 如何使用NVIDIA GPU加速视频转码
 
-NVIDIA GPUs have one or more hardware-based decoder and encoders which provide fully-accelerated hardware-based video decoding and encoding for several popular codecs.
+NVIDIA GPU具有一个或多个基于硬件的解码器和编码器，可以为多种流行的编解码器提供全加速的基于硬件的视频解码和编码。
 
-Nowadays, many video processings rely on deep learning methods. The deep learning models usually run on the NVIDIA GPUs and libraries developed by NVIDIA. So, transferring the decoding and encoding from CPU to GPU can obtain benefit in such cases. One obvious benefit is that we can reduce the copy overhead between CPU and GPU.
+如今，许多视频处理都依赖于深度学习方法。深度学习模型通常运行在NVIDIA GPU和NVIDIA开发的库上。因此，在这种情况下，将解码和编码从CPU转移到GPU可以获得好处。一个明显的好处是我们可以减少CPU和GPU之间的复制开销。
 
-In the `gpu_transcode` folder, we provide various examples to show how to use GPU decoding and encoding as well as how to combine the FFmpeg CUDA filters in the BMF.
+在`gpu_transcode`文件夹，我们提供了多种示例来展示如何使用GPU解码和编码以及如何在BMF中结合FFmpeg CUDA filter。
 
-The examples are listed below. We will explain them in detail.
+下方列出了示例。我们将详细解释它们。
 
 - Decode videos
 - Decode videos using multiple threads
@@ -22,32 +22,32 @@ The examples are listed below. We will explain them in detail.
 - Transcode 1 to n
 - Transcode using multiple threads
 
-## Decode
+## 解码
 
-In the BMF, enabling GPU decoding is really simple. What you need to do is to add `"hwaccel": "cuda"` to the `"video_params"`.
+在BMF中启用GPU解码非常简单。您只需要将`"hwaccel": "cuda"`添加到`"video_params"`。
 
-You should note that if you use GPU to decode videos, the decoded frames are in the GPU memory. So if you want to manipulate them at the cpu side, don't forget to copy these frames into cpu memory. In the BMF, you can set GPU decoding followed by a `cpu_gpu_trans_module` or followed by a `hwdownload` filter.
+注意，如果您使用GPU解码视频，则解码后的帧位于GPU内存中。所以如果您想在CPU端操作它们，不要忘记将这些帧复制到CPU内存中。在BMF中，您可以设置GPU解码，后跟`cpu_gpu_trans_module`或后跟`hwdownload` filter。
 
-See more details in the `test_gpu_decode()`.
+更多详细信息请参阅`test_gpu_decode()`。
 
-## Encode
+## 编码
 
-In the BMF, you can add `"codec": "h264_nvenc"` or `"codec": "hevc_nvenc"` in the encode module's `video_params` to enable GPU encoding. If the inputs of the encoder are in the GPU memory, you should add `"pix_fmt": "cuda"` to the `video_params`.
+在BMF中，您可以在编码模块的`video_params`中添加`"codec": "h264_nvenc"`或`"codec": "hevc_nvenc"`以启用GPU编码。如果编码器的输入位于GPU内存中，您应该在`video_params`添加`"pix_fmt": "cuda"`。
 
-See more details in the `test_gpu_encode()` and `test_gpu_transcode()`.
+更多详细信息请参阅`test_gpu_encode()`和`test_gpu_transcode()`。
 
-## Transcode
+## 转码
 
-For GPU transcoding, you should combine the GPU encoding and GPU encoding mentioned before. Since all the intermediate data are in the GPU memory, we don't need to consider extra copying any more.
+对于GPU转码，应该将前面提到的GPU编码和GPU编码结合起来。所有中间数据都在GPU内存中，因此不需要再考虑额外的复制。
 
-See more details in the `test_gpu_transcode()`.
+更多详细信息请参阅`test_gpu_transcode()`。
 
-`test_gpu_transcode_1_to_n()` shows that BMF can transcode one video to several videos at the same time. Just add more encode modules with different parameters after the same decode module.
+`test_gpu_transcode_1_to_n()`展示了BMF可以将一个视频同时转码为多个视频。只需要在同一个解码模块之后添加更多具有不同参数的编码模块即可。
 
-## Multiple threads and multiple processes
+## 多线程和多进程
 
-Some GPUs may have more than one hardware-based decoders and encoders. In order to fully utilize these hardwares, we have to start as many instances as possible. BMF can launch these instances through python multi-threading and multi-processing. You can see the examples in the `test_gpu_decode_multi_thread_perf`, `test_gpu_encode_multi_thread_perf` and `test_gpu_transcode_multi_thread_perf`.
+某些GPU可能具有多个基于硬件的解码器和编码器。为了充分利用这些硬件，我们尽可能多的展示示例。BMF可以通过Python多线程和多进程来启动这些示例。您可以在`test_gpu_decode_multi_thread_perf`，`test_gpu_encode_multi_thread_perf`和`test_gpu_transcode_multi_thread_perf`中查看示例。
 
-For multi-processing, there's one special thing we should notice so we use a separate script `test_gpu_decode_multi_processes.py` to show how to do it in the BMF. 
+对于多进程，有一件特殊的事情需要您注意。因此我们使用单独的脚本`test_gpu_decode_multi_processes.py`来展示如何在BMF中执行此操作。
 
-We should `import bmf` in the task function rather than at the beginning of the script file. 
+应该在任务函数而不是在脚本文件的开头`import bmf`。

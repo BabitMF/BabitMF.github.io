@@ -1,47 +1,48 @@
 ---
-title: 'Overview'
-linkTitle: 'Overview'
+title: '概述'
+linkTitle: '概述'
 weight: 1
 ---
 
 
-As a general multimedia processing framework, BabitMF (Babit Multimedia Framework, BMF) can provide a simple and easy-to-use cross-language interface, flexible scheduling and scalability, and dynamically expand, manage and reuse the atomic capabilities of video processing in a modular manner. It builds a high-performance multimedia processing link in the form of graph/pipeline or realize project integration by direct invocation of individual processing capabilities, helping multimedia users to conveniently and efficiently implement projects in the production environment. The usage scenarios of BMF cover video transcoding, video frame extraction, video enhancement, video analysis, video frame insertion, video editing, video conferencing, VR, etc. At present, hundreds of millions of videos are processed by BMF every day. In the process, the functional diversity, ease of use, compatibility, stability and performance of the BMF framework have been fully polished.
+BabitMF（Babit Multimedia Framework，BMF），作为一个通用的多媒体处理框架，能够提供简单易用的跨语言接口、灵活的调度和可扩展性，以及以模块化的方式动态扩展、管理和复用视频处理的原子能力。BMF以graph/pipeline的形式构建多媒体处理链路，或通过直接调用各个处理能力实现项目集成，帮助多媒体用户在各类生产环境中方便、高效地实施项目。BMF的使用场景涵盖视频转码、视频帧提取、视频增强、视频分析、视频帧插入、视频编辑、视频会议以及VR等。目前，BMF每天处理的视频数以亿计。在此过程中，BMF框架的功能多样性、易用性、兼容性和稳定性得到了充分的打磨。
 
 <img src="/img/docs/bmf-framework.png" style="zoom:100%;" />
 
-The picture above is a general architecture diagram of BMF, including a complete set of ecosystem, which mainly consists of three parts:
-- Application layer: The top layer provides users with multi-language APIs including Python, Go, and C++, which is convenient for users to develop and integrate according to different project requirements.
-- Framework layer: The middle layer includes the framework's scheduling of graph/pipeline, cross-data type and cross-device data transfer Backend, and commonly used cross-device reformat, color space conversion, tensor operator and other SDKs.
-- Module layer: It includes modules with various atomic capabilities, and provides module development mechanisms in multiple languages. Users can implement algorithms/processing in any of Python, Go, and C++ languages according to their own needs.
+上图是BMF的概要架构图，包括一整套的生态体系，主要由三部分组成：
+- 应用层：顶层为用户提供多语言的API包括Python、Go、C++，方便用户根据不同的项目需求进行开发集成。
+- 框架层：中间层包括框架的graph/pipeline调度，跨数据类型跨设备的数据流转Backend，以及常用的跨设备reformat、color space conversion、tensor算子等SDK。
+- 模块层：包含具有各种原子能力的模块，提供多语言模块开发机制。用户可以根据自身需求将算法/处理实现为Python、Go、C++语言的任意一种。
 
-From architecture design to implementation, BMF covers a variety of features to solve many challenges in the new era:
-## Multi-language interface
+BMF从架构设计到实现，涵盖了多种特性致力于解决新时代面临的诸多挑战：
+## 多语言接口
 
-BMF provides a multi-language interface, which is convenient for users to integrate development in different languages according to project needs, and maximizes the ability to be compatible and reuse the entire framework.
+BMF提供了多语言接口，以方便用户根据项目需求用不同的语言进行集成开发，最大化整个框架的兼容和复用能力。
 
-## Loosely coupled multi-language modules
-This module provides atomic capabilities for video processing. You can choose Python, C++, and go to focus on developing modules. Loose coupling between modules and frameworks, or between modules, makes it possible to decouple algorithms and projects and enable development in different languages. The decoupling of the development language used by modules and the upper-layer application greatly enhances scalability and improves diverse collaboration capabilities.
+## 松耦合的多语言模块
 
-## Powerful scheduling engine
+该模块提供视频处理的原子能力。用户可以选择Python、GO、C++专注于开发模块。模块和框架之间、模块和模块之间松耦合，从而把算法与工程解耦，把不同语言开发的处理模块和上层应用所使用的开发语言解耦，极大地增强了扩展能力和多元化的协同能力。
 
-BMF, which provides a configurable parallel scheduler, multiple usage modes, and advanced features of dynamically adjusting Graph, implements a high-performance scheduling mechanism responsible for DAG/Graph/Pipeline operation, and helps users realize it with a small development cost Functional and performance requirements in complex scenarios through various solutions.
+## 功能强大的调度引擎
 
-## Fully compatible with FFmpeg features and standards
+BMF提供可配置的并行调度器、多种使用模式以及动态调整Graph的高级特性，实现了负责DAG/Graph/Pipeline运转的高性能调度机制，通过各种解决方案帮助用户以较小的开发成本实现复杂场景下的功能、性能需求。
 
-BMF is fully compatible with FFmpeg's processing capabilities and indicators, such as demuxing, decoding, filter, encoding, and muxing capabilities. The configuration of these processing capabilities and the results consistent with FFmpeg's pts, duration, bitrate, fps and other indicators can be obtained. Very good It satisfies the need to quickly integrate FFmpeg capabilities into projects.
+## 完全兼容FFmpeg功能和标准
 
-## Ability to convert data between multiple frameworks and heterogeneous devices
+BMF完全兼容FFmpeg的处理能力和指标，如解封装、解码、filter、编码和封装能力。对这些处理能力的配置以及能够得到和FFmpeg的pts、duration、bitrate、fps等指标一致的结果，很好的满足了需要把FFmpeg能力快速集成到项目中的需求。
 
-Supports zero-copy interconversion between multiple mainstream data formats, and is greatly compatible with data connection between different modules. For example, it is necessary to use ffmpeg's codec and filter capabilities, as well as OpenCV's transformation processing, and it also needs to use Pytorch to do intelligent analysis in more complex situations; at the same time, it supports heterogeneous cross-device data transmission and conversion capabilities, and asynchronous scheduling capabilities, so that Help users quickly solve the acceleration optimization problems of the production environment.
+## 多种框架及异构设备间数据转换能力
 
-### Enhanced Support for NVIDIA GPU 
+BMF支持多种主流数据格式之间的零拷贝互转，极大地兼容了不同模块间的数据衔接。比如既需要使用ffmpeg的编解码和filter能力，又要使用OpenCV的变换处理，还需要借助Pytorch做智能分析的较复杂场合；同时支持异构跨设备的数据传递与pixel format转换能力、异步调度的能力，从而帮助用户快速解决生产环境的加速优化问题。
 
-NVIDIA GPU has dedicated video encoding and decoding hardware; in addition, it has high bandwidth memory and large scale parallel computing CUDA cores, which are suitable for general purpose video and image processing. Working with NVIDIA engineers, BMF has enhanced support for NVIDIA GPU: 
-* NVENC/NVDEC/GPU filters work out-of-box by inheriting abilities from FFmpeg. 
-* High performance frame processing is enabled by integration of CV-CUDA and customized CUDA kernels. 
-* AI inferencing can be easily integrated into video pipeline using TensorRT. 
-* Data moving between CPU and GPU can be done by a simple call. 
+### 增强对NVIDIA GPU的支持
 
-In short, all kinds of video and image SDKs from NVIDIA have been integrated into BMF. So the developer can write GPU accelerated video processing pipelines with Python/Go/C++ easily and run them efficiently.
+NVIDIA GPU拥有专用的视频编解码硬件。此外，它还具有高带宽内存和大规模并行计算CUDA内核，适用于通用视频和图像处理。BMF与NVIDIA工程师合作，增强了对NVIDIA GPU的支持：
+* NVENC/NVDEC/GPU filter继承FFmpeg的能力，开箱即用。
+* 通过集成CV-CUDV和定制CUDA内核实现高性能帧处理。 
+* 使用TensorRT可以将AI推断轻松集成到视频pipeline中。
+* CPU和GPU之间的数据移动可以通过简单的调用实现。
 
-In the form of open source, BMF fully integrates into the community, continuously expands the ecology, displays various solutions, and expects to provide better help for developers and enterprises in the industry in the hyper video era.
+简而言之，BMF已经集成了NVIDIA中所有类型的视频和图像SDK。因此，开发者可以使用Python/GO/C++轻松编写GPU加速视频pileline并高效运行它们。
+
+BMF以开源的形式全面融入社区，持续扩展生态，展示各种解决方案，期望在超视频时代为行业内的开发者和企业提供更好的帮助。

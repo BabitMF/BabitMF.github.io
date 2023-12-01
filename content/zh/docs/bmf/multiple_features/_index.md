@@ -1,5 +1,5 @@
 ---
-title: 'Multiple Features'
-linkTitle: 'Multiple Features'
+title: '多种功能'
+linkTitle: '多种功能'
 weight: 4
 ---

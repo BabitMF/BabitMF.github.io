@@ -1,9 +1,9 @@
 ---
-title: 'Server Mode'
-linkTitle: 'Server Mode'
+title: '服务模式'
+linkTitle: '服务模式'
 weight: 3
 ---
-BMF also supports pre-built modes. The following example shows server initialization and usage:
+BMF也支持预构建模式。以下示例展示了server初始化和使用：
 
 ```python
 from bmf import ServerGateway
@@ -12,7 +12,7 @@ server_gateway = ServerGateway(graph)
 server_gateway.init()
 ```
 
-Before Server processing, build the packet first:
+Server处理之前，先构建packet：
 
 ```python
 packet1 = Packet()
@@ -21,7 +21,7 @@ video_info_list1 = [{'input_path': input_video_path_1}]
 packet1.set_data({'type': InputType.VIDEO, 'input_path': video_info_list1})
 ```
 
-After that, a thread is generated and the packet is sent to the server graph:
+之后产生线程，把packet发送到server graph：
 
 ```python
 thread_ = threading.Thread(target=process_thread, args=(server_gateway, packet1))
@@ -29,4 +29,4 @@ thread_.start()
 ```
 
 
-If you need the complete code, you can refer to [test_server.py](#tbytodo)
+如果您需要完整代码，请参阅`test_server.py`

@@ -1,10 +1,10 @@
 ---
-title: 'Generator Mode'
-linkTitle: 'Generator Mode'
+title: '生成器模式'
+linkTitle: '生成器模式'
 weight: 1
 ---
 
-The generator method has common similarities and differences, mainly using ```start()``` (usually ```run()```):
+生成器方法以普通异同，主要使用```start()```（通常使用```run()```）：
 
 ```python
 pkts = (
@@ -15,7 +15,7 @@ pkts = (
 )
 ```
 
-The generated frames can be used like iterators:
+生成后的frames，能像iterator一样使用：
 
 ```python
 for i, pkt in enumerate(pkts):
@@ -30,4 +30,4 @@ for i, pkt in enumerate(pkts):
       break
 ```
 
-If you need the complete code, you can refer to [test_generator.py]（#tbytodo)
+如果您需要完整代码，请参阅`test_generator.py`

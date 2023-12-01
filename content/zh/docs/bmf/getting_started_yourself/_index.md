@@ -1,18 +1,18 @@
 ---
-title: 'Getting started'
-linkTitle: 'Getting started'
+title: '开始使用'
+linkTitle: '开始使用'
 weight: 3
 ---
 
 
 
-## Brief Introduction
+## 简介
 
-BabitMF (referred to as BMF) is a general video processing framework.
+BabitMF（简称BMF）是一套通用视频处理框架。
 
-BMF can provide simple and easy-to-use interfaces, flexible scheduling and scalability, and dynamically expand, manage and multiplex the atomic capabilities of video processing in a modular manner.
+BMF能够提供简单易用的接口，灵活的调度和可扩展性，以及以模块化的方式动态扩展、管理和复用视频处理的原子能力。
 
-Through BMF, users can achieve the following goals:
+通过BMF，您可以达到以下目标：
 
 <img src="/img/docs/goals.png" style="zoom:100%;" />
 
@@ -20,44 +20,42 @@ Through BMF, users can achieve the following goals:
 
 
 
-The BMF Graph in the first picture below shows a simple audio and video transcoding process, including three modules. These three Modules are associated through Stream Linking. The data stream is transmitted using Packet as the carrier. Each Module can specify an independent Thread for transmission. It is run by the BMF engine.
+下图中的BMF Graph展示了一个简单的音视频转码处理，其中包括三个Module，之间通过Stream相关联，将数据流以Packet为载体传递，每个Module可以指定独立的Thread被BMF引擎调度运行。
 
 <img src="/img/docs/simple_graph.png" style="zoom:30%;" />
 
-The second picture shows a more complex audio and video splicing and overlay Graph.
+下图展示了一个较为复杂的音视频拼接与overly的Graph。
 
 <img src="/img/docs/complex_graph.png" style="zoom:60%;" />
 
 
 
-Some basic concepts in BMF are as follows:
+BMF中的一些基本概念如下:
 
-- Graph: DAG developed by users through the interface layer and built through BMF is often a pipeline and application that can run.
+- Graph：用户可以通过接口层开发、通过BMF构建的DAG，往往是可以运行的pipeline、应用。
 
-- Module/Node: Users can use modules built into BMF or developed through the module SDK. BMF regards each video processing step as an atomic capability, and its carrier is a module, which supports multi-language dynamic expansion, management and multiplexing. Node is an instantiated Module.
+- Module/Node: 用户可以使用BMF内置的或者通过模块SDK开发的模块。BMF把每个视频处理步骤都看作是一个原子能力，而它的载体就是模块，模块支持多语言动态扩展、管理和复用。Node是实例化的Module。
 
-- Stream: Use the BMF interface layer to build a Graph, and most of the time use the Stream object to connect. The path of data transmission in the BMF framework can be regarded as a Stream flow, which can be an input and output path of any data form.
+- Stream: 使用BMF接口层构建Graph，大多时候都是使用Stream的对象去连接。Stream流可以看作是数据在BMF框架中传递的通路，可以是任意数据形式的输入输出通路。
 
-- Packet: The carrier of data in BMF. Any data type, including VideoFrame and AudioFrame, will be encapsulated into a Packet in BMF and passed between modules.
+- Packet: 数据在BMF中的载体。任意的数据类型包括VideoFrame，AudioFrame会被封装成为BMF中的Packet在模块之间传递。
 
-- Task: Task is the scheduling unit of the BMF engine. The engine layer generates Tasks for different Nodes and dispatches them to the modules that need to be processed. The process() entry of the modules gets the Tasks for processing.
-
-
-
-For more complex features and usage scenarios of BMF, see [Multiple Features](#tbytodo-2)
+- Task: Task是BMF引擎的调度单元，引擎层针对不同的Node生成Task调度到需要处理的模块中，模块的process()入口获取到Task进行处理。
 
 
 
-## The First Program
-
-### Operating environment
-
-This example directly downloads the image released by BMF as the running and development environment. For other installation and deployment methods, see: [Install](#tbytodo-2)
+更多BMF的复杂特性以及使用场景，详见[多种功能](http://babitmf.github.io/docs/bmf/multiple_features)
 
 
-### program
 
-The following hello_word.py program creates and runs a video transcoding pipeline through the BMF application layer interface: graph(), decode(), encode(), run(): demux + decode -> encode + mux
+## 首个项目
+### 运行环境
+本示例直接下载BMF发布的镜像作为运行和开发环境，其他安装部署方法详见：[安装部署](http://babitmf.github.io/docs/bmf/getting_started_yourself/install)
+
+
+### 程序
+
+下面的hello_word.py程序通过BMF应用层接口：graph(), decode() , encode() , run()，创建运行一个视频转码的pipeline：demux + decode -> encode + mux
 
 ```python
 def hello_world():
@@ -99,6 +97,6 @@ def hello_world():
 if __name__ == '__main__':
      hello_world()
 ```
-### run
+### 运行
 
 `python3 hello_world.py`

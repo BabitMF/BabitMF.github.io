@@ -1,83 +1,76 @@
 ---
-title: 'Quick Experience'
-linkTitle: 'Quick Experience'
+title: '快速体验'
+linkTitle: '快速体验'
 weight: 2
 ---
 
-In this section, we will directly showcase the capabilities of the BMF framework around five dimensions: **Transcode**, **Edit**, **Meeting/Broadcaster**, **CPU+GPU acceleration**, and **AI**. For all the demos provided below, corresponding implementations and documentation are available on Google Colab, allowing you to experience them intuitively.
+本节，我们将围绕五个方面直接展示BMF框架的能力：**转码**，**编辑**，**会议/广播**，**GPU+CPU加速**和**AI**。下面所提供的所有demo都可在Goole Colab上找到相应的实现方法和文档，让您可以直观地体验它们。
 
-### Transcode
-This demo describes step-by-step how to use BMF to develop a transcoding program, including video transcoding, audio transcoding, and image transcoding. In it, you can familiarize yourself with how to use BMF and how to use FFmpeg-compatible options to achieve the capabilities you need.
+### 转码
+本demo将逐步介绍如何使用BMF开发转码程序，包括视频转码、音频转码和图像转码。您可以从中熟悉如何使用BMF，以及如何使用与FFmpeg兼容的选项来实现所需的能力。
 
-If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/transcode/bmf_transcode_demo.ipynb)
+快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/transcode/bmf_transcode_demo.ipynb)
 
-### Edit
-The Edit Demo will show you how to implement a high-complexity audio and video editing pipeline through the BMF framework. We have implemented two Python modules, video_concat and video_overlay, and combined various atomic capabilities to construct a complex BMF Graph.
+### 编辑
+本demo展示了如何通过BMF框架实现高复杂度的音频和视频编辑pipeline。我们实现了video_concat和video_overlay两个Python模块，并结合各种原子能力构建了一个复杂的BMF Graph。
 
-If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/edit/bmf_edit_python.ipynb)
+快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/edit/bmf_edit_python.ipynb)
 
-### Meeting/Broadcaster
-This demo uses BMF framework to construct a simple broadcast service. The service provides an API that enables dynamic video source pulling, video layout control, audio mixing, and ultimately streaming the output to an RTMP server. This demo showcases the modularity of BMF, multi-language development, and the ability to dynamically adjust the pipeline.
+### 会议/广播
+本demo使用BMF框架构建一个简单的广播服务。该服务提供的API可实现动态视频拉取、视频布局控制、音频混合，并最终将输出流式传输到RTMP服务器。本demo展示了BMF的模块化、多语言开发以及动态调整pipeline的能力。
 
-Below is a screen recording demonstrating the operation of broadcaster:
+下方是一个广播操作的录频演示：
 
 ![](bmf/demo/broadcaster/broadcaster.gif)
 
 
-### CPU+GPU acceleration
+### CPU+GPU加速
+#### 视频帧提取
+视频帧提取加速demo展示了：
+1. BMF的灵活能力：
 
-#### Video Frame Extraction
-The video frame extraction acceleration demo shows:
-1. BMF flexible capability of:
+   *   多语言编程，在这个demo中我们可以看见多语言模块协同工作
+   *   易于扩展，可以轻松添加新的Python、C++模块
+   *   完全兼容FFmpeg
 
-   *   Multi-language programming, we can see multi-language modules work together in the demo
-   *   Ability to extend easily, there are new C++, Python modules added simply
-   *   FFmpeg ability is fully compatible
+2. 支持快速硬件加速以及CPU/GPU pipeline
 
-2. Hardware acceleration quickly enablement and CPU/GPU pipeline support
+   *   BMF支持异构pipeline，例如CPU和GPU之间的进程
+   *   BMF具有有用的硬件color space conversion能力
+快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/video_frame_extraction/video_frame_extraction_acceleration.ipynb)
 
-   *   Heterogeneous pipeline is supported in BMF, such as process between CPU and GPU
-   *   Useful hardware color space conversion in BMF
+#### GPU视频处理
+GPU转码和filter模块demo展示了：
+1. 由GPU加速的BMF中常见的视频/图像filter
+2. 如何写BMF的GPU模块
 
-If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/video_frame_extraction/video_frame_extraction_acceleration.ipynb)
-
-#### GPU Video Processing
-
-The GPU transcoding and filter module demo shows:
-1. Common video/image filters in BMF accelerated by GPU
-2. How to write GPU modules in BMF
-
-The demo builds a transcoding pipeline which fully runs on GPU:
+本demo构建了一个完全在GPU上运行的转码pipeline：
 
 decode->scale->flip->rotate->crop->blur->encode
 
-If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/gpu_module/gpu_module_demo_colab.ipynb)
+快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/gpu_module/gpu_module_demo_colab.ipynb)
 
 
 ### AI
-
 #### Deoldify
+本demo展示了如何将最先进的AI算法集成到BMF的视频处理pipeline。著名的开源着色算法[DeOldify](https://github.com/jantic/DeOldify)被封装在BMF Python模块，代码不到100行。最终的效果如下图所示，左边是原视频，右边是彩色视频：
 
-This demo shows how to integrate the state of art AI algorithms into the BMF video processing pipeline. The famous open source colorization algorithm [DeOldify](https://github.com/jantic/DeOldify) is wrapped as a BMF Pyhton module in less than 100 lines of code. The final effect is illustrated below, with the original video on the left side and the colored video on the right. 
-
-If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify_demo_colab.ipynb)
+快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify_demo_colab.ipynb)
 
 ![](bmf/demo/colorization_python/deoldify.gif)
  
-#### Supper Resolution
-This demo implements the super-resolution inference process of [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) as a BMF module, showcasing a BMF pipeline that combines decoding, super-resolution inference and encoding.
+#### 超分辨率
+本demo将[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)的超分辨率推理过程实现为BMF模块，展示了一个结合解码、超分辨率推理和编码的BMF pipeline。
 
-If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/video_enhance/bmf-enhance-demo.ipynb)
+快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/video_enhance/bmf-enhance-demo.ipynb)
 
 
-#### Video Quality Score
+#### 视频质量打分
+本demo展示了如何使用BMF调用美学评估模型。深度学习模型Aesmode在AVA数据集上的二元分类准确率达到了83.8%，达到学术届SOTA的水平，并且可以通过帧提取处理直接用于评估视频的美学程度。
 
-This demo shows how to invoke our aesthetic assessment model using BMF. Our deep learning model Aesmode has achieved a binary classification accuracy of 83.8% on AVA dataset, reaching the level of academic SOTA, and can be directly used to evaluate the aesthetic degree of videos by means of frame extraction processing. 
+快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/aesthetic_assessment/aesmod_bmfv3_fin.ipynb)
 
-If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/aesthetic_assessment/aesmod_bmfv3_fin.ipynb)
+#### 使用TensorRT进行人脸检测
+本demo展示了一个基于**TensorRT**加速的全链路人脸检测pipeline，其内部使用TensorRT加速的Onnx模型来处理输入视频。它使用NMS算法过滤重复的候选框，形成输出，可用于高效处理人**脸检测**任务。
 
-#### Face Detect With TensorRT
-
-This demo shows a full-link face detect pipeline based on **TensorRT** acceleration, which internally uses the TensorRT-accelerated Onnx model to process the input video. It uses the NMS algorithm to filter repeated candidate boxes to form an output, which can be used to process a **Face Detection Task** efficiently.
-
-If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/face_detect/facedetect_demo_colab.ipynb)
+快速体验：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/face_detect/facedetect_demo_colab.ipynb)
