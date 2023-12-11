@@ -1,5 +1,5 @@
 ---
-title: '创建Graph'
+title: '创建 Graph'
 linkTitle: ''
 weight: 2
 menu:
@@ -9,7 +9,7 @@ menu:
 ---
 
 
-本节介绍BMF的基本用法。首先，您需要构建一个Graph：
+本节介绍 BMF 的基本用法。首先，您需要构建一个 Graph：
 
 ```python
 import bmf
@@ -17,7 +17,7 @@ import bmf
 graph = bmf.graph()
 ```
 
-Graph初始化后，解码输入视频：
+Graph 初始化后，解码输入视频：
 
 ```python
 video = graph.decode({
@@ -25,7 +25,7 @@ video = graph.decode({
 })
 ```
 
-将之前解码的```video['video']```和```video['audio']```分别进行转码，```run```将会开始验证并执行整个graph建立并执行。完成后输出视频文件：
+将之前解码的 ```video['video']``` 和 ```video['audio']``` 分别进行转码，```run``` 将会开始验证并执行整个 graph。完成后输出视频文件：
 
 ```python
 bmf.encode(

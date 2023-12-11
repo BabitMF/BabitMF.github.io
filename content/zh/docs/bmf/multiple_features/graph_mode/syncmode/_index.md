@@ -4,7 +4,7 @@ linkTitle: '同步模式'
 weight: 2
 ---
 
-同步模式使用需要同步模块。以下示例展现了以同步模式把图像做解码、缩放，然后转码的过程。
+使用同步模式需要同步模块。以下示例展现了以同步模式把图像做解码、缩放，然后转码的过程。
 
 ```python
 from bmf import bmf_sync, Packet
@@ -66,7 +66,7 @@ auto encoder = graph. Sync(std::vector<int> {0}, std::vector<int> {},
      bmf_sdk::JsonParam(encoder_option), "c_ffmpeg_encoder");
 ```
 
-如有需要，Sync模块创建后可手动调用init函数：
+如有需要，同步模块创建后可手动调用初始化函数：
 
 **Python**
 
@@ -84,7 +84,7 @@ graph.Init(scale); // scale.Init();
 graph.Init(encoder); // encoder.Init();
 ```
 
-Sync mode的用法和普通方式不一样，需要```bmf_sync.process()```：
+同步模式的用法和普通方式不一样，需要 ```bmf_sync.process()```：
 
 **Python**
 
@@ -115,7 +115,7 @@ input_encode. Insert(0, scaled_frames[0]);
 encoder.ProcessPkts(input_encode); // graph.Process(encoder, input_encode);
 ```
 
-Process完毕后，将EOF packet发送到encoder：
+Process 完毕后，将 EOF packet 发送到 encoder：
 
 **Python**
 ```python
@@ -128,7 +128,7 @@ bmf_sync.send_eof(encoder) # encoder.send_eof()
 encoder.SendEOF(); // graph.SendEOF(encoder);
 ```
 
-如有需要，Sync模块可手动调用close函数：
+如有需要，同步模块可手动调用 close 函数：
 
 **Python**
 
@@ -139,13 +139,13 @@ encoder. close()
 ```
 
 **C++**
-
+ 
 ```cpp
 graph.Close(decoder); // decoder.Close();
 graph. Close(scale); // scale. Close();
 graph.Close(encoder); // encoder.Close();
 ```
 
-如果您需要完整代码，请参阅`test_sync_mode.py`，`c_sync_mode.cpp`
+如果您需要完整代码，请参阅 `test_sync_mode.py`，`c_sync_mode.cpp`
 
-您也可以使用colab链接体验同步模式：[sync mode](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_python.ipynb)
+您也可以使用 colab 链接体验同步模式：[sync mode](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_python.ipynb)
