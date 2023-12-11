@@ -4,9 +4,9 @@ linkTitle: '预加载模式'
 weight: 4
 ---
 
-这个例子中用了一个`analysis.py`。
+这个例子中用了一个 `analysis.py`。
 
-当应用场景需要预加载模式，首先初始化：
+当应用场景需要预加载模式，首先需要初始化 module：
 
 **Python**
 ```python
@@ -34,4 +34,4 @@ auto analyzed = output.PythonModule({}, "analysis", bmf_sdk::JsonParam());
 analyzed. SetPreModule(pre_module);
 ```
 
-如果您需要完整代码，请参阅`test_pre_module.py`或`c_mode.cpp`
+如果您需要完整代码，请参阅 `test_pre_module.py` 或 `c_mode.cpp`

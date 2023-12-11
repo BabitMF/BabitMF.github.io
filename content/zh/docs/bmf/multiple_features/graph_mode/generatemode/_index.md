@@ -4,7 +4,7 @@ linkTitle: '生成器模式'
 weight: 1
 ---
 
-生成器方法以普通异同，主要使用```start()```（通常使用```run()```）：
+与普通模式不同，生成器模式主要使用 ```start()```（通常使用 ```run()```）：
 
 ```python
 pkts = (
@@ -15,7 +15,7 @@ pkts = (
 )
 ```
 
-生成后的frames，能像iterator一样使用：
+生成后的 frames，能像迭代器一样使用：
 
 ```python
 for i, pkt in enumerate(pkts):
@@ -30,4 +30,4 @@ for i, pkt in enumerate(pkts):
       break
 ```
 
-如果您需要完整代码，请参阅`test_generator.py`
+如果您需要完整代码，请参阅 `test_generator.py`
