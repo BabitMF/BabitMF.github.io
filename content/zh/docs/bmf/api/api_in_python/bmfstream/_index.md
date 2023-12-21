@@ -12,11 +12,11 @@ def   [bmf.builder.bmf_stream.BmfStream.run_wo_block](#run_wo_block) ( [self](#s
  
  
 
-## Detailed Description
+## 详细描述
 
 BMF stream class.
 
-## Function Documentation
+## 函数文档
 
 
 ###  generate_config_file()
@@ -26,7 +26,7 @@ def bmf.builder.bmf_stream.BmfStream.generate_config_file (  self,
    file_name = "original_graph.json" 
  )   
 ```
-Using the stream of the module to call the routine of graph generate_config.
+使用模块的 stream 来调用 graph generate_config 的例程。
 
 
 ```
@@ -34,12 +34,13 @@ Using the stream of the module to call the routine of graph generate_config.
 
 ```
 
+
 ###  run_wo_block()
 
 ```
 def bmf.builder.bmf_stream.BmfStream.run_wo_block (  self )  
 ```
-Using the stream object to call graph run without block.
+使用 stream object 调用 graph 运行，无阻塞。
 
 
 ```

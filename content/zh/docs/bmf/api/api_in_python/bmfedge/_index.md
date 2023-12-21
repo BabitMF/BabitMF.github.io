@@ -6,14 +6,14 @@ weight: 3
 
 [//]: <> (REF_MD: classbmf_1_1builder_1_1bmf__node_1_1BmfNode-members.html)
 
-## Detailed Description
+## 详细描述
 
 **BMFEdge** class.
 
-## Function Documentation
+## 函数文件
 
 
-## Member Functions
+## 成员函数
 
 
 def   [__init__](#__init__) (self, upstream_stream, downstream_stream)
@@ -22,12 +22,12 @@ def   [get_downstream_stream](#get_downstream_stream) (self)
  
 def   [get_upstream_stream](#get_upstream_stream) (self)
  
-## Member Datas
+## 成员数据
    [upstream_stream_](#upstream_stream_) 
  
    [downstream_stream_](#downstream_stream_) 
    
-## Member Function Documentation
+## 成员函数文档
 
 
 ### \_\_init\_\_()
@@ -74,7 +74,7 @@ def bmf.builder.bmf_node.BmfEdge.get_upstream_stream (  self )
 
 ```
 
-## Member Data Documentation
+## 成员数据文件
 
 
 ###  downstream_stream_

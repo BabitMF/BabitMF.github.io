@@ -14,14 +14,14 @@ def   [bmf.builder.bmf_sync.process](#process) (module, pkts_dict)
  
  
 def   [bmf.builder.bmf_sync.send_eof](#send_eof) (module)
- 
+
  
 
-## Detailed Description
+## 详细描述
 
 BMF sync module class.
 
-## Function Documentation
+## 函数文档
 
 
 ###  process()
@@ -31,11 +31,11 @@ def bmf.builder.bmf_sync.process (  module,
    pkts_dict 
  )   
 ```
-Directly do module processing.
+直接进行模块处理。
 
 **Parameters**
- - **module** corresponding syncModule object 
- - **pkts_dict** a dict which contains all input data packet 
+ - **module**：相应的同步模块对象
+ - **pkts_dict**：包含所有input data packet的字典
 
 
 
@@ -72,16 +72,76 @@ Directly do module processing.
  
 
 ```
+示例：
+
+```
+import bmf
+input_video_path = "../../files/overlay.png"
+output_path = "./videoframe.jpg"
+expect_result = './videoframe.jpg|240|320|0.04|IMAGE2|950000|4750|mjpeg|' \
+                '{"fps": "25.0"}'
+self.remove_result_data(output_path)
+
+# create decoder
+decoder = bmf_sync.sync_module("c_ffmpeg_decoder",
+                                {"input_path": input_video_path}, [],
+                                [0])
+'''
+# for non-builtin modules, use module_info instead of module_name to specify type/path/entry
+
+module_info = {
+    "name": "my_module",
+    "type": "",
+    "path": "",
+    "entry": ""
+}
+module = bmf_sync.sync_module(module_info, {"input_path": input_video_path}, [], [0])
+'''
+
+# create scale
+scale = bmf_sync.sync_module("c_ffmpeg_filter", {
+    "name": "scale",
+    "para": "320:240"
+}, [0], [0])
+
+# create encoder
+encoder = bmf_sync.sync_module(
+    "c_ffmpeg_encoder", {
+        "output_path": output_path,
+        "format": "mjpeg",
+        "video_params": {
+            "codec": "jpg"
+        }
+    }, [0], [])
+
+# call init if necessary, otherwise we skip this step
+decoder.init()
+scale.init()
+encoder.init()
+
+# decode
+frames, _ = bmf_sync.process(decoder, None)
+
+# scale
+frames, _ = bmf_sync.process(scale, {0: frames[0]})
+
+# encode
+bmf_sync.process(encoder, {0: frames[0]})
+
+```
+
+如果您需要完整代码，请参阅[test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)
+
 
 ###  send_eof()
 
 ```
 def bmf.builder.bmf_sync.send_eof (  module )  
 ```
-Module process a task with eof packet.
+模块处理带有eof packet的task。
 
 **Parameters**
- - **module** corresponding syncModule object 
+ - **module**：相应的同步模块对象
 
 
 
@@ -111,6 +171,38 @@ Module process a task with eof packet.
 
 ```
 
+示例：
+
+```
+import bmf
+input_video_path = "../../files/overlay.png"
+output_path = "./videoframe.jpg"
+expect_result = './videoframe.jpg|240|320|0.04|IMAGE2|950000|4750|mjpeg|' \
+                '{"fps": "25.0"}'
+self.remove_result_data(output_path)
+
+# create encoder
+encoder = bmf_sync.sync_module(
+    "c_ffmpeg_encoder", {
+        "output_path": output_path,
+        "format": "mjpeg",
+        "video_params": {
+            "codec": "jpg"
+        }
+    }, [0], [])
+
+# call init if necessary, otherwise we skip this step
+encoder.init()
+
+# encode
+bmf_sync.process(encoder, {0: frames[0]})
+
+# send eof to encoder
+bmf_sync.send_eof(encoder)
+
+```
+如果您需要完整代码，请参阅[test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)
+
 ###  sync_module()
 
 ```
@@ -120,13 +212,13 @@ def bmf.builder.bmf_sync.sync_module (  name,
    output_streams 
  )   
 ```
-Create  [SyncModule](https://babitmf.github.io/docs/bmf/api/api_in_python/syncmodule/)  by name, option, input_stream_id_list and output_stream_id_list.
+根据名称、选项、input_stream_id_list和output_stream_id_list，创建 [SyncModule](https://babitmf.github.io/docs/bmf/api/api_in_python/syncmodule/)。
 
 **Parameters**
- - **name** the name for the module 
- - **name** the option for the module 
- - **name** the input stream id list for the module 
- - **name** the output stream id list for the module 
+ - **name**：模块的名称
+ - **option**：模块的选项
+ - **input_streams**：模块的input stream id list
+ - **output_streams**：模块的output stream id list
 
 
 
@@ -162,3 +254,22 @@ Create  [SyncModule](https://babitmf.github.io/docs/bmf/api/api_in_python/syncmo
  
 
 ```
+
+示例：
+
+```
+import bmf
+input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+output_path = "./videoframe.jpg"
+expect_result = './videoframe.jpg|240|320|0.04|IMAGE2|950000|4750|mjpeg|' \
+                '{"fps": "0.0"}'
+self.remove_result_data(output_path)
+
+# create decoder
+decoder = bmf_sync.sync_module("c_ffmpeg_decoder",
+                                {"input_path": input_video_path}, [],
+                                [0])
+
+```
+
+如果您需要完整代码，请参阅[test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)

@@ -6,11 +6,11 @@ weight: 2
 
 [//]: <> (REF_MD: classbmf_1_1builder_1_1bmf__node_1_1BmfNode-members.html)
 
-## Detailed Description
+## 详细描述
 
 **BMFNode** class.
 
-## Function Documentation
+## 函数文档
 
 
 ### \_\_init\_\_()
@@ -72,7 +72,7 @@ def bmf.builder.bmf_node.BmfNode.__init__ (  self,
 
 ```
 
-## Member Functions
+## 成员函数
 
 
 def   [__init__](#__init__) (self, module_info, option, upstream_streams, input_manager='default', [pre_module](#pre_module) =None, scheduler=0)
@@ -123,7 +123,7 @@ def   [start](#start) (self)
  
 def   [create_sync_module](#create_sync_module) (self)
  
-## Member Datas
+## 成员数据
    [module_info_](#module_info_) 
  
    [option_](#option_) 
@@ -150,7 +150,7 @@ def   [create_sync_module](#create_sync_module) (self)
  
    [outgoing_edges_](#outgoing_edges_) 
    
-## Member Function Documentation
+## 成员函数文档
 
 
 ###  __getitem__()
@@ -201,6 +201,25 @@ def bmf.builder.bmf_node.BmfNode.add_user_callback (  self,
  
 
 ```
+
+示例：
+
+```
+bmf.encode(
+    video['video'], video['audio'], {
+        "output_path": output_path,
+        "video_params": {
+            "codec": "h264",
+            "width": 320,
+            "height": 240,
+            "crf": "23",
+            "preset": "veryfast"
+        }
+    }).node_.add_user_callback(bmf.BmfCallBackType.LATEST_TIMESTAMP,
+                                cb)
+
+```
+如果您需要完整代码，请参阅 [test_transcode.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/test_transcode.py)
 
 ###  create_sync_module()
 
@@ -567,7 +586,7 @@ def bmf.builder.bmf_node.BmfNode.stream (  self,
  
 
 ```
-## Member Data Documentation
+## 成员数据文档
 
 
 

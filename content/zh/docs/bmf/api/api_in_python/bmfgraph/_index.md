@@ -72,7 +72,7 @@ def bmf.builder.bmf_graph.BmfGraph.add_user_callback (  self,
    cb 
  )   
 ```
-在Graph中设置用户定义的回调。
+在 Graph 中设置用户定义的回调。
 
 模块中可以触发回调。
 
@@ -108,7 +108,7 @@ def bmf.builder.bmf_graph.BmfGraph.add_user_callback (  self,
     graph.add_user_callback(bmf.BmfCallBackType.LATEST_TIMESTAMP, cb)
 
 ```
-如果您需要完整代码，请参阅[test_transcode.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/test_transcode.py)
+如果您需要完整代码，请参阅 [test_transcode.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/test_transcode.py)
 
 ###  c_module()
 
@@ -124,14 +124,14 @@ def bmf.builder.bmf_graph.BmfGraph.c_module (  self,
    stream_alias = None 
  )   
 ```
-使用graph中的数据流建立一个由模块库路径和条目加载的c/c++实现的模块流。
+使用 graph 中的数据流建立一个由模块库路径和条目加载的 c/c++ 实现的模块流。
 
 **Parameters**
  - **name**：模块的名称
  - **option**：模块的参数
  - **module_path**：加载模块的路径
  - **entry**：模块的调用入口
- - **input_manager**：选择该模块的输入管理器，默认为immediate
+ - **input_manager**：选择该模块的输入管理器，默认为 immediate
 
 
 
@@ -144,14 +144,14 @@ def bmf.builder.bmf_graph.BmfGraph.c_module (  self,
 
 ```
 
-您可以在[test_video_c_module.py](https://github.com/BabitMF/bmf/blob/a5d8c8626c0ae0bf5d2ae13ab284fe5e3fb4b5ee/bmf/test/c_module/test_video_c_module.py)中查看示例。
+您可以在 [test_video_c_module.py](https://github.com/BabitMF/bmf/blob/a5d8c8626c0ae0bf5d2ae13ab284fe5e3fb4b5ee/bmf/test/c_module/test_video_c_module.py) 中查看示例。
 
 ###  close()
 
 ```
 def bmf.builder.bmf_graph.BmfGraph.close (  self )  
 ```
-等所有任务完成后按块关闭graph。
+等所有任务完成后按块关闭 graph。
 
 
 ```
@@ -194,7 +194,7 @@ def test_push_pkt_into_decoder(self):
 
 ```
 
-如果您需要完整代码，请参阅[test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
+如果您需要完整代码，请参阅 [test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 ###  dynamic_add()
 
@@ -205,12 +205,12 @@ def bmf.builder.bmf_graph.BmfGraph.dynamic_add (  self,
    outputs = None 
  )   
 ```
-如果去要生成动态添加节点的graph，那么该graph应不同于运行中的main graph。
+如果去要生成动态添加节点的 graph，那么该 graph 应不同于运行中的 main graph。
 
 **Parameters**
- - **module_stream**：新节点的stream
- - **inputs**：与此新节点连接的input的json样式描述exp.{'alias': 'layout', 'streams': 1}，表示该节点的input将是“layout”别名节点并链接1个stream
- - **outputs**：与此新节点连接的output的json样式描述
+ - **module_stream**：新节点的 stream
+ - **inputs**：与此新节点连接的 input 的 json 样式描述，例如 {'alias': 'layout', 'streams': 1}，表示该节点的 input 将是 “layout” 别名节点并链接 1 个 stream
+ - **outputs**：与此新节点连接的 output 的 json 样式描述
 
 
 
@@ -246,7 +246,7 @@ main_graph.update(encode.get_graph())
 time.sleep(0.05)
 
 ```
-如果您需要完整代码，请参阅[dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
+如果您需要完整代码，请参阅 [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
 
 ###  dynamic_remove()
 
@@ -255,10 +255,10 @@ def bmf.builder.bmf_graph.BmfGraph.dynamic_remove (  self,
    option 
  )   
 ```
-为了生成动态删除节点的graph，该graph应该与运行中的maingraph不同。
+为了生成动态删除节点的 graph，该 graph 应该与运行中的 maingraph 不同。
 
 **Parameters**
- - **option**：即将remove的节点的json样式描述exp. {'alias': 'decode1'} 
+ - **option**：即将 remove 的节点的 json 样式描述，例如 {'alias': 'decode1'} 
 
 
 
@@ -279,7 +279,7 @@ remove_graph.dynamic_remove({'alias': 'decoder1'})
 
 ```
 
-如果您需要完整代码，请参阅[dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
+如果您需要完整代码，请参阅 [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
 
 ###  dynamic_reset()
 
@@ -288,10 +288,10 @@ def bmf.builder.bmf_graph.BmfGraph.dynamic_reset (  self,
    option 
  )   
 ```
-如果要生成动态节点选项重置的graph，该graph应与运行中的main graph不同。
+如果要生成动态节点选项重置的 graph，该 graph 应与运行中的 main graph 不同。
 
 **Parameters**
- - **option**：节点的重置参数的json样式描述exp. {'alias': 'encode1', 'output_path': output_path, 'video_params': { 'codec': 'h264', 'width': 320, 'height': 240, 'crf': 23, 'preset': 'veryfast' } } 
+ - **option**：节点的重置参数的 json 样式描述，例如 {'alias': 'encode1', 'output_path': output_path, 'video_params': { 'codec': 'h264', 'width': 320, 'height': 240, 'crf': 23, 'preset': 'veryfast' } } 
 
 
 
@@ -338,14 +338,14 @@ def test_dynmaical_reset():
 
 ```
 
-如果您需要完整代码，请参阅[dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
+如果您需要完整代码，请参阅 [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
 
 ###  force_close()
 
 ```
 def bmf.builder.bmf_graph.BmfGraph.force_close (  self )  
 ```
-即使graph中的整个pipeline尚未完成，也可以强制关闭正在运行的graph。
+即使 graph 中的整个 pipeline 尚未完成，也可以强制关闭正在运行的 graph。
 
 
 ```
@@ -361,7 +361,7 @@ main_graph.force_close()
 
 ```
 
-如果您需要完整代码，请参阅[dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
+如果您需要完整代码，请参阅 [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
 
 ###  generate_config_file()
 
@@ -374,12 +374,12 @@ def bmf.builder.bmf_graph.BmfGraph.generate_config_file (  self,
    file_name = "original_graph.json" 
  )   
 ```
-仅生成graph config，而不运行。
+仅生成 graph config，而不运行。
 
 **Parameters**
- - **streams**：该模块的input stream list
- - **is_sub_graph**：bool值表示是否是sub graph，默认为False 
- - **mode**：设置graph模式，默认为NORMAL，其他选项参阅[bmf_graph.GraphMode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/) 
+ - **streams**：该模块的 input stream list
+ - **is_sub_graph**：bool 值表示是否是子图，默认为 False 
+ - **mode**：设置 graph 模式，默认为 NORMAL，其他选项参阅 [bmf_graph.GraphMode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/) 
  - **file_name**：带扩展的输出文件名
 
 
@@ -398,7 +398,7 @@ graph.generate_config_file(file_name='generated_graph.json')
 
 ```
 
-如果您需要完整代码，请参阅[config_generator.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/config_generator/config_generator.py)
+如果您需要完整代码，请参阅 [config_generator.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/config_generator/config_generator.py)
 
 ###  get_av_log_buffer()
 
@@ -407,10 +407,10 @@ def bmf.builder.bmf_graph.BmfGraph.get_av_log_buffer (  self,
    level = 'info' 
  )   
 ```
-获取全局效果缓冲区（列表），其中包括来自ffmpeg库的所有日志。
+获取全局效果缓冲区（列表），其中包括来自 ffmpeg 库的所有日志。
 
 **Parameters**
- - **level**：ffmpeg av的日志级别默认为“info”级别。 它是可选的，可以设置为：“quiet”、“panic”、“fatal”、“error”、“warning”、“info”、“verbose”、“debug”、“trace”
+ - **level**：ffmpeg av 的日志级别默认为 “info” 级别。 它是可选的，可以设置为：“quiet”、“panic”、“fatal”、“error”、“warning”、“info”、“verbose”、“debug”、“trace”
 
 
 
@@ -435,7 +435,7 @@ log_buff = my_graph.get_av_log_buffer()
 
 ```
 
-如果您需要完整代码，请参阅[test_av_buffer.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/av_log_buffer/test_av_log_buffer.py)
+如果您需要完整代码，请参阅 [test_av_buffer.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/av_log_buffer/test_av_log_buffer.py)
 
 ###  get_module()
 
@@ -444,10 +444,10 @@ def bmf.builder.bmf_graph.BmfGraph.get_module (  self,
    alias 
  )   
 ```
-通过给定的alias获取sync module。
+通过给定的 alias 获取 sync module。
 
 **Parameters**
- - **alias**：用户在构建graph pipeline时指定的节点标签
+ - **alias**：用户在构建 graph pipeline 时指定的节点标签
 
 
 
@@ -468,7 +468,7 @@ encoder = graph.get_module("encoder")
 
 ```
 
-如果您需要完整代码，请参阅[test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)
+如果您需要完整代码，请参阅 [test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)
 
 ###  remove_user_callback()
 
@@ -499,10 +499,10 @@ def bmf.builder.bmf_graph.BmfGraph.run_by_config (  self,
    graph_config 
  )   
 ```
-通过graph config文件运行graph。
+通过 graph config 文件运行 graph。
 
 **Parameters**
- - **graph_config**：graph config文件路径 
+ - **graph_config**：graph config 文件路径 
 
 
 
@@ -534,7 +534,7 @@ def test_run_by_config(self):
     my_graph.run_by_config(config)
 
 ```
-如果您需要完整代码，请参阅[test_run_by_config.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/run_by_config/test_run_by_config.py)
+如果您需要完整代码，请参阅 [test_run_by_config.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/run_by_config/test_run_by_config.py)
 
 ###  run_wo_block()
 
@@ -545,7 +545,7 @@ def bmf.builder.bmf_graph.BmfGraph.run_wo_block (  self,
    mode = GraphMode.NORMAL 
  )   
 ```
-运行graph无需等待，用户可以自行调用[close()](#close)。
+运行 graph 无需等待，用户可以自行调用 [close()](#close)。
 
 
 ```
@@ -561,7 +561,7 @@ graph.run_wo_block(mode=GraphMode.PUSHDATA)
 
 ```
 
-如果您需要完整代码，请参阅[test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
+如果您需要完整代码，请参阅 [test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 ###  set_option()
 
@@ -570,7 +570,7 @@ def bmf.builder.bmf_graph.BmfGraph.set_option (  self,
    option = None 
  )   
 ```
-在运行之前设置新的graph option。
+在运行之前设置新的 graph option。
 
 **Parameters**
  - **option**：graph的option patch
@@ -619,7 +619,7 @@ def test_set_option(self):
 
 ```
 
-如果您需要完整代码，请参阅[set_option.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/set_option/set_option.py)
+如果您需要完整代码，请参阅 [set_option.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/set_option/set_option.py)
 
 
 ###  update()
@@ -629,10 +629,10 @@ def bmf.builder.bmf_graph.BmfGraph.update (  self,
    update_graph 
  )   
 ```
-为当前运行的graph动态添加/删除/重置节点的最终操作。
+为当前运行的 graph 动态添加/删除/重置节点的最终操作。
 
 **Parameters**
- - **update_graph**: 由之前的[dynamic_add()](#dynamic_add)，[dynamic_remove()](#dynamic_remove)或[dynamic_reset()](#dynamic_reset)生成的graph
+ - **update_graph**: 由之前的 [dynamic_add()](#dynamic_add)，[dynamic_remove()](#dynamic_remove)或[dynamic_reset()](#dynamic_reset) 生成的graph
 
 
 
@@ -652,17 +652,17 @@ main_graph.update(update_graph)
 
 ```
 
-如果您需要完整代码，请参阅[dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
+如果您需要完整代码，请参阅 [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
 
 ###  graph()
 
 ```
 def bmf.builder.bmf.graph (  option = None )  
 ```
-提供一个BMF graph。
+提供一个 BMF graph。
 
 **Parameters**
- - **option**：graph的选项
+ - **option**：graph 的选项
 
 
 
@@ -675,12 +675,20 @@ def bmf.builder.bmf.graph (  option = None )
 
 ```
 
+示例：
+
+```
+import bmf
+main_graph = bmf.graph()
+
+```
+
 ###  run() [1/2]
 
 ```
 def bmf.builder.bmf_stream.BmfStream.run (  self )  
 ```
-使用模块的stream来调用graph run的例程。
+使用模块的 stream 来调用 graph run 的例程。
 
 
 ```
@@ -698,12 +706,12 @@ def bmf.builder.bmf_graph.BmfGraph.run (  self,
    is_blocked = True 
  )   
 ```
-运行graph直到完成。
+运行 graph 直到完成。
 
 **Parameters**
- - **streams**：模块的input stream list
- - **is_sub_graph**：bool值表示是否是sub graph，默认为False 
- - **mode**：设置graph模式，默认为NORMAL，其他选项参阅[bmf_graph.GraphMode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/) 
+ - **streams**：模块的 input stream list
+ - **is_sub_graph**：bool 值表示是否是子图，默认为 False 
+ - **mode**：设置 graph 模式，默认为 NORMAL，其他选项参阅 [bmf_graph.GraphMode](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/) 
 
 
 
@@ -748,6 +756,33 @@ def bmf.builder.bmf_graph.BmfGraph.run (  self,
 
 ```
 
+示例：
+
+```
+import bmf
+input_video_path = "../../files/1min.mp4"
+output_path = "./split_fast_slow.mp4"
+# create graph
+my_graph = bmf.graph({
+    "dump_graph": 1,
+    "graph_name": "split_fast_slow",
+    "scheduler_count": 4
+})
+video = my_graph.decode({'input_path': input_video_path})['video']
+v_l = video.split()
+v_l.get_node().scheduler_ = 1
+v1 = v_l[0]
+v2 = v_l[1]
+v1 = v1.module("pass_through_fast")
+v1.get_node().scheduler_ = 2
+v2 = v2.module("pass_through_slow")
+v2.get_node().scheduler_ = 3
+my_graph.run()
+
+```
+
+如果您需要完整代码，请参阅[test_collection.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/complex_edit_case/test_collection.py)
+
 ###  run_wo_block()
 
 ```
@@ -757,7 +792,7 @@ def bmf.builder.bmf_graph.BmfGraph.run_wo_block (  self,
    mode = GraphMode.NORMAL 
  )   
 ```
-运行grapg无需等待关闭，用户可以自行调用[close()](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#close)。
+运行 graph 无需等待关闭，用户可以自行调用 [close()](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfgraph/#close)。
 
 
 ```
@@ -775,7 +810,7 @@ graph.close()
 
 ```
 
-如果您需要完整代码，请参阅[test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
+如果您需要完整代码，请参阅 [test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 
 [//]: <> (REF_MD: classbmf_1_1builder_1_1bmf__graph_1_1BmfGraph.html)
@@ -1195,6 +1230,17 @@ def bmf.builder.bmf_graph.BmfGraph.anullsrc (  self,
 
 ```
 
+示例：
+
+```
+import bmf
+my_graph = bmf.graph({"dump_graph": 1, "graph_name": "5_concat"})
+video3 = my_graph.anullsrc('r=48000').atrim(start=0.0, duration=7)
+
+```
+
+如果您需要完整代码，请参阅[test_collection](https://github.com/BabitMF/bmf/blob/master/bmf/test/complex_edit_case/test_collection.py)
+
 ###  callback_for_engine()
 
 ```
@@ -1249,7 +1295,7 @@ def bmf.builder.bmf_graph.BmfGraph.decode (  self,
    stream_alias = None 
  )   
 ```
-提供内置解码器的graph函数，BMF stream包括av解封装器和解码器。
+提供内置解码器的 graph 函数，BMF stream 包括 av 解封装器和解码器。
 
 **Parameters**
  - **decoder_para**：解码器的参数
@@ -1264,6 +1310,21 @@ def bmf.builder.bmf_graph.BmfGraph.decode (  self,
      def decode(self, decoder_para, type="", path="", entry="", stream_alias=None):
 
 ```
+
+示例：
+
+```
+import bmf
+input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+output_path = "./audio_c_module.mp4"
+expect_result = 'audio_c_module.mp4|0|0|10.008|MOV,MP4,M4A,3GP,3G2,MJ2|132840|166183||{}'
+self.remove_result_data(output_path)
+audio = bmf.graph().decode({'input_path': input_video_path
+                            })['audio'].module('my_module')
+
+```
+
+如果您需要完整代码，请参阅[test_simple.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/audio_copy/test_simple.py)
 
 ###  download()
 
@@ -1289,6 +1350,20 @@ def bmf.builder.bmf_graph.BmfGraph.download (  self,
  
 
 ```
+
+示例：
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+video_stream = graph.download({
+    'input_url': 'https://github.com/fromwhzz/test_video/raw/master/face.mp4',
+    'local_path': '../../files/face_test.mp4'
+}).decode()
+
+```
+
+如果您需要完整代码，请参阅[detect_sample.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/face_detect/detect_sample.py)
 
 ###  dump_graph()
 
@@ -1322,6 +1397,17 @@ def bmf.builder.bmf_graph.BmfGraph.dump_graph (  self,
  
 
 ```
+
+示例：
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+graph_config, pre_module = graph.generate_graph_config()
+graph.dump_graph(graph_config)
+
+```
+
+如果您需要完整代码，请参阅[set_option.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/set_option/set_option.py)
 
 ###  fill_eos()
 
@@ -1358,6 +1444,32 @@ def bmf.builder.bmf_graph.BmfGraph.fill_packet (  self,
  
 
 ```
+
+示例：
+
+```
+import bmf
+def push_file(file_name, graph, video_stream1, video_stream2, pts):
+    f = open(file_name, "rb")
+    while (1):
+        lines = f.read(1000)
+        if len(lines) == 0:
+            break
+        pkt = BMFAVPacket(len(lines))
+        memview = pkt.data.numpy()
+        memview[:] = np.frombuffer(lines, dtype='uint8')
+        pkt.pts = pts
+        pts += 1
+        packet = Packet(pkt)
+        packet.timestamp = pts
+        graph.fill_packet(video_stream1.get_name(), packet, True)
+        graph.fill_packet(video_stream2.get_name(), packet, True)
+    f.close()
+    return pts
+
+```
+
+如果您需要完整代码，请参阅[test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 ###  generate_add_id()
 
@@ -1433,6 +1545,18 @@ def bmf.builder.bmf_graph.BmfGraph.generate_graph_config (  self )
  
 
 ```
+
+示例：
+
+```
+import bmf
+graph = bmf.graph()
+graph = bmf.graph({'dump_graph': 1})
+graph_config, pre_module = graph.generate_graph_config()
+
+```
+
+如果您需要完整代码，请参阅[set_option.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/set_option/set_option.py)
 
 ###  generate_meta_info_config()
 
@@ -1673,6 +1797,35 @@ def bmf.builder.bmf_graph.BmfGraph.generateConfig (  self,
 
 ```
 
+示例：
+
+```
+import bmf
+graph = bmf.graph()
+video = graph.decode({"input_path": input_video_path})
+graph_file = "graph.json"
+(bmf.encode(
+    video['video'], video['audio'], {
+        "output_path": output_path,
+        "video_params": {
+            "codec": "h264",
+            "width": 320,
+            "height": 240,
+            "crf": 23,
+            "preset": "veryfast"
+        },
+        "audio_params": {
+            "codec": "aac",
+            "bit_rate": 128000,
+            "sample_rate": 44100,
+            "channels": 2
+        }
+    }).generateConfig(graph_file))
+
+```
+
+如果您需要完整代码，请参阅[transcode.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/transcode.py)
+
 ###  get_graph_config()
 
 ```
@@ -1749,6 +1902,17 @@ def bmf.builder.bmf_graph.BmfGraph.input_stream (  self,
  
 
 ```
+
+示例：
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+video_stream = graph.input_stream("outside_raw_video")
+
+```
+
+如果您需要完整代码，请参阅[test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 ###  module()
 
@@ -1876,6 +2040,27 @@ def bmf.builder.bmf_graph.BmfGraph.runFFmpegByConfig (  self,
  
 
 ```
+示例：
+
+```
+import bmf
+from bmf import *
+
+if __name__ == "__main__":
+    import sys
+    file_name = sys.argv[1]
+    mode = sys.argv[2]
+    graph = BmfGraph({})
+    if mode == "ffmpeg":
+        graph.runFFmpegByConfig(file_name)
+    elif mode == "pythonEngine":
+        graph.runPythonEngine(file_name)
+    elif mode == "cEngine":
+        graph.runCEngine(file_name)
+
+```
+
+如果您需要完整代码，请参阅[compare.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/compare.py)
 
 ###  start()
 

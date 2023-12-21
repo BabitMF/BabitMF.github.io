@@ -8,7 +8,7 @@ weight: 5
 
   [Functions](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#func-members)  |  [Variables](https://babitmf.github.io/docs/bmf/api/api_in_python/bmfmodules/#var-members)  # bmf.builder.bmf_modules Namespace Reference
 
- ## Functions
+ ## 函数
 
 
 def   [upload](#upload) ( [stream](#stream) , type="", path="", entry="")
@@ -36,7 +36,7 @@ def   c_module (streams, name, module_path="", entry="", [option](#option) =None
  
  
 
- ## Variables
+ ## 变量
 
 
 dictionary   [bmf_modules](#bmf_modules) 
@@ -56,7 +56,7 @@ dictionary   [module_info](#module_info)
    [scheduler](#scheduler) 
  
 
-## Function Documentation
+## 函数文档
 
 
 ###  go_module()
@@ -109,7 +109,20 @@ def bmf.builder.bmf_modules.upload (  stream,
  
 
 ```
-## Variable Documentation
+示例：
+
+```
+import bmf
+graph = bmf.graph()
+
+video = graph.decode({"input_path": input_video_path})
+video["audio"].upload()
+
+```
+
+如果您需要完整代码，请参阅[test_clock_sync.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/clock_sync_manager/test_clock_sync.py)
+
+## 变量文档
 
 
 ###  bmf_modules
