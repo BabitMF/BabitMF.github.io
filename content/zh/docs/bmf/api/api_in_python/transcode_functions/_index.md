@@ -11,7 +11,7 @@ def   [bmf.builder.ff_filter.ff_filter](#ff_filter) (streams, filter_name, args,
  
 def   [bmf.builder.ff_filter.vflip](#vflip) (stream, kwargs)
  
-def   [bmf.builder.ff_filter.scale](#scale) (stream, args, kwargs)
+def   [bmf.builderß.ff_filter.scale](#scale) (stream, args, kwargs)
  
 def   [bmf.builder.ff_filter.setsar](#setsar) (stream, args, kwargs)
  
@@ -49,11 +49,11 @@ def   [bmf.builder.ff_filter.decode](#decode) (self, [decoder_para](https://babi
  
  
 
-## Detailed Description
+## 详细描述
 
-BMF transcode related functions, can be called directly by BmfStream object.
+BMF transcode 相关的函数，可直接由 BmfStream 对象调用。
 
-## Function Documentation
+## 函数文档
 
 
 ###  adelay()
@@ -186,10 +186,10 @@ def bmf.builder.ff_filter.decode (  self,
    stream_alias = None 
  )   
 ```
-A graph function to provide a build-in decoder BMF stream Include av demuxer and decoder.
+提供内置解码器 BMF stream 的 graph 函数，包括 av demuxer 和 decoder。
 
 **Parameters**
- - **decoder_para** the parameters for the decoder 
+ - **decoder_para**：解码器的参数
 
 
 
@@ -214,12 +214,12 @@ def bmf.builder.ff_filter.encode (  video_stream,
    stream_alias = None 
  )   
 ```
-Build-in encoder BMF stream Include av encoder and muxer.
+内置编码器 BMF stream，包括 av encoder 和 muxer。
 
 **Parameters**
- - **video_stream** the stream of video, it should be the first input stream of the encoder 
- - **audio_stream** the stream of audio 
- - **encoder_para** the parameters for the encoder 
+ - **video_stream**：视频流，它应该是编码器的第一个输入流
+ - **audio_stream**：音频流
+ - **encoder_para**：编码器的参数
 
 
 
@@ -241,12 +241,12 @@ def bmf.builder.ff_filter.ff_filter (  streams,
    kwargs 
  )   
 ```
-Build-in filter BMF stream.
+内置的 filter BMF stream。
 
 **Parameters**
- - **filter_name** the filter name in the libavfilter 
- - **args** the arguments for the filter 
- - **kwargs** the extra arguments for the filter stream such as: alias, stream_alias, type, path, entry 
+ - **filter_name**：libavfilter 中的 filte r名称
+ - **args**：filter 的参数 
+ - **kwargs**：filter stream 的额外参数，如：alias、stream_alias、type、path、entry
 
 
 

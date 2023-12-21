@@ -9,7 +9,7 @@ weight: 8
 
   [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_python/streamconfig/#pub-methods)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_python/streamconfig/#pub-attribs)  |  List of all members  # bmf.builder.graph_config.StreamConfig Class Reference
 
- ## Public Member Functions
+ ## 公有成员函数
 
 
 def   [__init__](#__init__) (self, stream_config_dict=None)
@@ -25,7 +25,7 @@ def   [get_alias](#get_alias) (self)
 def   [dump](#dump) (self)
  
 
- ## Public Attributes
+ ## 公共属性
 
 
    [identifier](#identifier) 
@@ -33,9 +33,9 @@ def   [dump](#dump) (self)
    [stream_alias](#stream_alias) 
  
 
-## Detailed Description
+## 详细描述
 
-## Constructor & Destructor Documentation
+## 构造函数和析构函数文档
 
 
 ###  __init__()
@@ -60,7 +60,7 @@ def bmf.builder.graph_config.StreamConfig.__init__ (  self,
  
 
 ```
-## Member Function Documentation
+## 成员函数文档
 
 
 ###  dump()
@@ -135,7 +135,7 @@ def bmf.builder.graph_config.StreamConfig.set_identifier (  self,
  
 
 ```
-## Member Data Documentation
+## 成员数据文档
 
 
 ###  identifier

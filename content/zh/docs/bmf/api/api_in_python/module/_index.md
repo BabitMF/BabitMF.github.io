@@ -44,11 +44,11 @@ def   [bmf.python_sdk.module.Module.get_graph_config](#get_graph_config) (self)
  
  
 
-## Detailed Description
+## 详细描述
 
   [Module](https://babitmf.github.io/docs/bmf/api/api_in_python/module/)  class in Python  [Module](https://babitmf.github.io/docs/bmf/api/api_in_python/module/)  SDK.
 
-## Function Documentation
+## 函数文档
 
 
 ###  __init__()
@@ -59,11 +59,11 @@ def bmf.python_sdk.module.Module.__init__ (  self,
    option = None 
  )   
 ```
-construct bmf module
+构建 BMF 模块。
 
 **Parameters**
- - **node_id** unique id . 
- - **json_param** json param of module. 
+ - **node_id**：唯一标识
+ - **json_param**：模块的 json 参数
 
 
 
@@ -76,12 +76,40 @@ construct bmf module
 
 ```
 
+示例：
+```
+from bmf import (
+    Module,
+    Log,
+    LogLevel,
+    InputType,
+    ProcessResult,
+    Packet,
+    AudioFrame,
+    Timestamp,
+    scale_av_pts,
+    av_time_base,
+    BmfCallBackType,
+)
+
+class Audiomix(Module):
+    def __init__(self, node, option=None):
+        self.node_ = node
+        self.option = option
+        # we only support audio frame: 44100 lc-aac, fltp, stereo 1024 samples
+        self.timebase = Rational(1, sample_rate)
+        self.volume_table = dict()
+```
+
+如果您需要完整代码，请参阅 [audiomix.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/audiomix.py)
+
+
 ###  close()
 
 ```
 def bmf.python_sdk.module.Module.close (  self )  
 ```
-close module
+关闭模块。
 
 
 ```
@@ -96,10 +124,10 @@ def bmf.python_sdk.module.Module.dynamic_reset (  self,
    opt_reset = None 
  )   
 ```
-dynamic_reset module when the option need to be updated.
+当需要更新选项时，使用 dynamic_reset 模块。
 
 **Parameters**
- - **opt_reset** dict value of option 
+ - **opt_reset**：选项的 dict value 
 
 
 
@@ -108,13 +136,57 @@ dynamic_reset module when the option need to be updated.
      def dynamic_reset(self, opt_reset=None):
 
 ```
+示例：
+```
+from bmf import (
+    Module,
+    Log,
+    LogLevel,
+    InputType,
+    ProcessResult,
+    Packet,
+    AudioFrame,
+    Timestamp,
+    scale_av_pts,
+    av_time_base,
+    BmfCallBackType,
+)
+
+class Audiomix(Module):
+    def dynamic_reset(self, opt_reset=None):
+        Log.log_node(
+            LogLevel.INFO,
+            self.node_,
+            "opt_reset type:",
+            type(opt_reset),
+            "opt_reset: ",
+            opt_reset,
+        )
+        if opt_reset is None:
+            return
+        if self.option is None:
+            self.option = dict()
+        for (para, value) in opt_reset.items():
+            self.option[para] = value
+        Log.log_node(
+            LogLevel.INFO,
+            self.node_,
+            "opt_reset:",
+            opt_reset,
+            "self.option: ",
+            self.option,
+        )
+```
+
+如果您需要完整代码，请参阅 [audiomix.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/audiomix.py)
+
 
 ###  get_graph_config()
 
 ```
 def bmf.python_sdk.module.Module.get_graph_config (  self )  
 ```
-get the graph config of the module
+获取模块的 graph config。
 
 **Returns**
 
@@ -130,7 +202,7 @@ get the graph config of the module
 ```
 def bmf.python_sdk.module.Module.init (  self )  
 ```
-init module
+初始化模块。
 
 
 ```
@@ -145,10 +217,10 @@ def bmf.python_sdk.module.Module.is_hungry (  self,
    input_idx 
  )   
 ```
-check the module's input stream need data
+检查模块的 input stream 是否需要数据。
 
 **Parameters**
- - **input_idx** input stream id 
+ - **input_idx**：输入流的id
 
 
 
@@ -166,7 +238,7 @@ check the module's input stream need data
 ```
 def bmf.python_sdk.module.Module.is_infinity (  self )  
 ```
-check the module is infinity
+检查模块是否无穷大。
 
 **Returns**
 
@@ -182,7 +254,7 @@ check the module is infinity
 ```
 def bmf.python_sdk.module.Module.is_subgraph (  self )  
 ```
-check the module is subgraph
+检查模块是否是子图。
 
 **Returns**
 
@@ -200,10 +272,10 @@ def bmf.python_sdk.module.Module.need_hungry_check (  self,
    input_idx 
  )   
 ```
-check the module's input stream should hungry check
+检查模块的输入流是否应该进行 hungry check。
 
 **Parameters**
- - **input_idx** input stream id 
+ - **input_idx**：输入流的 id 
 
 
 
@@ -226,7 +298,7 @@ def bmf.python_sdk.module.Module.process (  self,
 process task
 
 **Parameters**
- - **task** reference to the  Task class. The module should process input packet in task and produce output packet to the task
+ - **task**：引用 Task class。 该模块应处理任务中的 input packet 并为该 task 生成 output packet
 
 
 
@@ -238,19 +310,107 @@ process task
      def process(self, task):
 
 ```
+示例：
+```
+from bmf import (
+    Module,
+    Log,
+    LogLevel,
+    InputType,
+    ProcessResult,
+    Packet,
+    AudioFrame,
+    Timestamp,
+    scale_av_pts,
+    av_time_base,
+    BmfCallBackType,
+)
+
+class Audiomix(Module):
+    def process(self, task):
+        output_queue = task.get_outputs().get(0, None)
+        for (input_id, input_packets) in task.get_inputs().items():
+            Log.log(LogLevel.DEBUG, "audiomix get input stream id:", input_id)
+            while not input_packets.empty():
+                timestamp = 0
+                bmf_pkt = input_packets.get()
+                frame_list = bmf_pkt.get(list)
+                if frame_list:
+                    timestamp = frame_list[0][1]
+
+                Log.log(
+                    LogLevel.DEBUG,
+                    "audiomix do mix, framelist len",
+                    len(frame_list),
+                    "timestamp: ",
+                    timestamp,
+                )
+                audio_frame = self.do_mix(frame_list)
+                audio_frame.time_base = self.timebase
+                audio_frame.pts = scale_av_pts(
+                    timestamp,
+                    av_time_base,
+                    float(self.timebase.num) / self.timebase.den,
+                )
+                # Log.log(
+                #    LogLevel.DEBUG,
+                #    "audio mix output frame, sample_rate:",
+                #    audio_frame.sample_rate,
+                #    "samples:",
+                #    audio_frame.samples,
+                #    "layout:",
+                #    audio_frame.layout,
+                #    "format:",
+                #    audio_frame.format,
+                #    "timestamp:",
+                #    timestamp,
+                # )
+                output_pkt = Packet(audio_frame)
+                output_pkt.timestamp = timestamp
+
+                if output_queue is not None:
+                    output_queue.put(output_pkt)
+
+        return ProcessResult.OK
+```
+
+如果您需要完整代码，请参阅 [audiomix.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/audiomix.py)
 
 ###  reset()
 
 ```
 def bmf.python_sdk.module.Module.reset (  self )  
 ```
-reset module when the module need to be reseted
+当模块需要重置时重置模块。
 
 
 ```
      def reset(self):
 
 ```
+
+示例：
+```
+from bmf import (
+    Module,
+    Log,
+    LogLevel,
+    InputType,
+    ProcessResult,
+    Packet,
+    AudioFrame,
+    Timestamp,
+    scale_av_pts,
+    av_time_base,
+    BmfCallBackType,
+)
+
+class Audiomix(Module):
+    def reset(self):
+        Log.log_node(LogLevel.DEBUG, self.node_, " is doing reset")
+```
+
+如果您需要完整代码，请参阅 [audiomix.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/audiomix.py)
 
 ###  set_callback()
 
@@ -259,10 +419,10 @@ def bmf.python_sdk.module.Module.set_callback (  self,
    callback 
  )   
 ```
-set the graph callback to the module
+为该模块设置 graph callback。
 
 **Parameters**
- - **callback** graph callback. 
+ - **callback**：graph callback
 
 
 
@@ -279,10 +439,10 @@ def bmf.python_sdk.module.Module.set_node (  self,
    node 
  )   
 ```
-set node id of this module
+设置改模块的 node id
 
 **Parameters**
- - **node** node id of the module 
+ - **node**：该模块的 node id
 
 
 

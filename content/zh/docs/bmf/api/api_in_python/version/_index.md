@@ -16,11 +16,11 @@ def   [bmf.python_sdk.utils.change_dmp_path](#change_dmp_path) (path)
  
  
 
-## Detailed Description
+## 详细描述
 
-BMF Version.
+BMF 版本。
 
-## Function Documentation
+## 函数文档
 
 
 ###  change_dmp_path()
@@ -28,7 +28,7 @@ BMF Version.
 ```
 def bmf.python_sdk.utils.change_dmp_path (  path )  
 ```
-change dmp file output path
+更改 dmp 文件的输出路径
 
 
 ```
@@ -41,7 +41,7 @@ change dmp file output path
 ```
 def bmf.python_sdk.utils.get_commit (  )  
 ```
-get commit id
+获取 commit id
 
 **Returns**
 
@@ -57,7 +57,7 @@ get commit id
 ```
 def bmf.python_sdk.utils.get_version (  )  
 ```
-get bmf version
+获取 bmf 版本
 
 **Returns**
 

@@ -25,11 +25,11 @@ def   [bmf.builder.bmf_modules.c_module](#c_module) (streams, name, module_path=
  
  
 
-## Detailed Description
+## 详细描述
 
-BMF module related functions.
+BMF 模块相关的函数。
 
-## Function Documentation
+## 函数文档
 
 
 ###  c_module()
@@ -46,16 +46,16 @@ def bmf.builder.bmf_modules.c_module (  streams,
    stream_alias = None 
  )   
 ```
-To build a c/c++ implemented module stream loaded by module library path and entry.
+构建由模块库路径和入口加载的 c/c++ 实现的 module stream。
 
 **Parameters**
- - **streams** the input stream list of the module 
- - **name** the module name 
- - **option** the parameters for the module 
- - **module_path** the path to load the module 
- - **entry** the call entry of the module 
- - **input_manager** select the input manager for this module, immediate by default 
- - **pre_module** the previous created module object of this module 
+ - **streams**：模块的 input stream list
+ - **name**：模块的名称
+ - **option**：模块的参数
+ - **module_path**：加载模块的路径
+ - **entry**：模块的调用条目
+ - **input_manager**：为该模块选择 input manager，默认为 immediate
+ - **pre_module**：该模块先前创建的 module object
 
 
 
@@ -75,16 +75,34 @@ def bmf.builder.bmf.create_module (  module_info,
    option 
  )   
 ```
-To create an object of the module, can be used to create the real module before the graph run.
+创建模块的对象，可用于在 graph 运行之前创建真实的模块。
 
 **Parameters**
- - **module_info** the module name 
- - **option** the option for the module 
+ - **module_info**：模块的名称
+ - **option**：模块的选项
 
 
 
 **Returns**
 
+示例：
+
+```
+import bmf
+def test_pre_module(self):
+    input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+    output_path = "./output.mp4"
+    expect_result = '../pre_module/output.mp4|200|300|10.0|MOV,MP4,M4A,3GP,3G2,MJ2|62956|78695|h264|' \
+                    '{"fps": "30.0662251656"}'
+    self.remove_result_data(output_path)
+    # pre_allocate a module
+    module_name = "analysis"
+    option = {"name": "analysis_SR", "para": "analysis_SR"}
+    pre_module = bmf.create_module(module_name, option)
+
+```
+
+如果您需要完整代码，请参阅[test_pre_module.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/pre_module/test_pre_module.py)
 
 
 ```
@@ -106,15 +124,15 @@ def bmf.builder.bmf_modules.module (  streams,
    stream_alias = None 
  )   
 ```
-To build a BMF node by Args.
+通过 Arg 构建一个 BMF node。
 
 **Parameters**
  - **streams**  
- - **module_info** the module info of the module 
- - **option** the option for this module, for example: { 'alias': 'pass_through', 'output_path': output_path } 
- - **input_manager** immediate by default. It's the input stream manager of this module 
- - **pre_module** none by default. It's a previous CREATED module OBJECT by  [bmf.create_module()](#create_module) 
- - **scheduler** 0 by default. It's a dedicate thread to schedule this module 
+ - **module_info**：该模块的模块信息
+ - **option**：该模块的选项，例如：{ 'alias': 'pass_through', 'output_path': output_path } 
+ - **input_manager**：默认为 immediate。它是该模块的 the input stream
+ - **pre_module**：默认为 none。它是之前由 [bmf.create_module()](#create_module) 创建的模块。
+ - **scheduler**：默认为 0。它是一个专门的线程来调度这个模块
 
 
 
@@ -136,10 +154,10 @@ def bmf.builder.bmf_modules.null_sink (  stream,
    entry = "" 
  )   
 ```
-The null sink module which will drop all the input from upstream.
+null sink module 将丢弃来自 upstream 的所有输入。
 
 **Parameters**
- - **streams** the input stream list of the module 
+ - **streams**：该模块的 input stream list
 
 
 
@@ -162,10 +180,10 @@ def bmf.builder.bmf_modules.pass_through (  stream,
    stream_alias = None 
  )   
 ```
-To pass through the input stream packets to output (if connected, by sequence, 1:1)
+将 input stream packet 传递到 output（如果连接，按顺序，1:1）
 
 **Parameters**
- - **streams** the input stream list of the module 
+ - **streams**：该模块的 input stream list
 
 
 
@@ -177,6 +195,29 @@ To pass through the input stream packets to output (if connected, by sequence, 1
  def pass_through(stream, type="", path="", entry="", stream_alias=None):
 
 ```
+
+示例：
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+
+video_stream = graph.module('c_ffmpeg_decoder')
+video_stream['video'].pass_through().encode(
+    video_stream['audio'], {
+        "output_prefix": "./output_video_dir",
+        "video_params": {
+            "codec": "h264",
+            "width": 640,
+            "height": 480,
+            "crf": "23",
+            "preset": "veryfast"
+        }
+    }).output_stream()
+
+```
+
+如果您需要完整代码，请参阅[test_server.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/server/test_server.py)
 
 ###  py_module()
 
@@ -192,17 +233,16 @@ def bmf.builder.bmf_modules.py_module (  streams,
    stream_alias = None 
  )   
 ```
-To build a python implemented module stream loaded by module library path and entry.
+构建由模块库路径和入口加载的 python 实现的 module stream。
 
 **Parameters**
- - **streams** the input stream list of the module 
- - **name** the module name 
- - **option** the parameters for the module 
- - **module_path** the path to load the module 
- - **entry** the call entry of the module 
- - **input_manager** select the input manager for this module, immediate by default 
- - **pre_module** the previous created module object of this module 
-
+ - **streams**：模块的 input stream list
+ - **name**：模块的名称
+ - **option**：模块的参数
+ - **module_path**：加载该模块的路径
+ - **entry**：该模块的调用条目
+ - **input_manager**：为该模块选择 input manager，默认为 immediate
+ - **pre_module**：该模块先前创建的 module object
 
 
 **Returns**
