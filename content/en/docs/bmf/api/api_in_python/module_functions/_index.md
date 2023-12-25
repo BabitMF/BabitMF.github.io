@@ -92,6 +92,25 @@ To create an object of the module, can be used to create the real module before 
 
 ```
 
+Example:
+
+```
+import bmf
+def test_pre_module(self):
+    input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+    output_path = "./output.mp4"
+    expect_result = '../pre_module/output.mp4|200|300|10.0|MOV,MP4,M4A,3GP,3G2,MJ2|62956|78695|h264|' \
+                    '{"fps": "30.0662251656"}'
+    self.remove_result_data(output_path)
+    # pre_allocate a module
+    module_name = "analysis"
+    option = {"name": "analysis_SR", "para": "analysis_SR"}
+    pre_module = bmf.create_module(module_name, option)
+
+```
+
+If you need the complete code, you can refer to [test_pre_module.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/pre_module/test_pre_module.py)
+
 ###  module()
 
 ```
@@ -177,6 +196,29 @@ To pass through the input stream packets to output (if connected, by sequence, 1
  def pass_through(stream, type="", path="", entry="", stream_alias=None):
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+
+video_stream = graph.module('c_ffmpeg_decoder')
+video_stream['video'].pass_through().encode(
+    video_stream['audio'], {
+        "output_prefix": "./output_video_dir",
+        "video_params": {
+            "codec": "h264",
+            "width": 640,
+            "height": 480,
+            "crf": "23",
+            "preset": "veryfast"
+        }
+    }).output_stream()
+
+```
+
+If you need the complete code, you can refer to [test_server.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/server/test_server.py)
 
 ###  py_module()
 
