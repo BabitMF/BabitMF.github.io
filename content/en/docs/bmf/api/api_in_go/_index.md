@@ -3,141 +3,141 @@ title: 'API In Go'
 linkTitle: 'API In Go'
 weight: 3
 ---
-## Normal mode (refer to normalMode)
+## Normal mode (即 normalMode)
 ### func NewBMFGraph(mode BMFGraphMode, option interface{}) *BMFGraph
 
 Para:
-- mode: Enumeration type, the operation mode of BMF, with the following options:
-   - Normal mode (most commonly used)
-   - Server pre-built mode
-   - Generator generator mode
-   - SubGraph subgraph mode
-   - Update Dynamic addition and deletion of streaming scenarios
-- option: interface{} type, global Parameter of BMF, usually can be filled with null value nil
+- mode: 枚举类型，即 BMF 的运行模式，有以下选项：
+   - Normal mode（最常用）
+   - Server：预构建模式
+   - Generator：生成器模式
+   - SubGraph：子图模式
+   - Update：动态增删流场景
+- option: interface{} 类型，BMF 的全局参数，通常可以填空值 nil
 
 Return:
-- *BMFGraph: structure pointer type, global Graph pointer
+- *BMFGraph: 结构体指针类型，全局 Graph 指针
 
 ### func (g *BMFGraph) Decode(decodePara interface{}, controlStream *BMFStream) *BMFNode
 
 Para:
-- decodePara: interface{} type, decoding module Parameters, can be represented by map[string]interface{} data structure
-- controlStream: structure pointer type, usually empty nil
+- decodePara: interface{} 类型，解码模块的参数，可以用 map[string]interface{} 数据结构来表示
+- controlStream: 结构体指针类型，通常为空 nil
 
 Return:
-- *BMFNode: structure pointer type, pointer to decoding node
+- *BMFNode: 结构体指针类型，指向解码节点的指针
 
 ### func (n *BMFNode) Stream(id interface{}) *BMFStream
 Para:
 
-- id: integer, representing the stream number of the node (the stream number usually starts from 0)
+- id: 整数，表示该节点的 stream number（stream number 通常从 0 开始）
 
 Return:
-- *BMFStream: structure pointer type, pointer to stream structure
+- *BMFStream: 结构体指针类型，指向流结构体的指针
 
 ### func (g *BMFGraph) Encode(videoStream *BMFStream, audioStream *BMFStream, encoderPara interface{}) *BMFNode
 
 Para:
-- videoStream: structure pointer type, the structure pointer of the video stream
-- audioStream: structure pointer type, structure pointer of audio stream
-- encoderPara: interface{} type, encoding module Parameters, can be represented by map[string]interface{} data structure
+- videoStream: 结构体指针类型，视频流的结构体指针
+- audioStream: 结构体指针类型，音频流的结构体指针
+- encoderPara: interface{} 类型，解码模块的参数，可以用 map[string]interface{} 数据结构来表示
 
 Return:
-- *BMFNode: structure pointer type, coded node pointer
+- *BMFNode: 结构体指针类型，编码节点指针
 
 ### func (g *BMFGraph) Module(inputs []*BMFStream, moduleName string, moduleType BMFModuleType, modulePath string, moduleEntry string, option interface{}, preModule *BMFModuleInstance) *BMFNode
 
 Para:
-- inputs: The slice structure of the BMFStream structure pointer, representing all input streams of the module
-- moduleName: string type, module name
-- moduleType: enumerated type, with the following options:
+- inputs: BMFStream 结构指针的 slice 结构，代表模块的所有输入流
+- moduleName: 字符串类型，模块名称
+- moduleType: 枚举类型，有以下选项：
    -Python
    -Cpp
-   - Go
-- modulePath: string type, the path where the module file is located
-- moduleEntry: string type, module entry
-- option: interface{} type, module Parameter
-- preModule: structure pointer of BMFModuleInstance, preload module, nil if no
+   -Go
+- modulePath: 字符串类型，模块文件所在路径
+- moduleEntry: 字符串类型，模块入口
+- option: interface{} 类型，模块参数
+- preModule: BMFModuleInstance 的结构体指针，预加载模块，如果没有则为 nil
 
 Return:
-- *BMFNode: structure pointer type, the pointer of the corresponding node of the module
+- *BMFNode: 结构体指针类型，模块对应节点的指针
 
 ### func (g *BMFGraph) Run(needMerge bool) *CBMFGraph
 
 Para:
-- needMerge: Boolean type, whether to merge the ffmpeg filter nodes in the graph, usually true
+- needMerge: Boolean 类型，是否合并图中的 ffmpeg filter 节点，通常为 true
 
 Return:
-- *CBMFGraph: structure pointer type, which is a pointer to the encapsulation structure of the C language graph object
+- *CBMFGraph: 结构体指针类型，是指向 C 语言 Graph 对象的封装结构体的指针
 
 ### func (bgp *CBMFGraph) Close() error
 
 Return:
-- error: error type, when the C graph structure is empty, an error will be reported
+- error: error类型，当 C graph 结构为空时，会报错
 
-## preload mode (refer to premoduleMode)
+## preload mode (即 premoduleMode)
 ### func NewCBMFModule(moduleName string, option interface{}, moduleType BMFModuleType, modulePath, moduleEntry string) (*CBMFModule, error)
 
 Para:
-- moduleName: string type, module name
-- option: interface{} type, module Parameter
-- moduleType: enumerated type, with the following options:
+- moduleName: 字符串类型，模块名称
+- option: interface{} 类型，模块参数
+- moduleType: 枚举类型，具有以下选项：
    -Python
    -Cpp
-   - Go
-- modulePath: string type, the path where the module file is located
-- moduleEntry: string type, module entry
+   -Go
+- modulePath: 字符串类型，模块文件所在的路径
+- moduleEntry: 字符串类型，模块入口
 
 Return:
-- *BMFModuleInstance: structure pointer type, which is a pointer to the encapsulation structure of the C language module object
-- error: error type, when the C graph structure is empty, an error will be reported
+- *BMFModuleInstance: 结构体指针类型，是指向 C 语言模块对象的封装结构体的指针
+- error: error 类型，当 C Graph 结构为空时，会报错
 
 ### func (s *BMFStream) Module(inputs []*BMFStream, moduleName string, moduleType BMFModuleType, modulePath string, moduleEntry string, option interface{}, preModule *CBMFModule) *BMFNode
 
-Note: The difference between this interface and the Module interface in normal mode is that the caller is BMFStream instead of BMFGraph.
-When the caller is BMFStream, the stream corresponding to the caller will be merged with other streams in inputs, and they will be used as the input stream of the module together.
+注意: 该接口与普通模式下的模块接口的区别在于调用者是 BMFStream 而不是 BMFGraph。
+当调用者为 BMFStream 时，与调用者对应的流将与输入中的其他流合并，共同用作模块的输入流。
 
 ## Sync mode (see syncMode & syncModeSerial)
 ### func NewModulefunctor(name, tp, path, entry string, option interface{}, ninputs, nooutputs int32) (*Modulefunctor, error)
 
 Para:
-- name: string type, Module name
-- tp: string type, Module type (python, c++, go)
-- Path: string type, corresponding to the path of the module implementation file
-- entry: string type, module entry
-- ninputs: int32 type, specifies the number of input streams
-- nooutputs: int32 type, specifies the number of output streams
+- name: string type, Module name字符串类型，模块名称
+- tp: 字符串类型，模块类型（Python，C++，Go）
+- Path: 字符串类型，对应模块实施文件的路径
+- entry: 字符串类型，模块入口
+- ninputs: int32 类型，指定输入流的数量
+- nooutputs: int32 类型，注定输出流的数量
 
 Return:
-- *Modulefunctor: the instantiated Modulefunctor
-- error: error message, default is nil
+- *Modulefunctor: 实例化的 Modulefunctor
+- error: 错误信息，默认为 nil
 ### func (self *Modulefunctor) Execute(inputs []*Packet, cleanup bool) (bool, error)
 
 Para:
-- inputs: *Packet is a slice structure of element type, which contains the input Packet to be processed
-- cleanup : bool type, controls whether to clear all un-fetch results
+- inputs: *Packet 是元素类型的 slice structure，其中包含要处理的输入数据包
+- cleanup : bool 类型，控制是否清除所有未获取结果
 
 Return:
-- bool: Whether the operation is successful, 1 is success, 0 is failed
-- error: error message, default is nil
+- bool: 操作是否成功，1 表示成功，0 表示失败
+- error: 错误信息，默认为 nil
 ### func (self *Modulefunctor) Fetch(index int) ([]*Packet, error)
 
 Para:
-- inputs: *Packet is a slice structure of element type, which contains the input Packet to be processed
-- cleanup : bool type, controls whether to clear all un-fetch results
+- inputs: *Packet 是元素类型的 slice structure，其中包含要处理的输入数据包
+- cleanup : bool 类型，控制是否清除所有未获取结果
 
 Return:
-- []*Packet: packet list processed by Sync mode module
-- error: error message, default is nil
+- []*Packet: 同步模式模块处理的数据包列表
+- error: 错误信息，默认为 nil
 ### func (self *Modulefunctor) Call(inputs []*Packet) ([]*Packet, error)
 
 Para:
-- inputs: *Packet is a slice structure of element type, which contains the input Packet to be processed
+- inputs: *Packet 是元素类型的 slice structure，其中包含要处理的输入数据包
 
 Return:
-- []*Packet: packet list processed by Sync mode module
-- error: error message, default is nil
+- []*Packet: 同步模式模块处理的数据包列表
+- error: 错误信息，默认为 nil
 ### func deleteModulefunctor(o *Modulefunctor)
 
 Para:
-- o: *Modulefunctor, pointing to the Modulefunctor instance that will be free
+- o: *Modulefunctor，指向将被释放的 Modulefunctor 实例

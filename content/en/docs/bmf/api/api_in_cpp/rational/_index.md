@@ -16,7 +16,7 @@ rational.h ## Public Member Functions
    [Rational](#rational-22) (int n, int d)
  
 
- ## Public Attributes
+ ## 公共属性
 
 
 int   [num](#num) = -1
@@ -26,7 +26,7 @@ int   [den](#den) = -1
  
  
 
-## Constructor & Destructor Documentation
+## 构造函数和析构函数文档
 
 
 ###  Rational() [1/2]
@@ -67,7 +67,7 @@ Rational::Rational ( int n,
          }
 
 ```
-## Member Data Documentation
+##成员数据文档
 
 
 ###  den

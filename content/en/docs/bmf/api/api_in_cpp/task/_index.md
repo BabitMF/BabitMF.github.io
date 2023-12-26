@@ -60,7 +60,7 @@ int   [get_node](#get_node) ()
 void   [init](#init) (int node_id, std::vector< int > input_stream_id_list, std::vector< int > output_stream_id_list)
  
 
- ## Public Attributes
+ ## 公共属性
 
 
 int64_t   [timestamp_](#timestamp_) = [UNSET](page_timestamp_8h_v3_0_0#a6fc8e10db27041311d7695900743667caec1d962808cbb9cf1b89a5cdd6197923) 
@@ -78,7 +78,7 @@ int   [node_id_](#node_id_)
 void   [swap](#swap) ( [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) &target, [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/) &source)
  
 
-## Constructor & Destructor Documentation
+## 构造函数和析构函数
 
 
 ###  Task() [1/3]
@@ -89,12 +89,12 @@ Task::Task ( int node_id = -1,
   std::vector< int > output_stream_id_list = {} 
  )   
 ```
-construct  [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/)  .
+构造 [Task](https://babitmf.github.io/docs/bmf/api/api_in_cpp/task/)
 
 **Parameters**
- - **node_id** The id of the running task. 
- - **input_stream_id_list** input stream id list. 
- - **output_stream_id_list** output stream id list. 
+ - **node_id**：正在运行的 task 的 id
+ - **input_stream_id_list**：输入流的 id list
+ - **output_stream_id_list**：输出流的 id list
 
 
 
@@ -110,7 +110,7 @@ Task::Task ( const Task &rhs )
 ```
 Task::Task (  Task &&rhs )  
 ```
-## Member Function Documentation
+## 成员函数文档
 
 
 ###  fill_input_packet()
@@ -120,11 +120,11 @@ bool Task::fill_input_packet ( int stream_id,
   Packet packet 
  )   
 ```
-fill packet into the input stream queue.
+将 packet 填入输入流队列。
 
 **Parameters**
- - **stream_id** The id of the input stream. 
- - **packet** the packet add to the input stream queue. 
+ - **stream_id**：输入流的 id
+ - **packet**：填入输入流队列的 packet
 
 
 
@@ -139,11 +139,11 @@ bool Task::fill_output_packet ( int stream_id,
   Packet packet 
  )   
 ```
-fill packet into the output stream queue.
+将 packet 填入输出流队列。
 
 **Parameters**
- - **stream_id** The id of the output stream. 
- - **packet** the packet add to the output stream queue. 
+ - **stream_id**：输出流的 id
+ - **packet**：填入输出流队列的 packet
 
 
 
@@ -156,7 +156,7 @@ fill packet into the output stream queue.
 ```
  (  )  
 ```
-get input stream id list.
+获取输入流的 id list.
 
 **Returns**
 
@@ -167,7 +167,7 @@ get input stream id list.
 ```
  PacketQueueMap & Task::get_inputs(  )  
 ```
-get input stream queue.
+获取输入流队列。
 
 **Returns**
 
@@ -184,7 +184,7 @@ int Task::get_node (  )
 ```
  (  )  
 ```
-get output stream id list.
+获取输出流的 id list。
 
 **Returns**
 
@@ -195,7 +195,7 @@ get output stream id list.
 ```
  PacketQueueMap & Task::get_outputs(  )  
 ```
-get output stream queue.
+获取输出流队列。
 
 **Returns**
 
@@ -235,11 +235,11 @@ bool Task::pop_packet_from_input_queue ( int stream_id,
   Packet & packet 
  )   
 ```
-pop packet from the given stream id of input queue.
+从输入队列的给定 stream id 中弹出 packet。
 
 **Parameters**
- - **stream_id** The id of the input stream. 
- - **packet** the packet poped from the input stream queue. 
+ - **stream_id**：输入流的 id
+ - **packet**：从输入流队列中弹出的 packet。
 
 
 
@@ -254,11 +254,11 @@ bool Task::pop_packet_from_out_queue ( int stream_id,
   Packet & packet 
  )   
 ```
-pop packet from the given stream id of output queue.
+从输出队列的给定 stream id 中弹出 packet。
 
 **Parameters**
- - **stream_id** The id of the output stream. 
- - **packet** the packet poped from the output stream queue. 
+ - **stream_id**：输出流的 id
+ - **packet**：从输出流队列中弹出的 packet。
 
 
 
@@ -271,10 +271,10 @@ pop packet from the given stream id of output queue.
 ```
 void Task::set_timestamp ( int64_t t )  
 ```
-set the timestamp of the task.
+设置该task的timestamp
 
 **Parameters**
- - **t** the timestamp of the task. 
+ - **t**：该 task 的 timestamp
 
 
 
@@ -287,7 +287,7 @@ set the timestamp of the task.
 ```
 int64_t Task::timestamp (  ) const 
 ```
-get the timestamp of the task
+获取该 task 的 timestamp
 
 **Returns**
 
@@ -308,7 +308,7 @@ void swap (  Task &target,
 
 
 
-## Member Data Documentation
+## 成员数据文档
 
 
 ###  inputs_queue_
