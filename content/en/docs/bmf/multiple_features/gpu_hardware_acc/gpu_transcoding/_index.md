@@ -12,7 +12,7 @@ Nowadays, many video processings rely on deep learning methods. The deep learnin
 
 In the `gpu_transcode` folder, we provide various examples to show how to use GPU decoding and encoding as well as how to combine the FFmpeg CUDA filters in the BMF.
 
-The examples are listed below, we will explain them in detail.
+The examples are listed below. We will explain them in detail.
 
 - Decode videos
 - Decode videos using multiple threads

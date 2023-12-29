@@ -10,7 +10,7 @@ weight: 3
 
 For video processings that use deep learning models, they can use [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) to accelerate inference. TensorRT is an SDK for high-performance deep learning inference, which includes a deep learning inference optimizer and runtime that delivers low latency and high throughput for inference applications.
 
-We provide two examples to show how to use TensorRT in BMF. One is the face detection, you can find it in the `bmf/demo/face_detect` folder. Another is the super resolution, it locates in the `bmf/demo/predict` folder.
+We provide two examples to show how to use TensorRT in BMF. One is the face detection. You can find it in the `bmf/demo/face_detect` folder. Another is the super resolution. It locates in the `bmf/demo/predict` folder.
 
 ### Install TensorRT
 

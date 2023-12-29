@@ -12,13 +12,13 @@ weight: 9
 video_frame.h
 
 
- ## Public Types
+ ## 公共类型
 
 
 using   [Frame](#frame) = hmp::Frame
  
 
- ## Public Member Functions
+ ## 公共成员函数
 
 
    [VideoFrame](#videoframe-16) ()
@@ -152,7 +152,7 @@ void   [synchronize](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/#s
  
  
 
- ## Static Public Member Functions
+ ## 静态公共成员函数
 
 
 static  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/)   [make](#make-12) (int [width](#width) , int [height](#height) , const PixelInfo &pix_info, const Device & [device](#device) =kCPU)
@@ -161,7 +161,7 @@ static  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_fra
 static  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/)   [make](#make-22) (int [width](#width) , int [height](#height) , const PixelInfo &pix_info, const std::string & [device](#device) )
  
 
- ## Protected Member Functions
+ ## 受保护的成员函数
 
 
    [VideoFrame](#videoframe-66) (const std::shared_ptr< Private > &other)
@@ -183,7 +183,7 @@ virtual const  OpaqueData &  [private_data](https://babitmf.github.io/docs/bmf/a
 ```
 using bmf_sdk::VideoFrame::Frame = hmp::Frame
 ```
-## Constructor & Destructor Documentation
+## 构造函数和析构函数文档
 
 
 ###  VideoFrame() [1/6]
@@ -191,7 +191,7 @@ using bmf_sdk::VideoFrame::Frame = hmp::Frame
 ```
 bmf_sdk::VideoFrame::VideoFrame (  )  
 ```
-Construct a undefined Video Frame object.
+构建一个未定义的 Video Frame object。
 
 
 ```
@@ -235,7 +235,7 @@ bmf_sdk::VideoFrame::VideoFrame ( const Frame &frame )
 Construct  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/)  from Frame object.
 
 **Parameters**
- - **frame** Dedicated to YUV data, with irregular shapes between planes 
+ - **frame**：专用于 YUV 数据，平面之间形状不规则
 
 
 
@@ -249,11 +249,12 @@ bmf_sdk::VideoFrame::VideoFrame ( int width,
   const Device & device = kCPU 
  )   
 ```
-Construct VideoFrame(Frame) with given size (width, height), PixelInfo, and device, for ease of use, using factory function VideoFrame::make **Parameters**
- - **width** width of Y plane 
- - **height** height of Y plane 
- - **pix_info** PixelFormat and ColorModel 
- - **device** device 
+使用 factory function VideoFrame::make 构建具有给定尺寸（宽、高）、PixelInfo 和设备的 VideoFrame(Frame) 以方便使用。
+**Parameters**
+ - **width**：Y 平面的宽
+ - **height**：Y 平面的高
+ - **pix_info**：PixelFormat 和 ColorModel 
+ - **device**：device 
 
 
 
@@ -269,7 +270,7 @@ bmf_sdk::VideoFrame::VideoFrame ( const std::shared_ptr< Private > & other )
 
 
 
-## Member Function Documentation
+## 成员函数文档
 
 
 ###  copy_()
@@ -277,10 +278,10 @@ bmf_sdk::VideoFrame::VideoFrame ( const std::shared_ptr< Private > & other )
 ```
  VideoFrame & bmf_sdk::VideoFrame::copy_( const VideoFrame &from )  
 ```
-In-place copy.
+原地复制。
 
 **Parameters**
- - **from** data source which have the same type and shape 
+ - **from**：type和shape相同的数据源
 
 
 
@@ -293,7 +294,8 @@ In-place copy.
 ```
  VideoFrame & bmf_sdk::VideoFrame::copy_props( const VideoFrame &from )  
 ```
-copy all extra props(set by member func set_xxx) from  `from` (deepcopy if needed), **Parameters**
+复制来自 `from` 的所有 extra props（由成员函数set_xxx设置）（如果需要，可深度复制）
+**Parameters**
  - **from**  
 
 
@@ -317,13 +319,13 @@ copy all extra props(set by member func set_xxx) from  `from` (deepcopy if neede
   int h 
  )  const 
 ```
-Return the selected region which specified by (x, y, w, h)
+返回由(x、y、w、h)指定的选定区域
 
 **Parameters**
- - **x** start col index 
- - **y** start row index 
- - **w** number of cols 
- - **h** number of rows 
+ - **x**：起始列索引
+ - **y**：起始行索引
+ - **w**：列数
+ - **h**：行数
 
 
 
@@ -350,7 +352,7 @@ virtual
 
 
 
-interface must implemented by sub-class, which provide device info
+接口必须由子类实现，子类提供设备信息。
 
 **Returns**
 
@@ -396,9 +398,9 @@ static
 
 
 
-Facotry function to construct VideoFrame(Frame)
+构建 VideoFrame(Frame) 的 Facotry function
 
-test_video_frame.cpp for more details
+更多详细信息，请参阅 [test_video_frame.cpp](https://github.com/BabitMF/bmf/blob/a5d8c8626c0ae0bf5d2ae13ab284fe5e3fb4b5ee/bmf/sdk/cpp_sdk/test/test_video_frame.cpp#L4)
 
 
 ```
@@ -421,7 +423,7 @@ auto vf = VideoFrame::make(1920, 1080, H420, Device(kCUDA, 0));
  - **width**  
  - **height**  
  - **format**  
- - **device** const char*, string, Device - infer to Device 
+ - **device**：const char*, string, Device - infer to Device 
 
 
 
@@ -466,7 +468,7 @@ static
 ```
 bmf_sdk::VideoFrame::operator bool (  ) const 
 ```
-check if  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/)  is defined
+检查是否定义了 [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/)。
 
 **Returns**
 
@@ -493,7 +495,7 @@ check if  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_f
 ```
  VideoFrame bmf_sdk::VideoFrame::reformat( const PixelInfo & pix_info )  
 ```
-Frame reformat, this only support rgb to yuv, or yuv to rgb.
+帧格式转换，此功能仅支持 rgb 转换为 yuv 或 yuv 转换为 rgb。
 
 **Parameters**
  - **pix_info**  
@@ -511,11 +513,11 @@ Frame reformat, this only support rgb to yuv, or yuv to rgb.
   bool non_blocking = false 
  )  const 
 ```
-Copy to target device, if it have already reside on target device, shadow copy will be performed.
+复制到目标设备上，如果目标设备上已经有，则将执行 shadow copy。
 
 **Parameters**
- - **device** Target device 
- - **non_blocking** if true, internal allocator will try to allocate pinned memory, which can make data copy asynchronous 
+ - **device**：目标设备
+ - **non_blocking**：为 true 时，内部分配器将尝试分配固定的内存，这会导致数据复制异步
 
 
 
