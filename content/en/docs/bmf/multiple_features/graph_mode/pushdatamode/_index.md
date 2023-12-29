@@ -112,4 +112,4 @@ def test_push_raw_stream_into_decoder(self):
 
 ```
 
-This example implements a processing pipeline that decodes the raw 264 stream in push data mode and re-encodes it inside the graph. In the code, we first build a graph and then read the raw stream. Video_content.txt stores the binary content of the code stream. Video_length.txt stores the size of each packet in turn. In the graph options, we open the push_raw_stream switch, which will make the decoder perceive that the packets you will fill in are in raw stream format.
+This example implements a processing pipeline that decodes the raw 264 stream in push data mode and re-encodes it inside the graph. In the code, we first build a graph and then read the raw stream. Video_content.txt stores the binary content of the code stream. Video_length.txt stores the size of each packet in turn. In the graph options, we set the push_raw_stream, which will make the decoder perceive that the packets you will fill in are in raw stream format.

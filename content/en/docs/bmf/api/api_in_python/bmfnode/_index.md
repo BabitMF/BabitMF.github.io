@@ -202,6 +202,26 @@ def bmf.builder.bmf_node.BmfNode.add_user_callback (  self,
 
 ```
 
+Example:
+
+```
+bmf.encode(
+    video['video'], video['audio'], {
+        "output_path": output_path,
+        "video_params": {
+            "codec": "h264",
+            "width": 320,
+            "height": 240,
+            "crf": "23",
+            "preset": "veryfast"
+        }
+    }).node_.add_user_callback(bmf.BmfCallBackType.LATEST_TIMESTAMP,
+                                cb)
+
+```
+
+If you need the complete code, you can refer to [test_transcode.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/test_transcode.py)
+
 ###  create_sync_module()
 
 ```

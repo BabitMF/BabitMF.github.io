@@ -109,6 +109,20 @@ def bmf.builder.bmf_modules.upload (  stream,
  
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph()
+
+video = graph.decode({"input_path": input_video_path})
+video["audio"].upload()
+
+```
+
+If you need the complete code, you can refer to [test_clock_sync.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/clock_sync_manager/test_clock_sync.py)
+
 ## Variable Documentation
 
 

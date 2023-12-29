@@ -73,6 +73,66 @@ Directly do module processing.
 
 ```
 
+Example:
+
+```
+import bmf
+input_video_path = "../../files/overlay.png"
+output_path = "./videoframe.jpg"
+expect_result = './videoframe.jpg|240|320|0.04|IMAGE2|950000|4750|mjpeg|' \
+                '{"fps": "25.0"}'
+self.remove_result_data(output_path)
+
+# create decoder
+decoder = bmf_sync.sync_module("c_ffmpeg_decoder",
+                                {"input_path": input_video_path}, [],
+                                [0])
+'''
+# for non-builtin modules, use module_info instead of module_name to specify type/path/entry
+
+module_info = {
+    "name": "my_module",
+    "type": "",
+    "path": "",
+    "entry": ""
+}
+module = bmf_sync.sync_module(module_info, {"input_path": input_video_path}, [], [0])
+'''
+
+# create scale
+scale = bmf_sync.sync_module("c_ffmpeg_filter", {
+    "name": "scale",
+    "para": "320:240"
+}, [0], [0])
+
+# create encoder
+encoder = bmf_sync.sync_module(
+    "c_ffmpeg_encoder", {
+        "output_path": output_path,
+        "format": "mjpeg",
+        "video_params": {
+            "codec": "jpg"
+        }
+    }, [0], [])
+
+# call init if necessary, otherwise we skip this step
+decoder.init()
+scale.init()
+encoder.init()
+
+# decode
+frames, _ = bmf_sync.process(decoder, None)
+
+# scale
+frames, _ = bmf_sync.process(scale, {0: frames[0]})
+
+# encode
+bmf_sync.process(encoder, {0: frames[0]})
+
+```
+
+If you need the complete code, you can refer to [test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)
+
 ###  send_eof()
 
 ```
@@ -110,6 +170,38 @@ Module process a task with eof packet.
 
 
 ```
+
+Example:
+
+```
+import bmf
+input_video_path = "../../files/overlay.png"
+output_path = "./videoframe.jpg"
+expect_result = './videoframe.jpg|240|320|0.04|IMAGE2|950000|4750|mjpeg|' \
+                '{"fps": "25.0"}'
+self.remove_result_data(output_path)
+
+# create encoder
+encoder = bmf_sync.sync_module(
+    "c_ffmpeg_encoder", {
+        "output_path": output_path,
+        "format": "mjpeg",
+        "video_params": {
+            "codec": "jpg"
+        }
+    }, [0], [])
+
+# call init if necessary, otherwise we skip this step
+encoder.init()
+
+# encode
+bmf_sync.process(encoder, {0: frames[0]})
+
+# send eof to encoder
+bmf_sync.send_eof(encoder)
+
+```
+If you need the complete code, you can refer to [test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)
 
 ###  sync_module()
 
@@ -162,3 +254,22 @@ Create  [SyncModule](https://babitmf.github.io/docs/bmf/api/api_in_python/syncmo
  
 
 ```
+
+Example:
+
+```
+import bmf
+input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+output_path = "./videoframe.jpg"
+expect_result = './videoframe.jpg|240|320|0.04|IMAGE2|950000|4750|mjpeg|' \
+                '{"fps": "0.0"}'
+self.remove_result_data(output_path)
+
+# create decoder
+decoder = bmf_sync.sync_module("c_ffmpeg_decoder",
+                                {"input_path": input_video_path}, [],
+                                [0])
+
+```
+
+If you need the complete code, you can refer to [test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)

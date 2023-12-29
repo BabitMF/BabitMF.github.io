@@ -88,6 +88,28 @@ The callback can be triggered in the module
 
 ```
 
+Example：
+
+```
+ import bmf
+ def test_cb(self):
+    input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+    output_path = "./cb.mp4"
+    expect_result = '../transcode/cb.mp4|240|320|10.008|MOV,MP4,M4A,3GP,3G2,MJ2|192235|240486|h264|' \
+                    '{"fps": "30.0662251656"}'
+    self.remove_result_data(output_path)
+    # create graph
+    graph = bmf.graph()
+
+    def cb(para):
+        print(para)
+        return bytes("OK", "ASCII")
+
+    graph.add_user_callback(bmf.BmfCallBackType.LATEST_TIMESTAMP, cb)
+
+```
+If you need the complete code, you can refer to [test_transcode.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/test_transcode.py)
+
 ###  c_module()
 
 ```
@@ -122,6 +144,8 @@ Using the stream in the graph to build a c/c++ implemented module stream loaded 
 
 ```
 
+You can see example in [test_video_c_module.py](https://github.com/BabitMF/bmf/blob/a5d8c8626c0ae0bf5d2ae13ab284fe5e3fb4b5ee/bmf/test/c_module/test_video_c_module.py)
+
 ###  close()
 
 ```
@@ -134,6 +158,42 @@ To close the graph by block wait until all the tasks are finished.
      def close(self):
 
 ```
+Example:
+
+```
+import bmf
+def test_push_pkt_into_decoder(self):
+    output_path = "./aac.mp4"
+
+    self.remove_result_data(output_path)
+
+    graph = bmf.graph({"dump_graph": 1})
+
+    video_stream = graph.input_stream("outside_raw_video")
+    decode_stream = video_stream.decode()
+    bmf.encode(None, decode_stream["audio"], {"output_path": output_path})
+
+    graph.run_wo_block(mode=GraphMode.PUSHDATA)
+    pts_ = 0
+    for index in range(100, 105):
+        file_name = "../../files/aac_slice/" + str(index) + ".aac"
+        with open(file_name, "rb") as fp:
+            lines = fp.read()
+            buf = BMFAVPacket(len(lines))
+            buf.data.numpy()[:] = np.frombuffer(lines, dtype=np.uint8)
+            buf.pts = pts_
+
+            packet = Packet(buf)
+            pts_ += 1
+            packet.timestamp = pts_
+            start_time = time.time()
+            graph.fill_packet(video_stream.get_name(), packet, True)
+    graph.fill_packet(video_stream.get_name(),
+                      Packet.generate_eof_packet())
+    graph.close()
+
+```
+If you need the complete code, you can refer to [test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 ###  dynamic_add()
 
@@ -159,6 +219,37 @@ To generate the graph of dynamical add node, the graph should be different from 
 
 ```
 
+Example:
+
+```
+import bmf
+#dynamic add a decoder which need output connection
+update_decoder = bmf.graph()
+video2 = update_decoder.decode({
+   'input_path': input_video_path2,
+   'alias': "decoder1"
+})
+
+outputs = {'alias': 'pass_through', 'streams': 2}
+update_decoder.dynamic_add(video2, None, outputs)
+main_graph.update(update_decoder)
+time.sleep(0.03)
+
+#dynamic add a encoder which need input connection
+update_encoder = bmf.graph()
+encode = bmf.encode(None, None, {
+   'output_path': output_path,
+   'alias': "encoder1"
+})
+inputs = {'alias': 'pass_through', 'streams': 2}
+encode.get_graph().dynamic_add(encode, inputs, None)
+main_graph.update(encode.get_graph())
+time.sleep(0.05)
+
+```
+
+If you need the complete code, you can refer to [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
+
 ###  dynamic_remove()
 
 ```
@@ -178,6 +269,20 @@ To generate the graph of dynamical remove node, the graph should be different fr
      def dynamic_remove(self, option):
 
 ```
+
+Example:
+
+```
+import bmf
+#dynamic remove a decoder/encoder/pass_through
+remove_graph = bmf.graph()
+remove_graph.dynamic_remove({'alias': 'decoder1'})
+#remove_graph.dynamic_remove({'alias': 'pass_through'})
+#remove_graph.dynamic_remove({'alias': 'encoder1'})
+
+```
+
+If you need the complete code, you can refer to [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
 
 ###  dynamic_reset()
 
@@ -199,6 +304,46 @@ To generate the graph of dynamical node option reset, the graph should be differ
 
 ```
 
+Example:
+
+```
+import bmf
+def test_dynmaical_reset():
+    input_video_path = '../../files/big_bunny_10s_30fps.mp4'
+    output_path = "./output.mp4"
+
+    main_graph = bmf.graph()
+    video1 = main_graph.decode({
+        'input_path': input_video_path,
+        'alias': "decoder0"
+    })
+
+    passthru = bmf.module([video1['video'], video1['audio']],
+                          'reset_pass_through', {
+                              "alias": "reset_pass_through",
+                          }, "", "", "immediate")
+
+    #instead of run() block function, here use none-blocked run
+    passthru.run_wo_block()
+    time.sleep(0.02)
+
+    update_graph = bmf.graph()
+    update_graph.dynamic_reset({
+        'alias': 'reset_pass_through',
+        'output_path': output_path,
+        'video_params': {
+            'codec': 'h264',
+            'width': 320,
+            'height': 240,
+            'crf': 23,
+            'preset': 'veryfast'
+        }
+    })
+
+```
+
+If you need the complete code, you can refer to [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
+
 ###  force_close()
 
 ```
@@ -211,6 +356,17 @@ Force close the running graph even if the whole pipeline in the graph is not fin
      def force_close(self):
 
 ```
+
+Example:
+
+```
+import bmf
+main_graph = bmf.graph()
+main_graph.force_close()
+
+```
+
+If you need the complete code, you can refer to [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
 
 ###  generate_config_file()
 
@@ -239,6 +395,17 @@ To generate the graph config only, without running.
 
 ```
 
+Example:
+
+```
+import bmf
+graph = bmf.graph()
+graph.generate_config_file(file_name='generated_graph.json')
+
+```
+
+If you need the complete code, you can refer to [config_generator.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/config_generator/config_generator.py)
+
 ###  get_av_log_buffer()
 
 ```
@@ -265,6 +432,18 @@ To get a globalized effect buffer (list) which include all the log coming from f
 
 ```
 
+Example:
+
+```
+import bmf
+my_graph = bmf.graph()
+log_buff = my_graph.get_av_log_buffer()
+# otherwise log level can be set: log_buff = my_graph.get_av_log_buffer("debug")
+
+```
+
+If you need the complete code, you can refer to [test_av_buffer.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/av_log_buffer/test_av_log_buffer.py)
+
 ###  get_module()
 
 ```
@@ -284,6 +463,20 @@ get sync module by given alias
      def get_module(self, alias):
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph()
+# create sync modules
+decoder = graph.get_module("decoder")
+scale = graph.get_module("scale")
+encoder = graph.get_module("encoder")
+
+```
+
+If you need the complete code, you can refer to [test_sync_mode.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/sync_mode/test_sync_mode.py)
 
 ###  remove_user_callback()
 
@@ -330,6 +523,29 @@ To run a graph by a graph config file.
 
 ```
 
+Example:
+
+```
+import bmf
+def test_run_by_config(self):
+    input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+    output_path = "../../files/out.mp4"
+    expect_result = '../../files/out.mp4|240|320|10.008|MOV,MP4,M4A,3GP,3G2,MJ2|175470|219513|h264|' \
+                  '{"fps": "30.0662251656"}'
+    self.remove_result_data(output_path)
+    # create graph
+    my_graph = bmf.graph()
+    file_path = 'config.json'
+    # build GraphConfig instance by config file
+    onfig = GraphConfig(file_path)
+
+    # run
+    my_graph.run_by_config(config)
+
+```
+
+If you need the complete code, you can refer to [test_run_by_config.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/run_by_config/test_run_by_config.py)
+
 ###  run_wo_block()
 
 ```
@@ -346,6 +562,17 @@ Run the graph without wait to close, user should call  [close()](#close)  by the
      def run_wo_block(self, streams=None, is_sub_graph=False, mode=GraphMode.NORMAL):
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+graph.run_wo_block(mode=GraphMode.PUSHDATA)
+
+```
+
+If you need the complete code, you can refer to [test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 ###  set_option()
 
@@ -367,6 +594,45 @@ set new graph options before run
 
 ```
 
+Example:
+
+```
+def test_set_option(self):
+    input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+    input_video_path2 = "../../files/single_frame.mp4"
+
+    output_path = "./simple.mp4"
+    # create graph
+    graph = bmf.graph()
+
+    # create graph
+    graph = bmf.graph({'dump_graph': 1})
+
+    # decode
+    video = graph.decode({"input_path": input_video_path})['video']
+    video2 = graph.decode({"input_path": input_video_path2})['video']
+
+    vout = video.concat(video2)
+
+    bmf.encode(
+        vout, None, {
+            "output_path": output_path,
+            "video_params": {
+                "codec": "h264",
+                "width": 320,
+                "height": 240,
+                "crf": 23,
+                "preset": "veryfast"
+            }
+        })
+
+    graph_name = 'customed_name'
+    graph.set_option({'graph_name': graph_name})
+
+```
+
+If you need the complete code, you can refer to [set_option.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/set_option/set_option.py)
+
 ###  update()
 
 ```
@@ -386,6 +652,19 @@ Final action to do the dynamical add/remove/reset node for current running graph
      def update(self, update_graph):
 
 ```
+
+Example:
+
+```
+import bmf
+main_graph = bmf.graph()
+update_graph = bmf.graph()
+update_graph.dynamic_reset()
+main_graph.update(update_graph)
+
+```
+
+If you need the complete code, you can refer to [dynamical_graph.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/dynamical_graph/dynamical_graph.py)
  
 ###  graph()
 
@@ -405,6 +684,14 @@ To provide a BMF graph.
 
 ```
  def graph(option=None):
+
+```
+
+Example:
+
+```
+import bmf
+main_graph = bmf.graph()
 
 ```
 
@@ -481,6 +768,33 @@ To run the graph until it's finished.
 
 ```
 
+Example:
+
+```
+import bmf
+input_video_path = "../../files/1min.mp4"
+output_path = "./split_fast_slow.mp4"
+# create graph
+my_graph = bmf.graph({
+    "dump_graph": 1,
+    "graph_name": "split_fast_slow",
+    "scheduler_count": 4
+})
+video = my_graph.decode({'input_path': input_video_path})['video']
+v_l = video.split()
+v_l.get_node().scheduler_ = 1
+v1 = v_l[0]
+v2 = v_l[1]
+v1 = v1.module("pass_through_fast")
+v1.get_node().scheduler_ = 2
+v2 = v2.module("pass_through_slow")
+v2.get_node().scheduler_ = 3
+my_graph.run()
+
+```
+
+If you need the complete code, you can refer to [test_collection.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/complex_edit_case/test_collection.py)
+
 ###  run_wo_block()
 
 ```
@@ -497,6 +811,18 @@ Run the graph without wait to close, user should call  [close()](https://babitmf
      def run_wo_block(self, streams=None, is_sub_graph=False, mode=GraphMode.NORMAL):
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+graph.run_wo_block(mode=GraphMode.PUSHDATA)
+graph.close()
+
+```
+
+If you need the complete code, you can refer to [test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 
 [//]: <> (REF_MD: classbmf_1_1builder_1_1bmf__graph_1_1BmfGraph.html)
@@ -916,6 +1242,17 @@ def bmf.builder.bmf_graph.BmfGraph.anullsrc (  self,
 
 ```
 
+Example:
+
+```
+import bmf
+my_graph = bmf.graph({"dump_graph": 1, "graph_name": "5_concat"})
+video3 = my_graph.anullsrc('r=48000').atrim(start=0.0, duration=7)
+
+```
+
+If you need the complete code, you can refer to [test_collection](https://github.com/BabitMF/bmf/blob/master/bmf/test/complex_edit_case/test_collection.py)
+
 ###  callback_for_engine()
 
 ```
@@ -986,6 +1323,21 @@ A graph function to provide a build-in decoder BMF stream Include av demuxer and
 
 ```
 
+Example:
+
+```
+import bmf
+input_video_path = "../../files/big_bunny_10s_30fps.mp4"
+output_path = "./audio_c_module.mp4"
+expect_result = 'audio_c_module.mp4|0|0|10.008|MOV,MP4,M4A,3GP,3G2,MJ2|132840|166183||{}'
+self.remove_result_data(output_path)
+audio = bmf.graph().decode({'input_path': input_video_path
+                            })['audio'].module('my_module')
+
+```
+
+If you need the complete code, you can refer to [test_simple.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/audio_copy/test_simple.py)
+
 ###  download()
 
 ```
@@ -1010,6 +1362,20 @@ def bmf.builder.bmf_graph.BmfGraph.download (  self,
  
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+video_stream = graph.download({
+    'input_url': 'https://github.com/fromwhzz/test_video/raw/master/face.mp4',
+    'local_path': '../../files/face_test.mp4'
+}).decode()
+
+```
+
+If you need the complete code, you can refer to [detect_sample.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/face_detect/detect_sample.py)
 
 ###  dump_graph()
 
@@ -1043,6 +1409,18 @@ def bmf.builder.bmf_graph.BmfGraph.dump_graph (  self,
  
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+graph_config, pre_module = graph.generate_graph_config()
+graph.dump_graph(graph_config)
+
+```
+
+If you need the complete code, you can refer to [set_option.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/set_option/set_option.py)
 
 ###  fill_eos()
 
@@ -1079,6 +1457,32 @@ def bmf.builder.bmf_graph.BmfGraph.fill_packet (  self,
  
 
 ```
+
+Example:
+
+```
+import bmf
+def push_file(file_name, graph, video_stream1, video_stream2, pts):
+    f = open(file_name, "rb")
+    while (1):
+        lines = f.read(1000)
+        if len(lines) == 0:
+            break
+        pkt = BMFAVPacket(len(lines))
+        memview = pkt.data.numpy()
+        memview[:] = np.frombuffer(lines, dtype='uint8')
+        pkt.pts = pts
+        pts += 1
+        packet = Packet(pkt)
+        packet.timestamp = pts
+        graph.fill_packet(video_stream1.get_name(), packet, True)
+        graph.fill_packet(video_stream2.get_name(), packet, True)
+    f.close()
+    return pts
+
+```
+
+If you need the complete code, you can refer to [test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 ###  generate_add_id()
 
@@ -1154,6 +1558,18 @@ def bmf.builder.bmf_graph.BmfGraph.generate_graph_config (  self )
  
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph()
+graph = bmf.graph({'dump_graph': 1})
+graph_config, pre_module = graph.generate_graph_config()
+
+```
+
+If you need the complete code, you can refer to [set_option.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/set_option/set_option.py)
 
 ###  generate_meta_info_config()
 
@@ -1394,6 +1810,35 @@ def bmf.builder.bmf_graph.BmfGraph.generateConfig (  self,
 
 ```
 
+Example:
+
+```
+import bmf
+graph = bmf.graph()
+video = graph.decode({"input_path": input_video_path})
+graph_file = "graph.json"
+(bmf.encode(
+    video['video'], video['audio'], {
+        "output_path": output_path,
+        "video_params": {
+            "codec": "h264",
+            "width": 320,
+            "height": 240,
+            "crf": 23,
+            "preset": "veryfast"
+        },
+        "audio_params": {
+            "codec": "aac",
+            "bit_rate": 128000,
+            "sample_rate": 44100,
+            "channels": 2
+        }
+    }).generateConfig(graph_file))
+
+```
+
+If you need the complete code, you can refer to [transcode.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/transcode.py)
+
 ###  get_graph_config()
 
 ```
@@ -1470,6 +1915,17 @@ def bmf.builder.bmf_graph.BmfGraph.input_stream (  self,
  
 
 ```
+
+Example:
+
+```
+import bmf
+graph = bmf.graph({"dump_graph": 1})
+video_stream = graph.input_stream("outside_raw_video")
+
+```
+
+If you need the complete code, you can refer to [test_push_data.py](https://github.com/BabitMF/bmf/blob/master/bmf/test/push_data_into_graph/test_push_data.py)
 
 ###  module()
 
@@ -1597,6 +2053,28 @@ def bmf.builder.bmf_graph.BmfGraph.runFFmpegByConfig (  self,
  
 
 ```
+
+Example:
+
+```
+import bmf
+from bmf import *
+
+if __name__ == "__main__":
+    import sys
+    file_name = sys.argv[1]
+    mode = sys.argv[2]
+    graph = BmfGraph({})
+    if mode == "ffmpeg":
+        graph.runFFmpegByConfig(file_name)
+    elif mode == "pythonEngine":
+        graph.runPythonEngine(file_name)
+    elif mode == "cEngine":
+        graph.runCEngine(file_name)
+
+```
+
+If you need the complete code, you can refer to [compare.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/transcode/compare.py)
 
 ###  start()
 

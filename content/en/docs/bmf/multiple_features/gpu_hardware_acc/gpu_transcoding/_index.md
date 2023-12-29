@@ -24,7 +24,7 @@ The examples are listed below. We will explain them in detail.
 
 ## Decode
 
-In the BMF, enabling GPU decoding is really simple. What you need to do is to add `"hwaccel": "cuda"` to the `"video_params"`.
+In the BMF, enabling GPU decoding is really simple. What you need to do is to add `"hwaccel": "cuda"` into the `"video_params"`.
 
 You should note that if you use GPU to decode videos, the decoded frames are in the GPU memory. So if you want to manipulate them at the cpu side, don't forget to copy these frames into cpu memory. In the BMF, you can set GPU decoding followed by a `cpu_gpu_trans_module` or followed by a `hwdownload` filter.
 

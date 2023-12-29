@@ -20,7 +20,7 @@ Through BMF, users can achieve the following goals:
 
 
 
-The BMF Graph in the first picture below shows a simple audio and video transcoding process, including three modules. These three Modules are associated through Stream Linking. The data stream is transmitted using Packet as the carrier. Each Module can specify an independent Thread for transmission. It is run by the BMF engine.
+The BMF Graph in the first picture below shows a simple audio and video transcoding process, including three modules. These three Modules are linked through Stream. The data stream is transmitted using Packet as the carrier. Each Module can specify an independent Thread for transmission. It is run by the BMF engine.
 
 <img src="/img/docs/simple_graph.png" style="zoom:30%;" />
 
