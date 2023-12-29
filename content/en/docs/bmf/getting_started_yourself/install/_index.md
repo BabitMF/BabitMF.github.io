@@ -19,7 +19,7 @@ BMF enables C++/Python/go cross-language calls, and you can call modules written
 BMF depends on some libraries, which you can install via apt, yum<!--, vcpkg--> or brew. In general, except for the docker method described below. Here are the systems we tested and how to install them, including regular dependency, python, FFmpeg, CUDA toolkit and so on.
 
 - For regular dependency, you need all packages installed on your system.
-- For python, it is only required when you call the python api or call the python module through the pre-built package, and the python version requirement is 3.9 now. If installing BMF using pip, you don't need to change your existing python version.
+- For python, it is only required when you call the python api or call the python module through the pre-built package (the release product on github), and the python version requirement is 3.9 now. If installing BMF using pip, you don't need to change your existing python version.
 - For FFmpeg, we currently support 4.x or 5.x versions, and may support version 6.x in the future. For ubuntu, debian, CentOS:8 and macOS listed below, you can use the package manager to install it. For other OS, you may need to compile FFmpeg from source.
 
 <table>

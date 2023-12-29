@@ -101,7 +101,7 @@ some example code snippet：
 
 1. use `private_attach` set AVFrame as private_data of VideoFrame
 2. src_dp set media_type with value MeidaType::kAVFrame
-3. use `bmf_convert` doing convert
+3. use `bmf_convert` to convert
 4. get the return VideoFrame
 
 some example code snippet：
