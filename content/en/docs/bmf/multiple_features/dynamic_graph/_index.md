@@ -77,7 +77,7 @@ option = {
                  'width': 320,
                  'height': 240,
                  'crf': 23,
-                 'preset': 'very fast'
+                 'preset': 'veryfast'
             }
 }
 reset_graph = bmf.graph()

@@ -116,7 +116,7 @@ apt install -y python3.9 \
 <td>
 
 ```bash
-dnf -y install python39 python39-devel python39-pip 
+dnf -y install python39 python39-devel python39-pip
 ```
 
 </td>
@@ -204,7 +204,7 @@ cd /opt
 wget https://www.python.org/ftp/python/3.9.13/Python-3.9.13.tgz
 tar xvf Python-3.9.13.tgz
 cd Python-3.9.13
-sudo ./configure --enable-optimizations
+sudo ./configure --enable-optimizations --enable-shared
 sudo make altinstall
 ```
 
