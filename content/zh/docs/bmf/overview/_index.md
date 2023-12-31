@@ -39,7 +39,7 @@ BMF 支持多种主流数据格式之间的零拷贝互转，极大地兼容了�
 
 NVIDIA GPU 拥有专用的视频编解码硬件。此外，它还具有高带宽内存和大规模并行计算 CUDA 内核，适用于通用视频和图像处理。BMF 与 NVIDIA 工程师合作，增强了对 NVIDIA GPU 的支持：
 * NVENC/NVDEC/GPU filter 继承 FFmpeg 的能力，开箱即用。
-* 通过集成 CV-CUDV 和定制 CUDA 内核实现高性能帧处理。 
+* 通过集成 CV-CUDA 和定制 CUDA 内核实现高性能帧处理。
 * 使用 TensorRT 可以将 AI 推理轻松集成到视频 pipeline 中。
 * CPU 和 GPU 之间的数据移动可以通过简单的调用实现。
 

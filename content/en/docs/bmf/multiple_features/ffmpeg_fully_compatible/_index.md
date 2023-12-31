@@ -103,7 +103,7 @@ BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and 
             bmf.graph()
                 .decode({'input_path': input_video_path})['video']
                 .scale(320, 240)
-                .encode(None, 
+                .encode(None,
                     {
                         "output_path": output_path,
                         "format": "mjpeg",
@@ -123,9 +123,10 @@ BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and 
 
         input_path = "test.mp4"
         output_path = "./stream_copy.mp4"
-        
+
         stream = bmf.graph().decode(
-            {                                            'input_path': input_path,
+            {
+                'input_path': input_path,
                 'video_codec': "copy"
             }
         )

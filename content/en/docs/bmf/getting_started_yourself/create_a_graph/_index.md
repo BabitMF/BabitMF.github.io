@@ -38,7 +38,7 @@ bmf.encode(
              "width": 320,
              "height": 240,
              "crf": 23,
-             "preset": "very fast"
+             "preset": "veryfast"
          },
          "audio_params": {
              "codec": "aac",
