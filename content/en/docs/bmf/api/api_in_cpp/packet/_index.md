@@ -56,7 +56,7 @@ double   [time](#time) () const
 const  [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) *  [unsafe_self](#unsafe_self-22) () const
  
 
- ## 静态公有成员函数
+ ## Static Public Member Functions
 
 
 static  Packet   [generate_eos_packet](#generate_eos_packet) ()
@@ -64,14 +64,14 @@ static  Packet   [generate_eos_packet](#generate_eos_packet) ()
 static  Packet   [generate_eof_packet](#generate_eof_packet) ()
  
 
- ## 受保护的成员函数
+ ## Protected Member Functions
 
 
  
    [Packet](#packet-99) (T *obj)
  
 
-## 构造函数和析构函数文档
+## Constructor & Destructor Documentation
 
 
 ###  Packet() [1/9]
@@ -228,7 +228,7 @@ protected
      }
 
 ```
-## 成员函数文档
+## Member Function Documentation
 
 
 ###  generate_eof_packet()

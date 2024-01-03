@@ -7,11 +7,11 @@ weight: 13
 [//]: <> (REF_MD: classbmf__sdk_1_1Future.html)
 
 
-  [公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/#public-member-functions)  |  List of all members  # bmf_sdk::Future Class Referenceabstract
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/future/#public-member-functions)  |  List of all members  # bmf_sdk::Future Class Referenceabstract
 
 sdk_interface.h!
 
- ## 公有成员函数
+ ## Public Member Functions
 
 
    [Future](#future-13) ()
@@ -45,7 +45,7 @@ void   [synchronize](#synchronize) ()
  
  
 
-## 构造函数和析构函数文档
+## Constructor & Destructor Documentation
 
 
 ###  Future() [1/3]
@@ -96,7 +96,7 @@ virtual
  {};
 
 ```
-## 成员函数文档
+## Member Function Documentation
 
 
 ###  copy_props()
@@ -104,7 +104,8 @@ virtual
 ```
  Future & bmf_sdk::Future::copy_props( const Future &from )  
 ```
-util 函数复制 props
+util function to copy props
+
 **Parameters**
  - **from**  
 
@@ -150,7 +151,7 @@ Implemented in  [bmf_sdk::VideoFrame](https://babitmf.github.io/docs/bmf/api/api
 ```
 bool bmf_sdk::Future::ready (  ) const 
 ```
-检查结果是否准备好，必须在 [record()](#record) 之后调用
+check if result is ready, must be called after  [record()](#record)  
 
 **Returns**
 
@@ -162,9 +163,9 @@ bool bmf_sdk::Future::ready (  ) const
 ```
 void bmf_sdk::Future::record ( bool use_current = true )  
 ```
-记录时间以跟踪数据的准备情况
+record a event to track the readiness of the data
 
-使用当前的 stream 或 self->stream
+use current stream or self->stream
 
 
 ###  set_stream()
@@ -172,7 +173,7 @@ void bmf_sdk::Future::record ( bool use_current = true )
 ```
 void bmf_sdk::Future::set_stream ( uint64_t stream )  
 ```
-设置 stream object，当前设备特定的 stream handle，只有 cuda stream handle（cudaStream_t）被取代，我们只获取该 stream 的 ref，该 stream 的所有权仍属于调用者。
+Set the stream object, device specific stream handle currently, only cuda stream handle(cudaStream_t) is suporrted, we only take the ref of this stream, the ownership of this stream is still belongs to caller.
 
 **Parameters**
  - **stream**  

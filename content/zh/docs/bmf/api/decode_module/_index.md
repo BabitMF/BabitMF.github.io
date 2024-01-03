@@ -1,11 +1,11 @@
 ---
-title: 'Built-in Decode Module'
-linkTitle: 'Built-in Decode Module'
+title: '内置解码模块'
+linkTitle: '内置解码模块'
 weight: 4
 ---
 
 
-This is a module capability discrption about BMF build-in decoder. The module can be used by BMF API such as  [bmf.decode()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#decode)  by providing json style "option" to config such as the 3rd parameter below:
+这是一个关于 BMF 内置解码器的模块功能说明。通过向配置（如下面的第 3 个参数）提供 json 样式的"选项"，BMF API，如 [bmf.decode()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#decode) 可以使用该模块：
 
 
 ```
@@ -14,71 +14,72 @@ bmf.decode(
 )
 
 ```
-Details:
+详情：
 
  - module name: c_ffmpeg_decoder
 
- - loglevel: to set the loglevel of ffmpeg library it can be "quiet","panic","fatal","error","warning","info","verbose","debug","trace"
+ - loglevel: 设置 ffmpeg 库的日志级别，可以是“quiet”、“panic”、“fatal”、“error”、“warning”、“info”、“verbose”、“debug”、“trace”
 
- - map_v: video stream index for decoder, exp. 0, which mean choose No.0 stream as video stream to be decode.
+ - map_v: 解码器的视频流索引，例如 0 表示选择 0 号流作为即将解码的视频流。
 
- - map_a: audio stream index for decoder, exp. 1, which mean choose No.1 stream as audio stream to be decode.
+ - map_a: 解码器的音频流索引，例如 1 表示选择 1 号流作为即将解码的音频流。
 
- - start_time: decode start time in seconds, exp. 1, which mean just decode the frame after 1 second, similar as -ss in ffmpeg command.
+ - start_time: 解码开始时间（以秒为单位），例如 1 表示 1 秒后解码帧，类似于 ffmpeg 命令中的 -ss。
 
- - end_time: decode end time, exp. 1, which mean just decode the frame before 1 second, just as -to in ffmpeg command.
+ - end_time: 解码结束时间，例如 1 表示只解码 1 秒之前的帧，类似于 ffmpeg 命令中的 -to。
 
- - durations: decode multiple group of duration frames/samples, such as [1.1, 4, 6.5, 9, 12.3, 15].
+ - durations: 解码多组持续时间帧/样本，例如[1.1,4,6.5,9,12.3,15]。
 
- - fps: decode the frame as the fps set .
+ - fps: 将帧解码为 fps set。
 
- - video_time_base: video stream time base, exp. 1/1000, set the video stream timebase as 1/1000.
+ - video_time_base: 视频流时基，例如 1/1000 表示设置视频流时基为1/1000。
 
- - skip_frame: skip frame, exp. 32, make decoder discard processing depending on the option value, just as -skip_frame in ffmpeg commnad. AVDISCARD_NONE = -16, ///< discard nothing AVDISCARD_DEFAULT = 0, ///< discard useless packets like 0 size packets in avi AVDISCARD_NONREF = 8, ///< discard all non reference AVDISCARD_BIDIR = 16, ///< discard all bidirectional frames AVDISCARD_NONINTRA= 24, ///< discard all non intra frames AVDISCARD_NONKEY = 32, ///< discard all frames except keyframes AVDISCARD_ALL = 48, ///< discard all
+ - skip_frame:  跳帧，例如 32 表示根据选项值进行解码器丢弃处理，就像 ffmpeg commnad 中的 -skip_frame 一样。 AVDISCARD_NONE = -16, ///< 不丢弃任何内容 AVDISCARD_DEFAULT = 0, ///< 丢弃无用的数据包，例如 avi 中 0 大小的数据包 AVDISCARD_NONREF = 8, ///< 丢弃所有非引用 AVDISCARD_BIDIR = 16, ///< 丢弃所有 双向帧 AVDISCARD_NONINTRA= 24, ///< 丢弃所有非帧内帧 AVDISCARD_NONKEY = 32, ///< 丢弃除关键帧之外的所有帧 AVDISCARD_ALL = 48, ///< 丢弃所有
 
- - video_codec: video codec name, exp. libx264, set the specific codec for video stream. it will be stream copy when it set to be "copy"
+ - video_codec: 视频编解码器名称，例如 libx264，设置视频流的特定编解码器。 设置为 “copy” 时为流复制
 
- - overlap_time, which is used in decode live stream, if the live stream cut off, if the next packet pts is overlap smaller than overlap time, we will remove the overlap packet. default value is 10
+ - overlap_time: 用于解码直播流，如果直播流中断，如果下一个数据包的 pts 重叠小于重叠时间，我们将删除重叠数据包。默认值为 10
 
- - cut_off_time, which is used in decode live stream ,if the live stream cut off, when the next packet pts is larger than last pts + cut_off_time, we will adjust pts to avoid large cut off. else we use the packet pts.
+ - cut_off_time: 用于解码直播流，如果直播流中断，当下一个 packet pts 大于最后一个 pts + cut_off_time 时，我们将调整 pts 以避免大的中断。 否则我们使用 packet pts
 
- - cut_off_interval.which is used in decode live stream ,if the live stream cut off, when the next packet pts is larger than last pts + cut_off_time, we will adjust pts to avoid large cut off. else we use the packet pts.
+ - cut_off_interval: 用于解码直播流，如果直播流中断，当下一个 packet pts 大于最后一个 pts + cut_off_time 时，我们将调整 pts 以避免大的中断。 否则我们使用 packet pts
 
- - vframes: set the number of video frames to output
+ - vframes: 设置要输出的视频帧数
 
- - aframes: set the number of audio frames to output
+ - aframes: 设置要输出的音频帧数
 
- - copyts: copy timestamps
+ - copyts: 复制 timestamps
 
- - max_width_height: set the max width or height limitation of input frame. Once it's enabled, frame will be dropped by default or it will throw exp according to "limit_hits"
+ - max_width_height: 设置输入框的最大宽度或高度限制。启用后，默认情况下会丢弃帧，或者根据 “limit_hits” 抛出
 
- - max_limit_hits: set the max number of limit hits, once exceeded the exp will be threw
+ - max_limit_hits: 设置最大命中次数限制，一旦超过就会抛出
 
- - hwaccel: hardware accelete exp. cuda.
- - extract_frames: support extract frames with given fps and device.
+ - hwaccel: 硬件加速，例如 cuda
 
- - audio_codec: audio codec name, exp. aac, set the specific codec for audio stream.
+ - extract_frames: 支持使用给定的 fps 和设备提取帧
 
- - dec_params: set the decode codec parameters, such as "threads": 1
+ - audio_codec: 音频编解码器名称，例如 aac 表示设置音频流的特定编解码器
 
- - autorotate: to enable/disable autorotate for the input video if needed, it's enabled by default
+ - dec_params: 设置解码编解码参数，如 “threads”：1
 
- - s: video size, exp. "1280:720".
+ - autorotate: 如果需要，可以启用或禁用输入视频的自动旋转，默认情况下启用
 
- - pix_fmt: pixel format, exp. "rgba".
+ - s: 视频尺寸，例如 "1280:720"
 
- - input_path: decode input file,exp. "1.mp4".
+ - pix_fmt: 像素格式，例如 "rgba"
 
- - push_raw_stream: enable raw stream push mode, exp. 1
+ - input_path: 解码输入文件，例如 "1.mp4"
 
- - channels: audio channels (required for audio push mode)
+ - push_raw_stream: 启用原始流推送模式，例如 1
 
- - sample_rate: audio sample rate (required for audio push mode)
+ - channels: 音频通道（音频推送模式所需）
 
- - sample_fmt: audio sample format (used for audio push mode - optional)
+ - sample_rate: 音频采样率（音频推送模式所需）
 
- - orig_pts_time: keep the original pts time of inputstream in the frame
+ - sample_fmt: 音频样本格式（用于音频推送模式 - 可选）
+
+ - orig_pts_time: 在帧中保留输入流的原始 pts 时间
 
 
-### Build-in Decode Module
+### 内置解码模块
 

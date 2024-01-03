@@ -7,11 +7,11 @@ weight: 1
 [//]: <> (REF_MD: classbmf__sdk_1_1AudioFrame.html)
 
 
-  [公共成员函数](#public-member-functions)  |  [静态公共成员函数](#static-public-member-functions)   # bmf_sdk::AudioFrame Class Reference
+  [Public Member Functions](#public-member-functions)  |  [Static Public Member Functions](#static-public-member-functions)   # bmf_sdk::AudioFrame Class Reference
 
 audio_frame.h
 
- ## 公有成员函数
+ ## Public Member Functions
 
 
    [AudioFrame](#audioframe-15) ()=default
@@ -106,7 +106,7 @@ bool   [operator<=](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequenceda
  
  
 
- ## 静态共有成员函数
+ ## Static Public Member Functions
 
 
 static  [AudioFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/audio_frame/)   [make](#make-13) (int samples, uint64_t [layout](#layout) , bool [planer](#planer) =true)
@@ -117,7 +117,7 @@ static  [AudioFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/audio_fra
 static  [AudioFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/audio_frame/)   [make](#make-33) (const TensorList &data, uint64_t [layout](#layout) , bool [planer](#planer) =true)
  
 
- ## 其它继承成员
+ ## Additional Inherited Members
 
 
  ![img](/img/docs/closed.png)
@@ -129,7 +129,7 @@ virtual void   [set_private_data](https://babitmf.github.io/docs/bmf/api/api_in_
 virtual const  OpaqueData &  [private_data](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#private_data) (int key) const
  
 
-## 构造函数和析构函数文档
+## Constructor & Destructor Documentation
 
 
 ###  AudioFrame() [1/5]
@@ -186,7 +186,7 @@ bmf_sdk::AudioFrame::AudioFrame ( const TensorList & data,
   bool planer = true 
  )   
 ```
-## 成员函数文档
+## Member Function Documentation
 
 
 ###  clone()
@@ -200,8 +200,7 @@ bmf_sdk::AudioFrame::AudioFrame ( const TensorList & data,
 ```
  AudioFrame & bmf_sdk::AudioFrame::copy_props( const AudioFrame &from )  
 ```
-复制来自 `from` 的所有额外 prop（由成员 func set_xxx 设置，（如需要可深度复制）。
-**Parameters**
+copy all extra props(set by member func set_xxx) from  `from` (deepcopy if needed), **Parameters**
  - **from**  
 
 

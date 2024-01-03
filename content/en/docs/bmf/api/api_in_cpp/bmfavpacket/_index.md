@@ -7,13 +7,13 @@ weight: 2
 [//]: <> (REF_MD: classbmf__sdk_1_1BMFAVPacket.html)
 
 
-  [公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#public-member-functions)  |  [静态公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#static-public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#public-attributes)   # bmf_sdk::BMFAVPacket Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#public-member-functions)  |  [Static Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#static-public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#public-attributes)   # bmf_sdk::BMFAVPacket Class Reference
 
 bmf_av_packet.h!
 
 !
 
- ## 公有成员函数
+ ## Public Member Functions
 
 
    [BMFAVPacket](#bmfavpacket-15) ()=default
@@ -111,14 +111,14 @@ bool   [operator<=](https://babitmf.github.io/docs/bmf/api/api_in_cpp/sequenceda
  
  
 
- ## 静态公有成员函数
+ ## Static Public Member Functions
 
 
  
 static  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)   [make](#make) (int size, Options &&...opts)
  
 
- ## 公共属性
+ ## Public Attributes
 
 
 int64_t   [offset_](#offset_) 
@@ -126,7 +126,7 @@ int64_t   [offset_](#offset_)
 int   [whence_](#whence_) 
  
 
- ## 其它继承成员
+ ## Additional Inherited Members
 
 
  ![img](/img/docs/closed.png)
@@ -138,7 +138,7 @@ virtual void   [set_private_data](https://babitmf.github.io/docs/bmf/api/api_in_
 virtual const  OpaqueData &  [private_data](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#private_data) (int key) const
  
 
-## 构造函数和析构函数文档
+## Constructor & Destructor Documentation
 
 
 ###  BMFAVPacket() [1/5]
@@ -182,9 +182,10 @@ bmf_sdk::BMFAVPacket::BMFAVPacket (  BMFAVPacket && )
 ```
 bmf_sdk::BMFAVPacket::BMFAVPacket ( const Tensor & data )  
 ```
-构建一个新的 [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) 对象。
+Construct a new  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)  object.
+
 **Parameters**
- - **data**：连续张量数据，仅限 cpu
+ - **data** contiguous tensor data, cpu only 
 
 
 
@@ -196,14 +197,15 @@ bmf_sdk::BMFAVPacket::BMFAVPacket ( int size,
   const TensorOptions & options = kUInt8 
  )   
 ```
-构建一个新的 [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) 对象。
+Construct a new  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)  object.
+
 **Parameters**
  - **size**  
- - **options**：参考 [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/) 
+ - **options** ref  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/) 
 
 
 
-## 成员函数文档
+## Member Function Documentation
 
 
 ###  copy_props()
@@ -211,8 +213,7 @@ bmf_sdk::BMFAVPacket::BMFAVPacket ( int size,
 ```
  BMFAVPacket & bmf_sdk::BMFAVPacket::copy_props( const BMFAVPacket &from )  
 ```
-从`from`复制所有额外的 props（由成员函数 set_xxx 设置）（如果需要则进行深复制）
-**Parameters**
+copy all extra props(set by member func set_xxx) from  `from` (deepcopy if needed), **Parameters**
  - **from**  
 
 
@@ -244,7 +245,7 @@ const Tensor& bmf_sdk::BMFAVPacket::data (  ) const
 ```
 void* bmf_sdk::BMFAVPacket::data_ptr (  )  
 ```
-返回底层数据的原始指针
+return raw pointer of underlying data
 
 **Returns**
 
@@ -264,7 +265,7 @@ const void* bmf_sdk::BMFAVPacket::data_ptr (  ) const
 ```
 int64_t bmf_sdk::BMFAVPacket::get_offset (  ) const 
 ```
-获取当前数据偏移量，即文件的 write pointer 偏移量
+get the current data offset which is file write pointer offset
 
 **Returns**
 
@@ -275,7 +276,8 @@ int64_t bmf_sdk::BMFAVPacket::get_offset (  ) const
 ```
 int bmf_sdk::BMFAVPacket::get_whence (  ) const 
 ```
-获取来自 mode 的数据。whence == SEEK_SET, from begin; whence == SEEK_CUR, current
+get the data whence which is mode. whence == SEEK_SET, from begin; whence == SEEK_CUR, current
+
 **Returns**
 
 
@@ -302,7 +304,7 @@ static
 
 **Parameters**
  - **size**  
- - **opts**：参考 [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/) 
+ - **opts** ref  [VideoFrame](https://babitmf.github.io/docs/bmf/api/api_in_cpp/video_frame/) 
 
 
 
@@ -323,7 +325,7 @@ static
 ```
 int bmf_sdk::BMFAVPacket::nbytes (  ) const 
 ```
-底层数据的字节数
+number of bytes of underlying data
 
 **Returns**
 
@@ -334,7 +336,7 @@ int bmf_sdk::BMFAVPacket::nbytes (  ) const
 ```
 bmf_sdk::BMFAVPacket::operator bool (  ) const 
 ```
-检查 [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/) 是否已定义。
+check if  [BMFAVPacket](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/)  if defined
 
 **Returns**
 
@@ -358,7 +360,7 @@ bmf_sdk::BMFAVPacket::operator bool (  ) const
 ```
 void bmf_sdk::BMFAVPacket::set_offset ( int64_t offset )  
 ```
-设置当前数据偏移量，即文件的 write pointer 偏移量
+set the current data offset which is file write pointer offset
 
 **Returns**
 
@@ -369,12 +371,12 @@ void bmf_sdk::BMFAVPacket::set_offset ( int64_t offset )
 ```
 void bmf_sdk::BMFAVPacket::set_whence ( int whence )  
 ```
-设置数据来源，即 mode。whence == SEEK_SET, from begin; whence == SEEK_CUR, current
+set the data whence which is mode. whence == SEEK_SET, from begin; whence == SEEK_CUR, current
 
 **Returns**
 
 
-## 成员函数文档
+## Member Data Documentation
 
 
 ###  offset_

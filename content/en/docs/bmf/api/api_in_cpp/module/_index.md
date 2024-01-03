@@ -7,7 +7,7 @@ weight: 5
 [//]: <> (REF_MD: classbmf__sdk_1_1Module.html)
 
 
-  [公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-member-functions)  |  [公共属性](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-attributes)  |  List of all members  # bmf_sdk::Module Class Referenceabstract
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-attributes)  |  List of all members  # bmf_sdk::Module Class Referenceabstract
 
 module.h ## Public Member Functions
 
@@ -71,13 +71,13 @@ virtual int32_t   [report](#report) ( [JsonParam](https://babitmf.github.io/docs
 virtual   [~Module](#~module) ()
  
 
- ## 公共属性
+ ## Public Attributes
 
 
 int32_t   [node_id_](#node_id_) = -1
  
 
-## 构造函数和析构函数
+## Constructor & Destructor Documentation
 
 
 ###  Module()
@@ -94,8 +94,8 @@ bmf_sdk::Module::Module ( int32_t node_id = -1,
 
 
 **Parameters**
- - **node_id**：唯一标识
- - **json_param**：模块的 json 参数 
+ - **node_id** unique id . 
+ - **json_param** json param of module. 
 
 
 
@@ -126,7 +126,7 @@ virtual
  {};
 
 ```
-## 成员函数文档
+## Member Function Documentation
 
 
 ###  close()
@@ -142,7 +142,7 @@ virtual
 
 
 
-关闭模块并释放资源
+close module and release resources
 
 **Returns**
 
@@ -166,10 +166,10 @@ virtual
 
 
 
-根据 json 参数动态重置模块
+dynamic reset module according to the jsonParam
 
 **Parameters**
- - **opt_reset**：重置 json 参数
+ - **opt_reset** json param of reset 
 
 
 
@@ -195,7 +195,7 @@ virtual
 
 
 
-设置模块 mode 为 flush data
+set module mode to flush data
 
 **Returns**
 
@@ -219,10 +219,10 @@ virtual
 
 
 
-如果模块是 subgraph，则获取 graph config
+if the module is subgraph get the graph config
 
 **Parameters**
- - **json_param**：返回 config 的值
+ - **json_param** return value of config 
 
 
 
@@ -248,10 +248,10 @@ virtual
 
 
 
-获取模块的 input stream 信息
+get input stream info of module
 
 **Parameters**
- - **json_param**：input stream 信息
+ - **json_param** input stream info. 
 
 
 
@@ -277,10 +277,11 @@ virtual
 
 
 
-获取模块的信息
+get info of module
 
 **Parameters**
- - **json_param**：模块信息
+ - **json_param** module info. 
+
 
 
 **Returns**
@@ -305,10 +306,11 @@ virtual
 
 
 
-获取模块的 output stream 信息
+get output stream info of module
 
 **Parameters**
- - **json_param**：output stream 信息
+ - **json_param** output stream info. 
+
 
 
 **Returns**
@@ -333,7 +335,7 @@ virtual
 
 
 
-初始化模块
+init module
 
 **Returns**
 
@@ -357,10 +359,10 @@ virtual
 
 
 
-检查 input stream 是否需要数据
+check the input stream if need data
 
 **Parameters**
- - **input_stream_id**：input stream id 
+ - **input_stream_id** input stream id 
 
 
 
@@ -386,7 +388,7 @@ virtual
 
 
 
-检查模块类型
+check the module type
 
 **Returns**
 
@@ -410,7 +412,7 @@ virtual
 
 
 
-检查模块是否是 subgraph
+check the module is subgraph
 
 **Returns**
 
@@ -434,10 +436,10 @@ virtual
 
 
 
-检查 input stream 是否需要 hungry check
+check the input stream if need hungry check
 
 **Parameters**
- - **input_stream_id**：input stream id 
+ - **input_stream_id** input stream id 
 
 
 
@@ -464,7 +466,7 @@ virtual int32_t bmf_sdk::Module::process (  Task &task )
 process task
 
 **Parameters**
- - **task**：需要被处理
+ - **task** need to be processed 
 
 
 
@@ -487,11 +489,11 @@ virtual
 
 
 
-报告模块的统计数据
+report module stats
 
 **Parameters**
- - **json_param**：统计数据
- - **hints** 提示传递到统计计算
+ - **json_param** stats 
+ - **hints** hints pass to stats caculation 
 
 
 
@@ -517,7 +519,7 @@ virtual
 
 
 
-重置模块
+reset module
 
 **Returns**
 
@@ -541,10 +543,10 @@ virtual
 
 
 
-设置模块的 graph callback
+set the graph callback of module
 
 **Parameters**
- - **callback_endpoint**：graph 中定义的 callback
+ - **callback_endpoint** callback that defined in graph 
 
 
 
@@ -567,10 +569,10 @@ virtual
 
 
 
-设置模块的 input stream 信息
+set input stream info of module
 
 **Parameters**
- - **json_param**：input stream 信息
+ - **json_param** input stream info. 
 
 
 
@@ -596,10 +598,10 @@ virtual
 
 
 
-设置模块的 output stream 信息
+set output stream info of module
 
 **Parameters**
- - **json_param**：output stream 信息
+ - **json_param** output stream info. 
 
 
 
@@ -611,7 +613,7 @@ virtual
  { return 0; };
 
 ```
-## 成员数据文档
+## Member Data Documentation
 
 
 ###  node_id_
