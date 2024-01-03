@@ -7,11 +7,11 @@ weight: 10
 [//]: <> (REF_MD: classbmf__sdk_1_1OpaqueDataSet.html)
 
 
-  [公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#public-member-functions)  |  [受保护的成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#pro-methods)  |  List of all members  # bmf_sdk::OpaqueDataSet Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#public-member-functions)  |  [Protected Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#pro-methods)  |  List of all members  # bmf_sdk::OpaqueDataSet Class Reference
 
 sdk_interface.h!
 
- ## 公共成员函数
+ ## Public Member Functions
 
 
    [OpaqueDataSet](#opaquedataset-13) ()=default
@@ -26,7 +26,7 @@ sdk_interface.h!
 void   [private_attach](#private_attach) (const T *data, Args &&...args)
  
  
-
+ 
 const T *   [private_get](#private_get) () const
  
  
@@ -37,7 +37,7 @@ void   [private_merge](#private_merge) (const [OpaqueDataSet](https://babitmf.gi
  
  
 
- ## 受保护的成员函数
+ ## Protected Member Functions
 
 
 virtual void   [set_private_data](#set_private_data) (int key, const OpaqueData &data)
@@ -46,7 +46,7 @@ virtual void   [set_private_data](#set_private_data) (int key, const OpaqueData 
 virtual const  OpaqueData &  [private_data](#private_data) (int key) const
  
 
-## 构造函数和析构函数文档
+## Constructor & Destructor Documentation
 
 
 ###  OpaqueDataSet() [1/3]
@@ -72,6 +72,7 @@ bmf_sdk::OpaqueDataSet::OpaqueDataSet (  OpaqueDataSet && )
 
 
 
+
 ###  OpaqueDataSet() [3/3]
 
  ```
@@ -82,7 +83,8 @@ bmf_sdk::OpaqueDataSet::OpaqueDataSet ( const OpaqueDataSet & )
 
 
 
-## 成员函数文档
+
+## Member Function Documentation
 
 
 ###  copy_props()
@@ -90,7 +92,7 @@ bmf_sdk::OpaqueDataSet::OpaqueDataSet ( const OpaqueDataSet & )
 ```
  OpaqueDataSet & bmf_sdk::OpaqueDataSet::copy_props( const OpaqueDataSet &from )  
 ```
-复制 props 的 util 函数
+utils function to copy props
 
 **Parameters**
  - **from**  
@@ -126,7 +128,7 @@ void bmf_sdk::OpaqueDataSet::private_attach ( const T * data,
 
 
 
-附加类型为 T 的私有数据，为确保类型安全，T 应当由 OpaqueDataInfo 注册。
+Attach private data with type T, for type safety, T should be registry by  OpaqueDataInfo  .
 
   ffmpeg_helper.h  , test_video_frame.cpp
 
@@ -138,7 +140,7 @@ void bmf_sdk::OpaqueDataSet::private_attach ( const T * data,
 
 **Parameters**
  - **data**  
- - **args**：传递的额外的 arguments
+ - **args** extra arguments pass to 
 
 
 
@@ -177,7 +179,7 @@ const T* bmf_sdk::OpaqueDataSet::private_get (  ) const
 
 
 
-读取通过 private_attach 或 private_merge 附加的只读私有数据。
+Retrieve readonly private data which attached by private_attach or private_merge.
 
 **Template Parameters**
  - **T**  
@@ -201,8 +203,7 @@ const T* bmf_sdk::OpaqueDataSet::private_get (  ) const
 ```
 void bmf_sdk::OpaqueDataSet::private_merge ( const OpaqueDataSet &from )  
 ```
-合并来自 `from` 的私有数据  
-**Parameters**
+merge private data from  `from`  **Parameters**
  - **from**  
 
 
@@ -223,7 +224,7 @@ virtual
 
 
 
-设置私有数据对象，派生类可以重载此函数以过滤掉不支持的 key。
+Set the private data object, Derived class can override this function to filter out unsupported keys.
 
 **Parameters**
  - **key**  

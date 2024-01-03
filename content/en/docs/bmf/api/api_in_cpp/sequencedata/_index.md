@@ -11,7 +11,7 @@ weight: 11
 
 sdk_interface.h
 
- ## 公共成员函数
+ ## Public Member Functions
 
 
 void   [set_pts](#set_pts) (int64_t [pts](#pts) )
@@ -37,7 +37,7 @@ bool   [operator<=](#operator-3) (const [SequenceData](https://babitmf.github.io
  
  
 
-## 成员函数文档
+## Member Function Documentation
 
 
 ###  copy_props()
@@ -45,7 +45,7 @@ bool   [operator<=](#operator-3) (const [SequenceData](https://babitmf.github.io
 ```
  SequenceData & bmf_sdk::SequenceData::copy_props( const SequenceData &from )  
 ```
-复制 props 的 util function
+util function to copy props
 
 **Parameters**
  - **from**  
@@ -164,7 +164,7 @@ void bmf_sdk::SequenceData::set_pts ( int64_t pts )
 
 
 
-设置该 pts 的 object。
+Set the pts object.
 
 **Parameters**
  - **pts**  
@@ -188,10 +188,10 @@ void bmf_sdk::SequenceData::set_time_base (  Rational time_base )
 
 
 
-设置帧的 time base
+set timebase of frame
 
 **Parameters**
- - **time_base**；帧的 time base
+ - **time_base** of frame 
 
 
 
@@ -214,7 +214,8 @@ void bmf_sdk::SequenceData::set_time_base (  Rational time_base )
 
 
 
-获取 time base object。
+Get the time base object.
+
 **Returns**
   [Rational](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/)  
 

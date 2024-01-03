@@ -7,7 +7,7 @@ weight: 3
 [//]: <> (REF_MD: classException.html)
 
 
-  [公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/exception/#public-member-functions)  |  [公共属性](https://babitmf.github.io/docs/bmf/api/api_in_cpp/exception/#public-attributes)  |  List of all members  # Exception Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/exception/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/exception/#public-attributes)  |  List of all members  # Exception Class Reference
 
 Class passed to an error.  [More...](page_classexception_v3_0_0#details)  
 
@@ -15,7 +15,7 @@ exception_factory.h![img](/img/docs/classException__inherit__graph.png)
 
 ![img](/img/docs/classException__coll__graph.png)
 
- ## 公有成员函数
+ ## Public Member Functions
 
 
    [Exception](#exception-12) ()
@@ -29,7 +29,7 @@ virtual const char *   [what](#what) () const throw ()
 void   [formatMessage](#formatmessage) ()
  
 
- ## 公共属性
+ ## Public Attributes
 
 
 std::string   [msg](#msg) 
@@ -51,16 +51,16 @@ int   [line](#line)
  
  
 
-## 详细描述
+## Detailed Description
 
-Class 传递一个错误。
+Class passed to an error.
 
-该 class 封装了有关程序中发生的错误的所有或几乎所有必要的信息。异常通常是通过 BMF_Error 隐式构造和抛出的。
+This class encapsulates all or almost all necessary information about the error happened in the program. The exception is usually constructed and thrown implicitly via BMF_Error
 
 **See also**
   error  
 
-## 构造函数和析构函数文档
+## Constructor & Destructor Documentation
 
 
 ###  Exception() [1/2]
@@ -68,7 +68,7 @@ Class 传递一个错误。
 ```
 Exception::Exception (  )  
 ```
-默认构造函数
+Default constructor
 
 
 ###  Exception() [2/2]
@@ -81,7 +81,7 @@ Exception::Exception ( int _code,
   int _line 
  )   
 ```
-完整的构造函数。通常构造函数不会被显式调用。而是使用宏 BMF_Error()、BMF_Error_()。
+Full constructor. Normally the constructor is not called explicitly. Instead, the macros  BMF_Error()  ,  BMF_Error_()  are used.
 
 
 ###  ~Exception()
@@ -97,7 +97,7 @@ throw (
 
 
 
-## 成员函数文档
+## Member Function Documentation
 
 
 ###  formatMessage()
@@ -122,7 +122,7 @@ throw (
 **Returns**
 
 
-## 成员数据文档
+## Member Data Documentation
 
 
 ###  code
@@ -130,7 +130,7 @@ throw (
 ```
 int Exception::code 
 ```
-错误代码
+error code
 
 **See also**
   BMFStatus  
@@ -141,7 +141,7 @@ int Exception::code
 ```
 std::string Exception::err 
 ```
-错误描述
+error description
 
 
 ###  file
@@ -149,7 +149,7 @@ std::string Exception::err
 ```
 std::string Exception::file 
 ```
-发生错误的源文件名
+source file name where the error has occurred
 
 
 ###  func
@@ -157,7 +157,7 @@ std::string Exception::file
 ```
 std::string Exception::func 
 ```
-函数名称。仅当编译器支持获取时可用
+function name. Available only when the compiler supports getting it
 
 
 ###  line
@@ -165,7 +165,7 @@ std::string Exception::func
 ```
 int Exception::line 
 ```
-发生错误的源文件中的行号
+line number in the source file where the error has occurred
 
 
 ###  msg
@@ -173,7 +173,7 @@ int Exception::line
 ```
 std::string Exception::msg 
 ```
-格式化的错误消息
+the formatted error message
 
  - /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  exception_factory.h  
 

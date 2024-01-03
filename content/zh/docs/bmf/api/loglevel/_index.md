@@ -1,12 +1,12 @@
 ---
-title: 'Loglevel'
-linkTitle: 'Loglevel'
+title: '日志级别'
+linkTitle: '日志级别'
 weight: 7
 ---
 
-## LogLevel 
+## 日志级别
 
-If you want to modify the loglevel related to FFmpeg in the built-in Module, please pass the loglevel parameter when building the graph. The following example sets the loglevel of decoder to quiet and the loglevel of encoder to debug.
+如果要修改内置模块中与 FFmpeg 相关的日志级别，请在构建 graph 时传递日志级别参数。下面的示例将解码器的日志级别设为 quiet，将编码器的日志级别设为 debug。
 ```
      graph = bmf.graph()
 
@@ -21,6 +21,6 @@ If you want to modify the loglevel related to FFmpeg in the built-in Module, ple
      })
 ```
 
-The BMF framework also has its own log and loglevel. For the log from BMF, it's set to INFO default, if you want to modify, please use the ENV:
+BMF 框架也有自己的日志和日志级别。BMF 的日志默认设置为 INFO，如果要修改，请使用 ENV：
 
 ```export BMF_LOG_LEVEL=WARNING/INFO/ERROR/FATAL/DISABLE```

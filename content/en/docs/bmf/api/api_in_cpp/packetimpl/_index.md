@@ -11,7 +11,7 @@ weight: 7
 
 packetimpl.h
 
- ## 公有成员函数
+ ## Public Member Functions
 
 
    [PacketImpl](#packetimpl-14) ()=delete
@@ -42,7 +42,7 @@ void   [set_time](#set_time) (double [time](#time) )
 double   [time](#time) () const
  
 
- ## 受保护的成员函数
+ ## Protected Member Functions
 
 
    [PacketImpl](#packetimpl-44) (void *obj, const TypeInfo * [type_info](#type_info) , const std::function< void(void *)> &del)
@@ -54,7 +54,7 @@ double   [time](#time) () const
 class   [Packet](#packet) 
  
 
-## 构造函数和析构函数文档
+## Constructor & Destructor Documentation
 
 
 ###  PacketImpl() [1/4]
@@ -113,7 +113,7 @@ bmf_sdk::PacketImpl::PacketImpl ( void * obj,
 
 
 
-## 成员函数文档
+## Member Function Documentation
 
 
 ###  get() [1/2]
