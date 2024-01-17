@@ -361,7 +361,7 @@ bmf_ffmpeg integrates FFmpeg during compilation and compiles built-in Modules
 
 Assuming that your local environment is a 64-bit Release version, the VS version you are using is 2022, and you need to use FFmpeg when compiling. The compilation command is as follows:
 ```
-./build_lite.sh --msvc=2022 bmf_ffmpeg --preset=x64-Release
+./build_win_lite.sh --msvc=2022 bmf_ffmpeg --preset=x64-Release
 ```
 
 After execution, the build_win_lite folder will generate the BMF.sln project file, which can be built by opening it through Visual Studio.
