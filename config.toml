@@ -180,7 +180,7 @@ url = "https://github.com/BabitMF/BabitMF.github.io/blob/main/LICENSE"
 
 [[params.links.user]]
 	name = "Lark"
-	url = "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=3a1la8f6-55fc-4ad4-bdf0-2ec17edd692a"
+	url = "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=4cev1bee-4d94-42c8-972b-4ae4a12c9da1"
 	icon = "fab fa-lark"
 	desc = "Chat with other BabitMF users by lark"
 
