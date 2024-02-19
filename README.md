@@ -27,7 +27,9 @@ See also the list of [contributors](https://github.com/BabitMF/bmf/graphs/contri
 
 ## License ![GitHub](https://img.shields.io/github/license/BabitMF/BabitMF.github.io)
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE.md](https://github.com/BabitMF/BabitMF.github.io/blob/master/LICENSE) file for details
+This project is licensed under the Apache License 2.0 - see the [LICENSE.md](https://github.com/BabitMF/BabitMF.github.io/blob/master/LICENSE) file for details.
 
 This project is overridden from [docsy](http://github.com/google/docsy), and we're not tracking changes to the docsy base file.
+
+This project refers to [cloudwego](https://github.com/cloudwego/cloudwego.github.io), and we express our acknowledge here.
 
