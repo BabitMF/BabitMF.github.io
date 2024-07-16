@@ -187,7 +187,6 @@ yum repo of CentOS:7 has no ffmpeg libraries now, please follow the below steps 
 
 ```bash
 brew install ffmpeg@4
-export DYLD_LIBRARY_PATH="/usr/local/opt/ffmpeg@4/lib:$DYLD_LIBRARY_PATH"
 ```
 
 </td>
@@ -390,10 +389,23 @@ To compile libncurses on macOS, you can follow these steps:
      sudo make install
      ```
 
+     d. BMF depends on libbfd, so you need to install binutils
+     ```
+     brew install binutils
+     ```
+Before compiling, you need to check whether the local python and ffmpeg are linked to the correct version. If not, you may need to make adjustments with the following commands:
+```
+brew unlink ffmpeg
+brew link ffmpeg@4
+brew link --force python@3.9 
+
+```
 The above command will configure the installation path to ```/usr/local/opt/ncurses```. You can also change the path as needed. After compilation and installation are complete, you should be able to find the libncurses library file in the specified installation path. With the above steps, you can successfully compile and install libncurses on macOS. Please note that the process may change due to version updates.
 
-After completing the above two points of preparatory work, you can compile BMF under Mac OS and use the command:
+After completing preparatory works above, you can compile BMF under Mac OS and use the command, in some higher version compilers, you may encounter compilation errors of the benchmark library, and we have also dealt with them. You could make the compilation by using commands followed:
 ```
+git submodule update --init --recursive
+sed -i '' '/sigma_gn /s/^/\/\//g' bmf/hml/third_party/benchmark/src/complexity.cc
 ./build_osx.sh
 ```
 
