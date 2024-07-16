@@ -187,7 +187,6 @@ yum repo of CentOS:7 has no ffmpeg libraries now, please follow the below steps 
 
 ```bash
 brew install ffmpeg@4
-export DYLD_LIBRARY_PATH="/usr/local/opt/ffmpeg@4/lib:$DYLD_LIBRARY_PATH"
 ```
 
 </td>
@@ -390,10 +389,26 @@ Mac OS 端编译时需要注意以下几点：
      sudo make install
      ```
 
+     d. BMF 依赖 libbfd 库，因此您需要安装 binutils
+    
+     ```
+     brew install binutils
+     ```
+
+在进行编译操作之前，您需要检查本地 的 python、ffmpeg 是否链接到正确的版本，如果不是，您可能需要以下命令做出调整
+```
+brew unlink ffmpeg
+brew link ffmpeg@4
+brew link --force python@3.9 
+```     
+
 上面的命令将把安装路径配置为 ```/usr/local/opt/ncurses```。您也可以根据需要更改路径。编译安装完成后，可以在指定的安装路径中找到 libncurses 库文件。通过以上步骤，就可以在 mac OS 上成功编译并安装 libncurses。请注意，该流程可能会因版本更新而发生变化。
 
-完成以上两点准备工作后，您可以在 Mac OS 下编译 BMF，使用命令：
+
+完成以上准备工作后，您可以在 Mac OS 下编译 BMF，在一些高版本的编译器中，您可能会遇到 benchmark 库的编译错误，我们对此也进行了处理，您可以使用以下命令完成编译:
 ```
+git submodule update --init --recursive
+sed -i '' '/sigma_gn /s/^/\/\//g' bmf/hml/third_party/benchmark/src/complexity.cc
 ./build_osx.sh
 ```
 
