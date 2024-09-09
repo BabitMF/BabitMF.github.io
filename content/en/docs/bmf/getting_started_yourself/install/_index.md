@@ -406,6 +406,7 @@ After completing preparatory works above, you can compile BMF under Mac OS and u
 ```
 git submodule update --init --recursive
 sed -i '' '/sigma_gn /s/^/\/\//g' bmf/hml/third_party/benchmark/src/complexity.cc
+export BMF_PYTHON_VERSION="3.9"
 ./build_osx.sh
 ```
 

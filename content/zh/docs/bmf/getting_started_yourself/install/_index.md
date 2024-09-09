@@ -399,6 +399,7 @@ Mac OS 端编译时需要注意以下几点：
 ```
 brew unlink ffmpeg
 brew link ffmpeg@4
+export BMF_PYTHON_VERSION="3.9"
 brew link --force python@3.9 
 ```     
 
