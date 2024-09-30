@@ -95,7 +95,7 @@ See example code snippet：
 ##### AVFrame to VideoFrame
 
 1. use `private_attach` set AVFrame as private_data of VideoFrame
-2. src_dp set media_type with value MeidaType::kAVFrame
+2. src_dp set media_type with value MediaType::kAVFrame
 3. use `bmf_convert` to convert
 4. get the return VideoFrame
 
@@ -110,15 +110,22 @@ See example code snippet：
 ```
 
 ### Python Interface
-The `bmf_convert` functionality is provided in Python via pybind11 bindings to the C++ implementation. Usage is much the same as the C++ snippets above. Some legacy data conversion examples are included below where the conversion is not currently supported by `bmf_convert`. 
-
-#### Scale and colorspace conversion
-See the following example of using `bmf_convert` to convert a video frame from RGB to NV12 and scale the image to half-width and half-height: 
+Data conversion is available in Python via pybind11 binding to the `bmf_convert` C++ implementation. 
 
 ```python
     from bmf import *
-    import bmf.hml.hmp as mp
-    from bmf.lib._bmf.sdk import MediaDesc, bmf_convert
+```
+
+Alternatively, import the specific classes/methods: 
+```python
+    from bmf import MediaDesc, MediaType, bmf_convert
+```
+
+#### Scale and colorspace conversion
+The following snippet shows a colorspace conversion from RGB to NV12 and scale conversion to half-width and half-height:
+
+```python
+    from bmf import *
 
     # construct a video frame
     width = 640
@@ -126,17 +133,15 @@ See the following example of using `bmf_convert` to convert a video frame from R
     RGB = mp.PixelInfo(mp.PixelFormat.kPF_RGB24, mp.ColorSpace.kCS_BT709)
     vf = VideoFrame(width, height, pix_info=RGB)
 
-    # generate a media description of the converted media
-    # ... half-width, half-height
-    # ... NV12 pixel format and BT470BG color space
+    # generate a media description of the desired converted media
     dst_md = MediaDesc().width(width//2).height(height//2)
     dst_md.pixel_format(mp.PixelFormat.kPF_NV12).color_space(mp.ColorSpace.kCS_BT470BG)
 
-    # do the conversion with `bmf_convert(...)`
+    # do the conversion
     out_vf = bmf_convert(src_vf, MediaDesc(), dst_md)
 ```
 
-Currently `bmf_convert` does not support rotate, or color depth conversions. However, this functionality can be achieved using the following legacy functions: 
+Legacy conversion functions are also available in the BMF Python module (rotate currently not supported by `bmf_convert` interface).
 
 `bmf.hml.hmp.img.rgb_to_yuv`
 
@@ -148,25 +153,31 @@ Currently `bmf_convert` does not support rotate, or color depth conversions. How
 
 `bmf.hml.hmp.img.rotate`
 
-The following legacy snippet does a color space conversion from RGB to NV12, and allows for specifying the color range:
-
-```python
+The following snippet uses the legacy conversion function to achieve the same conversion shown previously:
+```python 
     from bmf import *
-    import bmf.hml.hmp as mp
 
-    NV12 = mp.PixelInfo(mp.PixelFormat.kPF_NV12, mp.ColorSpace.kCS_BT470BG, mp.ColorRange.kCR_MPEG)
+    # construct a video frame
+    width = 640
+    height = 360
     RGB = mp.PixelInfo(mp.PixelFormat.kPF_RGB24, mp.ColorSpace.kCS_BT709, mp.ColorRange.kCR_MPEG)
-    src_vf = pkt.get(VideoFrame)
-    out_frame = mp.Frame(src_vf.frame().width(), src_vf.frame().height(), NV12, device='cuda')
-    mp.img.rgb_to_yuv(out_vf.frame().data(), src_vf.frame().plane(0), NV12, mp.kNHWC)
+    vf = VideoFrame(width, height, pix_info=RGB)
+
+    # construct output pixel info and output frame
+    NV12 = mp.PixelInfo(mp.PixelFormat.kPF_NV12, mp.ColorSpace.kCS_BT470BG, mp.ColorRange.kCR_MPEG)
+    out_vf = VideoFrame(vf.frame().width(), vf.frame().height(), pix_info=NV12)
+
+    # do the conversion
+    mp.img.rgb_to_yuv(out_vf.frame().data(), vf.frame().plane(0), NV12, mp.kNHWC)
 ```
 
 #### Device memory transfer
 Using `bmf_convert`: 
 ```python
     cpu_vf = pk.get(VideoFrame)
-    dst_md = MediaDesc().device(mp.kCUDA)
+    dst_md = MediaDesc().device(mp.Device('cuda:0'))
     gpu_vf = bmf_convert(cpu_vf, MediaDesc(), dst_md)
+    #...
 ```
 
 Or using the legacy approach:
@@ -188,35 +199,11 @@ Sample code:
 ```
 
 #### Conversion between VideoFrame and third-party data structure
-In python API, those types of third-party data type are supported:
-- VideoFrame, which is the general class of video frame in BMF. And `VideoFrame` includes `Frame` as member
+The general class of video frame in BMF is `VideoFrame`, and contains `Frame` as a member. The python API supports conversion between `VideoFrame` and the following third-party data types:
 - numpy
 - torch
 
-The media_type property on the MediaDesc instance is used to identify the data type when doing conversions with `bmf_convert`. The following options are available: 
-
-`bmf.lib._bmf.sdk.kBMFVideoFrame` - BMF video frame
-
-`bmf.lib._bmf.sdk.kAVFrame` - ffmpeg frame
-
-`bmf.lib._bmf.sdk.kATTensor` - torch
-
-`bmf.lib._bmf.sdk.kTensor`
-
-`bmf.lib._bmf.sdk.kCVMat` - opencv mat
-
-**NOTE**: conversions must be to-or-from a BMF video frame or a runtime error will be raised. 
-
-Convert ffmpeg AVFrame to BMF Video Frame: 
-```python
-    from bmf import *
-    import bmf.hml.hmp as mp
-    from bmf.lib._bmf.sdk import MediaDesc, bmf_convert, kAVFrame
-
-    vf = pkt.get(VideoFrame) # grab input AVFrame
-    src_md = MediaDesc().media_type(kAVFrame)
-    out_vf = bmf_convert(vf, src_md, MediaDesc())
-```
+**NOTE**: conversions must be to-or-from a BMF Video Frame or a runtime error will be raised. 
 
 `bmf.hml.hmp.Frame.numpy` converts a BMF Frame to numpy, and Frame can be included in VideoFrame
 
@@ -226,9 +213,10 @@ Sample code:
 ```python
     from bmf import *
     import numpy as np
-    np1 = np.array(obj)
+
+    npa = np.array(obj)
     rgb = mp.PixelInfo(mp.kPF_RGB24)
-    frame = mp.Frame(mp.from_numpy(npa, rgb)
+    frame = mp.Frame(mp.from_numpy(npa, rgb))
     vf = VideoFrame(frame)
     #...video frame process
     np0 = vf.frame().plane(0).numpy()
@@ -246,6 +234,7 @@ Sample code:
 ```python
     from bmf import *
     import torch
+
     vf = pkt.get(VideoFrame)
     torch_data = vf.frame().data().torch()
     #...torch process
@@ -256,6 +245,7 @@ Sample code:
     from bmf import *
     import bmf.hml.hmp as mp
     import torch
+
     vf = pkt.get(VideoFrame)
     rgb = mp.PixelInfo(mp.kPF_RGB24)
     torch_vf = torch.from_dlpack(vf.reformat(rgb).frame().plane(0))
@@ -264,4 +254,28 @@ Sample code:
     frame = mp.Frame(mp.from_torch(torch_vf.contiguous()), RGB)
     bmf_vframe = VideoFrame(frame)
     #...
+```
+
+#### Underlying data type conversion
+Conversion of the underlying data type of the BMF Video Frame is also possible using `bmf_convert` similar to the C++ examples above. The `media_type` property on the MediaDesc instance is used to identify the underlying data type when doing conversions with `bmf_convert`. The following options are available: 
+
+`bmf.lib._bmf.sdk.kBMFVideoFrame` - BMF video frame
+
+`bmf.lib._bmf.sdk.kAVFrame` - ffmpeg AVFrame
+
+`bmf.lib._bmf.sdk.kATTensor` - torch
+
+`bmf.lib._bmf.sdk.kTensor`
+
+`bmf.lib._bmf.sdk.kCVMat` - opencv mat
+
+Convert ffmpeg AVFrame to BMF Video Frame: 
+```python
+    from bmf import *
+    from bmf.lib._bmf.sdk import kAVFrame
+
+    vf = pkt.get(VideoFrame) # grab input AVFrame
+    src_md = MediaDesc().media_type(kAVFrame)
+    out_vf = bmf_convert(vf, src_md, MediaDesc())
+    #...VideoFrame process
 ```
