@@ -394,6 +394,10 @@ Mac OS 端编译时需要注意以下几点：
      ```
      brew install binutils
      ```
+     e. 安装 CMake
+     ```
+     brew install cmake
+     ```
 
 在进行编译操作之前，您需要检查本地 的 python、ffmpeg 是否链接到正确的版本，如果不是，您可能需要以下命令做出调整
 ```

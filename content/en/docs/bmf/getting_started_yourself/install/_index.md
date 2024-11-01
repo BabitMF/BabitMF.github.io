@@ -393,6 +393,11 @@ To compile libncurses on macOS, you can follow these steps:
      ```
      brew install binutils
      ```
+
+     e. Install cmake
+     ```
+     brew install cmake
+     ```
 Before compiling, you need to check whether the local python and ffmpeg are linked to the correct version. If not, you may need to make adjustments with the following commands:
 ```
 brew unlink ffmpeg
