@@ -392,15 +392,21 @@ Mac OS 端编译时需要注意以下几点：
      d. BMF 依赖 libbfd 库，因此您需要安装 binutils
     
      ```
-     brew install binutils
+     wget https://ftp.gnu.org/gnu/binutils/binutils-2.43.1.tar.bz2
+     tar xvf binutils-2.43.1.tar.bz2
+     cd binutils
+     ./configure --prefix=/usr/local/opt/binutils --enable-install-libiberty
+     sudo make -j8 altinstall
      ```
 
 在进行编译操作之前，您需要检查本地 的 python、ffmpeg 是否链接到正确的版本，如果不是，您可能需要以下命令做出调整
 ```
 brew unlink ffmpeg
 brew link ffmpeg@4
-export BMF_PYTHON_VERSION="3.9"
 brew link --force python@3.9 
+export BMF_PYTHON_VERSION="3.9"
+export LIBRARY_PATH=/usr/local/opt/binutils/lib:$LIBRARY_PATH
+export CMAKE_PREFIX_PATH=/usr/local/opt/binutils:$CMAKE_PREFIX_PATH
 ```     
 
 上面的命令将把安装路径配置为 ```/usr/local/opt/ncurses```。您也可以根据需要更改路径。编译安装完成后，可以在指定的安装路径中找到 libncurses 库文件。通过以上步骤，就可以在 mac OS 上成功编译并安装 libncurses。请注意，该流程可能会因版本更新而发生变化。
