@@ -413,7 +413,6 @@ After completing preparatory works above, you can compile BMF under Mac OS and u
 ```
 git submodule update --init --recursive
 sed -i '' '/sigma_gn /s/^/\/\//g' bmf/hml/third_party/benchmark/src/complexity.cc
-
 ./build_osx.sh
 ```
 
