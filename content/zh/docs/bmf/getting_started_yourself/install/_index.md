@@ -396,7 +396,7 @@ Mac OS 端编译时需要注意以下几点：
      tar xvf binutils-2.43.1.tar.bz2
      cd binutils
      ./configure --prefix=/usr/local/opt/binutils --enable-install-libiberty
-     sudo make -j8 altinstall
+     sudo make -j8 install
      ```
 
 在进行编译操作之前，您需要检查本地 的 python、ffmpeg 是否链接到正确的版本，如果不是，您可能需要以下命令做出调整
