@@ -395,7 +395,8 @@ To compile libncurses on macOS, you can follow these steps:
      tar xvf binutils-2.43.1.tar.bz2
      cd binutils
      ./configure --prefix=/usr/local/opt/binutils --enable-install-libiberty
-     sudo make -j8 install
+     make -j8
+     sudo make install
      ```
 Before compiling, you need to check whether the local python and ffmpeg are linked to the correct version. If not, you may need to make adjustments with the following commands:
 ```
