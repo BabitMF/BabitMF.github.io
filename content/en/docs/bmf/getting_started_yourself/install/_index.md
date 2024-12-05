@@ -366,9 +366,9 @@ Assuming that your local environment is a 64-bit Release version, the VS version
 After execution, the build_win_lite folder will generate the BMF.sln project file, which can be built by opening it through Visual Studio.
 
 
-### Mac OS
+### macOS
 
-When compiling on the Mac OS side, you need to pay attention to the following points:
+When compiling on the macOS side, you need to pay attention to the following points:
 1. Install FFmpeg and configure environment variables
 2. If the CPU chip of your Mac computer is an ARM architecture such as M1 or M2, the compatible version of Python is (3.9 - 3.10). The reason is that the Python arm version below 3.8 on the Mac is an experimental function and does not have much dependency support.
 3. Two pre-dependencies need to be installed: binutils and libncurses. Under ARM architecture, the former can be installed directly through brew install binutils, while the latter may require you to compile libncursew.
@@ -402,7 +402,7 @@ brew link --force python@3.9
 ```
 The above command will configure the installation path to ```/usr/local/opt/ncurses```. You can also change the path as needed. After compilation and installation are complete, you should be able to find the libncurses library file in the specified installation path. With the above steps, you can successfully compile and install libncurses on macOS. Please note that the process may change due to version updates.
 
-After completing preparatory works above, you can compile BMF under Mac OS and use the command, in some higher version compilers, you may encounter compilation errors of the benchmark library, and we have also dealt with them. You could make the compilation by using commands followed:
+After completing preparatory works above, you can compile BMF under macOS and use the command, in some higher version compilers, you may encounter compilation errors of the benchmark library, and we have also dealt with them. You could make the compilation by using commands followed:
 ```
 git submodule update --init --recursive
 sed -i '' '/sigma_gn /s/^/\/\//g' bmf/hml/third_party/benchmark/src/complexity.cc
