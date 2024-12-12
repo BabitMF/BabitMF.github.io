@@ -394,7 +394,7 @@ Mac OS 端编译时需要注意以下几点：
      ```
      wget https://ftp.gnu.org/gnu/binutils/binutils-2.43.1.tar.bz2
      tar xvf binutils-2.43.1.tar.bz2
-     cd binutils
+     cd binutils-2.43.1
      ./configure --prefix=/usr/local/opt/binutils --enable-install-libiberty
      make -j8
      sudo make install
