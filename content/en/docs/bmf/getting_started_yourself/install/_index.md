@@ -398,6 +398,9 @@ To compile libncurses on macOS, you can follow these steps:
      make -j8
      sudo make install
      ```
+     > Notes:
+     >
+     > When installing binutils on macOS, you may encounter an error such as `clang: error: unsupported option '-print-multi-os-directory'`. This error is because clang does not support this option. However, on the macOS platform, this error will not affect the installation of BMF's dependent libraries, so please ignore this error.
 Before compiling, you need to check whether the local python and ffmpeg are linked to the correct version. If not, you may need to make adjustments with the following commands:
 ```
 brew unlink ffmpeg

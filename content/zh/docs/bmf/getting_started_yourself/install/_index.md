@@ -399,6 +399,9 @@ Mac OS 端编译时需要注意以下几点：
      make -j8
      sudo make install
      ```
+     > 注意事项：
+     >
+     > 在macOS上安装binutils，您可能遇到`clang: error: unsupported option '-print-multi-os-directory'`这样的报错，这个报错是由于clang不支持此选项，但在macOS平台上，此报错不会影响BMF所依赖库的安装，所以请忽略此报错
 
 在进行编译操作之前，您需要检查本地 的 python、ffmpeg 是否链接到正确的版本，如果不是，您可能需要以下命令做出调整
 ```
