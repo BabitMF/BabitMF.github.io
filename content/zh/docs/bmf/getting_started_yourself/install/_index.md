@@ -366,9 +366,9 @@ bmf_ffmpeg integrates FFmpeg during compilation and compiles built-in Modules
 执行后，build_win_lite 文件夹会生成 BMF.sln 项目文件，通过 Visual Studio 打开即可构建。
 
 
-### Mac OS
+### macOS
 
-Mac OS 端编译时需要注意以下几点：
+macOS 端编译时需要注意以下几点：
 1. 安装 FFmpeg 并配置环境变量
 2. 如果您的 Mac 电脑的 CPU 芯片是 M1 或 M2 等 ARM 架构，则兼容的 Python 版本为（3.9 - 3.10）。因为 Mac 上 3.8 以下的 Python 版本是实验性功能，没有太多依赖支持。
 3. 需要安装两个预依赖项：binutils 和 libncurses。在 ARM 架构下，前者可以直接通过 brew install binutils 安装，而后者可能需要您编译 libncursew。
@@ -403,10 +403,10 @@ export BMF_PYTHON_VERSION="3.9"
 brew link --force python@3.9 
 ```     
 
-上面的命令将把安装路径配置为 ```/usr/local/opt/ncurses```。您也可以根据需要更改路径。编译安装完成后，可以在指定的安装路径中找到 libncurses 库文件。通过以上步骤，就可以在 mac OS 上成功编译并安装 libncurses。请注意，该流程可能会因版本更新而发生变化。
+上面的命令将把安装路径配置为 ```/usr/local/opt/ncurses```。您也可以根据需要更改路径。编译安装完成后，可以在指定的安装路径中找到 libncurses 库文件。通过以上步骤，就可以在 macOS 上成功编译并安装 libncurses。请注意，该流程可能会因版本更新而发生变化。
 
 
-完成以上准备工作后，您可以在 Mac OS 下编译 BMF，在一些高版本的编译器中，您可能会遇到 benchmark 库的编译错误，我们对此也进行了处理，您可以使用以下命令完成编译:
+完成以上准备工作后，您可以在 macOS 下编译 BMF，在一些高版本的编译器中，您可能会遇到 benchmark 库的编译错误，我们对此也进行了处理，您可以使用以下命令完成编译:
 ```
 git submodule update --init --recursive
 sed -i '' '/sigma_gn /s/^/\/\//g' bmf/hml/third_party/benchmark/src/complexity.cc
