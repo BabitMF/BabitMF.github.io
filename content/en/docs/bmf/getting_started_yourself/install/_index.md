@@ -391,13 +391,24 @@ To compile libncurses on macOS, you can follow these steps:
 
      d. BMF depends on libbfd, so you need to install binutils
      ```
-     brew install binutils
+     wget https://ftp.gnu.org/gnu/binutils/binutils-2.43.1.tar.bz2
+     tar xvf binutils-2.43.1.tar.bz2
+     cd binutils-2.43.1
+     ./configure --prefix=/usr/local/opt/binutils --enable-install-libiberty
+     make -j8
+     sudo make install
      ```
+     > Notes:
+     >
+     > When installing binutils on macOS, you may encounter an error such as `clang: error: unsupported option '-print-multi-os-directory'`. This error is because clang does not support this option. However, on the macOS platform, this error will not affect the installation of BMF's dependent libraries, so please ignore this error.
 Before compiling, you need to check whether the local python and ffmpeg are linked to the correct version. If not, you may need to make adjustments with the following commands:
 ```
 brew unlink ffmpeg
 brew link ffmpeg@4
 brew link --force python@3.9 
+export BMF_PYTHON_VERSION="3.9"
+export LIBRARY_PATH=/usr/local/opt/binutils/lib:$LIBRARY_PATH
+export CMAKE_PREFIX_PATH=/usr/local/opt/binutils:$CMAKE_PREFIX_PATH
 
 ```
 The above command will configure the installation path to ```/usr/local/opt/ncurses```. You can also change the path as needed. After compilation and installation are complete, you should be able to find the libncurses library file in the specified installation path. With the above steps, you can successfully compile and install libncurses on macOS. Please note that the process may change due to version updates.
@@ -406,7 +417,6 @@ After completing preparatory works above, you can compile BMF under macOS and us
 ```
 git submodule update --init --recursive
 sed -i '' '/sigma_gn /s/^/\/\//g' bmf/hml/third_party/benchmark/src/complexity.cc
-export BMF_PYTHON_VERSION="3.9"
 ./build_osx.sh
 ```
 
