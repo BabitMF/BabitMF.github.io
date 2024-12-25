@@ -7,24 +7,24 @@ weight: 5
 This is a module capability discrption about BMF build-in encoder. The module can be used by BMF API such as  [bmf.encode()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#encode)  by providing json style "option" to config such as the 3rd parameter below:
 
 
-```
+```py
 bmf.encode(
     video['video'],
     audio_stream,
     {
- "output_path": output_path,
- "video_params": {
- "codec": "h264",
- "width": 320,
- "height": 240,
- "crf": 23,
- "preset": "veryfast"
+        "output_path": output_path,
+        "video_params": {
+            "codec": "h264",
+            "width": 320,
+            "height": 240,
+            "crf": 23,
+            "preset": "veryfast"
         },
- "audio_params": {
- "codec": "aac",
- "bit_rate": 128000,
- "sample_rate": 44100,
- "channels": 2
+        "audio_params": {
+            "codec": "aac",
+            "bit_rate": 128000,
+            "sample_rate": 44100,
+            "channels": 2
         }
     }
 )
@@ -41,7 +41,7 @@ Details:
  - adjust_pts: will adjust the pts start from 0 when it's enabled
 
  - format: similiar as the "-f" in ffmpeg command line to specify the demux/mux format. exp.
-```
+```py
 {
  "format": "flv",
  "output_path": rtmp://docker.for.mac.host.internal/rtmplive
@@ -53,21 +53,21 @@ Details:
  - output_prefix: specify the output directory path
 
  - push_output: decide whether to mux the result and where to output the results, available value is 0/1/2. 0: write muxed result to disk, 1: write muxed result to the output queue, 2: write unmuxed result to the output queue.
-```
+```py
 "push_output": 1
 
 ```
 
 
  - avio_buffer_size: set avio buffer size, when oformat is image2pipe, this paramter is useful, exp.
-```
+```py
 "avio_buffer_size": 16384
 
 ```
 
 
  - mux_params: specify the extra output mux parameters, exp.
-```
+```py
 "format": "hls",
 "mux_params": {
  "hls_list_size": "0",
@@ -79,7 +79,7 @@ Details:
 
 
  - video_params: video codec related parameters which similiar as ffmpeg. exp.
-```
+```py
 "video_params": {
  "codec": "h264",
  "width": 320,
@@ -106,7 +106,7 @@ Details:
  - pix_fmt: param in video_params to specify the input format of raw video
 
  - audio_params: audio codec related parameters which similiar as ffmpeg. exp.
-```
+```py
 "audio_params": {
  "codec": "aac",
  "bit_rate": 128000,

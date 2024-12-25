@@ -7,24 +7,24 @@ weight: 5
 这是一个关于 BMF 内置编码器的模块功能说明。通过向配置（如下面的第 3 个参数）提供 json 样式的"选项"，BMF API，如[bmf.encode()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#encode)可以使用该模块：
 
 
-```
+```py
 bmf.encode(
     video['video'],
     audio_stream,
     {
- "output_path": output_path,
- "video_params": {
- "codec": "h264",
- "width": 320,
- "height": 240,
- "crf": 23,
- "preset": "veryfast"
+        "output_path": output_path,
+        "video_params": {
+            "codec": "h264",
+            "width": 320,
+            "height": 240,
+            "crf": 23,
+            "preset": "veryfast"
         },
- "audio_params": {
- "codec": "aac",
- "bit_rate": 128000,
- "sample_rate": 44100,
- "channels": 2
+        "audio_params": {
+            "codec": "aac",
+            "bit_rate": 128000,
+            "sample_rate": 44100,
+            "channels": 2
         }
     }
 )
@@ -40,7 +40,7 @@ bmf.encode(
  - adjust_pts: 启用后，将从 0 开始调整 pts
 
  - format: 类似于 ffmpeg 命令行中的 “-f”，用于指定解复用/复用格式。
-```
+```py
 {
  "format": "flv",
  "output_path": rtmp://docker.for.mac.host.internal/rtmplive
@@ -52,21 +52,21 @@ bmf.encode(
  - output_prefix: 指定输出目录路径
 
  - push_output: 决定是否复用结果以及将结果输出到哪里，可用值为 0/1/2。 0：将复用结果写入磁盘，1：将复用结果写入输出队列，2：将未复用结果写入输出队列。
-```
+```py
 "push_output": 1
 
 ```
 
 
  - avio_buffer_size: 设置 avio 缓冲区大小，当格式为 image2pipe 时，此参数有用，例如：
-```
+```py
 "avio_buffer_size": 16384
 
 ```
 
 
  - mux_params: 指定额外输出复用参数，例如：
-```
+```py
 "format": "hls",
 "mux_params": {
  "hls_list_size": "0",
@@ -78,7 +78,7 @@ bmf.encode(
 
 
  - video_params: 视频编解码相关的参数，类似于 FFmpeg，例如：
-```
+```py
 "video_params": {
  "codec": "h264",
  "width": 320,
@@ -107,7 +107,7 @@ bmf.encode(
  - pix_fmt: video_params 中的参数，用于指定原始视频的输入格式
 
  - audio_params: 与 ffmpeg 类似的音频编解码器相关参数。例如：
-```
+```py
 "audio_params": {
  "codec": "aac",
  "bit_rate": 128000,

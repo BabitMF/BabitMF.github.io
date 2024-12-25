@@ -8,9 +8,17 @@ weight: 4
 This is a module capability discrption about BMF build-in decoder. The module can be used by BMF API such as  [bmf.decode()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#decode)  by providing json style "option" to config such as the 3rd parameter below:
 
 
-```
+```py
 bmf.decode(
-    {'input_path': input_video_path}
+    {
+        "input_path": input_path,
+        "video_params": {
+            "hwaccel": "cuda",
+        },
+        "dec_params": {
+            "threads": 1,
+        },
+    }
 )
 
 ```
@@ -54,12 +62,28 @@ Details:
 
  - max_limit_hits: set the max number of limit hits, once exceeded the exp will be threw
 
- - hwaccel: hardware accelete exp. cuda.
- - extract_frames: support extract frames with given fps and device.
+ - video_params: video codec parameters which similar as ffmpeg. exp.
+```py
+"video_params": {
+    "hwaccel": "cuda",
+    "extract_frames": {
+        "fps": 25,
+        "device": "0",
+    }
+},
+```
+> - hwaccel: hardware accelete exp. cuda.
+>
+> - extract_frames: support extract frames with given fps and device.
 
  - audio_codec: audio codec name, exp. aac, set the specific codec for audio stream.
 
- - dec_params: set the decode codec parameters, such as "threads": 1
+ - dec_params: set the decode codec parameters, such as "threads": 1. exp.
+ ```py
+"dec_params": {
+    "threads": 1,
+},
+ ```
 
  - autorotate: to enable/disable autorotate for the input video if needed, it's enabled by default
 

@@ -8,9 +8,17 @@ weight: 4
 这是一个关于 BMF 内置解码器的模块功能说明。通过向配置（如下面的第 3 个参数）提供 json 样式的"选项"，BMF API，如 [bmf.decode()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#decode) 可以使用该模块：
 
 
-```
+```py
 bmf.decode(
-    {'input_path': input_video_path}
+    {
+        "input_path": input_path,
+        "video_params": {
+            "hwaccel": "cuda",
+        },
+        "dec_params": {
+            "threads": 1,
+        },
+    }
 )
 
 ```
@@ -54,13 +62,28 @@ bmf.decode(
 
  - max_limit_hits: 设置最大命中次数限制，一旦超过就会抛出
 
- - hwaccel: 硬件加速，例如 cuda
-
- - extract_frames: 支持使用给定的 fps 和设备提取帧
+ - video_params: video codec parameters which similar as ffmpeg. exp.
+```py
+"video_params": {
+    "hwaccel": "cuda",
+    "extract_frames": {
+        "fps": 25,
+        "device": "0",
+    }
+},
+```
+> - hwaccel: 硬件加速，例如 cuda
+>
+> - extract_frames: 支持使用给定的 fps 和设备提取帧
 
  - audio_codec: 音频编解码器名称，例如 aac 表示设置音频流的特定编解码器
 
  - dec_params: 设置解码编解码参数，如 “threads”：1
+```py
+"dec_params": {
+    "threads": 1,
+},
+ ```
 
  - autorotate: 如果需要，可以启用或禁用输入视频的自动旋转，默认情况下启用
 
