@@ -12,12 +12,10 @@ weight: 4
 bmf.decode(
     {
         "input_path": input_path,
-        "video_params": {
-            "hwaccel": "cuda",
-        },
-        "dec_params": {
-            "threads": 1,
-        },
+        "map_v": 0,
+        "map_a": 2,
+        "start_time": 2,
+        "end_time": 3,
     }
 )
 
