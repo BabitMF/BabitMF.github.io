@@ -88,7 +88,19 @@ bmf.encode(
 },
 
 ```
-
+> - codec: video_params 或 audio_params 中的参数，用于指定 libavcodec 包含的编解码器名称。例如："h264"、"bytevc1"、"jpg"、"png"、"aac"（音频）
+> - width: video_params 中的参数，用于指定视频宽度
+> - height: video_params 中的参数，用于指定视频高度
+> - pix_fmt: video_params 中的参数，用于指定原始视频的输入格式
+> - threads: 指定编码器的线程数，默认为 "auto"，其它示例："线程"："2"
+> - psnr: 设置编码器，提供 PSNR 信息
+> - in_time_base: 手动设置 time base
+> - vsync: 设置帧率的视频同步方法，默认为“自动”。 它可以是 “cfr”，“vfr”，“passthrough”，“drop”，类似于 ffmpeg
+> - max_fr: 设置帧率
+> - r: 设置帧率，类似于 FFmpeg
+> - qscal: 设置编码器 global_quality 的 qscale
+> - vtag: 设置输出流的 vtag
+> - bit_rate or b: 设置视频编码的比特率
  
  - metadata: 在输出文件文件中添加用户 metadata
 
@@ -97,14 +109,6 @@ bmf.encode(
  - aframes: 设置输出音频帧的数量
 
  - min_frames: 设置输出视频帧的最小数量
-
- - codec: video_params 或 audio_params 中的参数，用于指定 libavcodec 包含的编解码器名称。例如："h264"、"bytevc1"、"jpg"、"png"、"aac"（音频）
-
- - width: video_params 中的参数，用于指定视频宽度
-
- - height: video_params 中的参数，用于指定视频高度
-
- - pix_fmt: video_params 中的参数，用于指定原始视频的输入格式
 
  - audio_params: 与 ffmpeg 类似的音频编解码器相关参数。例如：
 ```py
@@ -116,34 +120,13 @@ bmf.encode(
 }
 
 ```
+> - channels: 设置输入音频的通道
+> - bit_rate or b: 设置音频编码的 bit_rate
+> - sample_rate: 设置音频编码的 sample_rate
+> - atag: 设置输出流的 atag
 
 
  - loglevel: 不使用 builder API 的 logbuffer，设置 ffmpeg av 日志级别：“quiet”，“panic”，“fatal”，“error”，“warning”，“info”，“verbose”，“debug”，“trace ”
-
- - threads: 指定编码器的线程数，默认为 "auto"，其它示例："线程"："2"
-
- - psnr: 设置编码器，提供 PSNR 信息
-
- - in_time_base: 手动设置 time base
-
- - vsync: 设置帧率的视频同步方法，默认为“自动”。 它可以是 “cfr”，“vfr”，“passthrough”，“drop”，类似于 ffmpeg
-
- - max_fr: 设置帧率，类似于 FFmpeg
-
- - qscal: 设置编码器 global_quality 的 qscale
-
- - vtag: 设置输出流的 vtag
-
- - bit_rate or b: 设置视频编码的比特率
-
- - channels: 设置输入音频的通道
-
- - bit_rate or b: 设置音频编码的 bit_rate
-
- - sample_rate: 设置音频编码的 sample_rate
-
- - atag: 设置输出流的 atag
-
 
 ### 内置编码模块
 

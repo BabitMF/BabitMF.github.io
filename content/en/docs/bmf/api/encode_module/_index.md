@@ -89,6 +89,19 @@ Details:
 },
 
 ```
+> - codec: param in video_params or audio_params to specify the name of the codec which libavcodec included. exp. "h264", "bytevc1", "jpg", "png", "aac"(audio)
+> - width: param in video_params to specify the video width
+> - height: param in video_params to specify the video height
+> - pix_fmt: param in video_params to specify the input format of raw video
+> - threads: specify the number of threads for encoder, "auto" by default, and other for example: "threads": "2"
+> - psnr: to set encoder provide psnr information
+> - in_time_base: to set time base manually
+> - vsync: to set the video sync method on frame rate, "auto" by default. and it can be "cfr", "vfr", "passthrough", "drop" similar as ffmpeg
+> - max_fr: to set the frame rate
+> - r: to set the frame rate, similar as ffmpeg
+> - qscal: to set the qscale for the encoder global_quality
+> - vtag: to set the vtag for output stream
+> - bit_rate or b: to set the bitrate for video encode
 
 
  - metadata: to add user metadata in the outfile
@@ -98,12 +111,6 @@ Details:
  - aframes: set the number of audio frames to output
 
  - min_frames: set the min number of output video frames
-
- - codec: param in video_params or audio_params to specify the name of the codec which libavcodec included. exp. "h264", "bytevc1", "jpg", "png", "aac"(audio)
-
- - width: param in video_params to specify the video width
- - height: param in video_params to specify the video height
- - pix_fmt: param in video_params to specify the input format of raw video
 
  - audio_params: audio codec related parameters which similiar as ffmpeg. exp.
 ```py
@@ -115,36 +122,12 @@ Details:
 }
 
 ```
-
+> - channels: to set the channels for input audio
+>- bit_rate or b: to set the bit_rate for audio encode
+> - sample_rate: to set the sample_rate for audio encode
+> - atag: to set the atag for output stream
 
  - loglevel: without using the logbuffer of builder API, to set the ffmpeg av log level: "quiet","panic","fatal","error","warning","info","verbose","debug","trace"
-
- - threads: specify the number of threads for encoder, "auto" by default, and other for example: "threads": "2"
-
- - psnr: to set encoder provide psnr information
-
- - in_time_base: to set time base manually
-
- - vsync: to set the video sync method on frame rate, "auto" by default. and it can be "cfr", "vfr", "passthrough", "drop" similar as ffmpeg
-
- - max_fr: to set the frame rate
-
- - max_fr: to set the frame rate, similar as ffmpeg
-
- - qscal: to set the qscale for the encoder global_quality
-
- - vtag: to set the vtag for output stream
-
- - bit_rate or b: to set the bitrate for video encode
-
- - channels: to set the channels for input audio
-
- - bit_rate or b: to set the bit_rate for audio encode
-
- - sample_rate: to set the sample_rate for audio encode
-
- - atag: to set the atag for output stream
-
 
 ### Build-in Encode Module
 
