@@ -101,7 +101,7 @@ bmf_sdk::Module::Module ( int32_t node_id = -1,
 
 
 ```
-                                                                      { 
+     { 
          configure_bmf_log();
          node_id_ = node_id;
      };
