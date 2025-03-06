@@ -112,7 +112,7 @@ GraphUtilization 工具可以显示图形以及 Chrome Tracing 无法显示的�
 
 ![Typical transcoding DAG](/img/docs/traceimg_example1.png)
 
-注意：上图的结构图可通过 [GraphUtilization Tool](./Page_GraphUtilization.md) 显示。
+注意：上图的结构图可通过 [GraphUtilization Tool](./Page_GraphUtilization.md)(暂未开源) 显示。
 
 使用以下 Python 代码：
 
