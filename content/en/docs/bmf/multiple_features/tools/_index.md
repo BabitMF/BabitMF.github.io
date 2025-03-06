@@ -98,7 +98,7 @@ Note: If the overflow count is not 0, it means that the current buffer allocated
 
 #### 3. GraphUtilization tool
 
-In addition to Chrome Tracing, [BMF GraphUtilization Tool](./Page_GraphUtilization.md) also supports visualization of trace events:
+In addition to Chrome Tracing, [BMF GraphUtilization Tool](./Page_GraphUtilization.md)(not open source yet) also supports visualization of trace events:
 
 ![Visualizing tracelog using BMF GraphUtilization](/img/docs/graphutil_common2.png)
 
