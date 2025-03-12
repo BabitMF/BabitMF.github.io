@@ -233,6 +233,11 @@ cd bmf
 
 If you have a GPU device and you install FFmpeg via `./scripts/build_ffmpeg.sh --device gpu`, CUDA toolkit will be installed automatically. In other cases, please install the CUDA toolkit manually, refer to [NVIDIA official website](https://developer.nvidia.com/cuda-11-8-0-download-archive)
 
+> You can also use local FFmpeg by setting the environment variable `FFMPEG_ROOT_PATH`. For example, set it to `/usr/local`.
+> ```Shell
+> export FFMPEG_ROOT_PATH=/usr/local
+> ```
+
 ## Pip
 
 Python 3.6 to 3.11 is required, but 3.6 is **NOT** recommended because we compile with python 3.6.15 and will fail if your python is lower than this version.
