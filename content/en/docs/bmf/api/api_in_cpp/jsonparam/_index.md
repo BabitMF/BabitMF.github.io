@@ -479,6 +479,7 @@ merge json patch to current target
  JsonParam JsonParam::operator[]( T name )  
 ```
  inline
+ inline
 
 
 
@@ -541,6 +542,7 @@ store json content to file
  ```
 T JsonParam::to (  ) const 
 ```
+ inline
  inline
 
 
