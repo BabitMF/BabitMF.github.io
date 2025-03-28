@@ -200,9 +200,8 @@ T JsonParam::get ( U name ) const
 
 ```
 {
-  return json_value_[name].template get<T>();
-}
-
+    return json_value_[name].template get<T>();
+}、
 ```
 
 ###  get_double()
@@ -489,7 +488,7 @@ void JsonParam::merge_patch ( const JsonParam &json_patch )
 
 ```
 {
-  return JsonParam(json_value_[name]);
+    return JsonParam(json_value_[name]);
 }
 ```
 
@@ -552,7 +551,7 @@ T JsonParam::to (  ) const
 
 ```
 {
-  return json_value_.get<T>();
+    return json_value_.get<T>();
 }
 ```
 ## 成员数据文档

@@ -199,7 +199,7 @@ T JsonParam::get ( U name ) const
 
 ```
 {
-  return json_value_[name].template get<T>();
+    return json_value_[name].template get<T>();
 }
 ```
 
@@ -487,7 +487,7 @@ merge json patch to current target
 
 ```
 {
-  return JsonParam(json_value_[name]);
+    return JsonParam(json_value_[name]);
 }
 ```
 
@@ -550,7 +550,7 @@ T JsonParam::to (  ) const
 
 ```
 {
-  return json_value_.get<T>();
+    return json_value_.get<T>();
 }
 ```
 ## Member Data Documentation
