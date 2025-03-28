@@ -7,9 +7,12 @@ weight: 4
 [//]: <> (REF_MD: classJsonParam.html)
 
 
-  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/#public-attributes)  |  [List of all members](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/)  # JsonParam Class Reference
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/#public-attributes)  |  [List of all members](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/)  
 
-json_param.h ## Public Member Functions
+# JsonParam Class Reference
+
+json_param.h 
+## Public Member Functions
 
 
    [JsonParam](#jsonparam-14) ()=default
@@ -105,7 +108,7 @@ void   [merge_patch](#merge_patch) (const [JsonParam](https://babitmf.github.io/
  ```
 JsonParam::JsonParam (  )  
 ```
- defaultdefault
+ default
 
 
 
@@ -141,7 +144,7 @@ JsonParam::JsonParam ( std::string opt_str )
  ```
 JsonParam::JsonParam (  bmf_nlohmann::json json_value )  
 ```
- explicitexplicit
+ explicit
 
 
 
@@ -187,7 +190,7 @@ erase the key content from json param
  ```
 T JsonParam::get ( U name ) const 
 ```
- inlineinline
+ inline
 
 
 
@@ -195,10 +198,9 @@ T JsonParam::get ( U name ) const
 
 
 ```
-                             {
-             return json_value_[name].template get<T>();
-         }
-
+{
+    return json_value_[name].template get<T>();
+}
 ```
 
 ###  get_double()
@@ -476,7 +478,7 @@ merge json patch to current target
  ```
  JsonParam JsonParam::operator[]( T name )  
 ```
- inlineinline
+ inline
 
 
 
@@ -484,10 +486,9 @@ merge json patch to current target
 
 
 ```
-                                      {
-             return JsonParam(json_value_[name]);
-         }
-
+{
+    return JsonParam(json_value_[name]);
+}
 ```
 
 ###  parse()
@@ -540,7 +541,7 @@ store json content to file
  ```
 T JsonParam::to (  ) const 
 ```
- inlineinline
+ inline
 
 
 
@@ -548,10 +549,9 @@ T JsonParam::to (  ) const
 
 
 ```
-                      {
-             return json_value_.get<T>();
-         }
-
+{
+    return json_value_.get<T>();
+}
 ```
 ## Member Data Documentation
 
