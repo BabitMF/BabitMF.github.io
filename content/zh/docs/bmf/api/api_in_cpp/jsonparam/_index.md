@@ -488,10 +488,9 @@ void JsonParam::merge_patch ( const JsonParam &json_patch )
 
 
 ```
-                                      {
-             return JsonParam(json_value_[name]);
-         }
-
+{
+  return JsonParam(json_value_[name]);
+}
 ```
 
 ###  parse()
@@ -552,10 +551,9 @@ T JsonParam::to (  ) const
 
 
 ```
-                      {
-             return json_value_.get<T>();
-         }
-
+{
+  return json_value_.get<T>();
+}
 ```
 ## 成员数据文档
 

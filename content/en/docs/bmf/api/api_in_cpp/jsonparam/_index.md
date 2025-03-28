@@ -478,7 +478,7 @@ merge json patch to current target
  ```
  JsonParam JsonParam::operator[]( T name )  
 ```
- inlineinline
+ inline
 
 
 
@@ -486,10 +486,9 @@ merge json patch to current target
 
 
 ```
-                                      {
-             return JsonParam(json_value_[name]);
-         }
-
+{
+  return JsonParam(json_value_[name]);
+}
 ```
 
 ###  parse()
@@ -542,7 +541,7 @@ store json content to file
  ```
 T JsonParam::to (  ) const 
 ```
- inlineinline
+ inline
 
 
 
@@ -550,10 +549,9 @@ T JsonParam::to (  ) const
 
 
 ```
-                      {
-             return json_value_.get<T>();
-         }
-
+{
+  return json_value_.get<T>();
+}
 ```
 ## Member Data Documentation
 
