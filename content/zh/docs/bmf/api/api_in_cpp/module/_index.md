@@ -7,9 +7,13 @@ weight: 5
 [//]: <> (REF_MD: classbmf__sdk_1_1Module.html)
 
 
-  [公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-member-functions)  |  [公共属性](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-attributes)  |  List of all members  # bmf_sdk::Module Class Referenceabstract
+  [公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-member-functions)  |  [公共属性](https://babitmf.github.io/docs/bmf/api/api_in_cpp/module/#public-attributes)  |  List of all members  
+  
+  # bmf_sdk::Module Class Referenceabstract
 
-module.h ## Public Member Functions
+module.h 
+
+## Public Member Functions
 
 
    [Module](#module) (int32_t node_id=-1, [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) json_param= [JsonParam](https://babitmf.github.io/docs/bmf/api/api_in_cpp/jsonparam/) ())
@@ -87,7 +91,7 @@ bmf_sdk::Module::Module ( int32_t node_id = -1,
    JsonParam json_param = JsonParam() 
  )   
 ```
- inlineinline
+ inline virtual
 
 
 
@@ -101,11 +105,10 @@ bmf_sdk::Module::Module ( int32_t node_id = -1,
 
 
 ```
-     { 
-         configure_bmf_log();
-         node_id_ = node_id;
-     };
-
+ { 
+    configure_bmf_log();
+    node_id_ = node_id;
+ };
 ```
 
 ###  ~Module()
@@ -113,9 +116,7 @@ bmf_sdk::Module::Module ( int32_t node_id = -1,
  ```
 virtual bmf_sdk::Module::~Module (  )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -134,9 +135,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::close (  )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -158,9 +157,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::dynamic_reset (  JsonParam opt_reset )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -187,9 +184,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::flush (  )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -211,9 +206,7 @@ virtual
  ```
 virtual bool bmf_sdk::Module::get_graph_config (  JsonParam &json_param )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -240,9 +233,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::get_input_stream_info (  JsonParam &json_param )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -269,10 +260,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::get_module_info (  JsonParam &json_param )  
 ```
- inlinevirtualinline
-
-virtual
-
+ inline virtual
 
 
 
@@ -297,9 +285,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::get_output_stream_info (  JsonParam &json_param )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -325,9 +311,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::init (  )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -349,9 +333,7 @@ virtual
  ```
 virtual bool bmf_sdk::Module::is_hungry ( int input_stream_id )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -378,9 +360,7 @@ virtual
  ```
 virtual bool bmf_sdk::Module::is_infinity (  )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -402,9 +382,7 @@ virtual
  ```
 virtual bool bmf_sdk::Module::is_subgraph (  )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -426,9 +404,7 @@ virtual
  ```
 virtual bool bmf_sdk::Module::need_hungry_check ( int input_stream_id )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -455,7 +431,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::process (  Task &task )  
 ```
- pure virtualpure virtual
+ pure virtual
 
 
 
@@ -479,9 +455,7 @@ virtual int32_t bmf_sdk::Module::report (  JsonParam &json_param,
   int hints = 0 
  )   
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -509,9 +483,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::reset (  )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -533,9 +505,7 @@ virtual
  ```
 virtual void bmf_sdk::Module::set_callback ( std::function< CBytes(int64_t, CBytes)> callback_endpoint )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -559,9 +529,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::set_input_stream_info (  JsonParam &json_param )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
@@ -588,9 +556,7 @@ virtual
  ```
 virtual int32_t bmf_sdk::Module::set_output_stream_info (  JsonParam &json_param )  
 ```
- inlinevirtualinline
-
-virtual
+ inline virtual
 
 
 
