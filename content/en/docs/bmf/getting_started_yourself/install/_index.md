@@ -235,7 +235,7 @@ If you have a GPU device and you install FFmpeg via `./scripts/build_ffmpeg.sh -
 
 ## Pip
 
-Python 3.6 to 3.11 is required, but 3.6 is **NOT** recommended because we compile with python 3.6.15 and will fail if your python is lower than this version.
+Python 3.6 to 3.12 is required, but 3.6 is **NOT** recommended because we compile with python 3.6.15 and will fail if your python is lower than this version.
 
 ```Shell
 pip install BabitMF
@@ -260,7 +260,8 @@ For c++ or go developers, you may need to set environment variables so that the 
 | CPython 3.8  | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | N/A                 | N/A              |
 | CPython 3.9  | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
 | CPython 3.10 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
-
+| CPython 3.11 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
+| CPython 3.12 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
 ## Docker
 
  If you want to use docker to experience and get started with BMF, you can compile the version you need according to your needs. The docker image we provide is based on ubuntu 20.04, which contains the full environment dependencies for running BMF CPU && GPU: **Cuda11.8, Pytorch 2.0, TensorRT 8.6.1, CV-CUDA 0.3**. For the GPU environment, we did not install the driver because we hope to follow and be compatible with the user’s driver version as much as possible.
@@ -347,7 +348,7 @@ BMF uses the MSVC toolchain as the compilation tool on the Windows platform. Bef
 pacman -Sy yasm automake autoconf git vim openssl-devel zlib-devel
 ./vcpkg.exe install bzip2:x64-windows zlib:x64-windows liblzma:x64-windows dlfcn-win32:x64-windows
 ```
-5. Install 32-bit or 64-bit Python environment (we support 3.7 - 3.10) according to the product you want to compile, and configure the environment variables.
+5. Install 32-bit or 64-bit Python environment (we support 3.7 - 3.12) according to the product you want to compile, and configure the environment variables.
 
 After completing the above steps, the preparatory work for BMF compilation is completed. Now you can start compilation. The compilation command is as follows:
 
@@ -370,7 +371,7 @@ After execution, the build_win_lite folder will generate the BMF.sln project fil
 
 When compiling on the macOS side, you need to pay attention to the following points:
 1. Install FFmpeg and configure environment variables
-2. If the CPU chip of your Mac computer is an ARM architecture such as M1 or M2, the compatible version of Python is (3.9 - 3.10). The reason is that the Python arm version below 3.8 on the Mac is an experimental function and does not have much dependency support.
+2. If the CPU chip of your Mac computer is an ARM architecture such as M1 or M2, the compatible version of Python is (3.9 - 3.12). The reason is that the Python arm version below 3.8 on the Mac is an experimental function and does not have much dependency support.
 3. Two pre-dependencies need to be installed: binutils and libncurses. Under ARM architecture, the former can be installed directly through brew install binutils, while the latter may require you to compile libncursew.
 To compile libncurses on macOS, you can follow these steps:
 

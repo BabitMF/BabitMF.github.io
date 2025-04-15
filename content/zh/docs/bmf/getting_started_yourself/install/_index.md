@@ -235,7 +235,7 @@ cd bmf
 
 ## Pip
 
-需要 Python 3.6 到 3.11，但**不推荐**使用 3.6。如果您的 Python 低于 3.6.15，将会编译失败。
+需要 Python 3.6 到 3.12，但**不推荐**使用 3.6。如果您的 Python 低于 3.6.15，将会编译失败。
 
 ```Shell
 pip install BabitMF
@@ -260,7 +260,8 @@ pip install BabitMF-GPU
 | CPython 3.8  | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | N/A                 | N/A              |
 | CPython 3.9  | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
 | CPython 3.10 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
-
+| CPython 3.11 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
+| CPython 3.12 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
 ## Docker
 
  如果您希望使用 docker 来体验和开始使用 BMF，您可以根据自己的需求编译出所需的版本。我们提供的 docker 镜像基于 ubuntu 20.04，其中包含运行 BMF CPU 和 GPU 的完整环境依赖：**Cuda11.8、Pytorch 2.0、TensorRT 8.6.1、CV-CUDA 0.3**。 对于 GPU 环境，我们没有安装驱动，因为我们希望尽可能遵循并兼容用户的驱动版本。
@@ -347,7 +348,7 @@ BMF 使用 MSVC 工具链作为 Windows 平台上的编译工具。在编译 BMF
 pacman -Sy yasm automake autoconf git vim openssl-devel zlib-devel
 ./vcpkg.exe install bzip2:x64-windows zlib:x64-windows liblzma:x64-windows dlfcn-win32:x64-windows
 ```
-5. 根据您要编译的产品安装 32 位或 64 位 Python 环境（我们支持 3.7 - 3.10），并配置环境变量。
+5. 根据您要编译的产品安装 32 位或 64 位 Python 环境（我们支持 3.7 - 3.12），并配置环境变量。
 
 完成以上步骤后，BMF 编译的准备工作已完成。现在您可以开始编译。编译命令如下：
 
@@ -370,7 +371,7 @@ bmf_ffmpeg integrates FFmpeg during compilation and compiles built-in Modules
 
 macOS 端编译时需要注意以下几点：
 1. 安装 FFmpeg 并配置环境变量
-2. 如果您的 Mac 电脑的 CPU 芯片是 M1 或 M2 等 ARM 架构，则兼容的 Python 版本为（3.9 - 3.10）。因为 Mac 上 3.8 以下的 Python 版本是实验性功能，没有太多依赖支持。
+2. 如果您的 Mac 电脑的 CPU 芯片是 M1 或 M2 等 ARM 架构，则兼容的 Python 版本为（3.9 - 3.12）。因为 Mac 上 3.8 以下的 Python 版本是实验性功能，没有太多依赖支持。
 3. 需要安装两个预依赖项：binutils 和 libncurses。在 ARM 架构下，前者可以直接通过 brew install binutils 安装，而后者可能需要您编译 libncursew。
 为了在 macOS 上编译 ibncurses，您可以按照以下步骤操作：
 
