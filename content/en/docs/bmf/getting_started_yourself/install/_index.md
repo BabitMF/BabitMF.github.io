@@ -241,7 +241,7 @@ Python 3.6 to 3.12 is required, but 3.6 is **NOT** recommended because we compil
 pip install BabitMF
 ```
 
-You can also install the GPU version on a GPU host with x86_64 arch where CUDA 11.8 has been installed:
+You can also install the GPU version on a GPU host with x86_64 arch where CUDA 12.2 has been installed:
 
 ```Shell
 pip install BabitMF-GPU
@@ -264,7 +264,7 @@ For c++ or go developers, you may need to set environment variables so that the 
 | CPython 3.12 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
 ## Docker
 
- If you want to use docker to experience and get started with BMF, you can compile the version you need according to your needs. The docker image we provide is based on ubuntu 20.04, which contains the full environment dependencies for running BMF CPU && GPU: **Cuda11.8, Pytorch 2.0, TensorRT 8.6.1, CV-CUDA 0.3**. For the GPU environment, we did not install the driver because we hope to follow and be compatible with the user’s driver version as much as possible.
+ If you want to use docker to experience and get started with BMF, you can compile the version you need according to your needs. The docker image we provide is based on ubuntu 20.04, which contains the full environment dependencies for running BMF CPU && GPU: **Cuda12.2, Pytorch 2.0, TensorRT 8.6.1, CV-CUDA 0.3**. For the GPU environment, we did not install the driver because we hope to follow and be compatible with the user’s driver version as much as possible.
 
 Before running, please make sure that NVIDIA GPU Driver is included in your machine environment, and you can correctly obtain gpu hardware information through **nvidia-smi**.
 ```Shell

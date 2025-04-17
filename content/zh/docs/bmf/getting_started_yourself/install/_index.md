@@ -241,7 +241,7 @@ cd bmf
 pip install BabitMF
 ```
 
-您还可以在已安装 CUDA 11.8 的 x86_64 arch 的 GPU 主机上安装 GPU 版本：
+您还可以在已安装 CUDA 12.2 的 x86_64 arch 的 GPU 主机上安装 GPU 版本：
 
 ```Shell
 pip install BabitMF-GPU
@@ -264,7 +264,7 @@ pip install BabitMF-GPU
 | CPython 3.12 | ✅                   | ✅                   | ✅             | ✅                | ✅                | ✅              | ✅          | ✅                  | ✅               |
 ## Docker
 
- 如果您希望使用 docker 来体验和开始使用 BMF，您可以根据自己的需求编译出所需的版本。我们提供的 docker 镜像基于 ubuntu 20.04，其中包含运行 BMF CPU 和 GPU 的完整环境依赖：**Cuda11.8、Pytorch 2.0、TensorRT 8.6.1、CV-CUDA 0.3**。 对于 GPU 环境，我们没有安装驱动，因为我们希望尽可能遵循并兼容用户的驱动版本。
+ 如果您希望使用 docker 来体验和开始使用 BMF，您可以根据自己的需求编译出所需的版本。我们提供的 docker 镜像基于 ubuntu 20.04，其中包含运行 BMF CPU 和 GPU 的完整环境依赖：**Cuda12.2、Pytorch 2.0、TensorRT 8.6.1、CV-CUDA 0.3**。 对于 GPU 环境，我们没有安装驱动，因为我们希望尽可能遵循并兼容用户的驱动版本。
 
 在运行之前，请确保您的机器环境中包括 NVIDIA GPU 驱动，并且可以通过 **nvidia-smi** 正确获取 GPU 硬件信息。
 ```Shell
