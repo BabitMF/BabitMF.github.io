@@ -11,3 +11,21 @@ This is our ideas page for (`​Open Source Software Supply ChainPromotion Plan 
 2. `Find a project.` Listed on this page are mentored projects. Mentored projects are well-defined and mentor(s) have already volunteered. If a project description is unclear or you have any questions, please get in touch with its mentor and/or join our Feishu group.
 3. `Contact us.` If you decide on a project, get in touch with the community and let us know. If you want to work on a qualification task, let the respective mentor know so we can avoid duplicated efforts.
 4. `Apply.` 
+
+## Project Ideas
+
+### Template Project
+
+`Description:` Template Description
+
+`Expected results:` Template results
+
+`Prerequisites:` Template prequisites
+
+`Difficulty:`
+
+`Qualification Task:` Template Qualification Task
+
+`Mentor:` someone @ somehwere.net
+
+`Duration:` 175 or 350 hours
