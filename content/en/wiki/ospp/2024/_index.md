@@ -8,6 +8,7 @@ weight: 1
 ## Project Ideas
 
 ### Frame Distributed Video Enhancement
+---
 
 `Project Name`: Frame Distributed Video Enhancement
 
@@ -31,14 +32,13 @@ BMF already has a Video Enhancement case based on AI models (https://github.com/
 
 `Project Completion Repository`: https://github.com/BabitMF/bmf
 
-`Estimated Work Hours`: July 1 - September 30
-
 `Mentor`: HuHeng
 
 `Project Notes`: 
 - https://babitmf.github.io/docs/bmf/
 
 ### Webassembly ControlNet
+---
 
 `Project Name`: Webassembly ControlNet
 
@@ -60,8 +60,6 @@ BMF already has a Video Enhancement case based on AI models (https://github.com/
 - ControlNet basic knowledge
 
 `Project Completion Repository`: https://github.com/BabitMF/bmf
-
-`Estimated Work Hours`: July 1 - September 30
 
 `Mentor`: YoloSolo
 
