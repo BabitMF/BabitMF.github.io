@@ -8,11 +8,12 @@ The [Babit.io](https://babitmf.github.io/) site is built with [Hugo](https://goh
 
 The following are basic prerequisites for developing this project:
 
-- Install a recent release of the Hugo "extended" version. If you install from
-  the [Hugo release page](https://github.com/gohugoio/hugo/releases), make sure
+- Install a v0.114.1 release of the Hugo "extended" version. If you install from
+  the [Hugo release v0.114.1 page]([https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases/v0.114.1/)), make sure
   you download the `_extended` version which supports SCSS.
 
 > If you have installed the latest version of go, you can install directly by command `go install -tags extended github.com/gohugoio/hugo@latest`
+> Note: the latest hugo maybe not work with this website.
 
 ## Preview
 
