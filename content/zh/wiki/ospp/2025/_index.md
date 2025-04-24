@@ -1,45 +1,65 @@
 ---
 title: '2025'
 linkTitle: '2025'
-weight: 2
+weight: 1
 ---
 
+# 介绍
 
+BMF（Babit Multimedia Framework）是字节跳动开发的一个跨平台、多语言、可定制的多媒体处理框架。经过超过4年的测试与打磨，BMF已被深度定制以应对真实生产环境中的多种挑战。目前该框架已广泛应用于字节跳动的视频点播、直播转码、云剪辑及移动端前后处理等场景中，每天处理的视频数量超过20亿条。
 
-# Introduction
+这是我们为 [`开源软件供应链点亮计划 2025`](https://summer-ospp.ac.cn) 准备的项目想法页面。请参阅 OSPP 时间表 以获取重要日期信息。
 
-BMF (Babit Multimedia Framework) is a cross-platform, multi-language, customizable multimedia processing framework developed by ByteDance. With over 4 years of testing and improvements, BMF has been tailored to adeptly tackle challenges in our real-world production environments. It is currently widely used in ByteDance's video streaming, live transcoding, cloud editing and mobile pre/post processing scenarios. More than 2 billion videos are processed by the framework every day.
+# 面向学生的信息
 
-This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 2025`](https://summer-ospp.ac.cn). See the ​OSPP Timeline for important dates.
+## 入门指南
+1. `了解 BMF` 如果你是对贡献 BMF 感兴趣的学生，推荐你首先加入我们的 [飞书交流群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=4cev1bee-4d94-42c8-972b-4ae4a12c9da1)。如果你有任何问题，欢迎随时联系我们。如果你知道其他同学提出问题的答案，也请不要犹豫，积极参与解答。
+2. `寻找项目` 本页面列出的是带有导师的项目。这些项目定义明确，且已经有导师自愿提供指导。如果你对某个项目的描述不够清晰，或者有任何问题，请联系项目导师，或加入我们的飞书群咨询。
+3. `联系我们` 如果你决定参与某个项目，请与我们社区联系并告知你的意愿。如果你希望从一个适合初学者的问题入手，请通知相关导师，以避免重复工作。
+4. `提交申请`  学生需在 6 月 9 日之前 提交申请。项目开发的“正式工作期”将从 7 月 1 日 开始，到 9 月结束。请参考 OSPP 时间表 获取更多信息。
 
-# Information for Students
+## 项目想法
 
-## Getting Started
-1. `Get to know BMF.` If you are a student interested in contributing to BMF, it is recommended to start by join in our [Feishu group](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=4cev1bee-4d94-42c8-972b-4ae4a12c9da1). Feel free to contact us if you have any questions. Also do not hesitate to answer questions from other students on our group if you know the answer to something.
-2. `Find a project.` Listed on this page are mentored projects. Mentored projects are well-defined and mentor(s) have already volunteered. If a project description is unclear or you have any questions, please get in touch with its mentor and/or join our Feishu group.
-3. `Contact us.` If you decide on a project, get in touch with the community and let us know. If you want to work on a qualification task, let the respective mentor know so we can avoid duplicated efforts.
-4. `Apply.` 
+### CPP动态更改系列接口实现
+---
 
-## Project Ideas
+`项目描述`：在BMF中 python和cpp的builder层都是基于connector层构建的，其中python利用了binding技术，目前BMF支持通过python调用dynamic系列接口，支持在BMF graph运行时动态更改节点，比如新增、删除、重置。此项目的实现可以借鉴现有的python builder实现，来补齐cpp缺失的dynamic系列接口。
 
-### Template Project
+`项目难度`：基础
 
-`Project Name`: The project name should clearly and directly reflect the project's technology and target tasks.
+`技术领域、编程语言`：多媒体处理、C++
 
-`Project Description`: Provide the project's relevant background, existing work, current deficiencies, improvements needed, and final objectives to be achieved.
+`项目产出要求`：用C++实现dynamic_remove，dynamic_add，dynamic_reset，update接口，并完成测试用例。
 
-`Project Difficulty`: Set based on project requirements, scale, technical difficulty, estimated development workload, and resource limitations.
+`项目技术要求`：1.良好的C++编程能力 2.了解基本的多媒体处理
 
-`Technical Domain, Programming Language`: Specify the technical field and programming languages involved.
+`项目成果仓库`：https://github.com/BabitMF/bmf
 
-`Project Output Requirements`: Clearly define what students need to accomplish and the expected outcomes.
+`预估工时`：175 小时
 
-`Project Technical Requirements`: Present requirements from perspectives such as programming language, technology stack, and development experience.
+`导师`: 刘奇翰 (jacklau1222@qq.com)
 
-`Project Completion Repository`: Use the existing project repository of the community, not a new empty repository.
+`项目备注`：https://github.com/BabitMF/bmf/discussions/154#discussioncomment-11442021，https://babitmf.github.io/docs/bmf/multiple_features/dynamic_graph/
 
-`Estimated Work Hours`: Provide an estimated reference for development hours based on project difficulty, output requirements, and student skill level.
+### 模版项目
+---
 
-`Mentor:` someone @ somehwere.net
+`项目名称`：项目名称应明确直观的体现出项目的技术和目标任务；
 
-`Project Notes`: Include related reference materials for the project itself, such as books, papers, blogs, and links to related projects or issues.
+`项目描述`：项目的相关背景、已有的工作、存在的不足、希望改进的要点、最终项目实现的目标等。
+
+`项目难度`：结合项目要求、项目规模、技术难度、项目开发预估工作量、资源限制等因素设置。
+
+`技术领域、编程语言`:
+
+`项目产出要求`：明确学生需要做什么，预期达到什么效果。
+
+`项目技术要求`：可从编程语言、技术栈、开发经验等角度提出要求。
+
+`项目成果仓库`：本社区已有项目仓库地址，而非新建空仓。
+
+`预估工时`：根据项目难度、产出要求、学生水平等因素给出预估的开发工时参考。
+
+`导师`： 姓名（邮箱）
+
+`项目备注`：项目自身的相关参考资料，比如书籍、论文、博客和相关的项目或 issue 的链接。

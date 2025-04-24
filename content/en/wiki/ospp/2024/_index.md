@@ -69,5 +69,3 @@ BMF already has a Video Enhancement case based on AI models (https://github.com/
 - https://babitmf.github.io/docs/bmf/
 - https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm
 - https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/instantiate-streaming.html
-
-

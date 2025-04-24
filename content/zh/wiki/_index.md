@@ -6,5 +6,4 @@ isFolder: true
 menu:
   main:
     weight: 2
----
 
