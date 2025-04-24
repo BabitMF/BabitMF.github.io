@@ -1,11 +1,11 @@
 ---
-title: 'ospp'
-linkTitle: 'ospp'
+title: 'OSPP'
+linkTitle: 'OSPP'
 weight: 1
 menu:
   main:
     weight: 1
-    parent: 'wiki'
+    parent: 'Wiki'
 ---
 
 
