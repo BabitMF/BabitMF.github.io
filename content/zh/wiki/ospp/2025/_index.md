@@ -40,6 +40,6 @@ This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 
 
 `Estimated Work Hours`: Provide an estimated reference for development hours based on project difficulty, output requirements, and student skill level.
 
-`Mentor`: someone @ somehwere.net
+`Mentor:` someone @ somehwere.net
 
 `Project Notes`: Include related reference materials for the project itself, such as books, papers, blogs, and links to related projects or issues.
