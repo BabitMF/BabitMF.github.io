@@ -20,7 +20,7 @@ BMF（Babit Multimedia Framework）是字节跳动开发的一个跨平台、多
 
 ## 项目想法
 
-### CPP动态更改系列接口实现
+### CPP动态流式处理接口实现
 ---
 
 `项目描述`：在BMF中 python和cpp的builder层都是基于connector层构建的，其中python利用了binding技术，目前BMF支持通过python调用dynamic系列接口，支持在BMF graph运行时动态更改节点，比如新增、删除、重置。此项目的实现可以借鉴现有的python builder实现，来补齐cpp缺失的dynamic系列接口。
@@ -31,15 +31,64 @@ BMF（Babit Multimedia Framework）是字节跳动开发的一个跨平台、多
 
 `项目产出要求`：用C++实现dynamic_remove，dynamic_add，dynamic_reset，update接口，并完成测试用例。
 
-`项目技术要求`：1.良好的C++编程能力 2.了解基本的多媒体处理
+`项目技术要求`：
+1. 良好的C++编程能力 
+2. 了解基本的多媒体处理
 
 `项目成果仓库`：https://github.com/BabitMF/bmf
 
-`预估工时`：175 小时
+`预估工时`：45 小时
 
 `导师`: 刘奇翰 (jacklau1222@qq.com)
 
 `项目备注`：https://github.com/BabitMF/bmf/discussions/154#discussioncomment-11442021，https://babitmf.github.io/docs/bmf/multiple_features/dynamic_graph/
+
+### BMF DiffusionFlow
+---
+
+`Project Description`: BabitMF（BMF）是字节开源的多媒体处理框架，已支持音视频及 AI 算法的模块化调度。本项目将 Stable Diffusion（SD）端到端生成流程，封装为一系列可在 BMF Graph 中以节点化方式调用的 Module，进一步丰富框架在 AIGC 场景下的表现力。
+
+`Project Difficulty`: Advanced
+
+`Technical Domain, Programming Language`: AI, C++ Python
+
+`Project Output Requirements`: 
+1. 完成 SD 全链路基础 BMF Module 的设计、开发与单元测试，比如  Text Encoder、 Diffusion Scheduler、VAE Decoder 等
+2. 产出 Text-to-Image、Image-to-Image 两个场景的完整示例
+3. 实现点击／拖拽式 Graph 编辑器，并能预览生成结果
+
+`Project Technical Requirements`: 
+1. Python、C++
+2. PyTorch，了解 SD 架构
+
+`Project Completion Repository`: https://github.com/BabitMF/bmf
+
+`Estimated Work Hours`: 80 小时
+
+`Mentor:` Li Hu (huli.bruce@bytedance.com)
+
+### Performance trace optimization in the multimedia framework
+---
+
+`Project Description`: BabitMF(https://github.com/BabitMF/bmf) is a multimedia framework which is widely used in media processing and AI related scenarios, there is a previous trace machenism for performance measurement already exists, but it will impact the latency (~10% more time cost occured) of whole pipeline once BMF_TRACE is enabled. This is a problem that needs to be solved urgently.
+
+`Project Difficulty`: Advanced
+
+`Technical Domain, Programming Language`: Perf, C++
+
+`Project Output Requirements`: 
+1. To root cause of the latency impacted by TRACE
+2. To optimize the trace machenism to be lightweight, make the time cost bring by trace under 3%
+
+`Project Technical Requirements`: 
+1. Understanding of multimedia framework
+2. Performance trace design and analytic capability
+
+`Project Completion Repository`: https://github.com/BabitMF/bmf
+
+`Estimated Work Hours`: 60   Hours
+
+`Mentor:` Jonah (jonah.vanpraag@bytedance.com)
 
 ### 模版项目
 ---

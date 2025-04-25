@@ -20,7 +20,7 @@ This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 
 
 ## Project Ideas
 
-### CPP Dynamic change series interface Implementation
+### Dynamical stream interface implemented by C++ in a multimedia framework
 ---
 
 `Project Description`: In BMF, the builder layers of Python and CPP are built on the connector layer. Python uses the binding technology. Currently, BMF supports calling the dynamic series interface through Python, and supports dynamic changes of nodes when the BMF graph is running, such as adding, deleting, and resetting. The implementation of this project can refer to the existing Python builder implementation to make up for the missing dynamic series interface of CPP.
@@ -31,15 +31,62 @@ This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 
 
 `Project Output Requirements`: Use C++ to implement dynamic_remove, dynamic_add, dynamic_reset, and update interfaces, and complete the test cases.
 
-`Project Technical Requirements`: 1. Good C++ code 2. basic multimedia processing
+`Project Technical Requirements`: 
+1. Good C++ code capability
+2. Basic understanding of multimedia processing
 
 `Project Completion Repository`: https://github.com/BabitMF/bmf
 
-`Estimated Work Hours`: 175 hours
+`Estimated Work Hours`: 45   Hours
 
 `Mentor:` Jack Lau (jacklau1222@qq.com)
 
-`Project Notes`: https://github.com/BabitMF/bmf/discussions/154#discussioncomment-11442021，https://babitmf.github.io/docs/bmf/multiple_features/dynamic_graph/
+### BMF DiffusionFlow
+---
+
+`Project Description`: BabitMF (BMF) is ByteDance's open-source multimedia processing framework, which already supports the modularization scheduling of audio & video and AI algorithms. This project will encapsulate the end-to-end generation process of Stable Diffusion (SD) as a series of modules that can be invoked in a node-based manner in the BMF Graph, further enriching the framework's expressiveness in the AIGC scenario.
+
+`Project Difficulty`: Advanced
+
+`Technical Domain, Programming Language`: AI, C++ Python
+
+`Project Output Requirements`: 
+1. Complete the design, development, and unit testing of the SD whole-link basic BMF Module, such as the Text Encoder, Diffusion Scheduler, VAE Decoder, etc.
+2. Provide complete examples of both Text-to-Image and Image-to-Image scenarios
+3. PyTorch, understand the SD architecture
+
+`Project Technical Requirements`: 
+1. Python、C++
+2. PyTorch, understand the SD architecture
+
+`Project Completion Repository`: https://github.com/BabitMF/bmf
+
+`Estimated Work Hours`: 80   Hours
+
+`Mentor:` Li Hu (huli.bruce@bytedance.com)
+
+### Performance trace optimization in the multimedia framework
+---
+
+`Project Description`: BabitMF(https://github.com/BabitMF/bmf) is a multimedia framework which is widely used in media processing and AI related scenarios, there is a previous trace machenism for performance measurement already exists, but it will impact the latency (~10% more time cost occured) of whole pipeline once BMF_TRACE is enabled. This is a problem that needs to be solved urgently.
+
+`Project Difficulty`: Advanced
+
+`Technical Domain, Programming Language`: Perf, C++
+
+`Project Output Requirements`: 
+1. To root cause of the latency impacted by TRACE
+2. To optimize the trace machenism to be lightweight, make the time cost bring by trace under 3%
+
+`Project Technical Requirements`: 
+1. Understanding of multimedia framework
+2. Performance trace design and analytic capability
+
+`Project Completion Repository`: https://github.com/BabitMF/bmf
+
+`Estimated Work Hours`: 60   Hours
+
+`Mentor:` Jonah (jonah.vanpraag@bytedance.com)
 
 ### Template Project
 ---
@@ -61,5 +108,3 @@ This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 
 `Estimated Work Hours`: Provide an estimated reference for development hours based on project difficulty, output requirements, and student skill level.
 
 `Mentor:` someone @ somehwere.net
-
-`Project Notes`: Include related reference materials for the project itself, such as books, papers, blogs, and links to related projects or issues.
