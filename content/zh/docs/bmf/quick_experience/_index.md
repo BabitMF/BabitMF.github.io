@@ -21,7 +21,7 @@ weight: 2
 
 下方是一个导播操作的录频演示：
 
-![broadcaster](../../../../en/docs/broadcaster.gif)
+![broadcaster](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/broadcaster.gif)
 
 ### GPU 加速
 #### 视频帧提取
@@ -64,7 +64,7 @@ decode->scale->flip->rotate->crop->blur->encode
 
 快速体验： [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify_demo_colab.ipynb)
 
-![deoldify](../../../../en/docs/deoldify.gif)
+![deoldify](https://github.com/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify.gif)
 
  #### 超分辨率
 此演示将[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)的超分辨率推理过程实现为 BMF 模块，展示了一个结合了解码、超分辨率推理和编码的 BMF 管道。
@@ -85,75 +85,9 @@ decode->scale->flip->rotate->crop->blur->encode
 ####  边缘 AI 模型
 本案例说明了将外部算法模块集成到 BMFLite 框架中的过程及其执行管理。
 
-<img src="../../../../en/docs/sd1.gif" alt="sr" width="250" height="360">
+<img src="https://github.com/BabitMF/bmf/blob/master/bmf_lite/iOS/data/sd1.gif" alt="sr" width="250" height="360">
 
 #### 实时降噪
 此示例将降噪算法实现为 BMF 模块，展示了一个结合了视频捕获、降噪和渲染的 BMF 管道。
 
-<img src="../../../../en/docs/denoise.gif" alt="sr" width="250" height="360">
-
-## Acknowledgment## Table of Contents
-
-- [About BMF](https://babitmf.github.io/about/)
-
-- [Quick Experience](#quick-experience)
-  - [Transcode](#transcode)
-  - [Edit](#edit)
-  - [Meeting/Broadcaster](#meetingbroadcaster)
-  - [GPU acceleration](#gpu-acceleration)
-    - [GPU Video Frame Extraction](#gpu-video-frame-extraction)
-    - [GPU Video Transcoding and Filtering](#gpu-video-transcoding-and-filtering)
-  - [AI Inference](#ai-inference)
-    - [Deoldify](#deoldify)
-    - [Super Resolution](#super-resolution)
-    - [Video Quality Score](#video-quality-score)
-    - [Face Detect With TensorRT](#face-detect-with-tensorrt)
-
-- [Getting Started](https://babitmf.github.io/docs/bmf/getting_started_yourself/)
-  - [Install](https://babitmf.github.io/docs/bmf/getting_started_yourself/install/)
-  - [Create a Graph](https://babitmf.github.io/docs/bmf/getting_started_yourself/create_a_graph/)
-    - one of transcode example with 3 languages
-  - [Use Module Directly](https://babitmf.github.io/docs/bmf/getting_started_yourself/use_module_directly/)
-    - sync mode with 3 languages. You can try it on:
-
-      Python:[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_python.ipynb)
-      C++:[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_cpp.ipynb)
-      Go:[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_go.ipynb)
-  - [Create a Module](https://babitmf.github.io/docs/bmf/getting_started_yourself/create_a_module/)
-    - customize module with python, C++ and Go. You can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/customize_module/bmf_customize_demo_latest.ipynb)
-
-- [Multiple Features (with examples)](https://babitmf.github.io/docs/bmf/multiple_features/)
-  - [Graph Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/)
-    - [Generator Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/generatemode/)
-    - [Sync Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/syncmode/)
-    - [Server Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/servermode/)
-    - [Preload Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/preloadmode/)
-    - [Subgraph](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/subgraphmode/)
-    - [PushData Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/pushdatamode/)
-  - [FFmpeg Fully Compatible](https://babitmf.github.io/docs/bmf/multiple_features/ffmpeg_fully_compatible/)
-  - [Data Convert Backend](https://babitmf.github.io/docs/bmf/multiple_features/data_backend/)
-  - [Dynamic Graph](https://babitmf.github.io/docs/bmf/multiple_features/dynamic_graph/)
-  - [GPU Hardware Acceleration](https://babitmf.github.io/docs/bmf/multiple_features/gpu_hardware_acc/)
-  - [BMF Tools](https://babitmf.github.io/docs/bmf/multiple_features/tools/)
-
-- [APIs](https://babitmf.github.io/docs/bmf/api/)
-  - [API in Python](https://babitmf.github.io/docs/bmf/api/api_in_python/)
-  - [API in Cpp](https://babitmf.github.io/docs/bmf/api/api_in_cpp/)
-  - [API in Go](https://babitmf.github.io/docs/bmf/api/api_in_go/)
-
-- [License](#license)
-- [Contributing](#contributing)
-
-## 许可证
-该项目具有[Apache 2.0 License](https://github.com/BabitMF/bmf/blob/master/LICENSE)许可证 。第三方组件和依赖项仍采用自己的许可证。
-
-## 贡献
-欢迎贡献。请遵循[guidelines](https://github.com/BabitMF/bmf/blob/master/CONTRIBUTING.md).
-我们使用 GitHub 问题来跟踪和解决问题。如果您有任何问题，请随时加入讨论并与我们一起寻找解决方案。
-
-## 确认
-解码器、编码器和滤波器引用[ffmpeg cmdline tool](http://ffmpeg.org/)工具 。它们被包装为 LGPL 许可下的 BMF 内置模块。
-该项目还从其他流行的框架中汲取灵感，例如  [ffmpeg-python](https://github.com/kkroening/ffmpeg-python) 和[mediapipe](https://github.com/google/mediapipe)。 我们的 [website](https://babitmf.github.io/)正在使用基于[hugo](https://github.com/gohugoio/hugo) 的 [docsy](https://github.com/google/docsy)项目。
-
-在此，我们向上述项目的开发者表示最诚挚的感谢！
-
+<img src="https://github.com/BabitMF/bmf/blob/master/bmf_lite/android/app/src/main/res/effect-data/denoise.gif" alt="sr" width="250" height="360" >

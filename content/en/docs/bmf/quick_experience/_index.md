@@ -21,7 +21,7 @@ This demo uses BMF framework to construct a simple broadcast service. The servic
 
 Below is a screen recording demonstrating the operation of broadcaster:
 
-![broadcaster](../../../docs/broadcaster.gif)
+![broadcaster](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/broadcaster.gif)
 
 
 ### GPU acceleration
@@ -71,7 +71,7 @@ If you want to have a quick experiment, you can try it on [![Open In Colab](http
 
  If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify_demo_colab.ipynb)
 
- ![deoldify](../../../docs/deoldify.gif)
+ ![deoldify](https://github.com/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify.gif)
 
 #### Supper Resolution
 This demo implements the super-resolution inference process of [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) as a BMF module, showcasing a BMF pipeline that combines decoding, super-resolution inference and encoding.
@@ -96,82 +96,9 @@ If you want to have a quick experiment, you can try it on [![Open In Colab](http
 #### Edge AI models
 This case illustrates the procedures of integrating an external algorithm module into the BMFLite framework and management of its execution.
 
-<img src="../../../docs/sd1.gif" alt="sr" width="250" height="360">
+<img src="https://github.com/BabitMF/bmf/blob/master/bmf_lite/iOS/data/sd1.gif" alt="sr" width="250" height="360">
 
 #### Real-time denoise
 This example implements the denoise algorithm as a BMF module, showcasing a BMF pipeline that combines video capture, noise reduction and rendering.
 
-<img src="../../../docs/denoise.gif" alt="sr" width="250" height="360" >
-
-o find a solution.
-
-## Acknowledgment## Table of Contents
-
-- [About BMF](https://babitmf.github.io/about/)
-
-- [Quick Experience](#quick-experience)
-  - [Transcode](#transcode)
-  - [Edit](#edit)
-  - [Meeting/Broadcaster](#meetingbroadcaster)
-  - [GPU acceleration](#gpu-acceleration)
-    - [GPU Video Frame Extraction](#gpu-video-frame-extraction)
-    - [GPU Video Transcoding and Filtering](#gpu-video-transcoding-and-filtering)
-  - [AI Inference](#ai-inference)
-    - [Deoldify](#deoldify)
-    - [Super Resolution](#super-resolution)
-    - [Video Quality Score](#video-quality-score)
-    - [Face Detect With TensorRT](#face-detect-with-tensorrt)
-
-- [Getting Started](https://babitmf.github.io/docs/bmf/getting_started_yourself/)
-  - [Install](https://babitmf.github.io/docs/bmf/getting_started_yourself/install/)
-  - [Create a Graph](https://babitmf.github.io/docs/bmf/getting_started_yourself/create_a_graph/)
-    - one of transcode example with 3 languages
-  - [Use Module Directly](https://babitmf.github.io/docs/bmf/getting_started_yourself/use_module_directly/)
-    - sync mode with 3 languages. You can try it on:
-
-      Python:[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_python.ipynb)
-      C++:[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_cpp.ipynb)
-      Go:[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/sync_mode/bmf_syncmode_go.ipynb)
-  - [Create a Module](https://babitmf.github.io/docs/bmf/getting_started_yourself/create_a_module/)
-    - customize module with python, C++ and Go. You can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/test/customize_module/bmf_customize_demo_latest.ipynb)
-
-- [Multiple Features (with examples)](https://babitmf.github.io/docs/bmf/multiple_features/)
-  - [Graph Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/)
-    - [Generator Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/generatemode/)
-    - [Sync Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/syncmode/)
-    - [Server Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/servermode/)
-    - [Preload Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/preloadmode/)
-    - [Subgraph](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/subgraphmode/)
-    - [PushData Mode](https://babitmf.github.io/docs/bmf/multiple_features/graph_mode/pushdatamode/)
-  - [FFmpeg Fully Compatible](https://babitmf.github.io/docs/bmf/multiple_features/ffmpeg_fully_compatible/)
-  - [Data Convert Backend](https://babitmf.github.io/docs/bmf/multiple_features/data_backend/)
-  - [Dynamic Graph](https://babitmf.github.io/docs/bmf/multiple_features/dynamic_graph/)
-  - [GPU Hardware Acceleration](https://babitmf.github.io/docs/bmf/multiple_features/gpu_hardware_acc/)
-  - [BMF Tools](https://babitmf.github.io/docs/bmf/multiple_features/tools/)
-
-- [APIs](https://babitmf.github.io/docs/bmf/api/)
-  - [API in Python](https://babitmf.github.io/docs/bmf/api/api_in_python/)
-  - [API in Cpp](https://babitmf.github.io/docs/bmf/api/api_in_cpp/)
-  - [API in Go](https://babitmf.github.io/docs/bmf/api/api_in_go/)
-
-- [License](#license)
-- [Contributing](#contributing)
-
-## License
-The project has an [Apache 2.0 License](https://github.com/BabitMF/bmf/blob/master/LICENSE). Third party components and dependencies remain under their own licenses.
-
-## Contributing
-
-Contributions are welcomed. Please follow the
-[guidelines](https://github.com/BabitMF/bmf/blob/master/CONTRIBUTING.md).
-
-We use GitHub issues to track and resolve problems. If you have any questions, please feel free to join the discussion and work with us to find a solution.
-
-## Acknowledgment
-
-
-The decoder, encoder and filter reference [ffmpeg cmdline tool](http://ffmpeg.org/). They are wrapped as BMF's built-in modules under the LGPL license.
-
-The project also draws inspiration from other popular frameworks, such as [ffmpeg-python](https://github.com/kkroening/ffmpeg-python) and [mediapipe](https://github.com/google/mediapipe). Our [website](https://babitmf.github.io/) is using the project from [docsy](https://github.com/google/docsy) based on [hugo](https://github.com/gohugoio/hugo).
-
-Here, we'd like to express our sincerest thanks to the developers of the above projects!
+<img src="https://github.com/BabitMF/bmf/blob/master/bmf_lite/android/app/src/main/res/effect-data/denoise.gif" alt="sr" width="250" height="360" >
