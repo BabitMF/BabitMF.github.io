@@ -233,6 +233,11 @@ cd bmf
 
 如果您有 GPU 设备并且通过 `./scripts/build_ffmpeg.sh --device gpu` 安装 FFmpeg, CUDA 工具包将会自动安装。在其他情况下，请手动安装 CUDA 工具包，请参阅 [NVIDIA 官方网站](https://developer.nvidia.com/cuda-11-8-0-download-archive)
 
+> 您还可以通过设置环境变量 `FFMPEG_ROOT_PATH` 来使用本地 FFmpeg。例如，将其设置为 `/usr/local`
+> ```Shell
+> export FFMPEG_ROOT_PATH=/usr/local
+> ```
+
 ## Pip
 
 需要 Python 3.6 到 3.12，但**不推荐**使用 3.6。如果您的 Python 低于 3.6.15，将会编译失败。
