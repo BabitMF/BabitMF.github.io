@@ -21,7 +21,7 @@ This demo uses BMF framework to construct a simple broadcast service. The servic
 
 Below is a screen recording demonstrating the operation of broadcaster:
 
-![broadcaster](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/broadcaster.gif)
+![broadcaster](https://raw.githubusercontent.com/BabitMF/bmf/master/bmf/demo/broadcaster/broadcaster.gif)
 
 
 ### GPU acceleration
@@ -71,7 +71,7 @@ If you want to have a quick experiment, you can try it on [![Open In Colab](http
 
  If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify_demo_colab.ipynb)
 
- ![deoldify](https://github.com/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify.gif)
+ ![deoldify](https://raw.githubusercontent.com/BabitMF/bmf/master/bmf/demo/colorization_python/deoldify.gif)
 
 #### Supper Resolution
 This demo implements the super-resolution inference process of [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) as a BMF module, showcasing a BMF pipeline that combines decoding, super-resolution inference and encoding.
@@ -96,9 +96,9 @@ If you want to have a quick experiment, you can try it on [![Open In Colab](http
 #### Edge AI models
 This case illustrates the procedures of integrating an external algorithm module into the BMFLite framework and management of its execution.
 
-<img src="https://github.com/BabitMF/bmf/blob/master/bmf_lite/iOS/data/sd1.gif" alt="sr" width="250" height="360">
+<img src="https://raw.githubusercontent.com/BabitMF/bmf/master/bmf_lite/iOS/data/sd1.gif" alt="sr" width="250" height="360">
 
 #### Real-time denoise
 This example implements the denoise algorithm as a BMF module, showcasing a BMF pipeline that combines video capture, noise reduction and rendering.
 
-<img src="https://github.com/BabitMF/bmf/blob/master/bmf_lite/android/app/src/main/res/effect-data/denoise.gif" alt="sr" width="250" height="360" >
+<img src="https://raw.githubusercontent.com/BabitMF/bmf/master/bmf_lite/android/app/src/main/res/effect-data/denoise.gif" alt="sr" width="250" height="360" >

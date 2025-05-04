@@ -21,7 +21,7 @@ weight: 2
 
 下方是一个导播操作的录频演示：
 
-![broadcaster](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/broadcaster.gif)
+![broadcaster](https://raw.githubusercontent.com/BabitMF/bmf/master/bmf/demo/broadcaster/broadcaster.gif)
 
 ### GPU 加速
 #### 视频帧提取
@@ -64,7 +64,7 @@ decode->scale->flip->rotate->crop->blur->encode
 
 快速体验： [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify_demo_colab.ipynb)
 
-![deoldify](https://github.com/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify.gif)
+![deoldify](https://raw.githubusercontent.com/BabitMF/bmf/master/bmf/demo/colorization_python/deoldify.gif)
 
  #### 超分辨率
 此演示将[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)的超分辨率推理过程实现为 BMF 模块，展示了一个结合了解码、超分辨率推理和编码的 BMF 管道。
@@ -85,9 +85,9 @@ decode->scale->flip->rotate->crop->blur->encode
 ####  边缘 AI 模型
 本案例说明了将外部算法模块集成到 BMFLite 框架中的过程及其执行管理。
 
-<img src="https://github.com/BabitMF/bmf/blob/master/bmf_lite/iOS/data/sd1.gif" alt="sr" width="250" height="360">
+<img src="https://raw.githubusercontent.com/BabitMF/bmf/master/bmf_lite/iOS/data/sd1.gif" alt="sr" width="250" height="360">
 
 #### 实时降噪
 此示例将降噪算法实现为 BMF 模块，展示了一个结合了视频捕获、降噪和渲染的 BMF 管道。
 
-<img src="https://github.com/BabitMF/bmf/blob/master/bmf_lite/android/app/src/main/res/effect-data/denoise.gif" alt="sr" width="250" height="360" >
+<img src="https://raw.githubusercontent.com/BabitMF/bmf/master/bmf_lite/android/app/src/main/res/effect-data/denoise.gif" alt="sr" width="250" height="360" >
