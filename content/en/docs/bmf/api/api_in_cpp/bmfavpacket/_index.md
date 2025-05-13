@@ -11,8 +11,6 @@ weight: 2
 
 bmf_av_packet.h!
 
-!
-
  ## Public Member Functions
 
 
