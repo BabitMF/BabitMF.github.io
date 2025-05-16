@@ -10,8 +10,8 @@ Para:
 - mode: Enumeration type, the operation mode of BMF, with the following options:
    - Normal mode (most commonly used)
    - Server pre-built mode
-   - Generator generator mode
-   - SubGraph subgraph mode
+   - Generator  mode
+   - SubGraph  mode
    - Update Dynamic addition and deletion of streaming scenarios
 - option: interface{} type, global Parameter of BMF, usually can be filled with null value nil
 
@@ -28,8 +28,8 @@ Return:
 - *BMFNode: structure pointer type, pointer to decoding node
 
 ### func (n *BMFNode) Stream(id interface{}) *BMFStream
-Para:
 
+Para:
 - id: integer, representing the stream number of the node (the stream number usually starts from 0)
 
 Return:
@@ -53,7 +53,7 @@ Para:
 - moduleType: enumerated type, with the following options:
    -Python
    -Cpp
-   - Go
+   -Go
 - modulePath: string type, the path where the module file is located
 - moduleEntry: string type, module entry
 - option: interface{} type, module Parameter
@@ -84,7 +84,7 @@ Para:
 - moduleType: enumerated type, with the following options:
    -Python
    -Cpp
-   - Go
+   -Go
 - modulePath: string type, the path where the module file is located
 - moduleEntry: string type, module entry
 
@@ -111,6 +111,7 @@ Para:
 Return:
 - *Modulefunctor: the instantiated Modulefunctor
 - error: error message, default is nil
+
 ### func (self *Modulefunctor) Execute(inputs []*Packet, cleanup bool) (bool, error)
 
 Para:
@@ -120,6 +121,7 @@ Para:
 Return:
 - bool: Whether the operation is successful, 1 is success, 0 is failed
 - error: error message, default is nil
+
 ### func (self *Modulefunctor) Fetch(index int) ([]*Packet, error)
 
 Para:
@@ -129,6 +131,7 @@ Para:
 Return:
 - []*Packet: packet list processed by Sync mode module
 - error: error message, default is nil
+
 ### func (self *Modulefunctor) Call(inputs []*Packet) ([]*Packet, error)
 
 Para:
@@ -137,6 +140,7 @@ Para:
 Return:
 - []*Packet: packet list processed by Sync mode module
 - error: error message, default is nil
+
 ### func deleteModulefunctor(o *Modulefunctor)
 
 Para:
