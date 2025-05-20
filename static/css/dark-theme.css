@@ -1,0 +1,322 @@
+/* Dark theme styles */
+
+[data-theme="dark"] {
+  --primary-bg-color: #36454F;  /* Changed to dark gray-blue */
+  --secondary-bg-color: #2e3b44;
+  --primary-text-color: #ffffff; /* Changed to white */
+  --secondary-text-color: #f0f0f0;
+  --link-color: #8ab4f8;
+  --link-hover-color: #aecbfa;
+  --code-bg-color: #0d1117; /* GitHub dark theme code background color */
+  --code-text-color: #c9d1d9; /* GitHub dark theme code text color */
+  --border-color: #444444;
+  --navbar-bg-color: inherit; /* Navbar color remains unchanged */
+  --dropdown-bg-color: #333333;
+  --dropdown-text-color: #f0f0f0;
+  --card-bg-color: #2d2d2d;
+  --header-bg-color: #252525;
+  --footer-bg-color: #252525;
+  --search-bg-color: #1e2329; /* Search box background color */
+  --search-text-color: #ffffff; /* Search box text color */
+  
+  /* Apply dark theme colors */
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+}
+
+/* Navbar styles - keep original color */
+[data-theme="dark"] .navbar {
+  /* Remove background color modification, maintain original style */
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Dropdown menu styles */
+[data-theme="dark"] .dropdown-menu {
+  background-color: var(--dropdown-bg-color);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .dropdown-menu .dropdown-item {
+  color: var(--dropdown-text-color);
+}
+
+[data-theme="dark"] .dropdown-menu .dropdown-item:hover,
+[data-theme="dark"] .dropdown-menu .dropdown-item:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Navigation link styles - keep navbar text visible */
+[data-theme="dark"] .nav-link {
+  color: inherit !important;
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: var(--link-hover-color) !important;
+}
+
+/* Link styles */
+[data-theme="dark"] a {
+  color: var(--link-color);
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Card styles */
+[data-theme="dark"] .card,
+[data-theme="dark"] .td-box {
+  background-color: var(--card-bg-color);
+  border-color: var(--border-color);
+}
+
+/* Code styles - using GitHub style */
+[data-theme="dark"] pre,
+[data-theme="dark"] code {
+  background-color: var(--code-bg-color);
+  color: var(--code-text-color);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  text-shadow: none; /* Remove text shadow/ghosting */
+}
+
+/* Code highlight section */
+[data-theme="dark"] .highlight {
+  background-color: var(--code-bg-color);
+}
+
+[data-theme="dark"] .chroma {
+  background-color: var(--code-bg-color);
+  color: var(--code-text-color);
+  text-shadow: none; /* Remove text shadow/ghosting */
+}
+
+/* GitHub style code syntax highlighting element colors */
+[data-theme="dark"] .chroma .k,   /* Keywords */
+[data-theme="dark"] .chroma .kd,  /* Declaration keywords */
+[data-theme="dark"] .chroma .kn { /* Namespace keywords */
+  color: #ff7b72;
+  font-weight: normal;
+}
+
+[data-theme="dark"] .chroma .s,   /* Strings */
+[data-theme="dark"] .chroma .s1,  /* Single quote strings */
+[data-theme="dark"] .chroma .s2 { /* Double quote strings */
+  color: #a5d6ff;
+}
+
+[data-theme="dark"] .chroma .c,   /* Comments */
+[data-theme="dark"] .chroma .c1,  /* Single line comments */
+[data-theme="dark"] .chroma .cm { /* Multi-line comments */
+  color: #8b949e;
+}
+
+[data-theme="dark"] .chroma .n,   /* Names */
+[data-theme="dark"] .chroma .nb { /* Built-in names */
+  color: #c9d1d9;
+}
+
+[data-theme="dark"] .chroma .o,   /* Operators */
+[data-theme="dark"] .chroma .p {  /* Punctuation */
+  color: #c9d1d9;
+}
+
+[data-theme="dark"] .chroma .mi,  /* Integers */
+[data-theme="dark"] .chroma .mf { /* Floating point numbers */
+  color: #79c0ff;
+}
+
+[data-theme="dark"] .chroma .gr,
+[data-theme="dark"] .chroma .gt {
+  color: #ff7b72;
+}
+
+/* Sidebar styles */
+[data-theme="dark"] .td-sidebar {
+  background-color: var(--secondary-bg-color);
+  border-right: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .td-sidebar-nav a {
+  color: var(--primary-text-color);
+}
+
+/* Footer styles */
+[data-theme="dark"] .td-footer {
+  background-color: var(--footer-bg-color);
+  color: var(--primary-text-color);
+}
+
+/* Search box styles */
+[data-theme="dark"] .td-search-input {
+  background-color: var(--search-bg-color) !important;
+  color: var(--search-text-color) !important;
+  border-color: #444444 !important;
+}
+
+[data-theme="dark"] .td-search-input::placeholder {
+  color: #8b949e !important;
+}
+
+[data-theme="dark"] .popover.offline-search-result {
+  background-color: var(--dropdown-bg-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .popover.offline-search-result .arrow::after {
+  border-bottom-color: var(--dropdown-bg-color);
+}
+
+/* Form element styles */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: var(--secondary-bg-color);
+  border-color: var(--border-color);
+  color: var(--primary-text-color);
+}
+
+/* Button styles */
+[data-theme="dark"] .btn-primary {
+  background-color: #0366d6;
+  border-color: #0366d6;
+}
+
+[data-theme="dark"] .btn-secondary {
+  background-color: #444;
+  border-color: #444;
+}
+
+/* Table styles */
+[data-theme="dark"] table {
+  color: var(--primary-text-color);
+}
+
+[data-theme="dark"] table th,
+[data-theme="dark"] table td {
+  border-color: var(--border-color);
+}
+
+/* Horizontal rule styles */
+[data-theme="dark"] hr {
+  border-color: var(--border-color);
+}
+
+/* Blockquote styles */
+[data-theme="dark"] blockquote {
+  border-left-color: var(--border-color);
+}
+
+/* Home page special styles */
+[data-theme="dark"] .td-home .td-box {
+  background-color: #36454F;
+  color: #ffffff;
+}
+
+/* About page only changes footer */
+[data-theme="dark"] .td-about {
+  background-color: inherit;
+  color: inherit;
+}
+
+[data-theme="dark"] .td-about * {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* About page footer color change */
+[data-theme="dark"] .td-about .td-footer {
+  background-color: var(--footer-bg-color);
+  color: var(--primary-text-color);
+}
+
+/* Theme switch button styles */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Theme switch dropdown menu styles */
+.theme-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.theme-dropdown-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: inherit;
+}
+
+.theme-dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  min-width: 120px;
+  background-color: #f8f9fa;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.theme-dropdown-content.show {
+  display: block;
+}
+
+[data-theme="dark"] .theme-dropdown-content {
+  background-color: #333;
+  color: #fff;
+}
+
+.theme-dropdown-item {
+  padding: 10px 12px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .theme-dropdown-item {
+  color: #fff;
+}
+
+.theme-dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .theme-dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-icon {
+  margin-right: 5px;
+}
+
+/* Light theme variables (default theme) */
+:root {
+  --primary-bg-color: #fff;
+  --secondary-bg-color: #f8f9fa;
+  --primary-text-color: #212529;
+  --secondary-text-color: #495057;
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  --code-bg-color: #f6f8fa;
+  --code-text-color: #24292e;
+  --border-color: #dee2e6;
+  --navbar-bg-color: inherit;
+  --dropdown-bg-color: #fff;
+  --dropdown-text-color: #212529;
+  --card-bg-color: #fff;
+  --header-bg-color: #f8f9fa;
+  --footer-bg-color: #f8f9fa;
+  --search-bg-color: #fff;
+  --search-text-color: #212529;
+} 
