@@ -28,8 +28,8 @@ Return:
 - *BMFNode: structure pointer type, pointer to decoding node
 
 ### func (n *BMFNode) Stream(id interface{}) *BMFStream
-Para:
 
+Para:
 - id: integer, representing the stream number of the node (the stream number usually starts from 0)
 
 Return:
@@ -53,7 +53,7 @@ Para:
 - moduleType: enumerated type, with the following options:
    -Python
    -Cpp
-   - Go
+   -Go
 - modulePath: string type, the path where the module file is located
 - moduleEntry: string type, module entry
 - option: interface{} type, module Parameter
