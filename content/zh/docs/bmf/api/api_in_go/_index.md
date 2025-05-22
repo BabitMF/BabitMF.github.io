@@ -28,8 +28,8 @@ Return:
 - *BMFNode: 结构体指针类型，指向解码节点的指针
 
 ### func (n *BMFNode) Stream(id interface{}) *BMFStream
-Para:
 
+Para:
 - id: 整数，表示该节点的 stream number（stream number 通常从 0 开始）
 
 Return:
@@ -111,6 +111,7 @@ Para:
 Return:
 - *Modulefunctor: 实例化的 Modulefunctor
 - error: 错误信息，默认为 nil
+
 ### func (self *Modulefunctor) Execute(inputs []*Packet, cleanup bool) (bool, error)
 
 Para:
@@ -120,6 +121,7 @@ Para:
 Return:
 - bool: 操作是否成功，1 表示成功，0 表示失败
 - error: 错误信息，默认为 nil
+
 ### func (self *Modulefunctor) Fetch(index int) ([]*Packet, error)
 
 Para:
@@ -129,6 +131,7 @@ Para:
 Return:
 - []*Packet: 同步模式模块处理的数据包列表
 - error: 错误信息，默认为 nil
+
 ### func (self *Modulefunctor) Call(inputs []*Packet) ([]*Packet, error)
 
 Para:
@@ -137,6 +140,7 @@ Para:
 Return:
 - []*Packet: 同步模式模块处理的数据包列表
 - error: 错误信息，默认为 nil
+
 ### func deleteModulefunctor(o *Modulefunctor)
 
 Para:
