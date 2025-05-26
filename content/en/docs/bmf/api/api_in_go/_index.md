@@ -51,8 +51,8 @@ Para:
 - inputs: The slice structure of the BMFStream structure pointer, representing all input streams of the module
 - moduleName: string type, module name
 - moduleType: enumerated type, with the following options:
-   -Python
-   -Cpp
+   - Python
+   - Cpp
    - Go
 - modulePath: string type, the path where the module file is located
 - moduleEntry: string type, module entry

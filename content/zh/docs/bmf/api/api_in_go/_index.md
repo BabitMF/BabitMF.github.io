@@ -82,9 +82,9 @@ Para:
 - moduleName: 字符串类型，模块名称
 - option: interface{} 类型，模块参数
 - moduleType: 枚举类型，具有以下选项：
-   -Python
-   -Cpp
-   -Go
+   - Python
+   - Cpp
+   - Go
 - modulePath: 字符串类型，模块文件所在的路径
 - moduleEntry: 字符串类型，模块入口
 
