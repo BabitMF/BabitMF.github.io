@@ -7,11 +7,12 @@ weight: 2
 [//]: <> (REF_MD: classbmf__sdk_1_1BMFAVPacket.html)
 
 
-  [公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#public-member-functions)  |  [静态公有成员函数](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#static-public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/bmfavpacket/#public-attributes)   # bmf_sdk::BMFAVPacket Class Reference
+  [公有成员函数](#公有成员函数)  |  [静态公有成员函数](#静态公有成员函数)  |  [Public Attributes](#公共属性)   
+  # bmf_sdk::BMFAVPacket Class Reference
 
 bmf_av_packet.h!
 
-!
+
 
  ## 公有成员函数
 
@@ -146,7 +147,7 @@ virtual const  OpaqueData &  [private_data](https://babitmf.github.io/docs/bmf/a
  ```
 bmf_sdk::BMFAVPacket::BMFAVPacket (  )  
 ```
- defaultdefault
+ default
 
 
 
@@ -158,7 +159,7 @@ bmf_sdk::BMFAVPacket::BMFAVPacket (  )
  ```
 bmf_sdk::BMFAVPacket::BMFAVPacket ( const BMFAVPacket & )  
 ```
- defaultdefault
+ default
 
 
 
@@ -170,7 +171,7 @@ bmf_sdk::BMFAVPacket::BMFAVPacket ( const BMFAVPacket & )
  ```
 bmf_sdk::BMFAVPacket::BMFAVPacket (  BMFAVPacket && )  
 ```
- defaultdefault
+ default
 
 
 
@@ -287,9 +288,7 @@ static BMFAVPacket bmf_sdk::BMFAVPacket::make( int size,
   Options &&... opts 
  )   
 ```
- inlinestaticinline
-
-static
+ inline static
 
 
 
@@ -346,7 +345,7 @@ bmf_sdk::BMFAVPacket::operator bool (  ) const
  ```
  BMFAVPacket & bmf_sdk::BMFAVPacket::operator=( const BMFAVPacket & )  
 ```
- defaultdefault
+ default
 
 
 
