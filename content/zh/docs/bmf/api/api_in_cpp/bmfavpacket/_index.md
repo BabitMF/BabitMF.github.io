@@ -288,7 +288,7 @@ static BMFAVPacket bmf_sdk::BMFAVPacket::make( int size,
   Options &&... opts 
  )   
 ```
- inlinestatic
+ inline static
 
 
 
