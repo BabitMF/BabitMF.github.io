@@ -5,6 +5,7 @@ weight: 3
 ---
 
 
+如果您需要示例文件，可以从这里下载：<https://github.com/BabitMF/bmf/releases/download/files/files.tar.gz>
 
 ## 简介
 
