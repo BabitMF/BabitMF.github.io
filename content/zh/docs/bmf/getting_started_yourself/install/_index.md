@@ -314,6 +314,9 @@ BMF 支持在以下三个平台编译和构建：Linux、Windows 和 Mac。您�
 
 ### Linux
 
+**重要提示：CMake 版本要求**
+在 Linux 环境下从源代码构建 BMF 时，请确保您的系统中安装的 CMake 版本 **不低于 3.17**。较低版本的 CMake 可能会导致构建失败或出现不可预知的错误。您可以通过运行 `cmake --version` 来检查当前的 CMake 版本。如果版本过低，请先升级 CMake。
+
 ```Shell
 git clone https://github.com/BabitMF/bmf bmf
 cd bmf
