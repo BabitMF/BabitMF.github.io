@@ -446,3 +446,46 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(pwd)/output/bmf/lib
 # only set if you want to use BMF in python
 export PYTHONPATH=$(pwd)/output/bmf/lib:$(pwd)/output
 ```
+### 链接配置（使用 Python 时必需）
+为了确保 Python 能够正确导入 BMF 的 C++ 库，除了设置上述环境变量外，还需要创建一个符号链接：
+
+```Shell
+# 进入 Python 包目录
+cd bmf
+
+# Linux/Mac 用户创建符号链接：
+ln -sfn ../output/bmf/lib ./lib
+
+# Windows 用户注意：需要以管理员权限运行命令提示符，然后使用：
+# mklink /D lib ..\output\bmf\lib
+```
+
+### 验证安装
+您可以通过以下步骤验证 BMF 是否安装成功：
+
+1. 检查符号链接是否创建成功：
+```bash
+# Linux/Mac 下：
+ls -l bmf/lib  # 应该显示指向 output/bmf/lib 的链接
+
+# Windows 下：
+dir bmf\lib  # 应该显示符号链接信息
+```
+
+2. 验证 Python 导入：
+```python
+# 创建一个测试文件 test_bmf.py：
+import bmf
+
+# 如果没有报错，说明基本环境已经配置正确
+print("BMF 导入成功！")
+
+# 可以进一步测试具体功能：
+graph = bmf.graph()
+print("BMF 图对象创建成功！")
+```
+
+如果执行过程中遇到错误：
+- 如果出现 "ModuleNotFoundError: No module named 'bmf'"，检查 PYTHONPATH 设置
+- 如果出现 "ImportError: cannot import name '_hmp' from 'bmf.lib'"，检查符号链接是否正确
+- 如果出现动态库加载错误，检查 LD_LIBRARY_PATH（Linux/Mac）或 PATH（Windows）设置
