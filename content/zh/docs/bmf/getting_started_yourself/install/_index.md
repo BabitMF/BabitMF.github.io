@@ -315,10 +315,11 @@ BMF 支持在以下三个平台编译和构建：Linux、Windows 和 Mac。您�
 ### Linux
 
 **重要提示：CMake 版本要求**
-在 Linux 环境下从源代码构建 BMF 时：
+从源代码构建 BMF 时：
 - 基础版本要求：CMake 3.5 或更高版本
-- 如果需要 CUDA 支持，则要求 CMake 3.17 或更高版本
-- 您可以通过运行 `cmake --version` 来检查当前的 CMake 版本。如果版本不满足要求，请先升级 CMake。
+- 如果需要 CUDA 支持（默认开启），则要求 CMake 3.17 或更高版本
+
+您可以通过运行 `cmake --version` 来检查当前的 CMake 版本。如果版本不满足要求，请先升级 CMake。
 
 ```Shell
 git clone https://github.com/BabitMF/bmf bmf
