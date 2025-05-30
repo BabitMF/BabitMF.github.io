@@ -312,6 +312,13 @@ export PYTHONPATH=$(pwd)/output/bmf/lib:$(pwd)/output
 
 BMF supports compilation and builds on three platforms: Linux, Windows, and Mac. You can choose the method you want to use according to your needs.
 
+**Important Note: CMake Version Requirements**
+When building BMF from source:
+- Base requirement: CMake 3.5 or higher
+- If CUDA support is needed (enabled by default), CMake 3.17 or higher is required
+
+You can check your current CMake version by running `cmake --version`. If the version does not meet the requirements, please upgrade CMake.
+
 ### Linux
 
 ```Shell
