@@ -312,6 +312,13 @@ export PYTHONPATH=$(pwd)/output/bmf/lib:$(pwd)/output
 
 BMF 支持在以下三个平台编译和构建：Linux、Windows 和 Mac。您可以根据自己的需要选择您想要使用的方法。
 
+**重要提示：CMake 版本要求**
+从源代码构建 BMF 时：
+- 基础版本要求：CMake 3.5 或更高版本
+- 如果需要 CUDA 支持（默认开启），则要求 CMake 3.17 或更高版本
+
+您可以通过运行 `cmake --version` 来检查当前的 CMake 版本。如果版本不满足要求，请先升级 CMake。
+
 ### Linux
 
 ```Shell
