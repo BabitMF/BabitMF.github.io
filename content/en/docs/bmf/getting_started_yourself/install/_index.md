@@ -319,7 +319,6 @@ When building BMF from source:
   
 You can check your current CMake version by running `cmake --version`. If the version does not meet the requirements, please upgrade CMake.
 
-
 ### Linux
 
 ```Shell
