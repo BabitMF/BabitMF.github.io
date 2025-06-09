@@ -33,9 +33,28 @@
 @import "community";
 @import "markdown";
 @import "safety";
+@import "dark-theme";
 
 @if $td-enable-google-fonts {
     @import url($web-font-path);
+}
+
+// Define light theme variables (default theme)
+:root {
+  --primary-bg-color: #fff;
+  --secondary-bg-color: #f8f9fa;
+  --primary-text-color: #212529;
+  --secondary-text-color: #495057;
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  --code-bg-color: #f8f9fa;
+  --border-color: #dee2e6;
+  --navbar-bg-color: #fff;
+  --dropdown-bg-color: #fff;
+  --dropdown-text-color: #212529;
+  --card-bg-color: #fff;
+  --header-bg-color: #f8f9fa;
+  --footer-bg-color: #f8f9fa;
 }
 
 footer {
