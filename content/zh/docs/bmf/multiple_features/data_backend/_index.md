@@ -120,22 +120,22 @@ BMF 支持以下第三方数据结构与 VideoFrame 的转换：
 
 #### Scale 和 colorspace conversion
 
-`bmf.hml.hmp.img.rgb_to_yuv`
+`bmf.hmp.img.rgb_to_yuv`
 
-`bmf.hml.hmp.img.yuv_to_rgb`
+`bmf.hmp.img.yuv_to_rgb`
 
-`bmf.hml.hmp.img.yuv_to_yuv`
+`bmf.hmp.img.yuv_to_yuv`
 
-`bmf.hml.hmp.img.resize`
+`bmf.hmp.img.resize`
 
-`bmf.hml.hmp.img.rotate`
+`bmf.hmp.img.rotate`
 
 示例代码：
 
 
 ```python
     from bmf import *
-    import bmf.hml.hmp as mp
+    import bmf.hmp as mp
 
     NV12 = mp.PixelInfo(mp.PixelFormat.kPF_NV12, mp.ColorSpace.kCS_BT470BG, mp.ColorRange.kCR_MPEG)
     RGB = mp.PixelInfo(mp.PixelFormat.kPF_RGB24, mp.ColorSpace.kCS_BT709, mp.ColorRange.kCR_MPEG)
@@ -156,7 +156,7 @@ BMF 支持以下第三方数据结构与 VideoFrame 的转换：
 示例代码：
 ```python
     from bmf import *
-    import bmf.hml.hmp as mp
+    import bmf.hmp as mp
     vf = pkt.get(VideoFrame)
     if (vf.frame().device() == mp.Device('cpu')):
         vf = vf.cuda()
@@ -168,9 +168,9 @@ Python API 支持以下类型的第三方数据结构：
 - numpy
 - torch
 
-`bmf.hml.hmp.Frame.numpy`将 BMF Frame 转换为 numpy，并且 Frame 可以包含在 VideoFrame 中。
+`bmf.hmp.Frame.numpy`将 BMF Frame 转换为 numpy，并且 Frame 可以包含在 VideoFrame 中。
 
-`bmf.hml.hmp.Frame.from_numpy`
+`bmf.hmp.Frame.from_numpy`
 
 示例代码：
 ```python
@@ -188,9 +188,9 @@ Python API 支持以下类型的第三方数据结构：
 
 对于以下接口，编译时需要使用支持 Torch 的 BMF，请参阅“安装部署”部分。
 
-`bmf.hml.hmp.from_torch`：将 torch 转换为 bmf Frame
+`bmf.hmp.from_torch`：将 torch 转换为 bmf Frame
 
-`bmf.hml.hmp.torch`：将 bmf Frame 转换为 torch
+`bmf.hmp.torch`：将 bmf Frame 转换为 torch
 
 示例代码：
 ```python
@@ -204,7 +204,7 @@ Python API 支持以下类型的第三方数据结构：
 
 ```python
     from bmf import *
-    import bmf.hml.hmp as mp
+    import bmf.hmp as mp
     import torch
     vf = pkt.get(VideoFrame)
     rgb = mp.PixelInfo(mp.kPF_RGB24)
