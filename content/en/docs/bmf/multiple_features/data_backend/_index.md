@@ -143,15 +143,15 @@ The following snippet shows a colorspace conversion from RGB to NV12 and scale c
 
 Legacy conversion functions are also available in the BMF Python module (rotate currently not supported by `bmf_convert` interface).
 
-`bmf.hml.hmp.img.rgb_to_yuv`
+`bmf.hmp.img.rgb_to_yuv`
 
-`bmf.hml.hmp.img.yuv_to_rgb`
+`bmf.hmp.img.yuv_to_rgb`
 
-`bmf.hml.hmp.img.yuv_to_yuv`
+`bmf.hmp.img.yuv_to_yuv`
 
-`bmf.hml.hmp.img.resize`
+`bmf.hmp.img.resize`
 
-`bmf.hml.hmp.img.rotate`
+`bmf.hmp.img.rotate`
 
 The following snippet uses the legacy conversion function to achieve the same conversion shown previously:
 ```python 
@@ -191,7 +191,7 @@ Or using the legacy approach:
 Sample code:
 ```python
     from bmf import *
-    import bmf.hml.hmp as mp
+    import bmf.hmp as mp
     vf = pkt.get(VideoFrame)
     if (vf.frame().device() == mp.Device('cpu')):
         vf = vf.cuda()
@@ -205,9 +205,9 @@ The general class of video frame in BMF is `VideoFrame`, and contains `Frame` as
 
 **NOTE**: conversions must be to-or-from a BMF Video Frame or a runtime error will be raised. 
 
-`bmf.hml.hmp.Frame.numpy` converts a BMF Frame to numpy, and Frame can be included in VideoFrame
+`bmf.hmp.Frame.numpy` converts a BMF Frame to numpy, and Frame can be included in VideoFrame
 
-`bmf.hml.hmp.Frame.from_numpy`
+`bmf.hmp.Frame.from_numpy`
 
 Sample code:
 ```python
@@ -226,9 +226,9 @@ Sample code:
 
 For bellow interface, Torch Enabled BMF is needed by compile, please reference "Install" section.
 
-`bmf.hml.hmp.from_torch` convert a torch into bmf Frame
+`bmf.hmp.from_torch` convert a torch into bmf Frame
 
-`bmf.hml.hmp.torch` convert bmf Frame to torch
+`bmf.hmp.torch` convert bmf Frame to torch
 
 Sample code:
 ```python
@@ -243,7 +243,7 @@ Sample code:
 
 ```python
     from bmf import *
-    import bmf.hml.hmp as mp
+    import bmf.hmp as mp
     import torch
 
     vf = pkt.get(VideoFrame)
