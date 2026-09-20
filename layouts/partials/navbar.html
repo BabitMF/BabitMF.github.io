@@ -47,6 +47,28 @@
 				{{ partial "navbar-lang-selector.html" . }}
 			</li>
 			{{ end }}
+			<!-- Theme switch button -->
+			<li class="nav-item">
+				<div class="theme-switch-wrapper">
+					<div class="theme-dropdown">
+						<button class="theme-dropdown-btn">
+							<span class="theme-icon">🔆</span>
+							<span class="theme-name theme-dropdown-item-text">Light</span>
+						</button>
+						<div class="theme-dropdown-content">
+							<div class="theme-dropdown-item" data-theme="light">
+								<span class="theme-icon">☀️</span> <span class="theme-dropdown-item-text">Light</span>
+							</div>
+							<div class="theme-dropdown-item" data-theme="dark">
+								<span class="theme-icon">🌙</span> <span class="theme-dropdown-item-text">Dark</span>
+							</div>
+							<div class="theme-dropdown-item" data-theme="auto">
+								<span class="theme-icon">🔄</span> <span class="theme-dropdown-item-text">Auto</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">{{ partial "search-input.html" . }}</div>

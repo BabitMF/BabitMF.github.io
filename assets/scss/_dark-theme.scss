@@ -1,0 +1,304 @@
+// Dark theme styles
+
+[data-theme="dark"] {
+  --primary-bg-color: #36454F;  // Changed to dark gray-blue
+  --secondary-bg-color: #2e3b44;
+  --primary-text-color: #ffffff; // Changed to white
+  --secondary-text-color: #f0f0f0;
+  --link-color: #8ab4f8;
+  --link-hover-color: #aecbfa;
+  --code-bg-color: #0d1117; // GitHub dark theme code background color
+  --code-text-color: #c9d1d9; // GitHub dark theme code text color
+  --border-color: #444444;
+  --navbar-bg-color: inherit; // Navbar color remains unchanged
+  --dropdown-bg-color: #333333;
+  --dropdown-text-color: #f0f0f0;
+  --card-bg-color: #2d2d2d;
+  --header-bg-color: #252525;
+  --footer-bg-color: #252525;
+  --search-bg-color: #1e2329; // Search box background color
+  --search-text-color: #ffffff; // Search box text color
+  
+  // Apply dark theme colors
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  
+  .navbar {
+    border-bottom: 1px solid var(--border-color);
+
+    .dropdown-menu {
+      .dropdown-item {
+        &:hover, &:focus {
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  
+  .dropdown-menu {
+    background-color: var(--dropdown-bg-color);
+    border: 1px solid var(--border-color);
+    
+    .dropdown-item {
+      color: var(--dropdown-text-color);
+      
+      &:hover, &:focus {
+        background-color: rgba(0, 0, 0, 0.3);
+        color: #ffffff;
+      }
+    }
+  }
+  
+  .nav-link {
+    color: inherit !important;
+    
+    &:hover {
+      color: var(--link-hover-color) !important;
+    }
+  }
+  
+  a {
+    color: var(--link-color);
+    
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  }
+  
+  .card, .td-box {
+    background-color: var(--card-bg-color);
+    border-color: var(--border-color);
+  }
+  
+  pre, code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-shadow: none; // Remove text shadow/ghosting
+  }
+  
+  .highlight {
+    background-color: var(--code-bg-color);
+  }
+  
+  .chroma {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    text-shadow: none; // Remove text shadow/ghosting
+    
+    .k, .kd, .kn { // Keywords
+      color: #ff7b72;
+      font-weight: normal;
+    }
+    
+    .s, .s1, .s2 { // Strings
+      color: #a5d6ff;
+    }
+    
+    .c, .c1, .cm { // Comments
+      color: #8b949e;
+    }
+    
+    .n, .nb { // Names
+      color: #c9d1d9;
+    }
+    
+    .o, .p { // Operators and punctuation
+      color: #c9d1d9;
+    }
+    
+    .mi, .mf { // Numbers
+      color: #79c0ff;
+    }
+    
+    .gr, .gt { // Errors etc.
+      color: #ff7b72;
+    }
+  }
+  
+  .td-sidebar {
+    background-color: var(--secondary-bg-color);
+    border-right: 1px solid var(--border-color);
+  }
+  
+  .td-sidebar-nav a {
+    color: var(--primary-text-color);
+  }
+  
+  .td-footer {
+    background-color: var(--footer-bg-color);
+    color: var(--primary-text-color);
+  }
+  
+  .td-search-input {
+    background-color: var(--search-bg-color) !important;
+    color: var(--search-text-color) !important;
+    border-color: #444444 !important;
+    
+    &::placeholder {
+      color: #8b949e !important;
+    }
+  }
+  
+  .popover.offline-search-result {
+    background-color: var(--dropdown-bg-color);
+    border-color: var(--border-color);
+    
+    .arrow::after {
+      border-bottom-color: var(--dropdown-bg-color);
+    }
+  }
+  
+  input, select, textarea {
+    background-color: var(--secondary-bg-color);
+    border-color: var(--border-color);
+    color: var(--primary-text-color);
+  }
+  
+  .btn-primary {
+    background-color: #0366d6;
+    border-color: #0366d6;
+  }
+  
+  .btn-secondary {
+    background-color: #444;
+    border-color: #444;
+  }
+  
+  table {
+    color: var(--primary-text-color);
+    
+    th, td {
+      border-color: var(--border-color);
+    }
+  }
+  
+  hr {
+    border-color: var(--border-color);
+  }
+  
+  blockquote {
+    border-left-color: var(--border-color);
+  }
+  
+  .td-home .td-box {
+    background-color: #36454F;
+    color: #ffffff;
+  }
+  
+  .td-about {
+    background-color: inherit;
+    color: inherit;
+    
+    * {
+      background-color: inherit;
+      color: inherit;
+    }
+  }
+  
+  .td-about .td-footer {
+    background-color: var(--footer-bg-color);
+    color: var(--primary-text-color);
+  }
+}
+
+// Theme switch button styles
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+// Theme switch dropdown menu styles
+.theme-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.theme-dropdown-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: inherit;
+}
+
+// Ensure theme name is white in all themes
+.theme-name {
+  color: #ffffff !important;
+}
+
+.theme-dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  min-width: 120px;
+  background-color: #f8f9fa;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  
+  &.show {
+    display: block;
+  }
+}
+
+[data-theme="dark"] .theme-dropdown-content {
+  background-color: #333;
+  color: #fff;
+}
+
+.theme-dropdown-item {
+  padding: 10px 12px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  // Active state styles
+  &.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+  }
+}
+
+[data-theme="dark"] .theme-dropdown-item {
+  color: #fff;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  // Active state styles in dark mode
+  &.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+  }
+}
+
+// Ensure dropdown menu text has correct color in all themes
+.theme-dropdown-item-text {
+  color: inherit;
+}
+
+// Ensure currently selected theme item is clearly marked in dropdown menu
+.theme-dropdown-item.active::after {
+  content: "✓";
+  margin-left: 5px;
+  float: right;
+}
+
+.theme-icon {
+  margin-right: 5px;
+} 
