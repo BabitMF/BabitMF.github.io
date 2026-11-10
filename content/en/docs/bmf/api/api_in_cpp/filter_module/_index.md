@@ -6,8 +6,7 @@ weight: 6
 
 This is a module capability discrption about BMF build-in filter. The module can be used by Module Related BMF API such as  [bmf.concat()](https://babitmf.github.io/docs/bmf/api/api_in_python/transcode_functions/#concat)  by providing ffmpeg command line style parameters to config the filtergraph:
 
-
-```
+```cpp
 main_video = (
     video['video'].scale(output_width, output_height)
         .overlay(logo_1, repeatlast=0)
@@ -32,21 +31,22 @@ concat_audio = (
 )
 
 ```
+
 And in another common way, users can create any filter stream which ffmpeg libavfilter included. exp.:
 
-
-```
+```cpp
 ff_filter('unsharp', '5:5:1')
 
 ```
- - module name: c_ffmpeg_filter
 
+- module name: c_ffmpeg_filter
 
 ### Build-in Filter Module
 
 ## GPU Filter Module
 
 BMF provides several common filtering modules accelerated by GPU:
+
 - scale
 - flip
 - rotate

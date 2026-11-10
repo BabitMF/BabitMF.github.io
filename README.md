@@ -21,6 +21,13 @@ The following are basic prerequisites for developing this project:
 hugo server -D
 ```
 
+## Documentation source
+
+The public documentation under `content/<locale>/docs/bmf` is also consumed by
+non-Hugo frontends. See [docs/README.md](docs/README.md) for the portable
+authoring contract and [docs/export.json](docs/export.json) for the
+machine-readable export configuration.
+
 ## Contributing ![GitHub](https://img.shields.io/github/contributors/BabitMF/BabitMF.github.io)
 
 Please read [CONTRIBUTING.md](https://github.com/BabitMF/bmf/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.

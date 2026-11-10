@@ -6,286 +6,225 @@ weight: 7
 
 [//]: <> (REF_MD: classbmf__sdk_1_1PacketImpl.html)
 
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#public-member-functions)  |  [Protected Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#protected-member-functions)  |  [Friends](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#friends)  |  List of all members
 
-  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#public-member-functions)  |  [Protected Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#protected-member-functions)  |  [Friends](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/#friends)  |  List of all members  # bmf_sdk::PacketImpl Class Reference
+# bmf_sdk::PacketImpl Class Reference
 
 packetimpl.h
 
- ## Public Member Functions
-
+## Public Member Functions
 
    [PacketImpl](#packetimpl-14) ()=delete
- 
+
    [PacketImpl](#packetimpl-24) (const [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) &)=delete
- 
+
    [PacketImpl](#packetimpl-34) ( [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) &&)=default
- 
+
    [~PacketImpl](#~packetimpl) ()
- 
- 
+
 T &   [get](#get-12) ()
- 
- 
+
 const T &   [get](#get-22) () const
- 
- 
+
 bool   [is](#is) () const
- 
+
 const  TypeInfo &  [type_info](#type_info) () const
- 
+
 void   [set_timestamp](#set_timestamp) (int64_t [timestamp](#timestamp) )
- 
+
 int64_t   [timestamp](#timestamp) () const
- 
+
 void   [set_time](#set_time) (double [time](#time) )
- 
+
 double   [time](#time) () const
- 
 
- ## Protected Member Functions
-
+## Protected Member Functions
 
    [PacketImpl](#packetimpl-44) (void *obj, const TypeInfo * [type_info](#type_info) , const std::function< void(void *)> &del)
- 
 
- ## Friends
+## Friends
 
-
-class   [Packet](#packet) 
- 
+class   [Packet](#packet)
 
 ## Constructor & Destructor Documentation
 
+### PacketImpl() [1/4]
 
-###  PacketImpl() [1/4]
-
- ```
-bmf_sdk::PacketImpl::PacketImpl (  )  
+```cpp
+bmf_sdk::PacketImpl::PacketImpl (  )
 ```
+
  deletedelete
 
+### PacketImpl() [2/4]
 
-
-
-
-
-###  PacketImpl() [2/4]
-
- ```
-bmf_sdk::PacketImpl::PacketImpl ( const PacketImpl & )  
+```cpp
+bmf_sdk::PacketImpl::PacketImpl ( const PacketImpl & )
 ```
+
  deletedelete
 
+### PacketImpl() [3/4]
 
-
-
-
-
-###  PacketImpl() [3/4]
-
- ```
-bmf_sdk::PacketImpl::PacketImpl (  PacketImpl && )  
+```cpp
+bmf_sdk::PacketImpl::PacketImpl (  PacketImpl && )
 ```
+
  defaultdefault
 
+### ~PacketImpl()
 
-
-
-
-
-###  ~PacketImpl()
-
-```
-bmf_sdk::PacketImpl::~PacketImpl (  )  
+```cpp
+bmf_sdk::PacketImpl::~PacketImpl (  )
 ```
 
-###  PacketImpl() [4/4]
+### PacketImpl() [4/4]
 
- ```
-bmf_sdk::PacketImpl::PacketImpl ( void * obj, 
-  const TypeInfo *type_info, 
-  const std::function< void(void *)> & del 
- )   
+```cpp
+bmf_sdk::PacketImpl::PacketImpl ( void * obj,
+  const TypeInfo *type_info,
+  const std::function< void(void *)> & del
+ )
 ```
+
  protectedprotected
-
-
-
-
 
 ## Member Function Documentation
 
+### get() [1/2]
 
-###  get() [1/2]
-
- ```
-T& bmf_sdk::PacketImpl::get (  )  
+```cpp
+T& bmf_sdk::PacketImpl::get (  )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         if(bmf_sdk::type_info<T>() != *type_info_){
-             throw std::bad_cast();
-         }
-         return *static_cast<T*>(obj_);
-     }
+```cpp
+     {
+         if(bmf_sdk::type_info<T>() != *type_info_){
+             throw std::bad_cast();
+         }
+         return *static_cast<T*>(obj_);
+     }
 
 ```
 
-###  get() [2/2]
+### get() [2/2]
 
- ```
-const T& bmf_sdk::PacketImpl::get (  ) const 
+```cpp
+const T& bmf_sdk::PacketImpl::get (  ) const
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         if(bmf_sdk::type_info<T>() != *type_info_){
-             throw std::bad_cast();
-         }
-         return *static_cast<const T*>(obj_);
-     }
+```cpp
+     {
+         if(bmf_sdk::type_info<T>() != *type_info_){
+             throw std::bad_cast();
+         }
+         return *static_cast<const T*>(obj_);
+     }
 
 ```
 
-###  is()
+### is()
 
- ```
-bool bmf_sdk::PacketImpl::is (  ) const 
+```cpp
+bool bmf_sdk::PacketImpl::is (  ) const
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         return bmf_sdk::type_info<T>() == *type_info_;
-     }
+```cpp
+     {
+         return bmf_sdk::type_info<T>() == *type_info_;
+     }
 
 ```
 
-###  set_time()
+### set_time()
 
- ```
-void bmf_sdk::PacketImpl::set_time ( double time )  
+```cpp
+void bmf_sdk::PacketImpl::set_time ( double time )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         time_ = time;
-     }
+```cpp
+     {
+         time_ = time;
+     }
 
 ```
 
-###  set_timestamp()
+### set_timestamp()
 
- ```
-void bmf_sdk::PacketImpl::set_timestamp ( int64_t timestamp )  
+```cpp
+void bmf_sdk::PacketImpl::set_timestamp ( int64_t timestamp )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         timestamp_ = timestamp;
-     }
+```cpp
+     {
+         timestamp_ = timestamp;
+     }
 
 ```
 
-###  time()
+### time()
 
- ```
-double bmf_sdk::PacketImpl::time (  ) const 
+```cpp
+double bmf_sdk::PacketImpl::time (  ) const
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         return time_;
-     }
+```cpp
+     {
+         return time_;
+     }
 
 ```
 
-###  timestamp()
+### timestamp()
 
- ```
-int64_t bmf_sdk::PacketImpl::timestamp (  ) const 
+```cpp
+int64_t bmf_sdk::PacketImpl::timestamp (  ) const
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         return timestamp_;
-     }
+```cpp
+     {
+         return timestamp_;
+     }
 
 ```
 
-###  type_info()
+### type_info()
 
- ```
-const TypeInfo & bmf_sdk::PacketImpl::type_info(  ) const 
+```cpp
+const TypeInfo & bmf_sdk::PacketImpl::type_info(  ) const
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         return *type_info_;
-     }
+```cpp
+     {
+         return *type_info_;
+     }
 
 ```
+
 ## Friends And Related Function Documentation
 
+### Packet
 
-###  Packet
-
- ```
-friend class Packet 
+```cpp
+friend class Packet
 ```
+
  friendfriend
 
-
-
-
-
- - /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  packet.h  
-
+- /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  packet.h

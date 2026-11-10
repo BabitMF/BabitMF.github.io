@@ -8,7 +8,6 @@ menu:
     parent: 'Getting started'
 ---
 
-
 This page describes the basic usage of BMF. To start, you need to build a graph:
 
 ```python

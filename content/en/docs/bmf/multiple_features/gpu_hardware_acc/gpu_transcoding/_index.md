@@ -48,6 +48,6 @@ See more details in the `test_gpu_transcode()`.
 
 Some GPUs may have more than one hardware-based decoders and encoders. In order to fully utilize these hardwares, we have to start as many instances as possible. BMF can launch these instances through python multi-threading and multi-processing. You can see the examples in the `test_gpu_decode_multi_thread_perf`, `test_gpu_encode_multi_thread_perf` and `test_gpu_transcode_multi_thread_perf`.
 
-For multi-processing, there's one special thing we should notice so we use a separate script `test_gpu_decode_multi_processes.py` to show how to do it in the BMF. 
+For multi-processing, there's one special thing we should notice so we use a separate script `test_gpu_decode_multi_processes.py` to show how to do it in the BMF.
 
-We should `import bmf` in the task function rather than at the beginning of the script file. 
+We should `import bmf` in the task function rather than at the beginning of the script file.

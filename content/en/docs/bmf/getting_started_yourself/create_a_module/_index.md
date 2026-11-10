@@ -20,7 +20,7 @@ C++, python and go modules are now supported. You can write a module with anyone
 
 ### python module
 
-Create a `my_python_module` directory and write the following python code into `my_python_module/my_module.py`. 
+Create a `my_python_module` directory and write the following python code into `my_python_module/my_module.py`.
 
 ```Python
 from bmf import Module, Log, LogLevel, InputType, ProcessResult, Packet, Timestamp, scale_av_pts, av_time_base, \
@@ -60,7 +60,7 @@ class my_module(Module):
 
 ### c++ module
 
-Implement your own c++ class, inheriting from [the Module base class](/docs/bmf/api/api_in_cpp/module/). In the simplest case, you just need to implement the process method. Create a `my_cpp_module` directory and write the following c++ code into `cpp_copy_module/copy_module.h`: 
+Implement your own c++ class, inheriting from [the Module base class](/docs/bmf/api/api_in_cpp/module/). In the simplest case, you just need to implement the process method. Create a `my_cpp_module` directory and write the following c++ code into `cpp_copy_module/copy_module.h`:
 
 ```C++
 #ifndef BMF_COPY_MODULE_H

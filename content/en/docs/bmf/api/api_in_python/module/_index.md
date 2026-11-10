@@ -5,44 +5,30 @@ weight: 10
 ---
 
 def   [bmf.python_sdk.module.Module.__init__](#__init__) (self, node=None, option=None)
- 
- 
+
 def   [bmf.python_sdk.module.Module.init](#init) (self)
- 
- 
+
 def   [bmf.python_sdk.module.Module.reset](#reset) (self)
- 
- 
+
 def   [bmf.python_sdk.module.Module.dynamic_reset](#dynamic_reset) (self, opt_reset=None)
- 
- 
+
 def   [bmf.python_sdk.module.Module.set_node](#set_node) (self, node)
- 
- 
+
 def   [bmf.python_sdk.module.Module.is_subgraph](#is_subgraph) (self)
- 
- 
+
 def   [bmf.python_sdk.module.Module.process](#process) (self, task)
- 
- 
+
 def   [bmf.python_sdk.module.Module.close](#close) (self)
- 
- 
+
 def   [bmf.python_sdk.module.Module.need_hungry_check](#need_hungry_check) (self, input_idx)
- 
- 
+
 def   [bmf.python_sdk.module.Module.is_hungry](#is_hungry) (self, input_idx)
- 
- 
+
 def   [bmf.python_sdk.module.Module.is_infinity](#is_infinity) (self)
- 
- 
+
 def   [bmf.python_sdk.module.Module.set_callback](#set_callback) (self, callback)
- 
- 
+
 def   [bmf.python_sdk.module.Module.get_graph_config](#get_graph_config) (self)
- 
- 
 
 ## Detailed Description
 
@@ -50,35 +36,32 @@ def   [bmf.python_sdk.module.Module.get_graph_config](#get_graph_config) (self)
 
 ## Function Documentation
 
+### __init__()
 
-###  __init__()
+```python
+def bmf.python_sdk.module.Module.__init__ (  self,
+   node = None,
+   option = None
+ )
+```
 
-```
-def bmf.python_sdk.module.Module.__init__ (  self, 
-   node = None, 
-   option = None 
- )   
-```
 construct bmf module
 
 **Parameters**
- - **node_id** unique id . 
- - **json_param** json param of module. 
 
-
+- **node_id** unique id .
+- **json_param** json param of module.
 
 **Returns**
 
-
-
-```
-     def __init__(self, node=None, option=None):
+```python
+     def __init__(self, node=None, option=None):
 
 ```
 
 Example:
 
-```
+```python
 from bmf import (
     Module,
     Log,
@@ -104,42 +87,41 @@ class Audiomix(Module):
 
 If you need the complete code, you can refer to [audiomix.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/audiomix.py)
 
-###  close()
+### close()
 
+```python
+def bmf.python_sdk.module.Module.close (  self )
 ```
-def bmf.python_sdk.module.Module.close (  self )  
-```
+
 close module
 
+```python
+     def close(self):
 
 ```
-     def close(self):
 
+### dynamic_reset()
+
+```python
+def bmf.python_sdk.module.Module.dynamic_reset (  self,
+   opt_reset = None
+ )
 ```
 
-###  dynamic_reset()
-
-```
-def bmf.python_sdk.module.Module.dynamic_reset (  self, 
-   opt_reset = None 
- )   
-```
 dynamic_reset module when the option need to be updated.
 
 **Parameters**
- - **opt_reset** dict value of option 
 
+- **opt_reset** dict value of option
 
-
-
-```
-     def dynamic_reset(self, opt_reset=None):
+```python
+     def dynamic_reset(self, opt_reset=None):
 
 ```
 
 Example:
 
-```
+```python
 from bmf import (
     Module,
     Log,
@@ -182,139 +164,130 @@ class Audiomix(Module):
 
 If you need the complete code, you can refer to [audiomix.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/audiomix.py)
 
-###  get_graph_config()
+### get_graph_config()
 
+```python
+def bmf.python_sdk.module.Module.get_graph_config (  self )
 ```
-def bmf.python_sdk.module.Module.get_graph_config (  self )  
-```
+
 get the graph config of the module
 
 **Returns**
 
-
-
-```
-     def get_graph_config(self):
+```python
+     def get_graph_config(self):
 
 ```
 
-###  init()
+### init()
 
+```python
+def bmf.python_sdk.module.Module.init (  self )
 ```
-def bmf.python_sdk.module.Module.init (  self )  
-```
+
 init module
 
+```python
+     def init(self):
 
 ```
-     def init(self):
 
+### is_hungry()
+
+```python
+def bmf.python_sdk.module.Module.is_hungry (  self,
+   input_idx
+ )
 ```
 
-###  is_hungry()
-
-```
-def bmf.python_sdk.module.Module.is_hungry (  self, 
-   input_idx 
- )   
-```
 check the module's input stream need data
 
 **Parameters**
- - **input_idx** input stream id 
 
-
+- **input_idx** input stream id
 
 **Returns**
 
-
-
-```
-     def is_hungry(self,input_idx):
+```python
+     def is_hungry(self,input_idx):
 
 ```
 
-###  is_infinity()
+### is_infinity()
 
+```python
+def bmf.python_sdk.module.Module.is_infinity (  self )
 ```
-def bmf.python_sdk.module.Module.is_infinity (  self )  
-```
+
 check the module is infinity
 
 **Returns**
 
-
-
-```
-     def is_infinity(self):
+```python
+     def is_infinity(self):
 
 ```
 
-###  is_subgraph()
+### is_subgraph()
 
+```python
+def bmf.python_sdk.module.Module.is_subgraph (  self )
 ```
-def bmf.python_sdk.module.Module.is_subgraph (  self )  
-```
+
 check the module is subgraph
 
 **Returns**
 
-
-
-```
-     def is_subgraph(self):
+```python
+     def is_subgraph(self):
 
 ```
 
-###  need_hungry_check()
+### need_hungry_check()
 
+```python
+def bmf.python_sdk.module.Module.need_hungry_check (  self,
+   input_idx
+ )
 ```
-def bmf.python_sdk.module.Module.need_hungry_check (  self, 
-   input_idx 
- )   
-```
+
 check the module's input stream should hungry check
 
 **Parameters**
- - **input_idx** input stream id 
 
-
+- **input_idx** input stream id
 
 **Returns**
 
-
-
-```
-     def need_hungry_check(self,input_idx):
+```python
+     def need_hungry_check(self,input_idx):
 
 ```
 
-###  process()
+### process()
 
+```python
+def bmf.python_sdk.module.Module.process (  self,
+   task
+ )
 ```
-def bmf.python_sdk.module.Module.process (  self, 
-   task 
- )   
-```
+
 process task
 
 **Parameters**
- - **task** reference to the  Task class. The module should process input packet in task and produce output packet to the task
 
-
+- **task** reference to the  Task class. The module should process input packet in task and produce output packet to the task
 
 **Returns**
 
-
-
-```
-     def process(self, task):
+```python
+     def process(self, task):
 
 ```
 
 Example:
 
-```
+```python
 from bmf import (
     Module,
     Log,
@@ -379,22 +352,22 @@ class Audiomix(Module):
 
 If you need the complete code, you can refer to [audiomix.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/audiomix.py)
 
-###  reset()
+### reset()
 
+```python
+def bmf.python_sdk.module.Module.reset (  self )
 ```
-def bmf.python_sdk.module.Module.reset (  self )  
-```
+
 reset module when the module need to be reseted
 
-
-```
-     def reset(self):
+```python
+     def reset(self):
 
 ```
 
 Example:
 
-```
+```python
 from bmf import (
     Module,
     Log,
@@ -416,42 +389,40 @@ class Audiomix(Module):
 
 If you need the complete code, you can refer to [audiomix.py](https://github.com/BabitMF/bmf/blob/master/bmf/demo/broadcaster/audiomix.py)
 
-###  set_callback()
+### set_callback()
 
+```python
+def bmf.python_sdk.module.Module.set_callback (  self,
+   callback
+ )
 ```
-def bmf.python_sdk.module.Module.set_callback (  self, 
-   callback 
- )   
-```
+
 set the graph callback to the module
 
 **Parameters**
- - **callback** graph callback. 
 
+- **callback** graph callback.
 
-
-
-```
-     def set_callback(self,callback):
+```python
+     def set_callback(self,callback):
 
 ```
 
-###  set_node()
+### set_node()
 
+```python
+def bmf.python_sdk.module.Module.set_node (  self,
+   node
+ )
 ```
-def bmf.python_sdk.module.Module.set_node (  self, 
-   node 
- )   
-```
+
 set node id of this module
 
 **Parameters**
- - **node** node id of the module 
 
+- **node** node id of the module
 
-
-
-```
-     def set_node(self, node):
+```python
+     def set_node(self, node):
 
 ```

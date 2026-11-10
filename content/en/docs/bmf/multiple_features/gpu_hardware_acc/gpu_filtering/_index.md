@@ -7,6 +7,7 @@ weight: 2
 # Use NVIDIA GPU to accelerate image filtering in BMF
 
 Besides the GPU decoding and encoding examples, there are also examples showing how to combine the FFmpeg CUDA filters in the BMF in the `gpu_transcode` folder, including
+
 - Transcode with scale_cuda filter
 - Transcode with hwupload filter
 - Transcode with scale_npp filter
@@ -21,6 +22,7 @@ Using these filters is really simple. Just pass filter'name and paramters to the
 
 ## BMF GPU modules
 As FFmpeg only provides a few GPU filters, we implemented some common GPU filter modules which are missing in FFmpeg but should be useful, namely
+
 - resize
 - flip
 - rotate

@@ -5,84 +5,71 @@ weight: 12
 ---
 [//]: <> (REF_MD: structRational.html)
 
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/#public-attributes)  |  List of all members
 
-  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/#public-member-functions)  |  [Public Attributes](https://babitmf.github.io/docs/bmf/api/api_in_cpp/rational/#public-attributes)  |  List of all members  # Rational Struct Reference
+# Rational Struct Reference
 
 rational.h ## Public Member Functions
 
-
    [Rational](#rational-12) ()
- 
+
    [Rational](#rational-22) (int n, int d)
- 
 
- ## Public Attributes
-
+## Public Attributes
 
 int   [num](#num) = -1
- 
- 
+
 int   [den](#den) = -1
- 
- 
 
 ## Constructor & Destructor Documentation
 
+### Rational() [1/2]
 
-###  Rational() [1/2]
-
- ```
-Rational::Rational (  )  
+```cpp
+Rational::Rational (  )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- {}
+```cpp
+ {}
 
 ```
 
-###  Rational() [2/2]
+### Rational() [2/2]
 
- ```
-Rational::Rational ( int n, 
-  int d 
- )   
+```cpp
+Rational::Rational ( int n,
+  int d
+ )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-                                {
-             num = n;
-             den = d;
-         }
+```cpp
+                                {
+             num = n;
+             den = d;
+         }
 
 ```
+
 ## Member Data Documentation
 
+### den
 
-###  den
+```cpp
+int Rational::den = -1
+```
 
-```
-int Rational::den = -1 
-```
 Denominator.
 
+### num
 
-###  num
+```cpp
+int Rational::num = -1
+```
 
-```
-int Rational::num = -1 
-```
 Numerator.
 
- - /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  rational.h  
+- /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  rational.h

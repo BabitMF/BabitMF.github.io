@@ -13,6 +13,7 @@ This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 
 # Information for Students
 
 ## Getting Started
+
 1. `Get to know BMF.` If you are a student interested in contributing to BMF, it is recommended to start by join in our [Feishu group](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=4cev1bee-4d94-42c8-972b-4ae4a12c9da1). Feel free to contact us if you have any questions. Also do not hesitate to answer questions from other students on our group if you know the answer to something.
 2. `Find a project.` Listed on this page are mentored projects. Mentored projects are well-defined and mentor(s) have already volunteered. If a project description is unclear or you have any questions, please get in touch with its mentor and/or join our Feishu group.
 3. `Contact us.` If you decide on a project, get in touch with the community and let us know. If you want to work on a good first issue, let the respective mentor know so we can avoid duplicated efforts.
@@ -31,7 +32,8 @@ This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 
 
 `Project Output Requirements`: Use C++ to implement dynamic_remove, dynamic_add, dynamic_reset, and update interfaces, and complete the test cases.
 
-`Project Technical Requirements`: 
+`Project Technical Requirements`:
+
 1. Good C++ code capability
 2. Basic understanding of multimedia processing
 
@@ -50,12 +52,14 @@ This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 
 
 `Technical Domain, Programming Language`: AI, C++ Python
 
-`Project Output Requirements`: 
+`Project Output Requirements`:
+
 1. Complete the design, development, and unit testing of the SD whole-link basic BMF Module, such as the Text Encoder, Diffusion Scheduler, VAE Decoder, etc.
 2. Provide complete examples of both Text-to-Image and Image-to-Image scenarios
 3. PyTorch, understand the SD architecture
 
-`Project Technical Requirements`: 
+`Project Technical Requirements`:
+
 1. Python、C++
 2. PyTorch, understand the SD architecture
 
@@ -74,11 +78,13 @@ This is our ideas page for [`​Open Source Software Supply ChainPromotion Plan 
 
 `Technical Domain, Programming Language`: Perf, C++
 
-`Project Output Requirements`: 
+`Project Output Requirements`:
+
 1. To root cause of the latency impacted by TRACE
 2. To optimize the trace machenism to be lightweight, make the time cost bring by trace under 3%
 
-`Project Technical Requirements`: 
+`Project Technical Requirements`:
+
 1. Understanding of multimedia framework
 2. Performance trace design and analytic capability
 

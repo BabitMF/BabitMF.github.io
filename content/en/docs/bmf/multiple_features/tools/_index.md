@@ -7,9 +7,10 @@ weight: 6
 ## Module Manager
 
 `module_manager` is a tool for managing modules, providing the following capabilities:
+
 1. Module list: You can get the list of locally installed modules through `module_manager list`, including built-in modules and modules developed by yourself;
 2. Module details: For each module, module details can be obtained through `module_manager dump ${module_name}`, such as module name, module type, module entry, module description information, module definition tag and module installation path;
-3. Module installation and uninstallation: For custom modules, they can be installed to the module path of BMF, so that they can be used in graph more conveniently. Modules can also be unloaded when they are no longer needed. 
+3. Module installation and uninstallation: For custom modules, they can be installed to the module path of BMF, so that they can be used in graph more conveniently. Modules can also be unloaded when they are no longer needed.
 The specific usage can be viewed through `module_manager help`. Please note: The module_manager tool needs to rely on the BMF underlying library, so you need to set the corresponding environment variables. For specific steps, please refer to [BMF Installation](/docs/bmf/getting_started_yourself/install/).
 
 ## Trace tool
@@ -19,12 +20,15 @@ The main function of Trace is to record some important events for troubleshootin
 ### Start Trace
 
 Trace tool can be started via environment variable:
+
 ```bash
 $ export BMF_TRACE=ENABLE
 ```
+
 By default, various Trace types are provided in the engine. Enabling Trace allows these events to be logged at runtime.
 
 To provide users with a lower level of control to minimize unnecessary collection of trace events, users can choose to enable only selected [Trace-types](#trace-types) (comma-separated):
+
 ```bash
 $ export BMF_TRACE=PROCESSING,SCHEDULE
 ```
@@ -32,6 +36,7 @@ $ export BMF_TRACE=PROCESSING,SCHEDULE
 ### Disable Trace
 
 Trace is disabled by default. However, if an environment variable for trace enable has been previously set, it can be disabled:
+
 ```bash
 $ unset BMF_TRACE
 ```
@@ -47,6 +52,7 @@ When using the Trace tool, after the graph is executed, some information about t
 ![Trace printing](/img/docs/traceimg_print0.png)
 
 The printed information includes:
+
 - **Runtime Information**
    Graph total execution time. If the [BMF_TRACE_INIT](#bmf_trace_init) interface is used, it also displays the time from BMF_TRACE_INIT to the completion of graph execution. These times do not include tracelog generation time.
 - **Events Frequency**
@@ -68,6 +74,7 @@ The printed information includes:
    Some information about the Trace tool, such as the total number of Trace events per thread, how many events overflowed due to insufficient buffer, logging time, and so on.
 
 By default, Trace information will print Trace information to the console at the end of graph execution. However, this will result in increased processing time until the end of code execution. Printing can be disabled if desired:
+
 ```bash
 # Default is ENABLE
 $ export BMF_TRACE_PRINTING=DISABLE
@@ -88,6 +95,7 @@ At the end of the recording, Trace will append relevant information (Trace info)
 ![Trace info display](/img/docs/traceimg_common3.png)
 
 In the bottom panel you can see:
+
 - **Title**: Trace event name
 - **Category**: Trace type
 - **Start**: Trace event occurrence time
@@ -98,9 +106,7 @@ Note: If the overflow count is not 0, it means that the current buffer allocated
 
 #### 3. GraphUtilization tool
 
-In addition to Chrome Tracing, [BMF GraphUtilization Tool](./Page_GraphUtilization.md)(not open source yet) also supports visualization of trace events:
-
-![Visualizing tracelog using BMF GraphUtilization](/img/docs/graphutil_common2.png)
+In addition to Chrome Tracing, the BMF GraphUtilization Tool (not open source yet) also supports visualization of trace events.
 
 The GraphUtilization tool can display graphs and some information or charts that Chrome Tracing can not display.
 
@@ -112,7 +118,7 @@ As an example of using the Trace tool to identify bottlenecks in an implementati
 
 ![Typical transcoding DAG](/img/docs/traceimg_example1.png)
 
-Note: The construction graph of the above graph can be displayed by [GraphUtilization Tool](./Page_GraphUtilization.md)
+Note: The construction graph above can be displayed by the GraphUtilization Tool.
 
 Use the following Python code:
 

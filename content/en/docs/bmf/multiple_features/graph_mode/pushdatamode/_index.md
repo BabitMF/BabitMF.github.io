@@ -8,32 +8,31 @@ The push data mode is also an important capability of BMF Graph. As the figure s
 
 <img src="/img/docs/pushdata.png" style="zoom:100%;" />
 
-
 Users only need to pay attention to the node connection and operation logic of Graph, and keep filling packets to Graph.
 
 This mode is suitable for scenarios where the user's input source comes from other third-party libraries or some custom data types, and many custom processing operations that have nothing to do with the BMF framework need to be performed on the input.
 
 Let's show an example of using push data mode:
 
-```
+```python
 @timeout_decorator.timeout(seconds=120)
 def test_push_pkt_into_decoder(self):
     output_path = "./aac.mp4"
 
     self.remove_result_data(output_path)
-    
+
     graph = bmf.graph({"dump_graph": 1})
 
     video_stream = graph.input_stream("outside_raw_video")
     decode_stream = video_stream.decode()
     bmf.encode(None,decode_stream["audio"],{"output_path": output_path})
-    
+
     graph.run_wo_block(mode = GraphMode.PUSHDATA)
     pts_ = 0
     for index in range(100,105):
         file_name = "../files/aac_slice/"+str(index)+".aac"
         with open(file_name, "rb") as fp:
-            lines = fp.read()    
+            lines = fp.read()
             buf = BMFAVPacket(len(lines))
             buf.data.numpy()[:] = np.frombuffer(lines, dtype=np.uint8)
             buf.pts = pts_
@@ -52,7 +51,7 @@ This example reads 5 fltp aac audio streams sequentially, uses push data mode to
 
 Let's look at another more complex video processing example:
 
-```
+```python
 def test_push_raw_stream_into_decoder(self):
     input_video_content = "../files/video_content.txt"
     input_content_size = "../files/video_length.txt"
@@ -63,9 +62,9 @@ def test_push_raw_stream_into_decoder(self):
     graph = bmf.graph({"dump_graph": 1})
 
     video_stream = graph.input_stream("outside_raw_video")
-    
+
     decode_stream = video_stream.module(
-        'ffmpeg_decoder', 
+        'ffmpeg_decoder',
         option={
             "video_codec": "h264", 'video_time_base': "1,30000",
             "push_raw_stream": 1

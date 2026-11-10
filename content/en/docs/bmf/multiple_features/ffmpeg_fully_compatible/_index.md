@@ -12,8 +12,8 @@ BMF implements buildin modules and combined flexible API to Python, C++, Go user
 ### Environment
 FFmpeg library is needed, the supported version and installation details can be found in Getting Started -> Install.
 
-
 ### Capabilities
+
 - demux + decode
 - filter
 - encode + mux
@@ -24,6 +24,7 @@ The parameter details can be found in API->Built-in Decode Module, API->Built-in
 Some typical examples will show the way to use BMF in media processing senario.
 #### Decode Only
 The example below decode a media file only:
+
 ```python
         import bmf
 
@@ -93,6 +94,7 @@ In order to parallel modules, the encode module will be apply in scheduler 1 whi
 BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and `"codec": "hevc_nvenc"` to use GPU for decoding and encoding. Check out the [gpu transcoding section](http://babitmf.github.io/docs/bmf/multiple_features/gpu_hardware_acc/gpu_transcoding) for more details.
 
 #### Image Encode
+
 ```python
         import bmf
 
@@ -118,6 +120,7 @@ BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and 
 ```
 
 #### Stream Copy
+
 ```python
         import bmf
 
@@ -139,6 +142,7 @@ BMF supports ffmpeg GPU codec as well. E.g. you can set `"hwaccel": "cuda"` and 
 ```
 
 #### Using FFmpeg Filters by Parameter
+
 ```python
     import bmf
 
@@ -160,6 +164,7 @@ BMF also supports ffmpeg CUDA filters, calling ffmpeg CUDA filters are quite sim
 
 #### Using Module Capability Directly (Sync Mode)
 User can integrate thoes capabilities of module into their own project. For exp. to get a yuv frame decoded, or encode a yuv frame by calling encode()
+
 ```python
         import bmf
 
@@ -215,11 +220,11 @@ User can integrate thoes capabilities of module into their own project. For exp.
 #### Other Reference
 There are also a lot of examples in test_transcode.py, test_sync_mode.py, etc. Please refer those sample code if needed.
 
-
 ### Tools
 BMF provides some useful tools to help developer to debug, compare, quick verification, etc.
 #### Run Graph
 After the app run with "{'dump_graph': 1}", for example in [Transcode](#transcode), a json decription will be dump into a file original_graph.json as below:
+
 ```python
 {
     "input_streams": [],
@@ -374,11 +379,13 @@ After the app run with "{'dump_graph': 1}", for example in [Transcode](#transcod
 ```
 
 Users can check some details and modify it if they know what are they doing, and also the json graph can be run directly:
+
 ```bash
 $ run_bmf_graph original_graph.json
 ```
 
 #### Convert to FFmpeg Command Line
+
 ```python
 import bmf
 
@@ -388,7 +395,9 @@ def run():
 
 run()
 ```
+
 And a FFmpeg command line will be generated and run according to the json description:
+
 ```bash
 ffmpeg -threads 8 -i test.mp4  -filter_complex "[0:v] scale=320:240[c_ffmpeg_filter_1_0]
 " -map '[c_ffmpeg_filter_1_0]' -vcodec libx264 -pix_fmt yuv420p -crf 23 -preset veryfast -s 320x240 -map

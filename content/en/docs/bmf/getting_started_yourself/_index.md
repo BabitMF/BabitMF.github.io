@@ -4,7 +4,6 @@ linkTitle: 'Getting started'
 weight: 3
 ---
 
-
 If you need example files, you can find them in <https://github.com/BabitMF/bmf/releases/download/files/files.tar.gz>
 
 ## Brief Introduction
@@ -17,10 +16,6 @@ Through BMF, users can achieve the following goals:
 
 <img src="/img/docs/goals.png" style="zoom:100%;" />
 
-
-
-
-
 The BMF Graph in the first picture below shows a simple audio and video transcoding process, including three modules. These three Modules are linked through Stream. The data stream is transmitted using Packet as the carrier. Each Module can specify an independent Thread for transmission. It is run by the BMF engine.
 
 <img src="/img/docs/simple_graph.png" style="zoom:30%;" />
@@ -28,8 +23,6 @@ The BMF Graph in the first picture below shows a simple audio and video transcod
 The second picture shows a more complex audio and video splicing and overlay Graph.
 
 <img src="/img/docs/complex_graph.png" style="zoom:60%;" />
-
-
 
 Some basic concepts in BMF are as follows:
 
@@ -43,18 +36,13 @@ Some basic concepts in BMF are as follows:
 
 - Task: Task is the scheduling unit of the BMF engine. The engine layer generates Tasks for different Nodes and dispatches them to the modules that need to be processed. The process() entry of the modules gets the Tasks for processing.
 
-
-
 For more complex features and usage scenarios of BMF, see [Multiple Features](#tbytodo-2)
-
-
 
 ## The First Program
 
 ### Operating environment
 
 This example directly downloads the image released by BMF as the running and development environment. For other installation and deployment methods, see: [Install](#tbytodo-2)
-
 
 ### program
 
@@ -100,6 +88,7 @@ def hello_world():
 if __name__ == '__main__':
      hello_world()
 ```
+
 ### run
 
 `python3 hello_world.py`

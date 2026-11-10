@@ -9,8 +9,6 @@ Dynamic graph in BMF is a feature to allow nodes in the graph to be added/remove
 
 The demo and test based dynamic graph can be found in `bmf/demo/broadcaster/`, `bmf/test/dynamical_graph/`.
 
-
-
 ### Related interfaces:
 
 dynamic_add()
@@ -38,6 +36,7 @@ passthru = bmf.module([video1['video'], video1['audio']], 'pass_through',
             "", "", "immediate")
 passthru. run_wo_block()
 ```
+
 main_graph is used as the initially created graph, and an "alias" tag is added to each module in the graph for subsequent dynamic increase of associated usage.
 
 When the initial graph is running, you can use run_wo_block() as a non-blocking call, or you can use run() to block the call, but you need to start another thread to support dynamic operations.
@@ -54,6 +53,7 @@ outputs = {'alias': 'pass_through', 'streams': 2}
 update_decoder.dynamic_add(video2, None, outputs)
 main_graph. update(update_decoder)
 ```
+
 Dynamically adding nodes needs to specify the input stream, output stream and its own configuration to be added, and finally use the update() interface to perform actual operations.
 
 ### Dynamic deletion:
@@ -63,6 +63,7 @@ remove_graph = bmf.graph()
 remove_graph.dynamic_remove({'alias': 'decoder1'})
 main_graph. update(remove_graph)
 ```
+
 Dynamic deletion only needs to specify the alias of the node to be deleted.
 
 ### Dynamic configuration:
@@ -84,6 +85,7 @@ reset_graph = bmf.graph()
 reset_graph. dynamic_reset(option)
 main_graph. update(reset_graph)
 ```
+
 Dynamic configuration only needs to write the node alias and specific parameters to be configured as variables in json format as parameters of dynamic_reset().
 
 ### Callback method:

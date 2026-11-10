@@ -23,11 +23,11 @@ Below is a screen recording demonstrating the operation of broadcaster:
 
 ![broadcaster](https://raw.githubusercontent.com/BabitMF/bmf/master/bmf/demo/broadcaster/broadcaster.gif)
 
-
 ### GPU acceleration
 
 #### GPU Video Frame Extraction
 The video frame extraction acceleration demo shows:
+
 1. BMF flexible capability of:
 
    *   Multi-language programming, we can see multi-language modules work together in the demo
@@ -44,6 +44,7 @@ If you want to have a quick experiment, you can try it on [![Open In Colab](http
 #### GPU Video Transcoding and Filtering
 
 The GPU transcoding and filter module demo shows:
+
 1. Common video/image filters in BMF accelerated by GPU
 2. How to write GPU modules in BMF
 
@@ -52,7 +53,6 @@ The demo builds a transcoding pipeline which fully runs on GPU:
 decode->scale->flip->rotate->crop->blur->encode
 
 If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/gpu_module/gpu_module_demo_colab.ipynb)
-
 
 ### AI inference
 
@@ -65,9 +65,9 @@ After that, the finalized video clips will be encoded as output.
 
 If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify_demo_colab.ipynb)
 
- #### Deoldify
+#### Deoldify
 
- This demo shows how to integrate the state of art AI algorithms into the BMF video processing pipeline. The famous open source colorization algorithm [DeOldify](https://github.com/jantic/DeOldify) is wrapped as a BMF pyhton module in less than 100 lines of codes. The final effect is illustrated below, with the original video on the left side and the colored video on the right. 
+ This demo shows how to integrate the state of art AI algorithms into the BMF video processing pipeline. The famous open source colorization algorithm [DeOldify](https://github.com/jantic/DeOldify) is wrapped as a BMF pyhton module in less than 100 lines of codes. The final effect is illustrated below, with the original video on the left side and the colored video on the right.
 
  If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/colorization_python/deoldify_demo_colab.ipynb)
 
@@ -78,10 +78,9 @@ This demo implements the super-resolution inference process of [Real-ESRGAN](htt
 
 If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/video_enhance/bmf-enhance-demo.ipynb)
 
-
 #### Video Quality Score
 
-This demo shows how to invoke our aesthetic assessment model using bmf. Our deep learning model Aesmode has achieved a binary classification accuracy of 83.8% on AVA dataset, reaching the level of academic SOTA, and can be directly used to evaluate the aesthetic degree of videos by means of frame extraction processing. 
+This demo shows how to invoke our aesthetic assessment model using bmf. Our deep learning model Aesmode has achieved a binary classification accuracy of 83.8% on AVA dataset, reaching the level of academic SOTA, and can be directly used to evaluate the aesthetic degree of videos by means of frame extraction processing.
 
 If you want to have a quick experiment, you can try it on [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BabitMF/bmf/blob/master/bmf/demo/aesthetic_assessment/aesmod_bmfv3_fin.ipynb)
 

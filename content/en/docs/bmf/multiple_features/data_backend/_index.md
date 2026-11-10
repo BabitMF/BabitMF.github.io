@@ -14,6 +14,7 @@ As a framework, each module just focuses on its own target and data requirement,
 We can see that different modules have their own data requirements. The decode module outputs FFmpeg AVFrame in YUV420 pixel format, which is located on the CPU memory. The Trt SR module requires that the input data is an RGB24 torch after hardware acceleration and is located on the GPU memory. For SR through the Trt module, the output data needs to be encoded by the GPU, so the HW encode module can get AVFrame with NV12 pixel format located on the GPU memory and encode it by the GPU.
 
 It tends to include the capabilities of video data conversion below:
+
 - pixel format and color space
 - devices between CPU and GPU
 - different media types such as avframe, cvmat and torch
@@ -30,7 +31,7 @@ It tends to include the capabilities of video data conversion below:
 BMF_API VideoFrame bmf_convert(VideoFrame& src_vf, const MediaDesc &src_dp, const MediaDesc &dst_dp);
 ```
 
-This interface allows the conversion of a source VideoFrame to a destination VideoFrame. If the media_type in the source MediaDesc is different from the media_type in the destination MediaDesc, it indicates that the conversion will involve the transformation between VideoFrame and a third-party data structure. Accessing a third-party data structure requires the use of the private_attach and private_get methods of the VideoFrame. 
+This interface allows the conversion of a source VideoFrame to a destination VideoFrame. If the media_type in the source MediaDesc is different from the media_type in the destination MediaDesc, it indicates that the conversion will involve the transformation between VideoFrame and a third-party data structure. Accessing a third-party data structure requires the use of the private_attach and private_get methods of the VideoFrame.
 
 #### VideoFrame scale and colorspace conversion
 Using `bmf_convert` for scale and csc:
@@ -47,7 +48,7 @@ Using `bmf_convert` for scale and csc:
 ```
 
 #### Device memory transfer
-The following code sample shows how to transfer the input video frame memory to GPU memory: 
+The following code sample shows how to transfer the input video frame memory to GPU memory:
 
 ```c++
     MediaDesc dp;
@@ -110,13 +111,14 @@ See example code snippet：
 ```
 
 ### Python Interface
-Data conversion is available in Python via pybind11 binding to the `bmf_convert` C++ implementation. 
+Data conversion is available in Python via pybind11 binding to the `bmf_convert` C++ implementation.
 
 ```python
     from bmf import *
 ```
 
-Alternatively, import the specific classes/methods: 
+Alternatively, import the specific classes/methods:
+
 ```python
     from bmf import MediaDesc, MediaType, bmf_convert
 ```
@@ -154,7 +156,8 @@ Legacy conversion functions are also available in the BMF Python module (rotate 
 `bmf.hmp.img.rotate`
 
 The following snippet uses the legacy conversion function to achieve the same conversion shown previously:
-```python 
+
+```python
     from bmf import *
 
     # construct a video frame
@@ -172,7 +175,8 @@ The following snippet uses the legacy conversion function to achieve the same co
 ```
 
 #### Device memory transfer
-Using `bmf_convert`: 
+Using `bmf_convert`:
+
 ```python
     cpu_vf = pk.get(VideoFrame)
     dst_md = MediaDesc().device(mp.Device('cuda:0'))
@@ -189,6 +193,7 @@ Or using the legacy approach:
 `VideoFrame.cpu()` moves the memory data on cpu memory
 
 Sample code:
+
 ```python
     from bmf import *
     import bmf.hmp as mp
@@ -200,16 +205,18 @@ Sample code:
 
 #### Conversion between VideoFrame and third-party data structure
 The general class of video frame in BMF is `VideoFrame`, and contains `Frame` as a member. The python API supports conversion between `VideoFrame` and the following third-party data types:
+
 - numpy
 - torch
 
-**NOTE**: conversions must be to-or-from a BMF Video Frame or a runtime error will be raised. 
+**NOTE**: conversions must be to-or-from a BMF Video Frame or a runtime error will be raised.
 
 `bmf.hmp.Frame.numpy` converts a BMF Frame to numpy, and Frame can be included in VideoFrame
 
 `bmf.hmp.Frame.from_numpy`
 
 Sample code:
+
 ```python
     from bmf import *
     import numpy as np
@@ -231,6 +238,7 @@ For bellow interface, Torch Enabled BMF is needed by compile, please reference "
 `bmf.hmp.torch` convert bmf Frame to torch
 
 Sample code:
+
 ```python
     from bmf import *
     import torch
@@ -257,7 +265,7 @@ Sample code:
 ```
 
 #### Underlying data type conversion
-Conversion of the underlying data type of the BMF Video Frame is also possible using `bmf_convert` similar to the C++ examples above. The `media_type` property on the MediaDesc instance is used to identify the underlying data type when doing conversions with `bmf_convert`. The following options are available: 
+Conversion of the underlying data type of the BMF Video Frame is also possible using `bmf_convert` similar to the C++ examples above. The `media_type` property on the MediaDesc instance is used to identify the underlying data type when doing conversions with `bmf_convert`. The following options are available:
 
 `bmf.lib._bmf.sdk.kBMFVideoFrame` - BMF video frame
 
@@ -269,7 +277,8 @@ Conversion of the underlying data type of the BMF Video Frame is also possible u
 
 `bmf.lib._bmf.sdk.kCVMat` - opencv mat
 
-Convert ffmpeg AVFrame to BMF Video Frame: 
+Convert ffmpeg AVFrame to BMF Video Frame:
+
 ```python
     from bmf import *
     from bmf.lib._bmf.sdk import kAVFrame

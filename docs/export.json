@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "content_format": "hugo-markdown",
+  "index_filename": "_index.md",
+  "locales": [
+    {
+      "id": "en",
+      "content_root": "content/en/docs/bmf",
+      "archive_name": "bmf-docs-en.zip"
+    },
+    {
+      "id": "zh",
+      "content_root": "content/zh/docs/bmf",
+      "archive_name": "bmf-docs-zh.zip"
+    }
+  ],
+  "export": {
+    "strip_front_matter": true,
+    "add_missing_title_heading": true,
+    "root_relative_url_base": "https://babitmf.github.io",
+    "validate_image_urls": true,
+    "image_url_timeout_seconds": 15,
+    "image_url_workers": 8
+  },
+  "topic_limits": {
+    "archive_bytes": 52428800,
+    "document_count": 500,
+    "document_bytes": 5242880,
+    "directory_depth": 10
+  }
+}

@@ -13,6 +13,7 @@ from bmf import bmf_sync, Packet
 The Sync module is built as follows:
 
 **Python**
+
 ```python
 # create decoder
 decoder = bmf_sync.sync_module("c_ffmpeg_decoder", {
@@ -36,6 +37,7 @@ encoder = bmf_sync.sync_module("c_ffmpeg_encoder", {
 ```
 
 **C++**
+
 ```cpp
 bmf::builder::Graph graph = bmf::builder::Graph(bmf::builder::NormalMode);
 
@@ -100,6 +102,7 @@ bmf_sync.process(encoder, {0:frames[0]}) # encoder.process_pkts({0:frames[0]})
 ```
 
 **C++**
+
 ```cpp
 // decode
 auto decoded_frames = decoder.ProcessPkts(); // graph.Process(decoder);
@@ -118,6 +121,7 @@ encoder.ProcessPkts(input_encode); // graph.Process(encoder, input_encode);
 After the Process is complete, send the EOF packet to the encoder:
 
 **Python**
+
 ```python
 bmf_sync.send_eof(encoder) # encoder.send_eof()
 ```

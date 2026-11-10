@@ -18,24 +18,25 @@ If you don't want to use TensorRT C++ APIs or to compile plugins written in C++.
 
 ```python
 python3 -m pip install --upgrade tensorrt
-```
+```bash
 
 The above pip command will pull in all the required CUDA libraries and cuDNN in Python wheel format from PyPI because they are dependencies of the TensorRT Python wheel. Also, it will upgrade tensorrt to the latest version if you had a previous version installed.
 
 If you want to access TensorRT C++ APIs, it's recommended to install TensorRT by `.tar` file or `.deb`, `.rpm` package. For more information, please refer to the official documentation: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing
-
 
 ### Build a TensorRT engine
 
 Before you use TensorRT, you should build an engine from a trained model. There are many ways to do it. You can see more details from the official [document](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html). In our examples, we introduce our commands to build the two engines.
 
 For face detection example:
-```
+
+```bash
 trtexec --onnx=version-RFB-640.engine --buildOnly --saveEngine=version-RFB-640.engine
 ```
 
 For super resolution example:
-```
+
+```bash
 trtexec --onnx=v1.onnx --minShapes=input:0:1x360x640x21 --optShapes=input:0:1x360x640x21 --maxShapes=input:0:1x360x640x21 --buildOnly --fp16 --saveEngine=v1.engine
 ```
 
@@ -62,12 +63,14 @@ self.num_outputs_ = [self.engine_.get_tensor_mode(self.tensor_names_[i]) for i i
 ```
 
 2. For each input, set its shape
+
 ```python
 for i in range(self.num_inputs_):
     self.context_.set_input_shape(self.tensor_names_[0], self.input_shapes_[self.tensor_names_[0]])
 ```
 
 3. Allocate the output buffer
+
 ```python
 self.output_dict_ = dict()
 for i in range(self.num_inputs_, self.num_io_tensors_):
@@ -87,11 +90,13 @@ for i in range(self.num_inputs_, self.num_io_tensors_):
 ```
 
 After setting the input/output bindings, we can start TensorRT execution by:
+
 ```python
 self.context_.execute_async_v3(self.stream_.handle())
 ```
 
 The outputs are BMF tensors since we create output buffer using `mp.empty`. If you want to process these outputs, you can convert these BMF tensors to Torch tensors.
+
 ```python
 output_tensor = torch.from_dlpack(self.output_dict_[self.tensor_names_[-1]])
 ```

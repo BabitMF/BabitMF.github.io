@@ -7,5 +7,3 @@ menu:
     weight: 1
     parent: 'Wiki'
 ---
-
-

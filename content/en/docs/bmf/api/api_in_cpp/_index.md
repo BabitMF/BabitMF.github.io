@@ -1,11 +1,5 @@
 ---
-title: 'API In Cpp'
-linkTitle: 'API In Cpp'
+title: 'C++ API'
+linkTitle: 'C++ API'
 weight: 2
 ---
-
- 
-
-
-
- 

@@ -1,11 +1,5 @@
 ---
-title: 'API In Python'
-linkTitle: 'API In Python'
+title: 'Python API'
+linkTitle: 'Python API'
 weight: 1
 ---
-
- 
-
-
-
- 

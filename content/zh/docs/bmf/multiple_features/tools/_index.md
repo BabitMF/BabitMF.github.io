@@ -98,9 +98,7 @@ Tracelog JSON 日志格式符合 Chrome Tracing(Chrome web browser - chrome://tr
 
 #### 3. GraphUtilization 工具
 
-除了 Chrome Trace 之外，[BMF GraphUtilization 工具](./Page_GraphUtilization.md)还支持 Trace 事件的可视化：
-
-![Visualizing tracelog using BMF GraphUtilization](/img/docs/graphutil_common2.png)
+除了 Chrome Trace 之外，[BMF GraphUtilization 工具](./Page_GraphUtilization.md)还支持 Trace 事件的可视化。
 
 GraphUtilization 工具可以显示图形以及 Chrome Tracing 无法显示的一些信息或图表。
 

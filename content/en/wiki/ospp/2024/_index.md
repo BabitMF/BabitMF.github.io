@@ -4,7 +4,6 @@ linkTitle: '2024'
 weight: 1
 ---
 
-
 ## Project Ideas
 
 ### Frame Distributed Video Enhancement
@@ -19,12 +18,14 @@ BMF already has a Video Enhancement case based on AI models (https://github.com/
 
 `Technical Domain, Programming Language`: C++,Python
 
-`Project Output Requirements`: 
+`Project Output Requirements`:
+
 - Design and implement a universal local "distributed" solution based on BMF modules.
 - Apply this function to the Video Enhancement case.
 - Obtain the time-consuming comparison data of the experiment.
 
-`Project Technical Requirements`: 
+`Project Technical Requirements`:
+
 - C++
 - Python
 - Map-reduce knowledge
@@ -34,7 +35,8 @@ BMF already has a Video Enhancement case based on AI models (https://github.com/
 
 `Mentor`: HuHeng
 
-`Project Notes`: 
+`Project Notes`:
+
 - https://babitmf.github.io/docs/bmf/
 
 ### Webassembly ControlNet
@@ -48,13 +50,14 @@ BMF already has a Video Enhancement case based on AI models (https://github.com/
 
 `Technical Domain, Programming Language`: JavaScript,Rust,C++
 
-`Project Output Requirements`: 
+`Project Output Requirements`:
+
 - Design the form of web display of the ControlNet Demo, basically by inputting images and prompts through the web page, running the controlnet, and outputting the renderings.
 - Implement the relevant Rust interfaces of BMF as needed.
 - Develop and integrate into webassambly, web deployment and demo show.
 
+`Project Technical Requirements`:
 
-`Project Technical Requirements`: 
 - JavaScript/Node.js
 - Rust、C++
 - ControlNet basic knowledge
@@ -63,9 +66,8 @@ BMF already has a Video Enhancement case based on AI models (https://github.com/
 
 `Mentor`: YoloSolo
 
-`Project Notes`: 
+`Project Notes`:
+
 - https://babitmf.github.io/docs/bmf/
 - https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm
 - https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/instantiate-streaming.html
-
-

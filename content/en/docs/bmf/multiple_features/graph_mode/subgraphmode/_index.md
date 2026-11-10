@@ -27,6 +27,7 @@ self.inputs.append('overlay')
 ```
 
 After that, you need to output the output streams:
+
 ```python
 # finish creating graph
 self. output_streams = self. finish_create_graph([output_stream])

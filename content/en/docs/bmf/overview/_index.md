@@ -4,7 +4,6 @@ linkTitle: 'Overview'
 weight: 1
 ---
 
-
 # BMF - Cross-platform, multi-language, customizable video processing framework with strong GPU acceleration
 **BMF (Babit Multimedia Framework)** is a cross-platform, multi-language, customizable multimedia processing framework developed by [**ByteDance**](https://www.bytedance.com/en).
 With over 4 years of testing and improvements, BMF has been tailored to adeptly tackle challenges in our real-world production environments.As a general multimedia processing framework, BabitMF (Babit Multimedia Framework, BMF) can provide a simple and easy-to-use cross-language interface, flexible scheduling and scalability, and dynamically expand, manage and reuse the atomic capabilities of video processing in a modular manner. It builds a high-performance multimedia processing link in the form of graph/pipeline or realize project integration by direct invocation of individual processing capabilities, helping multimedia users to conveniently and efficiently implement projects in the production environment. The usage scenarios of BMF cover video transcoding, video frame extraction, video enhancement, video analysis, video frame insertion, video editing, video conferencing, VR, etc. At present, hundreds of millions of videos are processed by BMF every day. In the process, the functional diversity, ease of use, compatibility, stability and performance of the BMF framework have been fully polished.
@@ -12,6 +11,7 @@ With over 4 years of testing and improvements, BMF has been tailored to adeptly 
 <img src="/img/docs/bmf-framework.png" style="zoom:100%;" />
 
 The picture above is a general architecture diagram of BMF, including a complete set of ecosystem, which mainly consists of three parts:
+
 - Application layer: The top layer provides users with multi-language APIs including Python, Go, and C++, which is convenient for users to develop and integrate according to different project requirements.
 - Framework layer: The middle layer includes the framework's scheduling of graph/pipeline, cross-data type and cross-device data transfer Backend, and commonly used cross-device reformat, color space conversion, tensor operator and other SDKs.
 - Module layer: It includes modules with various atomic capabilities, and provides module development mechanisms in multiple languages. Users can implement algorithms/processing in any of Python, Go, and C++ languages according to their own needs.
@@ -36,13 +36,14 @@ BMF is fully compatible with FFmpeg's processing capabilities and indicators, su
 
 Supports zero-copy interconversion between multiple mainstream data formats, and is greatly compatible with data connection between different modules. For example, it is necessary to use ffmpeg's codec and filter capabilities, as well as OpenCV's transformation processing, and it also needs to use Pytorch to do intelligent analysis in more complex situations; at the same time, it supports heterogeneous cross-device data transmission and conversion capabilities, and asynchronous scheduling capabilities, so that Help users quickly solve the acceleration optimization problems of the production environment.
 
-### Enhanced Support for NVIDIA GPU 
+### Enhanced Support for NVIDIA GPU
 
-NVIDIA GPU has dedicated video encoding and decoding hardware; in addition, it has high bandwidth memory and large scale parallel computing CUDA cores, which are suitable for general purpose video and image processing. Working with NVIDIA engineers, BMF has enhanced support for NVIDIA GPU: 
-* NVENC/NVDEC/GPU filters work out-of-box by inheriting abilities from FFmpeg. 
-* High performance frame processing is enabled by integration of CV-CUDA and customized CUDA kernels. 
-* AI inferencing can be easily integrated into video pipeline using TensorRT. 
-* Data moving between CPU and GPU can be done by a simple call. 
+NVIDIA GPU has dedicated video encoding and decoding hardware; in addition, it has high bandwidth memory and large scale parallel computing CUDA cores, which are suitable for general purpose video and image processing. Working with NVIDIA engineers, BMF has enhanced support for NVIDIA GPU:
+
+* NVENC/NVDEC/GPU filters work out-of-box by inheriting abilities from FFmpeg.
+* High performance frame processing is enabled by integration of CV-CUDA and customized CUDA kernels.
+* AI inferencing can be easily integrated into video pipeline using TensorRT.
+* Data moving between CPU and GPU can be done by a simple call.
 
 In short, all kinds of video and image SDKs from NVIDIA have been integrated into BMF. So the developer can write GPU accelerated video processing pipelines with Python/Go/C++ easily and run them efficiently.
 

@@ -6,231 +6,181 @@ weight: 10
 
 [//]: <> (REF_MD: classbmf__sdk_1_1OpaqueDataSet.html)
 
+  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#public-member-functions)  |  [Protected Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#pro-methods)  |  List of all members
 
-  [Public Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#public-member-functions)  |  [Protected Member Functions](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/#pro-methods)  |  List of all members  # bmf_sdk::OpaqueDataSet Class Reference
+# bmf_sdk::OpaqueDataSet Class Reference
 
 sdk_interface.h!
 
- ## Public Member Functions
-
+## Public Member Functions
 
    [OpaqueDataSet](#opaquedataset-13) ()=default
- 
+
    [OpaqueDataSet](#opaquedataset-23) ( [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &&)=default
- 
+
    [OpaqueDataSet](#opaquedataset-33) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
- 
+
   [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &  [operator=](#operator) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &)=default
- 
- 
+
 void   [private_attach](#private_attach) (const T *data, Args &&...args)
- 
- 
- 
+
 const T *   [private_get](#private_get) () const
- 
- 
+
 void   [private_merge](#private_merge) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
- 
- 
+
   [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &  [copy_props](#copy_props) (const [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/) &from)
- 
- 
 
- ## Protected Member Functions
-
+## Protected Member Functions
 
 virtual void   [set_private_data](#set_private_data) (int key, const OpaqueData &data)
- 
- 
+
 virtual const  OpaqueData &  [private_data](#private_data) (int key) const
- 
 
 ## Constructor & Destructor Documentation
 
+### OpaqueDataSet() [1/3]
 
-###  OpaqueDataSet() [1/3]
-
- ```
-bmf_sdk::OpaqueDataSet::OpaqueDataSet (  )  
+```cpp
+bmf_sdk::OpaqueDataSet::OpaqueDataSet (  )
 ```
+
  defaultdefault
 
+### OpaqueDataSet() [2/3]
 
-
-
-
-
-###  OpaqueDataSet() [2/3]
-
- ```
-bmf_sdk::OpaqueDataSet::OpaqueDataSet (  OpaqueDataSet && )  
+```cpp
+bmf_sdk::OpaqueDataSet::OpaqueDataSet (  OpaqueDataSet && )
 ```
+
  defaultdefault
 
+### OpaqueDataSet() [3/3]
 
-
-
-
-
-###  OpaqueDataSet() [3/3]
-
- ```
-bmf_sdk::OpaqueDataSet::OpaqueDataSet ( const OpaqueDataSet & )  
+```cpp
+bmf_sdk::OpaqueDataSet::OpaqueDataSet ( const OpaqueDataSet & )
 ```
+
  defaultdefault
-
-
-
-
 
 ## Member Function Documentation
 
+### copy_props()
 
-###  copy_props()
+```cpp
+ OpaqueDataSet & bmf_sdk::OpaqueDataSet::copy_props( const OpaqueDataSet &from )
+```
 
-```
- OpaqueDataSet & bmf_sdk::OpaqueDataSet::copy_props( const OpaqueDataSet &from )  
-```
 utils function to copy props
 
 **Parameters**
- - **from**  
 
-
+- **from**
 
 **Returns**
   [OpaqueDataSet](https://babitmf.github.io/docs/bmf/api/api_in_cpp/opaquedataset/)  &
 
+### operator=()
 
-###  operator=()
-
- ```
- OpaqueDataSet & bmf_sdk::OpaqueDataSet::operator=( const OpaqueDataSet & )  
+```cpp
+ OpaqueDataSet & bmf_sdk::OpaqueDataSet::operator=( const OpaqueDataSet & )
 ```
+
  defaultdefault
 
+### private_attach()
 
-
-
-
-
-###  private_attach()
-
- ```
-void bmf_sdk::OpaqueDataSet::private_attach ( const T * data, 
-  Args &&... args 
- )   
+```cpp
+void bmf_sdk::OpaqueDataSet::private_attach ( const T * data,
+  Args &&... args
+ )
 ```
+
  inlineinline
-
-
-
-
 
 Attach private data with type T, for type safety, T should be registry by  OpaqueDataInfo  .
 
   ffmpeg_helper.h  , test_video_frame.cpp
 
 **Template Parameters**
- - **T**  
- - **Args**  
 
-
+- **T**
+- **Args**
 
 **Parameters**
- - **data**  
- - **args** extra arguments pass to 
 
+- **data**
+- **args** extra arguments pass to
 
-
-
-```
-     {
-         using Info = OpaqueDataInfo<T>;
-         auto opaque = Info::construct(data, std::forward<Args>(args)...);
-         set_private_data(Info::key, opaque);
-     }
+```cpp
+     {
+         using Info = OpaqueDataInfo<T>;
+         auto opaque = Info::construct(data, std::forward<Args>(args)...);
+         set_private_data(Info::key, opaque);
+     }
 
 ```
 
-###  private_data()
+### private_data()
 
- ```
-virtual const OpaqueData & bmf_sdk::OpaqueDataSet::private_data( int key ) const 
+```cpp
+virtual const OpaqueData & bmf_sdk::OpaqueDataSet::private_data( int key ) const
 ```
+
  protectedvirtualprotected
 
 virtual
 
+### private_get()
 
-
-
-
-
-###  private_get()
-
- ```
-const T* bmf_sdk::OpaqueDataSet::private_get (  ) const 
+```cpp
+const T* bmf_sdk::OpaqueDataSet::private_get (  ) const
 ```
+
  inlineinline
-
-
-
-
 
 Retrieve readonly private data which attached by private_attach or private_merge.
 
 **Template Parameters**
- - **T**  
 
-
+- **T**
 
 **Returns**
 
-
-
-```
-     {
-         using Info = OpaqueDataInfo<T>;
-         return static_cast<const T*>(private_data(Info::key).get());
-     }
+```cpp
+     {
+         using Info = OpaqueDataInfo<T>;
+         return static_cast<const T*>(private_data(Info::key).get());
+     }
 
 ```
 
-###  private_merge()
+### private_merge()
 
+```cpp
+void bmf_sdk::OpaqueDataSet::private_merge ( const OpaqueDataSet &from )
 ```
-void bmf_sdk::OpaqueDataSet::private_merge ( const OpaqueDataSet &from )  
-```
+
 merge private data from  `from`  **Parameters**
- - **from**  
 
+- **from**
 
+### set_private_data()
 
-
-###  set_private_data()
-
- ```
-virtual void bmf_sdk::OpaqueDataSet::set_private_data ( int key, 
-  const OpaqueData &data 
- )   
+```cpp
+virtual void bmf_sdk::OpaqueDataSet::set_private_data ( int key,
+  const OpaqueData &data
+ )
 ```
+
  protectedvirtualprotected
 
 virtual
 
-
-
-
-
 Set the private data object, Derived class can override this function to filter out unsupported keys.
 
 **Parameters**
- - **key**  
- - **data**  
 
+- **key**
+- **data**
 
-
- - /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  sdk_interface.h  
-
+- /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  sdk_interface.h

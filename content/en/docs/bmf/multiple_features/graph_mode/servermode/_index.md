@@ -28,5 +28,4 @@ thread_ = threading.Thread(target=process_thread, args=(server_gateway, packet1)
 thread_.start()
 ```
 
-
 If you need the complete code, you can refer to [test_server.py](#tbytodo)

@@ -4,383 +4,307 @@ linkTitle: 'Packet'
 weight: 6
 ---
 
-  Public Member Functions  |  Static Public Member Functions  |  Protected Member Functions  |  List of all members  # bmf_sdk::Packet Class Reference
+  Public Member Functions  |  Static Public Member Functions  |  Protected Member Functions  |  List of all members
+
+# bmf_sdk::Packet Class Reference
 
 packet.h ## Public Member Functions
 
-
    [Packet](#packet-19) ()=default
- 
- 
+
    [Packet](#packet-29) (const T &data)
- 
+
    [Packet](#packet-39) (const Packet &data)
- 
- 
+
    [Packet](#packet-49) (T &data)
- 
+
    [Packet](#packet-59) ( Packet &data)
- 
- 
+
    [Packet](#packet-69) (T &&data)
- 
+
    [Packet](#packet-79) ( Packet &&data)
- 
+
    [Packet](#packet-89) (RefPtr< [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) > &impl)
- 
+
   Packet &  [operator=](#operator) (const Packet &other)=default
- 
+
    [operator bool](#operator-bool) () const
- 
- 
+
 T &   [get](#get-12) ()
- 
- 
+
 const T &   [get](#get-22) () const
- 
- 
+
 bool   [is](#is) () const
- 
+
 const  TypeInfo &  [type_info](#type_info) () const
- 
+
 void   [set_timestamp](#set_timestamp) (int64_t [timestamp](#timestamp) )
- 
+
 int64_t   [timestamp](#timestamp) () const
- 
+
 void   [set_time](#set_time) (double [time](#time) )
- 
+
 double   [time](#time) () const
- 
+
   [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) *  [unsafe_self](#unsafe_self-12) ()
- 
+
 const  [PacketImpl](https://babitmf.github.io/docs/bmf/api/api_in_cpp/packetimpl/) *  [unsafe_self](#unsafe_self-22) () const
- 
 
- ## Static Public Member Functions
-
+## Static Public Member Functions
 
 static  Packet   [generate_eos_packet](#generate_eos_packet) ()
- 
+
 static  Packet   [generate_eof_packet](#generate_eof_packet) ()
- 
 
- ## Protected Member Functions
+## Protected Member Functions
 
-
- 
    [Packet](#packet-99) (T *obj)
- 
 
 ## Constructor & Destructor Documentation
 
+### Packet() [1/9]
 
-###  Packet() [1/9]
-
- ```
-bmf_sdk::Packet::Packet (  )  
+```cpp
+bmf_sdk::Packet::Packet (  )
 ```
+
  defaultdefault
 
+### Packet() [2/9]
 
-
-
-
-
-###  Packet() [2/9]
-
- ```
-bmf_sdk::Packet::Packet ( const T & data )  
+```cpp
+bmf_sdk::Packet::Packet ( const T & data )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- : Packet(new T(data)) {}
+```cpp
+ : Packet(new T(data)) {}
 
 ```
 
-###  Packet() [3/9]
+### Packet() [3/9]
 
- ```
-bmf_sdk::Packet::Packet ( const Packet &data )  
+```cpp
+bmf_sdk::Packet::Packet ( const Packet &data )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- : self(data.self) {}
+```cpp
+ : self(data.self) {}
 
 ```
 
-###  Packet() [4/9]
+### Packet() [4/9]
 
- ```
-bmf_sdk::Packet::Packet ( T & data )  
+```cpp
+bmf_sdk::Packet::Packet ( T & data )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- : Packet(new T(data)) {}
+```cpp
+ : Packet(new T(data)) {}
 
 ```
 
-###  Packet() [5/9]
+### Packet() [5/9]
 
- ```
-bmf_sdk::Packet::Packet (  Packet &data )  
+```cpp
+bmf_sdk::Packet::Packet (  Packet &data )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- : self(data.self) {}
+```cpp
+ : self(data.self) {}
 
 ```
 
-###  Packet() [6/9]
+### Packet() [6/9]
 
- ```
-bmf_sdk::Packet::Packet ( T && data )  
+```cpp
+bmf_sdk::Packet::Packet ( T && data )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- : Packet(new T(std::move(data))) {}
+```cpp
+ : Packet(new T(std::move(data))) {}
 
 ```
 
-###  Packet() [7/9]
+### Packet() [7/9]
 
- ```
-bmf_sdk::Packet::Packet (  Packet &&data )  
+```cpp
+bmf_sdk::Packet::Packet (  Packet &&data )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- : self(std::move(data.self)) {}
+```cpp
+ : self(std::move(data.self)) {}
 
 ```
 
-###  Packet() [8/9]
+### Packet() [8/9]
 
- ```
-bmf_sdk::Packet::Packet ( RefPtr< PacketImpl > &impl )  
+```cpp
+bmf_sdk::Packet::Packet ( RefPtr< PacketImpl > &impl )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- : self(impl) {}
+```cpp
+ : self(impl) {}
 
 ```
 
-###  Packet() [9/9]
+### Packet() [9/9]
 
- ```
-bmf_sdk::Packet::Packet ( T * obj )  
+```cpp
+bmf_sdk::Packet::Packet ( T * obj )
 ```
+
  inlineprotectedinline
 
 protected
 
-
-
-
-
-
-```
-     {
-         auto impl = new PacketImpl(obj, 
-                 &bmf_sdk::type_info<T>(), 
-                 [](void *obj) { delete (T*)obj; });
-         self = RefPtr<PacketImpl>::take(impl, true);
-     }
+```cpp
+     {
+         auto impl = new PacketImpl(obj,
+                 &bmf_sdk::type_info<T>(),
+                 [](void *obj) { delete (T*)obj; });
+         self = RefPtr<PacketImpl>::take(impl, true);
+     }
 
 ```
+
 ## Member Function Documentation
 
+### generate_eof_packet()
 
-###  generate_eof_packet()
-
- ```
-static Packet bmf_sdk::Packet::generate_eof_packet(  )  
+```cpp
+static Packet bmf_sdk::Packet::generate_eof_packet(  )
 ```
+
  staticstatic
 
+### generate_eos_packet()
 
-
-
-
-
-###  generate_eos_packet()
-
- ```
-static Packet bmf_sdk::Packet::generate_eos_packet(  )  
+```cpp
+static Packet bmf_sdk::Packet::generate_eos_packet(  )
 ```
+
  staticstatic
 
+### get() [1/2]
 
-
-
-
-
-###  get() [1/2]
-
- ```
-T& bmf_sdk::Packet::get (  )  
+```cpp
+T& bmf_sdk::Packet::get (  )
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         return self->get<T>();
-     }
+```cpp
+     {
+         return self->get<T>();
+     }
 
 ```
 
-###  get() [2/2]
+### get() [2/2]
 
- ```
-const T& bmf_sdk::Packet::get (  ) const 
+```cpp
+const T& bmf_sdk::Packet::get (  ) const
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         return self->get<T>();
-     }
+```cpp
+     {
+         return self->get<T>();
+     }
 
 ```
 
-###  is()
+### is()
 
- ```
-bool bmf_sdk::Packet::is (  ) const 
+```cpp
+bool bmf_sdk::Packet::is (  ) const
 ```
+
  inlineinline
 
-
-
-
-
-
-```
-     {
-         return self->is<T>();
-     }
+```cpp
+     {
+         return self->is<T>();
+     }
 
 ```
 
-###  operator bool()
+### operator bool()
 
- ```
-bmf_sdk::Packet::operator bool (  ) const 
+```cpp
+bmf_sdk::Packet::operator bool (  ) const
 ```
+
  inlineinline
 
-
-
-
-
-
-```
- { return bool(self); }
+```cpp
+ { return bool(self); }
 
 ```
 
-###  operator=()
+### operator=()
 
- ```
- Packet & bmf_sdk::Packet::operator=( const Packet &other )  
+```cpp
+ Packet & bmf_sdk::Packet::operator=( const Packet &other )
 ```
+
  defaultdefault
 
+### set_time()
 
-
-
-
-
-###  set_time()
-
-```
-void bmf_sdk::Packet::set_time ( double time )  
+```cpp
+void bmf_sdk::Packet::set_time ( double time )
 ```
 
-###  set_timestamp()
+### set_timestamp()
 
-```
-void bmf_sdk::Packet::set_timestamp ( int64_t timestamp )  
-```
-
-###  time()
-
-```
-double bmf_sdk::Packet::time (  ) const 
+```cpp
+void bmf_sdk::Packet::set_timestamp ( int64_t timestamp )
 ```
 
-###  timestamp()
+### time()
 
-```
-int64_t bmf_sdk::Packet::timestamp (  ) const 
-```
-
-###  type_info()
-
-```
-const TypeInfo & bmf_sdk::Packet::type_info(  ) const 
+```cpp
+double bmf_sdk::Packet::time (  ) const
 ```
 
-###  unsafe_self() [1/2]
+### timestamp()
 
-```
- PacketImpl * bmf_sdk::Packet::unsafe_self(  )  
+```cpp
+int64_t bmf_sdk::Packet::timestamp (  ) const
 ```
 
-###  unsafe_self() [2/2]
+### type_info()
 
+```cpp
+const TypeInfo & bmf_sdk::Packet::type_info(  ) const
 ```
-const PacketImpl * bmf_sdk::Packet::unsafe_self(  ) const 
-```
- - /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  packet.h  
 
+### unsafe_self() [1/2]
+
+```cpp
+ PacketImpl * bmf_sdk::Packet::unsafe_self(  )
+```
+
+### unsafe_self() [2/2]
+
+```cpp
+const PacketImpl * bmf_sdk::Packet::unsafe_self(  ) const
+```
+
+- /20230627/doxygen_converter/bmf/bmf/sdk/cpp_sdk/include/bmf/sdk/  packet.h
